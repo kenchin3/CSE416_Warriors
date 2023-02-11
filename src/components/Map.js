@@ -1,18 +1,26 @@
 import React, { Component } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, GeoJSON } from 'react-leaflet';
-import features from "./../geoJSON/pa2020.geojson"
-
+import pa2020 from "./../geoJSON/pa2020.json"
+import test from "./../geoJSON/test.geojson"
 class Map extends Component {
     constructor(props) {
         super(props); 
     }
 
     componentDidMount() {
-        console.log(features.geometry)
+        console.log(pa2020.features)
+        // console.log(test)
+    }
+
+    districtStyle = {
+        color: 'black',
+        weight: 0.5,
+        fillColor: "red",
+        fillOpacity: 0.5
     }
 
     render() {
-        // console.log(pa2020)
+        // console.log(pa2020.features)
         return (
             <>
             <div>
@@ -20,23 +28,20 @@ class Map extends Component {
             </div>
             <MapContainer
                 className="markercluster-map"
-                center={[41.2, -77.2]}
+                center={[40.045714, -74.977435]}
                 zoom={4}
                 maxZoom={18}
                 >
-                <TileLayer
-                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                <TileLayer url="https://{s}.basemaps.cartocdn.com/rastertiles/dark_nolabels/{z}/{x}/{y}.png"
                     attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                 />
-                {/* <GeoJSON data= {pa2020.features} style={() =>
-                    console.log(this.data) ({
-                    color: 'black',
-                    weight: 0.5,
-                    fillColor: "#1a1d62",
-                    fillOpacity: 1
-                })}> */}
-
-                {/* </GeoJSON> */}
+                <Marker position={[59.43046, 24.728563]}>
+        <Popup>
+          A pretty CSS3 popup. <br /> Easily customizable.
+        </Popup>
+      </Marker>
+                <GeoJSON data= {pa2020.features} 
+                    style={this.districtStyle}/>
             </MapContainer>
             </>
         )
