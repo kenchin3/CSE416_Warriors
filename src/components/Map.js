@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { MapContainer, TileLayer, Marker, Popup, GeoJSON } from "react-leaflet";
 import pa2020 from "./../geoJSON/pa2020.json";
 import test from "./../geoJSON/test.geojson";
+
 class Map extends Component {
   constructor(props) {
     super(props);
