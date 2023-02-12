@@ -1,18 +1,20 @@
-import React, { Component } from 'react';
-import Map from './Map.js'
+import React, { Component } from "react";
+import Map from "./Map.js";
+import Header from "./Header.js";
 
 class Project extends Component {
-    constructor(props) {
-        super(props);
-    }
+  constructor(props) {
+    super(props);
+  }
 
-    render() {
-        return (
-            <div>
-                <Map></Map>
-            </div>
-        )
-    }
+  render() {
+    return (
+      <div>
+        <Header />
+        {/*<Map></Map>*/}
+      </div>
+    );
+  }
 }
 
 export default Project;
