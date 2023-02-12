@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
+import { withStyles } from "@material-ui/core";
 import "./Header.css";
-import { ClassNames } from "@emotion/react";
+import Map from "./Map.js";
 
 function Header() {
   const [tabValue, setTabValue] = React.useState(0);
@@ -12,30 +13,34 @@ function Header() {
     setTabValue(tabValue);
   };
 
+  const CustomHeaderTab = withStyles({
+    root: {
+      color: "white",
+    },
+  })(Tab);
+
   return (
     <div>
-      <Box className="HeaderContent">
+      <Box className="HeaderContent" bgcolor="#232023">
         <Tabs
-          TabIndicatorProps={{
-            style: { color: "#000000", background: "#000000" },
-          }}
           className="Tabs"
           value={tabValue}
           onChange={handleTabChange}
           centered
         >
-          <Tab
-            className={{ root: ClassNames.tabsRoot }}
-            label="Cumulative Data"
-          />
-          <Tab label="State1" />
-          <Tab label="State2" />
-          <Tab label="State3" />
+          <CustomHeaderTab label="Cumulative Data" />
+          <CustomHeaderTab label="Pennsylvania" />
+          <CustomHeaderTab label="State2" />
+          <CustomHeaderTab label="State3" />
         </Tabs>
       </Box>
 
-      {tabValue === 0 && <div> State1 </div>}
-      {tabValue === 1 && <div> State1 </div>}
+      {tabValue === 0 && <div> data </div>}
+      {tabValue === 1 && (
+        <div>
+          <Map />
+        </div>
+      )}
       {tabValue === 2 && <div> State2 </div>}
       {tabValue === 3 && <div> State3 </div>}
     </div>
