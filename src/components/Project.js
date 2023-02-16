@@ -2,19 +2,17 @@ import React, { Component } from "react";
 import Map from "./Map.js";
 import Header from "./Header.js";
 
-class Project extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    return (
-      <div>
-        <Header />
-        <Map></Map>
-      </div>
-    );
-  }
+function Project() {
+  const [tabValue, setTabValue] = React.useState(0);
+  // console.log(tabValue)
+ 
+  return (
+    <div>
+      <Header tabValue={tabValue} setTabValue={setTabValue}/>
+      <Map tabValue={tabValue} setTabValue={setTabValue}/>
+    </div>
+  );
+  
 }
 
 export default Project;

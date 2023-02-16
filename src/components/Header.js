@@ -6,11 +6,12 @@ import { withStyles } from "@material-ui/core";
 import "./Header.css";
 import Map from "./Map.js";
 
-function Header() {
-  const [tabValue, setTabValue] = React.useState(0);
+function Header({tabValue, setTabValue}) {
+  // const [tabValue, setTabValue] = React.useState(0);
 
   const handleTabChange = (event, tabValue) => {
     setTabValue(tabValue);
+    // props.state = tabValue;
   };
 
   const CustomHeaderTab = withStyles({
@@ -36,11 +37,7 @@ function Header() {
       </Box>
 
       {tabValue === 0 && <div> data </div>}
-      {tabValue === 1 && (
-        <div>
-          <Map />
-        </div>
-      )}
+      {tabValue === 1 && <div> State1 </div>}
       {tabValue === 2 && <div> State2 </div>}
       {tabValue === 3 && <div> State3 </div>}
     </div>
