@@ -23,7 +23,7 @@ class Map extends Component {
   render() {
     // console.log(pa2020.features)
     return (
-      <>
+      <div>
         <MapContainer
           className="markercluster-map"
           center={[40.045714, -74.977435]}
@@ -41,7 +41,7 @@ class Map extends Component {
           </Marker>
           <GeoJSON data={pa2020.features} style={this.districtStyle} />
         </MapContainer>
-      </>
+      </div>
     );
   }
 }

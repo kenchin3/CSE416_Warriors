@@ -1,8 +1,8 @@
 import React, { Component } from "react";
+import ReactDOM from "react-dom";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
-import { withStyles } from "@material-ui/core";
 import "./Header.css";
 import Map from "./Map.js";
 
@@ -13,36 +13,43 @@ function Header() {
     setTabValue(tabValue);
   };
 
-  const CustomHeaderTab = withStyles({
-    root: {
-      color: "white",
+  const styles = {
+    selectedTab: {
+      color: "#D3D3D3",
     },
-  })(Tab);
+    nonSelectedTab: {
+      color: "",
+    },
+  };
 
   return (
-    <div>
-      <Box className="HeaderContent" bgcolor="#232023">
+    <div className="content">
+      <Box className="headerContent" bgcolor="#232023">
         <Tabs
-          className="Tabs"
+          className="tabs"
           value={tabValue}
           onChange={handleTabChange}
           centered
         >
-          <CustomHeaderTab label="Cumulative Data" />
-          <CustomHeaderTab label="Pennsylvania" />
-          <CustomHeaderTab label="State2" />
-          <CustomHeaderTab label="State3" />
+          <Tab
+            label="Cumulative Data"
+            style={tabValue ? styles.selectedTab : styles.nonSelectedTab}
+          />
+          <Tab
+            label="Map"
+            style={!tabValue ? styles.selectedTab : styles.nonSelectedTab}
+          />
         </Tabs>
       </Box>
 
-      {tabValue === 0 && <div> data </div>}
-      {tabValue === 1 && (
-        <div>
-          <Map />
-        </div>
-      )}
-      {tabValue === 2 && <div> State2 </div>}
-      {tabValue === 3 && <div> State3 </div>}
+      <div className="bodyContent">
+        {tabValue === 0 && <div className="map"> data </div>}
+        {tabValue === 1 && (
+          <div>
+            <Map />
+          </div>
+        )}
+      </div>
     </div>
   );
 }

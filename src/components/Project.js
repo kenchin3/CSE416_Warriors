@@ -11,7 +11,6 @@ class Project extends Component {
     return (
       <div>
         <Header />
-        {/*<Map></Map>*/}
       </div>
     );
   }
