@@ -6,11 +6,12 @@ import Box from "@mui/material/Box";
 import "./Header.css";
 import Map from "./Map.js";
 
-function Header() {
-  const [tabValue, setTabValue] = React.useState(0);
+function Header({tabValue, setTabValue}) {
+  // const [tabValue, setTabValue] = React.useState(0);
 
   const handleTabChange = (event, tabValue) => {
     setTabValue(tabValue);
+    // props.state = tabValue;
   };
 
   const styles = {
