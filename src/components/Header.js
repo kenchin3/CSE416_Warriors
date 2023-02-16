@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import ReactDOM from "react-dom";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
+import { withStyles } from "@material-ui/core";
 import "./Header.css";
 import Map from "./Map.js";
 
-function Header({tabValue, setTabValue}) {
+function Header({ tabValue, setTabValue }) {
   // const [tabValue, setTabValue] = React.useState(0);
 
   const handleTabChange = (event, tabValue) => {
@@ -14,43 +14,32 @@ function Header({tabValue, setTabValue}) {
     // props.state = tabValue;
   };
 
-  const styles = {
-    selectedTab: {
-      color: "#D3D3D3",
+  const CustomHeaderTab = withStyles({
+    root: {
+      color: "white",
     },
-    nonSelectedTab: {
-      color: "",
-    },
-  };
+  })(Tab);
 
   return (
-    <div className="content">
-      <Box className="headerContent" bgcolor="#232023">
+    <div>
+      <Box className="HeaderContent" bgcolor="#232023">
         <Tabs
-          className="tabs"
+          className="Tabs"
           value={tabValue}
           onChange={handleTabChange}
           centered
         >
-          <Tab
-            label="Cumulative Data"
-            style={tabValue ? styles.selectedTab : styles.nonSelectedTab}
-          />
-          <Tab
-            label="Map"
-            style={!tabValue ? styles.selectedTab : styles.nonSelectedTab}
-          />
+          <CustomHeaderTab label="Cumulative Data" />
+          <CustomHeaderTab label="Pennsylvania" />
+          <CustomHeaderTab label="State2" />
+          <CustomHeaderTab label="State3" />
         </Tabs>
       </Box>
 
-      <div className="bodyContent">
-        {tabValue === 0 && <div className="map"> data </div>}
-        {tabValue === 1 && (
-          <div>
-            <Map />
-          </div>
-        )}
-      </div>
+      {tabValue === 0 && <div> data </div>}
+      {tabValue === 1 && <div> State1 </div>}
+      {tabValue === 2 && <div> State2 </div>}
+      {tabValue === 3 && <div> State3 </div>}
     </div>
   );
 }
