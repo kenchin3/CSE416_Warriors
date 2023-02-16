@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { MapContainer, TileLayer, Marker, Popup, GeoJSON, useMap } from "react-leaflet";
 import pa2020 from "./../geoJSON/pa2020.json";
+
 import ok2020 from "./../geoJSON/ok2020.json";
 import tn2020 from "./../geoJSON/tn2020.json";
 
@@ -59,7 +60,6 @@ const districtStyle = {
       </MapContainer>
     </>
   );
-  
 }
 
 export default Map;
