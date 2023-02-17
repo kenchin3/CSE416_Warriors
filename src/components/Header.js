@@ -8,16 +8,16 @@ import InputLabel from "@mui/material/InputLabel";
 import FormControl from "@mui/material/FormControl";
 import "./Header.css";
 
-function Header({ tabValue, setTabValue }) {
+function Header({ tabValue, setTabValue, stateValue, setStateValue }) {
   // const [tabValue, setTabValue] = React.useState(0);
-  const [state, setState] = React.useState("");
+  // const [state, setState] = React.useState("");
 
   const handleTabChange = (event, tabValue) => {
     setTabValue(tabValue);
   };
 
   const handleStateChange = (event) => {
-    setState(event.target.value);
+    setStateValue(event.target.value);
     console.log(event.target.value);
   };
 
@@ -38,13 +38,13 @@ function Header({ tabValue, setTabValue }) {
             <InputLabel className="inputLabel">State</InputLabel>
             <Select
               className="select"
-              value={state}
+              value={stateValue}
               label="States"
               onChange={handleStateChange}
             >
-              <MenuItem value={"Oklahoma"}>Oklahoma</MenuItem>
-              <MenuItem value={"Pennsylvania"}>Pennsylvania</MenuItem>
-              <MenuItem value={"Tennessee"}>Tennessee</MenuItem>
+              <MenuItem value={"pa"}>Pennsylvania</MenuItem>
+              <MenuItem value={"tn"}>Tennessee</MenuItem>
+              <MenuItem value={"ok"}>Oklahoma</MenuItem>
             </Select>
           </FormControl>
         </span>
