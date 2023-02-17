@@ -8,3 +8,20 @@
   top: 5px;
   width: 200px;
 } */
+
+.form {
+  background-color: white;
+}
+
+.mapSelection {
+  position: fixed;
+  left: 5px;
+  width: 160px;
+  height: 40px;
+}
+
+.inputLabel {
+  width: 160px;
+  height: 40px;
+  top: 5px;
+}
