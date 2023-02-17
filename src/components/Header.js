@@ -16,9 +16,9 @@ function Header({ tabValue, setTabValue }) {
     setTabValue(tabValue);
   };
 
-  const handleStateChange = (event, state) => {
-    setState(state);
-    console.log(state);
+  const handleStateChange = (event) => {
+    setState(event.target.value);
+    console.log(event.target.value);
   };
 
   const styles = {
@@ -33,14 +33,21 @@ function Header({ tabValue, setTabValue }) {
   return (
     <div>
       <Box className="headerContent" bgcolor="#232023">
-        {/* <FormControl className="stateSelector">
-          <InputLabel className="inputLabel">States</InputLabel>
-          <Select value={state} label="State" onChange={handleStateChange}>
-            <MenuItem value={"Oklahoma"}>Oklahoma</MenuItem>
-            <MenuItem value={"Pennsylvania"}>Pennsylvania</MenuItem>
-            <MenuItem value={"Tennessee"}>Tennessee</MenuItem>
-          </Select>
-        </FormControl> */}
+        <span className="mapSelection">
+          <FormControl className="form">
+            <InputLabel className="inputLabel">State</InputLabel>
+            <Select
+              className="select"
+              value={state}
+              label="States"
+              onChange={handleStateChange}
+            >
+              <MenuItem value={"Oklahoma"}>Oklahoma</MenuItem>
+              <MenuItem value={"Pennsylvania"}>Pennsylvania</MenuItem>
+              <MenuItem value={"Tennessee"}>Tennessee</MenuItem>
+            </Select>
+          </FormControl>
+        </span>
 
         <Tabs
           className="Tabs"
