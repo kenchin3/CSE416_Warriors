@@ -18,7 +18,7 @@ function Header({ tabValue, setTabValue, stateValue, setStateValue }) {
 
   const handleStateChange = (event) => {
     setStateValue(event.target.value);
-    console.log(event.target.value);
+    // console.log(event.target.value);
   };
 
   const styles = {

@@ -1,0 +1,59 @@
+{
+    "data": [
+        {
+            "District": 1,
+            "Name": "Diana Harshbarger",
+            "Win": "Yes",
+            "Party": "Rep"
+
+        },
+        {
+            "District": 2,
+            "Name": "Tim Burchett",
+            "Win": "Yes",
+            "Party": "Rep"
+        },
+        {
+            "District": 3,
+            "Name": "Charles J. Fleischmann",
+            "Win": "Yes",
+            "Party": "Rep"
+        },
+        {
+            "District": 4,
+            "Name": "Scott DesJarlais",
+            "Win": "Yes",
+            "Party": "Rep"
+        },
+        {
+            "District": 5,
+            "Name": "Jim Cooper",
+            "Win": "No",
+            "Party": "Rep"
+        },
+        {
+            "District": 6,
+            "Name": "John Rose",
+            "Win": "Yes",
+            "Party": "Rep"
+        },
+        {
+            "District": 7,
+            "Name": "Mark Green",
+            "Win": "Yes",
+            "Party": "Rep"
+        },
+        {
+            "District": 8,
+            "Name": "David Kustoff",
+            "Win": "Yes",
+            "Party": "Rep"
+        },
+        {
+            "District": 9,
+            "Name": "Steve Cohen",
+            "Win": "Yes",
+            "Party": "Dem"
+        }
+    ]
+}

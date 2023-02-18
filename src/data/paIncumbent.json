@@ -1,0 +1,102 @@
+{
+    "data": [
+        {
+            "District": 1,
+            "Name": "Brian Fitzpatrick",
+            "Win": "Yes",
+            "Party": "Rep"
+
+        },
+        {
+            "District": 2,
+            "Name": "Brendan Boyle ",
+            "Win": "Yes",
+            "Party": "Dem"
+        },
+        {
+            "District": 3,
+            "Name": "Dwight Evans",
+            "Win": "Yes",
+            "Party": "Dem"
+        },
+        {
+            "District": 4,
+            "Name": "Madeleine Dean",
+            "Win": "Yes",
+            "Party": "Dem"
+        },
+        {
+            "District": 5,
+            "Name": "Mary Gay Scanlon",
+            "Win": "Yes",
+            "Party": "Dem"
+        },
+        {
+            "District": 6,
+            "Name": "Chrissy Houlahan",
+            "Win": "Yes",
+            "Party": "Dem"
+        },
+        {
+            "District": 7,
+            "Name": "Susan Wild",
+            "Win": "Yes",
+            "Party": "Dem"
+        },
+        {
+            "District": 8,
+            "Name": "Matt Cartwright",
+            "Win": "Yes",
+            "Party": "Dem"
+        },
+        {
+            "District": 9,
+            "Name": "Dan Meuser",
+            "Win": "Yes",
+            "Party": "Rep"
+        },
+        {
+            "District": 10,
+            "Name": "Scott Perry",
+            "Win": "Yes",
+            "Party": "Rep"
+
+        },
+        {
+            "District": 12,
+            "Name": "N/a",
+            "Win": "N/a",
+            "Party": "N/a"
+        },
+        {
+            "District": 13,
+            "Name": "John Joyce",
+            "Win": "Yes",
+            "Party": "Rep"
+        },
+        {
+            "District": 14,
+            "Name": "Guy Reschenthaler",
+            "Win": "Yes",
+            "Party": "Rep"
+        },
+        {
+            "District": 15,
+            "Name": "Glenn Thompson",
+            "Win": "Yes",
+            "Party": "Rep"
+        },
+        {
+            "District": 16,
+            "Name": "Mike Kelly",
+            "Win": "Yes",
+            "Party": "Rep"
+        },
+        {
+            "District": 17,
+            "Name": "Conor Lamb",
+            "Win": "N/a (No Reelection)",
+            "Party": "Dem"
+        }
+    ]
+}
