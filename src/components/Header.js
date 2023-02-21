@@ -32,13 +32,13 @@ function Header({ tabValue, setTabValue, stateValue, setStateValue }) {
   return (
     <div>
       <Box className="headerContent" bgcolor="#232023">
-        <FormControl
-          InputLabelProps={{ style: { color: "green" } }}
-          className="form"
-        >
+        <FormControl className="form" size="small">
+          <InputLabel id="inputLabel"> State </InputLabel>
           <Select
+            labelId="inputLabel"
             className="select"
             value={stateValue}
+            label="State"
             onChange={handleStateChange}
           >
             <MenuItem value={"pa"}>Pennsylvania</MenuItem>
