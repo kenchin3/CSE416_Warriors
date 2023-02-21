@@ -9,15 +9,15 @@ function Project() {
 
   return (
     <div>
-      <Header 
-        tabValue={tabValue} 
-        setTabValue={setTabValue} 
+      <Header
+        tabValue={tabValue}
+        setTabValue={setTabValue}
         stateValue={stateValue}
         setStateValue={setStateValue}
       />
-      <Map 
-        tabValue={tabValue} 
-        setTabValue={setTabValue} 
+      <Map
+        tabValue={tabValue}
+        setTabValue={setTabValue}
         stateValue={stateValue}
         setStateValue={setStateValue}
       />

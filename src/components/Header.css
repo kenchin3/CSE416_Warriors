@@ -1,22 +1,31 @@
 .headerContent {
   height: 50px;
+  width: 100%;
 }
 
 .form {
-  position: absolute;
   width: 160px;
-  height: 130px;
-  top: 5px;
-  left: 5px;
+  height: 34px;
+  top: 8px;
+  left: 6px;
   float: left;
+  position: relative;
 }
 
 .select {
-  background-color: #545454;
+  background-color: #232023;
   width: 160px;
-  height: 40px;
+  height: 34px;
+  font-size: 13px;
 }
 
 #inputLabel {
-  color: white;
+  color: #d3d3d3;
+  font-size: 13px;
+}
+
+.tabs {
+  position: absolute;
+  left: 30%;
+  right: 30%;
 }

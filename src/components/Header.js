@@ -1,4 +1,3 @@
-import React, { Component } from "react";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
@@ -31,15 +30,36 @@ function Header({ tabValue, setTabValue, stateValue, setStateValue }) {
 
   return (
     <div>
-      <Box className="headerContent" bgcolor="#232023">
+      <Box className="headerContent" bgcolor="black">
         <FormControl className="form" size="small">
-          <InputLabel id="inputLabel"> State </InputLabel>
+          <InputLabel id="inputLabel">
+            {" "}
+            {stateValue === "" ? "State" : ""}
+          </InputLabel>
           <Select
             labelId="inputLabel"
             className="select"
             value={stateValue}
-            label="State"
+            label={stateValue === "" ? "State" : ""}
             onChange={handleStateChange}
+            sx={{
+              color: "white",
+              ".MuiOutlinedInput-notchedOutline": {
+                borderColor: "rgba(228, 219, 233, 0.25)",
+              },
+              "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+                borderColor: "rgba(228, 219, 233, 0.25)",
+              },
+              "&.Mui-focused .MuiSvgIcon-root ": {
+                fill: "white",
+              },
+              "&:hover .MuiSvgIcon-root ": {
+                fill: "rgba(228, 219, 233, 0.25)",
+              },
+              ".MuiSvgIcon-root ": {
+                fill: "rgba(228, 219, 233, 0.25)",
+              },
+            }}
           >
             <MenuItem value={"pa"}>Pennsylvania</MenuItem>
             <MenuItem value={"tn"}>Tennessee</MenuItem>
@@ -47,31 +67,39 @@ function Header({ tabValue, setTabValue, stateValue, setStateValue }) {
           </Select>
         </FormControl>
 
-        <Tabs
-          centered
-          className="Tabs"
-          value={tabValue}
-          onChange={handleTabChange}
-        >
-          <Tab
-            label="Cumulative Data"
-            style={
-              tabValue === 0 ? tabStyles.selectedTab : tabStyles.nonSelectedTab
-            }
-          />
-          <Tab
-            label="States"
-            style={
-              tabValue === 1 ? tabStyles.selectedTab : tabStyles.nonSelectedTab
-            }
-          />
-          <Tab
-            label="Box and Whisker"
-            style={
-              tabValue === 2 ? tabStyles.selectedTab : tabStyles.nonSelectedTab
-            }
-          />
-        </Tabs>
+        <span>
+          <Tabs
+            centered
+            className="tabs"
+            value={tabValue}
+            onChange={handleTabChange}
+          >
+            <Tab
+              label="Cumulative Data"
+              style={
+                tabValue === 0
+                  ? tabStyles.selectedTab
+                  : tabStyles.nonSelectedTab
+              }
+            />
+            <Tab
+              label="States"
+              style={
+                tabValue === 1
+                  ? tabStyles.selectedTab
+                  : tabStyles.nonSelectedTab
+              }
+            />
+            <Tab
+              label="Box and Whisker"
+              style={
+                tabValue === 2
+                  ? tabStyles.selectedTab
+                  : tabStyles.nonSelectedTab
+              }
+            />
+          </Tabs>
+        </span>
       </Box>
 
       {tabValue === 0 && <div> data </div>}
