@@ -1,27 +1,18 @@
 .headerContent {
-  height: 50px;
+  height: 48px;
 }
-
-/* .stateSelector {
-  position: fixed;
-  left: -500px;
-  top: 5px;
-  width: 200px;
-} */
 
 .form {
-  background-color: white;
+  width: 160px;
+  height: 30px;
+  top: 9px;
+  left: 9px;
+  float: left;
 }
 
-.mapSelection {
-  position: fixed;
-  left: 5px;
+.select {
+  background-color: #d3d3d3;
+  color: black;
   width: 160px;
-  height: 40px;
-}
-
-.inputLabel {
-  width: 160px;
-  height: 40px;
-  top: 5px;
+  height: 30px;
 }
