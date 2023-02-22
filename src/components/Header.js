@@ -11,6 +11,8 @@ function Header({ tabValue, setTabValue, stateValue, setStateValue }) {
   // const [tabValue, setTabValue] = React.useState(0);
   // const [state, setState] = React.useState("");
 
+  console.log(tabValue);
+
   const handleTabChange = (event, tabValue) => {
     setTabValue(tabValue);
   };
@@ -31,41 +33,45 @@ function Header({ tabValue, setTabValue, stateValue, setStateValue }) {
   return (
     <div>
       <Box className="headerContent" bgcolor="black">
-        <FormControl className="form" size="small">
-          <InputLabel id="inputLabel">
-            {" "}
-            {stateValue === "" ? "State" : ""}
-          </InputLabel>
-          <Select
-            labelId="inputLabel"
-            className="select"
-            value={stateValue}
-            label={stateValue === "" ? "State" : ""}
-            onChange={handleStateChange}
-            sx={{
-              color: "white",
-              ".MuiOutlinedInput-notchedOutline": {
-                borderColor: "rgba(228, 219, 233, 0.25)",
-              },
-              "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
-                borderColor: "rgba(228, 219, 233, 0.25)",
-              },
-              "&.Mui-focused .MuiSvgIcon-root ": {
-                fill: "white",
-              },
-              "&:hover .MuiSvgIcon-root ": {
-                fill: "rgba(228, 219, 233, 0.25)",
-              },
-              ".MuiSvgIcon-root ": {
-                fill: "rgba(228, 219, 233, 0.25)",
-              },
-            }}
-          >
-            <MenuItem value={"pa"}>Pennsylvania</MenuItem>
-            <MenuItem value={"tn"}>Tennessee</MenuItem>
-            <MenuItem value={"ok"}>Oklahoma</MenuItem>
-          </Select>
-        </FormControl>
+        {tabValue === 1 ? (
+          <FormControl className="form" size="small">
+            <InputLabel id="inputLabel">
+              {" "}
+              {stateValue === "" ? "State" : ""}
+            </InputLabel>
+            <Select
+              labelId="inputLabel"
+              className="select"
+              value={stateValue}
+              label={stateValue === "" ? "State" : ""}
+              onChange={handleStateChange}
+              sx={{
+                color: "white",
+                ".MuiOutlinedInput-notchedOutline": {
+                  borderColor: "rgba(228, 219, 233, 0.25)",
+                },
+                "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+                  borderColor: "rgba(228, 219, 233, 0.25)",
+                },
+                "&.Mui-focused .MuiSvgIcon-root ": {
+                  fill: "white",
+                },
+                "&:hover .MuiSvgIcon-root ": {
+                  fill: "rgba(228, 219, 233, 0.25)",
+                },
+                ".MuiSvgIcon-root ": {
+                  fill: "rgba(228, 219, 233, 0.25)",
+                },
+              }}
+            >
+              <MenuItem value={"pa"}>Pennsylvania</MenuItem>
+              <MenuItem value={"tn"}>Tennessee</MenuItem>
+              <MenuItem value={"ok"}>Oklahoma</MenuItem>
+            </Select>
+          </FormControl>
+        ) : (
+          <span />
+        )}
 
         <span>
           <Tabs
@@ -75,7 +81,7 @@ function Header({ tabValue, setTabValue, stateValue, setStateValue }) {
             onChange={handleTabChange}
           >
             <Tab
-              label="Cumulative Data"
+              label="Ensemble Data"
               style={
                 tabValue === 0
                   ? tabStyles.selectedTab
@@ -90,18 +96,9 @@ function Header({ tabValue, setTabValue, stateValue, setStateValue }) {
                   : tabStyles.nonSelectedTab
               }
             />
-            <Tab
-              label="Box and Whisker"
-              style={
-                tabValue === 2
-                  ? tabStyles.selectedTab
-                  : tabStyles.nonSelectedTab
-              }
-            />
           </Tabs>
         </span>
       </Box>
-
     </div>
   );
 }
