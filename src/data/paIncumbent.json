@@ -3,106 +3,106 @@
         {
             "District": 1,
             "Name": "Brian Fitzpatrick",
-            "Win": "Yes",
+            "Win": "Win",
             "Party": "Rep"
 
         },
         {
             "District": 2,
             "Name": "Brendan Boyle ",
-            "Win": "Yes",
+            "Win": "Win",
             "Party": "Dem"
         },
         {
             "District": 3,
             "Name": "Dwight Evans",
-            "Win": "Yes",
+            "Win": "Win",
             "Party": "Dem"
         },
         {
             "District": 4,
             "Name": "Madeleine Dean",
-            "Win": "Yes",
+            "Win": "Win",
             "Party": "Dem"
         },
         {
             "District": 5,
             "Name": "Mary Gay Scanlon",
-            "Win": "Yes",
+            "Win": "Win",
             "Party": "Dem"
         },
         {
             "District": 6,
             "Name": "Chrissy Houlahan",
-            "Win": "Yes",
+            "Win": "Win",
             "Party": "Dem"
         },
         {
             "District": 7,
             "Name": "Susan Wild",
-            "Win": "Yes",
+            "Win": "Win",
             "Party": "Dem"
         },
         {
             "District": 8,
             "Name": "Matt Cartwright",
-            "Win": "Yes",
+            "Win": "Win",
             "Party": "Dem"
         },
         {
             "District": 9,
             "Name": "Dan Meuser",
-            "Win": "Yes",
+            "Win": "Win",
             "Party": "Rep"
         },
         {
             "District": 10,
             "Name": "Scott Perry",
-            "Win": "Yes",
+            "Win": "Win",
             "Party": "Rep"
 
         },
         {
             "District": 11,
             "Name": "Lloyd Smucker",
-            "Win": "Yes",
+            "Win": "Win",
             "Party": "Rep"
 
         },
         {
             "District": 12,
             "Name": "N/a",
-            "Win": "N/a",
+            "Win": "Open",
             "Party": "N/a"
         },
         {
             "District": 13,
             "Name": "John Joyce",
-            "Win": "Yes",
+            "Win": "Win",
             "Party": "Rep"
         },
         {
             "District": 14,
             "Name": "Guy Reschenthaler",
-            "Win": "Yes",
+            "Win": "Win",
             "Party": "Rep"
         },
         {
             "District": 15,
             "Name": "Glenn Thompson",
-            "Win": "Yes",
+            "Win": "Win",
             "Party": "Rep"
         },
         {
             "District": 16,
             "Name": "Mike Kelly",
-            "Win": "Yes",
+            "Win": "Win",
             "Party": "Rep"
         },
         {
             "District": 17,
             "Name": "Conor Lamb",
-            "Win": "N/a (No Reelection)",
+            "Win": "Open",
             "Party": "Dem"
         }
     ]
