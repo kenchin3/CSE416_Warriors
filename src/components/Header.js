@@ -102,9 +102,6 @@ function Header({ tabValue, setTabValue, stateValue, setStateValue }) {
         </span>
       </Box>
 
-      {tabValue === 0 && <div> data </div>}
-      {tabValue === 1 && <div> States </div>}
-      {tabValue === 2 && <div> Box and Whisker </div>}
     </div>
   );
 }

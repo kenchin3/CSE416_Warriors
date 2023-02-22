@@ -18,6 +18,7 @@ import IncumbentTable from "./IncumbentTable"
 function ChangeView({ center, zoom }) {
   const map = useMap();
   map.setView(center, zoom);
+  // map.fitBounds()
   return null;
 }
 
@@ -47,32 +48,21 @@ function Map({tabValue, setTabValue, stateValue, setStateValue}) {
       ...filter,
       [event.target.name]: event.target.checked,
     });
-    // console.log(event.target.value)
-    // setState({
-    //   ...state,
-    //   [event.target.name]: event.target.checked,
-    // });
   };
 
- 
 
 const district2020 = {
   color: "white",
   weight: 1,
-  // fillColor: "red",
-  // fillOpacity: 0.5,
 };
 
 const district2022 = {
   color: "grey",
   weight: 1,
-  // fillColor: "blue",
-  // fillOpacity: 0.5,
 };
 
 const { twoZero, twoTwo, random } = filter;
- 
-// const { 2020, 2022, random } = filter;
+
 
   return (
     <>
@@ -109,12 +99,15 @@ const { twoZero, twoTwo, random } = filter;
           center={center(stateValue)}
           zoom={7}
           maxZoom={10}
-          bounds={[[40.712216, -74.22655], [40.773941, -74.12544]]}
+          bounceAtZoomLimits = {true}
+          maxBoundsViscosity = {1.0}
+          scrollWheelZoom = {false}
         >
-          <ChangeView center={center(stateValue)} zoom={8} />
+          <ChangeView center={center(stateValue)} zoom={stateValue != ""? 7 : 4} />
           <TileLayer
-            url="https://{s}.basemaps.cartocdn.com/rastertiles/dark_nolabels/{z}/{x}/{y}.png"
+            url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"
             attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+            
           />
           {filter.twoZero && <GeoJSON data={pa2020.features} style={district2020} />}
           {filter.twoTwo && <GeoJSON data={pa2022.features} style={district2022} />}
