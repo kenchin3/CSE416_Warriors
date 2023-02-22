@@ -3,32 +3,32 @@
         {
             "District": 1,
             "Name": "Kevin Hern",
-            "Win": "Yes",
+            "Win": "Win",
             "Party": "Rep"
 
         },
         {
             "District": 2,
             "Name": "Josh Brecheen",
-            "Win": "Yes",
+            "Win": "Win",
             "Party": "Rep"
         },
         {
             "District": 3,
             "Name": "Frank Lucas",
-            "Win": "Yes",
+            "Win": "Win",
             "Party": "Rep"
         },
         {
             "District": 4,
             "Name": "Tom Cole",
-            "Win": "Yes",
+            "Win": "Win",
             "Party": "Rep"
         },
         {
             "District": 5,
             "Name": "Stephanie Bice",
-            "Win": "Yes",
+            "Win": "Win",
             "Party": "Rep"
         }
     ]

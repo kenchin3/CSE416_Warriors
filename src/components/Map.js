@@ -12,7 +12,9 @@ import ok2020 from "./../geoJSON/ok2020.json";
 import ok2022 from "./../geoJSON/ok2022.json";
 import tn2020 from "./../geoJSON/tn2020.json";
 import tn2022 from "./../geoJSON/tn2022.json";
-import paWinners from "./../data/paWinners.json";
+import okIncumbent from "./../data/okIncumbent.json";
+import tnIncumbent from "./../data/tnIncumbent.json";
+import paIncumbent from "./../data/paIncumbent.json";
 
 function ChangeView({ center, zoom }) {
   const map = useMap();
@@ -22,6 +24,8 @@ function ChangeView({ center, zoom }) {
 }
 
 function Map({ stateValue, filter }) {
+  const [stateFile, setStateFile] = React.useState(null);
+
   let center = (stateValue) => {
     switch (stateValue) {
       case "":
@@ -38,7 +42,7 @@ function Map({ stateValue, filter }) {
   };
 
   const district2020 = {
-    color: "white",
+    color: "black",
     weight: 1,
   };
 
@@ -48,26 +52,58 @@ function Map({ stateValue, filter }) {
   };
 
   let colorDistrict = (feature) => {
-    let district = parseInt(feature.properties.DISTRICT);
-    // console.log(parseInt(feature.properties.DISTRICT), paWinners.data[feature.properties.DISTRICT])
-    if (paWinners.data[district] === "Rep") {
+    let incumbents
+    switch (stateValue) {
+      case "pa":
+        incumbents = paIncumbent
+        break
+      case "tn":
+        incumbents = tnIncumbent
+        break
+      case "ok":
+        incumbents = okIncumbent
+        break
+
+      // case "pa" && filter.twoZero:
+      //   incumbents = pa2020
+      // case "pa" && filter.twoTwo:
+      //   incumbents = pa2022
+      // case "tn" && filter.twoZero:
+      //   incumbents = tn2020
+      // case "tn" && filter.twoTwo:
+      //   incumbents = tn2022
+      // case "ok" && filter.twoZero:
+      //   incumbents = ok2020
+      // case "ok" && filter.twoTwo:
+      //   incumbents = ok2022
+    }
+    
+    if (incumbents) {
+      incumbents = incumbents.data.map(a => a["Party"])
+      let district = parseInt(feature.properties.DISTRICT - 1);
+     
+    if (incumbents[district] === "Rep") {
       return {
         fillColor: "red",
         color: "black",
         fillOpacity: 0.6,
+        weight: 0.8
       };
-    } else if (paWinners.data[district] === "Dem") {
+    } else if (incumbents[district] === "Dem") {
       return {
         fillColor: "blue",
         color: "black",
         fillOpacity: 0.6,
+        weight: 0.8
       };
     } else {
       return {
         fillColor: "grey",
         color: "black",
         fillOpacity: 0.6,
+        weight: 0.8
       };
+    }
     }
   };
 
@@ -85,7 +121,6 @@ function Map({ stateValue, filter }) {
         maxZoom={10}
         bounceAtZoomLimits={true}
         maxBoundsViscosity={1.0}
-        scrollWheelZoom={false}
       >
         <ChangeView
           center={center(stateValue)}
@@ -95,28 +130,23 @@ function Map({ stateValue, filter }) {
           url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         />
-        {/* {pa2020.features.map((polygon, index) => { return <Polyline key={index} pathOptions={colorDistrict} positions={polygon.geometry.coordinates} /> })} */}
-        {/* {filter.twoZero && <GeoJSON data={pa2020.features} style={district2020} />}
-            {filter.twoTwo && <GeoJSON data={pa2022.features} style={district2022} />} */}
-        {/* {console.log(pa2020.features[0].properties.AREA)} */}
-        <Polyline
-          pathOptions={colorDistrict}
-          positions={pa2020.features[0].geometry.coordinates[0]}
-        />
-        {filter.twoZero && (
-          <GeoJSON data={pa2020.features} style={colorDistrict} />
+        {filter == "2020" && stateValue == "pa" && (
+          <GeoJSON data={pa2020.features} style={district2020} />
         )}
-        {filter.twoZero && (
+        {filter == "2022" && stateValue == "pa" && (
+          <GeoJSON data={pa2022.features} style={colorDistrict} />
+        )}
+        {filter == "2020" && stateValue == "ok" && (
           <GeoJSON data={ok2020.features} style={district2020} />
         )}
-        {filter.twoTwo && (
-          <GeoJSON data={ok2022.features} style={district2022} />
+        {filter == "2022" && stateValue == "ok" && (
+          <GeoJSON data={ok2022.features} style={colorDistrict} />
         )}
-        {filter.twoZero && (
+        {filter == "2020" && stateValue == "tn" && (
           <GeoJSON data={tn2020.features} style={district2020} />
         )}
-        {filter.twoTwo && (
-          <GeoJSON data={tn2022.features} style={district2022} />
+        {filter == "2022" && stateValue == "tn" && (
+          <GeoJSON data={tn2022.features} style={colorDistrict} />
         )}
       </MapContainer>
     </>

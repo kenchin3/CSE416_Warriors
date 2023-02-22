@@ -8,11 +8,7 @@ import Accordion from "@mui/material/Accordion";
 function Project() {
   const [tabValue, setTabValue] = React.useState(0);
   const [stateValue, setStateValue] = React.useState("");
-  const [filter, setFilter] = React.useState({
-    twoZero: false,
-    twoTwo: true,
-    random: false,
-  });
+  const [filter, setFilter] = React.useState("");
 
   const { twoZero, twoTwo, random } = filter;
 

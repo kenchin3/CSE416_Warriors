@@ -3,26 +3,26 @@
         {
             "District": 1,
             "Name": "Diana Harshbarger",
-            "Win": "Yes",
+            "Win": "Win",
             "Party": "Rep"
 
         },
         {
             "District": 2,
             "Name": "Tim Burchett",
-            "Win": "Yes",
+            "Win": "Win",
             "Party": "Rep"
         },
         {
             "District": 3,
             "Name": "Charles J. Fleischmann",
-            "Win": "Yes",
+            "Win": "Win",
             "Party": "Rep"
         },
         {
             "District": 4,
             "Name": "Scott DesJarlais",
-            "Win": "Yes",
+            "Win": "Win",
             "Party": "Rep"
         },
         {
@@ -34,25 +34,25 @@
         {
             "District": 6,
             "Name": "John Rose",
-            "Win": "Yes",
+            "Win": "Win",
             "Party": "Rep"
         },
         {
             "District": 7,
             "Name": "Mark Green",
-            "Win": "Yes",
+            "Win": "Win",
             "Party": "Rep"
         },
         {
             "District": 8,
             "Name": "David Kustoff",
-            "Win": "Yes",
+            "Win": "Win",
             "Party": "Rep"
         },
         {
             "District": 9,
             "Name": "Steve Cohen",
-            "Win": "Yes",
+            "Win": "Win",
             "Party": "Dem"
         }
     ]

@@ -63,6 +63,13 @@
 
         },
         {
+            "District": 11,
+            "Name": "Lloyd Smucker",
+            "Win": "Yes",
+            "Party": "Rep"
+
+        },
+        {
             "District": 12,
             "Name": "N/a",
             "Win": "N/a",

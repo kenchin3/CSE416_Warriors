@@ -4,6 +4,8 @@ import FormControl from "@mui/material/FormControl";
 import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
 import IncumbentTable from "./IncumbentTable";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
@@ -13,10 +15,8 @@ import Typography from "@mui/material/Typography";
 
 function Data({ filter, setFilter, twoZero, twoTwo, random, stateValue }) {
   const handleChange = (event) => {
-    setFilter({
-      ...filter,
-      [event.target.name]: event.target.checked,
-    });
+    console.log(event.target.value)
+    setFilter(event.target.value);
   };
 
   return (
@@ -38,41 +38,20 @@ function Data({ filter, setFilter, twoZero, twoTwo, random, stateValue }) {
             </Typography>
           </AccordionDetails>
         </Accordion> */}
-        <FormControl sx={{ m: 3 }} component="fieldset" variant="standard">
-          <FormLabel component="legend">Select Boundaries</FormLabel>
-          <FormGroup>
-            <FormControlLabel
-              control={
-                <Checkbox
-                  checked={twoZero}
-                  onChange={handleChange}
-                  name="twoZero"
-                />
-              }
-              label="2020"
-            />
-            <FormControlLabel
-              control={
-                <Checkbox
-                  checked={twoTwo}
-                  onChange={handleChange}
-                  name="twoTwo"
-                />
-              }
-              label="2022"
-            />
-            <FormControlLabel
-              control={
-                <Checkbox
-                  checked={random}
-                  onChange={handleChange}
-                  name="random"
-                />
-              }
-              label="Random"
-            />
-          </FormGroup>
-        </FormControl>
+          <FormControl>
+              <FormLabel id="demo-radio-buttons-group-label">Select Boundaries</FormLabel>
+              <RadioGroup
+                aria-labelledby="demo-radio-buttons-group-label"
+                defaultValue="20"
+                name="radio-buttons-group"
+                row={true}
+                onChange={handleChange}
+              >
+                <FormControlLabel value="2020" control={<Radio />} label="2020" />
+                <FormControlLabel value="2022" control={<Radio />} label="2022" />
+                <FormControlLabel value="Random" control={<Radio />} label="Random" />
+              </RadioGroup>
+          </FormControl>
         <IncumbentTable stateValue={stateValue} />
       </div>
     </>
