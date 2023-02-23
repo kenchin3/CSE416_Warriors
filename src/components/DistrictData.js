@@ -11,12 +11,9 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
 function DistrictData({district, stateValue}) {
-    const [districtData, setdistrictData] = React.useState(null);
+    const [districtData, setdistrictData] = React.useState(paDistrictData.data);
     React.useEffect(() => {
         switch (stateValue) {
-            case "":
-                setdistrictData(null);
-                break
             case "pa":
                 setdistrictData(paDistrictData.data);
                 break;
@@ -31,6 +28,7 @@ function DistrictData({district, stateValue}) {
     });
     return (
         <>
+        {districtData &&
         <TableContainer component={Paper}>
             <Table sx={{ minWidth: 650 }} aria-label="simple table">
                 <TableHead>
@@ -43,12 +41,12 @@ function DistrictData({district, stateValue}) {
                     <TableCell align="right">Geographic Area 2022</TableCell>
                 </TableRow>
                 </TableHead>
-                {districtData && <TableBody>
+                <TableBody>
                     <TableRow
                     // key={row.name}
                     sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                     >
-                    <TableCell component="th" scope="row">
+                  <TableCell component="th" scope="row">
                     {districtData[district]["District"]}
                     </TableCell>
                     {/* <TableCell align="right">{districtData[0]["District"]}</TableCell> */}
@@ -59,9 +57,9 @@ function DistrictData({district, stateValue}) {
                     <TableCell align="right">{districtData[district]["Area 2022"]}</TableCell>
                     </TableRow>
                 </TableBody>
-                }
             </Table>
     </TableContainer>
+}
         </>
     )
 }

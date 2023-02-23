@@ -23,8 +23,8 @@ function Project() {
         setStateValue={setStateValue}
       />
       {tabValue === 1 ? (
-        <Grid container spacing={1}>
-          <Grid item xs={6} md={6}>
+        <Grid container spacing={1} component="span">
+          <Grid item xs={6} md={6} component="span">
             <Data
               filter={filter}
               setFilter={setFilter}

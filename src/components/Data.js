@@ -121,7 +121,7 @@ function Data({
             <Typography>Incumbent Information</Typography>
           </AccordionSummary>
           <AccordionDetails>
-            <Typography>
+            <Typography component="span">
               <IncumbentTable stateValue={stateValue} district={district} setDistrict={setDistrict} />
             </Typography>
           </AccordionDetails>
