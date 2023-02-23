@@ -18,9 +18,18 @@ import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import InputLabel from "@mui/material/InputLabel";
 
-
-function Data({ filter, setFilter, twoZero, twoTwo, random, stateValue, setStateValue, tabValue, district, setDistrict }) {
-
+function Data({
+  filter,
+  setFilter,
+  twoZero,
+  twoTwo,
+  random,
+  stateValue,
+  setStateValue,
+  tabValue,
+  district,
+  setDistrict,
+}) {
   const handleChange = (event) => {
     // console.log(event.target.value);
     setFilter(event.target.value);
@@ -106,7 +115,9 @@ function Data({ filter, setFilter, twoZero, twoTwo, random, stateValue, setState
         </Paper>
 
         <Accordion className="accordion">
-          <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+          <AccordionSummary
+          // expandIcon={<ExpandMoreIcon />}
+          >
             <Typography>Incumbent Information</Typography>
           </AccordionSummary>
           <AccordionDetails>
@@ -130,3 +141,5 @@ function Data({ filter, setFilter, twoZero, twoTwo, random, stateValue, setState
 }
 
 export default Data;
+
+// import other icon
