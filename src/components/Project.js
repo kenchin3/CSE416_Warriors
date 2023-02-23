@@ -32,7 +32,9 @@ function Project() {
               twoZero={twoZero}
               twoTwo={twoTwo}
               random={random}
+              setStateValue={setStateValue}
               stateValue={stateValue}
+              tabValue={tabValue}
             />
           </Grid>
           <Grid item xs={6} md={6}>

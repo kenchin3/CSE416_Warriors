@@ -2,30 +2,3 @@
   height: 50px;
   width: 100%;
 }
-
-.form {
-  width: 160px;
-  height: 34px;
-  top: 8px;
-  left: 6px;
-  float: left;
-  position: relative;
-}
-
-.select {
-  background-color: #232023;
-  width: 160px;
-  height: 34px;
-  font-size: 13px;
-}
-
-#inputLabel {
-  color: #d3d3d3;
-  font-size: 13px;
-}
-
-.tabs {
-  position: absolute;
-  left: 30%;
-  right: 30%;
-}
