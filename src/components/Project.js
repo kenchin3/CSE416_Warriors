@@ -3,12 +3,15 @@ import Map from "./Map.js";
 import Header from "./Header.js";
 import Data from "./Data.js";
 import Grid from "@mui/material/Grid";
-import Accordion from "@mui/material/Accordion";
 
 function Project() {
   const [tabValue, setTabValue] = React.useState(0);
   const [stateValue, setStateValue] = React.useState("");
-  const [filter, setFilter] = React.useState("");
+  const [filter, setFilter] = React.useState({
+    twoZero: false,
+    twoTwo: true,
+    random: false,
+  });
 
   const { twoZero, twoTwo, random } = filter;
 
