@@ -31,7 +31,9 @@ function Project() {
               twoZero={twoZero}
               twoTwo={twoTwo}
               random={random}
+              setStateValue={setStateValue}
               stateValue={stateValue}
+              tabValue={tabValue}
               district = {district}
               setDistrict = {setDistrict}
             />
