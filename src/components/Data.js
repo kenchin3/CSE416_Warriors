@@ -122,7 +122,7 @@ function Data({
           </AccordionSummary>
           <AccordionDetails>
             <Typography>
-              <IncumbentTable stateValue={stateValue} />
+              <IncumbentTable stateValue={stateValue} district={district} setDistrict={setDistrict} />
             </Typography>
           </AccordionDetails>
         </Accordion>
