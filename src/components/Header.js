@@ -11,7 +11,7 @@ function Header({ tabValue, setTabValue, stateValue, setStateValue }) {
   // const [tabValue, setTabValue] = React.useState(0);
   // const [state, setState] = React.useState("");
 
-  console.log(tabValue);
+  // console.log(tabValue);
 
   const handleTabChange = (event, tabValue) => {
     setTabValue(tabValue);

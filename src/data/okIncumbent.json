@@ -4,32 +4,42 @@
             "District": 1,
             "Name": "Kevin Hern",
             "Win": "Win",
-            "Party": "Rep"
+            "Party": "Rep",
+            "Geo Variation": "0.675",
+            "Pop Variation": "0.955"
 
         },
         {
             "District": 2,
             "Name": "Josh Brecheen",
             "Win": "Win",
-            "Party": "Rep"
+            "Party": "Rep",
+            "Geo Variation": "0.657",
+            "Pop Variation": "1.008"
         },
         {
             "District": 3,
             "Name": "Frank Lucas",
             "Win": "Win",
-            "Party": "Rep"
+            "Party": "Rep",
+            "Geo Variation": "15.863",
+            "Pop Variation": "0.960"
         },
         {
             "District": 4,
             "Name": "Tom Cole",
             "Win": "Win",
-            "Party": "Rep"
+            "Party": "Rep",
+            "Geo Variation": "1.011",
+            "Pop Variation": "0.991"
         },
         {
             "District": 5,
             "Name": "Stephanie Bice",
             "Win": "Win",
-            "Party": "Rep"
+            "Party": "Rep",
+            "Geo Variation": "0.170",
+            "Pop Variation": "1.096"
         }
     ]
 }

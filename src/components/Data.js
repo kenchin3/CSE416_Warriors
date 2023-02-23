@@ -13,7 +13,7 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 // import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
-function Data({ filter, setFilter, twoZero, twoTwo, random, stateValue }) {
+function Data({ filter, setFilter, twoZero, twoTwo, random, stateValue, district, setDistrict }) {
   const handleChange = (event) => {
     console.log(event.target.value)
     setFilter(event.target.value);
@@ -52,7 +52,7 @@ function Data({ filter, setFilter, twoZero, twoTwo, random, stateValue }) {
                 <FormControlLabel value="Random" control={<Radio />} label="Random" />
               </RadioGroup>
           </FormControl>
-        <IncumbentTable stateValue={stateValue} />
+        <IncumbentTable stateValue={stateValue} district={district} setDistrict={setDistrict}/>
       </div>
     </>
   );
