@@ -3,7 +3,6 @@ import Map from "./Map.js";
 import Header from "./Header.js";
 import Data from "./Data.js";
 import Grid from "@mui/material/Grid";
-import DistrictData from "./DistrictData.js";
 import Accordion from "@mui/material/Accordion";
 
 function Project() {
@@ -37,10 +36,6 @@ function Project() {
               district = {district}
               setDistrict = {setDistrict}
             />
-            <DistrictData 
-              district = {district}
-              setDistrict = {setDistrict}
-              stateValue = {stateValue}/>
           </Grid>
           <Grid item xs={6} md={6}>
             <Map stateValue={stateValue} filter={filter} />

@@ -9,7 +9,7 @@ import Paper from "@mui/material/Paper";
 import okIncumbent from "./../data/okIncumbent.json";
 import tnIncumbent from "./../data/tnIncumbent.json";
 import paIncumbent from "./../data/paIncumbent.json";
-import Chart from "react-apexcharts";
+import DistrictData from "./DistrictData";
 
 function IncumbentTable({ stateValue, district, setDistrict }) {
   const [incumbentData, setIncumbentData] = React.useState([]);
@@ -28,7 +28,6 @@ function IncumbentTable({ stateValue, district, setDistrict }) {
         setIncumbentData(okIncumbent.data);
         break;
       default:
-        console.log("default");
         break;
     }
   });
@@ -37,47 +36,47 @@ function IncumbentTable({ stateValue, district, setDistrict }) {
     console.log(event.target.innerText);
     setDistrict(event.target.innerText - 1);
   };
-  function makeData() {
-    let arr = [0];
-    // incumbentData.forEach(element => {
-    //     if (element.Party == "Rep") {
-    //         arr[0] += 1
-    //     }
-    //     else if (element.Party = "Dem") {
-    //         arr[1] += 1
-    //     }
-    // });
-    // let
-    // console.log(arr)
-    return arr;
-  }
-  const series = [
-    {
-      data: makeData(),
-    },
-  ];
+  // function makeData() {
+  //   let arr = [0];
+  //   // incumbentData.forEach(element => {
+  //   //     if (element.Party == "Rep") {
+  //   //         arr[0] += 1
+  //   //     }
+  //   //     else if (element.Party = "Dem") {
+  //   //         arr[1] += 1
+  //   //     }
+  //   // });
+  //   // let
+  //   // console.log(arr)
+  //   return arr;
+  // }
+  // const series = [
+  //   {
+  //     data: makeData(),
+  //   },
+  // ];
 
-  const options = {
-    chart: {
-      type: "bar",
-      height: 350,
-    },
-    plotOptions: {
-      bar: {
-        borderRadius: 4,
-        horizontal: true,
-      },
-    },
-    dataLabels: {
-      enabled: true,
-      formatter: function (val, opt) {
-        return val !== 0 ? val : "";
-      },
-    },
-    xaxis: {
-      categories: ["Repblican", "Democrats"],
-    },
-  };
+  // const options = {
+  //   chart: {
+  //     type: "bar",
+  //     height: 350,
+  //   },
+  //   plotOptions: {
+  //     bar: {
+  //       borderRadius: 4,
+  //       horizontal: true,
+  //     },
+  //   },
+  //   dataLabels: {
+  //     enabled: true,
+  //     formatter: function (val, opt) {
+  //       return val !== 0 ? val : "";
+  //     },
+  //   },
+  //   xaxis: {
+  //     categories: ["Repblican", "Democrats"],
+  //   },
+  // };
 
   return (
     <>
@@ -112,11 +111,15 @@ function IncumbentTable({ stateValue, district, setDistrict }) {
             ))}
           </TableBody>
         </Table>
-      </TableContainer>
-      {stateValue !== "" && (
-        <Chart options={options} series={series} type="bar" height={350} />
-      )}
+      
+        <DistrictData 
+          district = {district}
+          setDistrict = {setDistrict}
+          stateValue = {stateValue}/>
+
+        </TableContainer>
     </>
+    
   );
 }
 

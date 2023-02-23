@@ -17,6 +17,7 @@ import Grid from "@mui/material/Grid";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import InputLabel from "@mui/material/InputLabel";
+import SeatGraph from "./SeatGraph";
 
 function Data({
   filter,
@@ -136,6 +137,7 @@ function Data({
             <span className="summaryInformation">Number of Districts:</span>
           </AccordionDetails>
         </Accordion> */}
+        <SeatGraph stateValue={stateValue}/>
       </div>
     </>
   );
