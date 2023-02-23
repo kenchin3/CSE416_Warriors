@@ -27,6 +27,9 @@ function IncumbentTable({ stateValue, district, setDistrict }) {
       case "ok":
         setIncumbentData(okIncumbent.data);
         break;
+      default:
+        console.log("default");
+        break;
     }
   });
 
@@ -92,7 +95,6 @@ function IncumbentTable({ stateValue, district, setDistrict }) {
           </TableHead>
           <TableBody>
             {incumbentData.map((row) => (
-              // console.log(row)
               <TableRow
                 key={row.District}
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
@@ -111,7 +113,7 @@ function IncumbentTable({ stateValue, district, setDistrict }) {
           </TableBody>
         </Table>
       </TableContainer>
-      {stateValue != "" && (
+      {stateValue !== "" && (
         <Chart options={options} series={series} type="bar" height={350} />
       )}
     </>
