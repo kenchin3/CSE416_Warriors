@@ -37,6 +37,7 @@ function Data({
 
   const handleStateChange = (event) => {
     setStateValue(event.target.value);
+    setDistrict(0);
   };
 
   return (

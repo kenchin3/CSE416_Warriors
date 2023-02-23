@@ -10,7 +10,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
-function DistrictData({district, stateValue}) {
+function DistrictData({district, setDistrict, stateValue}) {
     const [districtData, setdistrictData] = React.useState(paDistrictData.data);
     React.useEffect(() => {
         switch (stateValue) {
@@ -28,7 +28,7 @@ function DistrictData({district, stateValue}) {
     });
     return (
         <>
-        {districtData &&
+        {stateValue && districtData &&
         <TableContainer component={Paper}>
             <Table sx={{ minWidth: 650 }} aria-label="simple table">
                 <TableHead>
@@ -48,8 +48,8 @@ function DistrictData({district, stateValue}) {
                     >
                   <TableCell component="th" scope="row">
                     {districtData[district]["District"]}
-                    </TableCell>
-                    {/* <TableCell align="right">{districtData[0]["District"]}</TableCell> */}
+                    </TableCell> 
+                
                     <TableCell align="right">{districtData[district]["Winner"]}</TableCell>
                     <TableCell align="right">{districtData[district]["Pop 2020"]}</TableCell>
                     <TableCell align="right">{districtData[district]["Pop 2022"]}</TableCell>
