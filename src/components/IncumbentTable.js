@@ -9,41 +9,13 @@ import Paper from "@mui/material/Paper";
 import okIncumbent from "./../data/okIncumbent.json";
 import tnIncumbent from "./../data/tnIncumbent.json";
 import paIncumbent from "./../data/paIncumbent.json";
-import TablePagination from "@material-ui/core/TablePagination";
 
-function IncumbentTable({ stateValue }) {
-  const [incumbentData, setIncumbentData] = React.useState([]);
-  const [rowsPerPage, setRowsPerPage] = React.useState(5);
-  const [page, setPage] = React.useState(0);
+import Chart from "react-apexcharts";
 
-  const handleChangePage = (event, newPage) => {
-    setPage(newPage);
-  };
 
-  const handleChangeRowsPerPage = (event) => {
-    setRowsPerPage(+event.target.value);
-    setPage(0);
-  };
+function IncumbentTable({ stateValue, district, setDistrict }) {
+    const [incumbentData, setIncumbentData] = React.useState([]);
 
-  console.log("ho1");
-
-  React.useEffect(() => {
-    switch (stateValue) {
-      case "":
-        setIncumbentData([]);
-      case "pa":
-        setIncumbentData(paIncumbent.data);
-        break;
-      case "tn":
-        setIncumbentData(tnIncumbent.data);
-        break;
-      case "ok":
-        setIncumbentData(okIncumbent.data);
-        break;
-    }
-  });
-
-  console.log("ho12");
   return (
     <>
       <TableContainer component={Paper}>
@@ -75,34 +47,99 @@ function IncumbentTable({ stateValue }) {
           </TableBody>
         </Table>
       </TableContainer>
+    });
 
-      {/* <TableBody>
-            {incumbentData.map((row) =>
-              row
-                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                .map((row) => {
-                  return (
-                    <TableRow
-                      hover
-                      role="checkbox"
-                      tabIndex={-1}
-                      key={row.code}
-                    >
-                      {columns.map((column) => {
-                        const value = row[column.id];
-                        return (
-                          <TableCell key={column.id} align={column.align}>
-                            {column.format && typeof value === "number"
-                              ? column.format(value)
-                              : value}
-                          </TableCell>
-                        );
-                      })}
-                    </TableRow>
-                  );
-                })
-            )}
-          </TableBody> */}
+    const handleClick = (event) => {
+        console.log(event.target.innerText)
+        setDistrict(event.target.innerText - 1);
+    }
+    function makeData() {
+        let arr = [0]
+        // incumbentData.forEach(element => {
+        //     if (element.Party == "Rep") {
+        //         arr[0] += 1
+        //     }
+        //     else if (element.Party = "Dem") {
+        //         arr[1] += 1
+        //     }
+        // });
+        // let 
+        // console.log(arr)
+        return arr
+    }
+    const series = 
+    [{
+        data: makeData()
+      }]
+    
+    
+
+    const options = {
+        chart: {
+          type: 'bar',
+          height: 350
+        },
+        plotOptions: {
+          bar: {
+            borderRadius: 4,
+            horizontal: true,
+          }
+        },
+        dataLabels: {
+            enabled: true,
+            formatter: function(val, opt) {
+                return val !== 0 ? val : ''
+              }
+        },
+        xaxis: {
+          categories: ['Repblican', 'Democrats'],
+        }
+      }
+    
+    
+      
+   
+    return (
+        <>
+            <TableContainer component={Paper}>
+                <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
+                    <TableHead>
+                        <TableRow>
+                            <TableCell>District</TableCell>
+                            <TableCell align="right">Name</TableCell>
+                            <TableCell align="right">Party</TableCell>
+                            <TableCell align="right">Election Result&nbsp;(2022)</TableCell>
+                            <TableCell align="right">Geographic Var</TableCell>
+                            <TableCell align="right">Population Var</TableCell>
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
+                        {incumbentData.map((row) => (
+                            // console.log(row)
+                            <TableRow
+                                key={row.District}
+                                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                                district={row.District}
+                            >
+                                <TableCell component="th" scope="row"
+                                    onClick = {handleClick}>
+                                    {row.District}
+                                </TableCell>
+                                <TableCell align="right" >{row.Name}</TableCell>
+                                <TableCell align="right">{row.Party}</TableCell>
+                                <TableCell align="right">{row.Win}</TableCell>
+                                <TableCell align="right">{row["Pop Variation"]}</TableCell>
+                                <TableCell align="right">{row["Geo Variation"]}</TableCell>
+                            </TableRow>
+                        ))}
+                    </TableBody>
+                </Table>
+            </TableContainer>
+            { (stateValue != "") && <Chart options={options} series={series} type="bar" height={350} />}
+        </>
+    )
+
+
 
       {/* <TablePagination
         rowsPerPageOptions={[10, 25, 100]}

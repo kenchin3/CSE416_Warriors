@@ -3,15 +3,14 @@ import Map from "./Map.js";
 import Header from "./Header.js";
 import Data from "./Data.js";
 import Grid from "@mui/material/Grid";
+import DistrictData from "./DistrictData.js";
+import Accordion from "@mui/material/Accordion";
 
 function Project() {
   const [tabValue, setTabValue] = React.useState(0);
   const [stateValue, setStateValue] = React.useState("");
-  const [filter, setFilter] = React.useState({
-    twoZero: false,
-    twoTwo: true,
-    random: false,
-  });
+  const [filter, setFilter] = React.useState("");
+  const [district, setDistrict] = React.useState(1);;
 
   const { twoZero, twoTwo, random } = filter;
 
@@ -35,7 +34,13 @@ function Project() {
               setStateValue={setStateValue}
               stateValue={stateValue}
               tabValue={tabValue}
+              district = {district}
+              setDistrict = {setDistrict}
             />
+            <DistrictData 
+              district = {district}
+              setDistrict = {setDistrict}
+              stateValue = {stateValue}/>
           </Grid>
           <Grid item xs={6} md={6}>
             <Map stateValue={stateValue} filter={filter} />

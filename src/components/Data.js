@@ -18,16 +18,9 @@ import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import InputLabel from "@mui/material/InputLabel";
 
-function Data({
-  filter,
-  setFilter,
-  twoZero,
-  twoTwo,
-  random,
-  setStateValue,
-  stateValue,
-  tabValue,
-}) {
+
+function Data({ filter, setFilter, twoZero, twoTwo, random, stateValue, setStateValue, tabValue, district, setDistrict }) {
+
   const handleChange = (event) => {
     // console.log(event.target.value);
     setFilter(event.target.value);
