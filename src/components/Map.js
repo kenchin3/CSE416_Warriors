@@ -52,17 +52,17 @@ function Map({ stateValue, filter }) {
   };
 
   let colorDistrict = (feature) => {
-    let incumbents
+    let incumbents;
     switch (stateValue) {
       case "pa":
-        incumbents = paIncumbent
-        break
+        incumbents = paIncumbent;
+        break;
       case "tn":
-        incumbents = tnIncumbent
-        break
+        incumbents = tnIncumbent;
+        break;
       case "ok":
-        incumbents = okIncumbent
-        break
+        incumbents = okIncumbent;
+        break;
 
       // case "pa" && filter.twoZero:
       //   incumbents = pa2020
@@ -77,33 +77,33 @@ function Map({ stateValue, filter }) {
       // case "ok" && filter.twoTwo:
       //   incumbents = ok2022
     }
-    
+
     if (incumbents) {
-      incumbents = incumbents.data.map(a => a["Party"])
+      incumbents = incumbents.data.map((a) => a["Party"]);
       let district = parseInt(feature.properties.DISTRICT - 1);
-     
-    if (incumbents[district] === "Rep") {
-      return {
-        fillColor: "red",
-        color: "black",
-        fillOpacity: 0.6,
-        weight: 0.8
-      };
-    } else if (incumbents[district] === "Dem") {
-      return {
-        fillColor: "blue",
-        color: "black",
-        fillOpacity: 0.6,
-        weight: 0.8
-      };
-    } else {
-      return {
-        fillColor: "grey",
-        color: "black",
-        fillOpacity: 0.6,
-        weight: 0.8
-      };
-    }
+
+      if (incumbents[district] === "Rep") {
+        return {
+          fillColor: "red",
+          color: "black",
+          fillOpacity: 0.6,
+          weight: 0.8,
+        };
+      } else if (incumbents[district] === "Dem") {
+        return {
+          fillColor: "blue",
+          color: "black",
+          fillOpacity: 0.6,
+          weight: 0.8,
+        };
+      } else {
+        return {
+          fillColor: "grey",
+          color: "black",
+          fillOpacity: 0.6,
+          weight: 0.8,
+        };
+      }
     }
   };
 
@@ -130,22 +130,22 @@ function Map({ stateValue, filter }) {
           url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         />
-        {filter == "2020" && stateValue == "pa" && (
+        {filter === "2020" && stateValue === "pa" && (
           <GeoJSON data={pa2020.features} style={district2020} />
         )}
-        {filter == "2022" && stateValue == "pa" && (
+        {filter === "2022" && stateValue === "pa" && (
           <GeoJSON data={pa2022.features} style={colorDistrict} />
         )}
-        {filter == "2020" && stateValue == "ok" && (
+        {filter === "2020" && stateValue === "ok" && (
           <GeoJSON data={ok2020.features} style={district2020} />
         )}
-        {filter == "2022" && stateValue == "ok" && (
+        {filter === "2022" && stateValue === "ok" && (
           <GeoJSON data={ok2022.features} style={colorDistrict} />
         )}
-        {filter == "2020" && stateValue == "tn" && (
+        {filter === "2020" && stateValue === "tn" && (
           <GeoJSON data={tn2020.features} style={district2020} />
         )}
-        {filter == "2022" && stateValue == "tn" && (
+        {filter === "2022" && stateValue === "tn" && (
           <GeoJSON data={tn2022.features} style={colorDistrict} />
         )}
       </MapContainer>
