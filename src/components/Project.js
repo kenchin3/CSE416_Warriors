@@ -3,7 +3,9 @@ import Map from "./Map.js";
 import Header from "./Header.js";
 import Data from "./Data.js";
 import Grid from "@mui/material/Grid";
+import Ensemble from "./Ensemble.js";
 import Accordion from "@mui/material/Accordion";
+import { tab } from "@testing-library/user-event/dist/tab.js";
 
 function Project() {
   const [tabValue, setTabValue] = React.useState(0);
@@ -33,8 +35,8 @@ function Project() {
               setStateValue={setStateValue}
               stateValue={stateValue}
               tabValue={tabValue}
-              district = {district}
-              setDistrict = {setDistrict}
+              district={district}
+              setDistrict={setDistrict}
             />
           </Grid>
           <Grid item xs={6} md={6}>
@@ -44,6 +46,12 @@ function Project() {
       ) : (
         <span />
       )}
+      {tabValue === 0 &&
+        (
+          <Ensemble stateValue={stateValue}
+            setStateValue={setStateValue} />
+        )
+      }
     </div>
   );
 }
