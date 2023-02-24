@@ -117,27 +117,29 @@ function Data({
         </Paper>
 
         <Accordion className="accordion">
-          <AccordionSummary
-          // expandIcon={<ExpandMoreIcon />}
-          >
+          <AccordionSummary expandIcon={<ExpandMoreIcon />}>
             <Typography>Incumbent Information</Typography>
           </AccordionSummary>
           <AccordionDetails>
             <Typography component="span">
-              <IncumbentTable stateValue={stateValue} district={district} setDistrict={setDistrict} />
+              <IncumbentTable
+                stateValue={stateValue}
+                district={district}
+                setDistrict={setDistrict}
+              />
             </Typography>
           </AccordionDetails>
         </Accordion>
 
-        {/* <Accordion className="accordion">
+        <Accordion className="accordion">
           <AccordionSummary expandIcon={<ExpandMoreIcon />}>
             <Typography>Summary Information</Typography>
           </AccordionSummary>
           <AccordionDetails>
+            <SeatGraph stateValue={stateValue} />
             <span className="summaryInformation">Number of Districts:</span>
           </AccordionDetails>
-        </Accordion> */}
-        <SeatGraph stateValue={stateValue}/>
+        </Accordion>
       </div>
     </>
   );
