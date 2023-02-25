@@ -18,6 +18,10 @@ import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import InputLabel from "@mui/material/InputLabel";
 import SeatGraph from "./SeatGraph";
+import React from "react";
+import okIncumbent from "./../data/okIncumbent.json";
+import tnIncumbent from "./../data/tnIncumbent.json";
+import paIncumbent from "./../data/paIncumbent.json";
 
 function Data({
   filter,
@@ -31,8 +35,39 @@ function Data({
   district,
   setDistrict,
 }) {
+  const [rowSize, setRowSize] = React.useState(0);
+  const [incumbentData, setIncumbentData] = React.useState([]);
+
+  React.useEffect(() => {
+    let rowLength = 0;
+    switch (stateValue) {
+      case "":
+        setIncumbentData([]);
+      case "pa":
+        setIncumbentData(paIncumbent.data);
+        incumbentData.map((row) => rowLength++);
+        setRowSize(rowLength);
+        //console.log(rowSize);
+        break;
+      case "tn":
+        setIncumbentData(tnIncumbent.data);
+        incumbentData.map((row) => rowLength++);
+        setRowSize(rowLength);
+        //console.log(rowSize);
+        break;
+      case "ok":
+        setIncumbentData(okIncumbent.data);
+        incumbentData.map((row) => rowLength++);
+        setRowSize(rowLength);
+        //console.log(rowSize);
+        break;
+      default:
+        break;
+    }
+  });
+
   const handleChange = (event) => {
-    // console.log(event.target.value);
+    // //console.log(event.target.value);
     setFilter(event.target.value);
   };
 
@@ -52,24 +87,6 @@ function Data({
               displayEmpty
               value={stateValue}
               onChange={handleStateChange}
-              // sx={{
-              //   color: "black",
-              //   ".MuiOutlinedInput-notchedOutline": {
-              //     borderColor: "rgba(228, 219, 233, 0.25)",
-              //   },
-              //   "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
-              //     borderColor: "rgba(228, 219, 233, 0.25)",
-              //   },
-              //   "&.Mui-focused .MuiSvgIcon-root ": {
-              //     fill: "black",
-              //   },
-              //   "&:hover .MuiSvgIcon-root ": {
-              //     fill: "rgba(228, 219, 233, 0.25)",
-              //   },
-              //   ".MuiSvgIcon-root ": {
-              //     fill: "rgba(228, 219, 233, 0.25)",
-              //   },
-              // }}
             >
               <MenuItem value={stateValue}>
                 <em>Select State</em>
@@ -126,6 +143,7 @@ function Data({
                 stateValue={stateValue}
                 district={district}
                 setDistrict={setDistrict}
+                incumbentData={incumbentData}
               />
             </Typography>
           </AccordionDetails>
@@ -137,7 +155,9 @@ function Data({
           </AccordionSummary>
           <AccordionDetails>
             <SeatGraph stateValue={stateValue} />
-            <span className="summaryInformation">Number of Districts:</span>
+            <span className="summaryInformation">
+              Number of Districts: {rowSize}
+            </span>
           </AccordionDetails>
         </Accordion>
       </div>
@@ -146,5 +166,3 @@ function Data({
 }
 
 export default Data;
-
-// import other icon

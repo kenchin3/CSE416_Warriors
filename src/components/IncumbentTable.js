@@ -7,61 +7,14 @@ import TablePagination from "@material-ui/core/TablePagination";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import okIncumbent from "./../data/okIncumbent.json";
-import tnIncumbent from "./../data/tnIncumbent.json";
-import paIncumbent from "./../data/paIncumbent.json";
 import DistrictData from "./DistrictData";
 
-function IncumbentTable({ stateValue, district, setDistrict }) {
-  const [incumbentData, setIncumbentData] = React.useState([]);
-  const [rowsPerPage, setRowsPerPage] = React.useState(2);
-  const [rowSize, setRowSize] = React.useState(0);
-  const [page, setPage] = React.useState(0);
-
-  const handleChangePage = (event, newPage) => {
-    setPage(newPage);
-  };
-
-  const handleChangeRowsPerPage = (event) => {
-    setRowsPerPage(+event.target.value);
-    setPage(0);
-  };
-
-  React.useEffect(() => {
-    let rowLength = 0;
-    switch (stateValue) {
-      case "":
-        setIncumbentData([]);
-      case "pa":
-        setIncumbentData(paIncumbent.data);
-        incumbentData.map((row) => rowLength++);
-        setRowSize(rowLength);
-        //console.log(rowLength);
-        break;
-
-      case "tn":
-        setIncumbentData(tnIncumbent.data);
-        incumbentData.map((row) => rowLength++);
-        setRowSize(rowLength);
-        //console.log(rowLength);
-        break;
-
-      case "ok":
-        setIncumbentData(okIncumbent.data);
-        incumbentData.map((row) => rowLength++);
-        setRowSize(rowLength);
-        //console.log(rowLength);
-        break;
-
-      default:
-        break;
-    }
-  });
-
+function IncumbentTable({ stateValue, district, setDistrict, incumbentData }) {
   const handleClick = (event) => {
     console.log(event.target.innerText);
     setDistrict(event.target.innerText - 1);
   };
+
   // function makeData() {
   //   let arr = [0];
   //   // incumbentData.forEach(element => {
@@ -138,15 +91,6 @@ function IncumbentTable({ stateValue, district, setDistrict }) {
           </TableBody>
         </Table>
       </TableContainer>
-      <TablePagination
-        rowsPerPageOptions={[2, 4, 6]}
-        component="div"
-        count={rowSize}
-        rowsPerPage={rowsPerPage}
-        page={page}
-        onChangePage={handleChangePage}
-        onChangeRowsPerPage={handleChangeRowsPerPage}
-      />
 
       <DistrictData
         district={district}

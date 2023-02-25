@@ -2,16 +2,26 @@ import React from "react";
 import okIncumbent from "./../data/okIncumbent.json";
 import tnIncumbent from "./../data/tnIncumbent.json";
 import paIncumbent from "./../data/paIncumbent.json";
-import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import {
+  BarChart,
+  Bar,
+  Cell,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ResponsiveContainer,
+} from "recharts";
 
 // class CustomizedLabel extends React.Component {
 //   render () {
 //     const {x, y, fill, value} = this.props;
-//    	return <text 
-//                x={x} 
-//                y={y+40} 
+//    	return <text
+//                x={x}
+//                y={y+40}
 
-//                fontSize='16' 
+//                fontSize='16'
 //                fontFamily='sans-serif'
 //                fill= "blue"
 //                textAnchor="start">{value}</text>
@@ -25,13 +35,15 @@ function SeatGraph({ stateValue }) {
   //   {"name":"Open","value":0, "color": "grey"}]);
 
   function getData() {
-    let incumbentData = {}
+    let incumbentData = {};
 
     switch (stateValue) {
       case "":
-        return [{ "name": "Democrat", "value": 0, "color": "blue" },
-        { "name": "Republican", "value": 0, "color": "red" },
-        { "name": "Open", "value": 0, "color": "grey" }];
+        return [
+          { name: "Democrat", value: 0, color: "blue" },
+          { name: "Republican", value: 0, color: "red" },
+          { name: "Open", value: 0, color: "grey" },
+        ];
       case "pa":
         incumbentData = paIncumbent.data;
         break;
@@ -43,49 +55,49 @@ function SeatGraph({ stateValue }) {
         break;
     }
     let arr = [0, 0, 0];
-    incumbentData.forEach(element => {
+    incumbentData.forEach((element) => {
       if (element.Win == "Open") {
-        arr[2] += 1
+        arr[2] += 1;
+      } else if (element.Party == "Rep") {
+        arr[1] += 1;
+      } else {
+        arr[0] += 1;
       }
-      else if (element.Party == "Rep") {
-        arr[1] += 1
-      }
-      else {
-        arr[0] += 1
-      }
-    })
-    return (
-      [{ "name": "Democrat", "value": arr[0], "fill": "blue" },
-      { "name": "Republican", "value": arr[1], "fill": "red" },
-      { "name": "Open", "value": arr[2], "fill": "grey" }]);
-
-  };
+    });
+    return [
+      { name: "Democrat", value: arr[0], fill: "blue" },
+      { name: "Republican", value: arr[1], fill: "red" },
+      { name: "Open", value: arr[2], fill: "grey" },
+    ];
+  }
 
   return (
     <>
-      {/* <h1>
-            kdhjaslsdhfjklashdkfhajsldkf
-          </h1> */}
       <ResponsiveContainer width="100%" height={200}>
         <BarChart
           data={getData()}
-          layout="vertical" barCategoryGap={3}
-          margin={{ top: 0, right: 50, left: 0, bottom: 0 }}>
+          layout="vertical"
+          barCategoryGap={3}
+          margin={{ top: 0, right: 50, left: 0, bottom: 0 }}
+        >
           <XAxis type="number" />
-          <YAxis type="category" width={150} padding={{ left: 30 }} dataKey="name" />
+          <YAxis
+            type="category"
+            width={150}
+            padding={{ left: 30 }}
+            dataKey="name"
+          />
 
           <Bar
             dataKey="value"
             fill="fill"
             radius={[0, 10, 10, 0]}
-          // label={<CustomizedLabel />}
+            // label={<CustomizedLabel />}
           />
         </BarChart>
       </ResponsiveContainer>
     </>
-
   );
 }
-
 
 export default SeatGraph;
