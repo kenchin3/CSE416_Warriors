@@ -118,9 +118,15 @@ function Map({ stateValue, filter }) {
         className="markercluster-map"
         center={center(stateValue)}
         zoom={7}
+        // maxZoom={10}
+        minZoom={1}
         maxZoom={10}
         bounceAtZoomLimits={true}
-        maxBoundsViscosity={1.0}
+        maxBounds={[
+          [-100, 100],
+          [-100, 100],
+        ]}
+        maxBoundsViscosity={0}
       >
         <ChangeView
           center={center(stateValue)}
