@@ -13,6 +13,7 @@ function Ensemble({ stateValue, setStateValue }) {
     const series = [
         {
             type: 'boxPlot',
+            name: "districts",
             data: [
                 {
                     x: '1',
@@ -43,8 +44,44 @@ function Ensemble({ stateValue, setStateValue }) {
                     y: [54, 59, 66, 71, 88]
                 }
             ]
+        },
+        {
+            name: 'Democrats',
+            type: 'scatter',
+            data: [
+                {
+                    x: "1",
+                    y: 32
+                },
+                {
+                    x: "2",
+                    y: 25
+                },
+                {
+                    x: "3",
+                    y: 64
+                },
+                {
+                    x: "4",
+                    y: 27
+                },
+                {
+                    x: "5",
+                    y: 78
+                },
+                {
+                    x: "6",
+                    y: 15
+                },
+                {
+                    x: "7",
+                    y: 19
+                }
+            ]
         }
     ]
+
+
 
     const options = {
         chart: {
@@ -52,7 +89,7 @@ function Ensemble({ stateValue, setStateValue }) {
             height: 350
         },
         title: {
-            text: 'Basic BoxPlot Chart',
+            text: 'District Plan Ensembles',
             align: 'left'
         },
         plotOptions: {
@@ -62,6 +99,14 @@ function Ensemble({ stateValue, setStateValue }) {
                     lower: '#A5978B'
                 }
             }
+        },
+        legend: {
+            onItemClick: {
+                toggleDataSeries: false
+            },
+            onItemHover: {
+                highlightDataSeries: true
+            }
         }
     }
     const handleStateChange = (event) => {
@@ -70,9 +115,6 @@ function Ensemble({ stateValue, setStateValue }) {
 
     return (
         <>
-            <h1>
-                ensemble
-            </h1>
 
             <Grid container spacing={1} component="span">
                 <Grid item xs={6} md={6} component="span">
@@ -112,9 +154,7 @@ function Ensemble({ stateValue, setStateValue }) {
                     <DistrictPlanSummary />
                 </Grid>
                 <Grid item xs={6} md={6}>
-                    {/* <div id="chart"> */}
                     <ReactApexChart options={options} series={series} type="boxPlot" height={350} />
-                    {/* </div> */}
                 </Grid>
             </Grid>
 

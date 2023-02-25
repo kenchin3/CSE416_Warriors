@@ -86,21 +86,21 @@ function Map({ stateValue, filter }) {
         return {
           fillColor: "red",
           color: "black",
-          fillOpacity: 0.6,
+          fillOpacity: 0.65,
           weight: 0.8,
         };
       } else if (incumbents[district] === "Dem") {
         return {
-          fillColor: "blue",
+          fillColor: "#0015BC",
           color: "black",
-          fillOpacity: 0.6,
+          fillOpacity: 0.65,
           weight: 0.8,
         };
       } else {
         return {
           fillColor: "grey",
           color: "black",
-          fillOpacity: 0.6,
+          fillOpacity: 0.65,
           weight: 0.8,
         };
       }
