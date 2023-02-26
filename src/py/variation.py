@@ -1,6 +1,6 @@
 import json
 
-data1 = open('./../geoJSON/pa2020.json')
+data1 = open('./../data/okDistrictData.json')
 data2 = open('./../geoJSON/pa2022.json')
 # outfile = open('./../data/ok2020DistrictData.json')
 

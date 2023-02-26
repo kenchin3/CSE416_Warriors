@@ -14,25 +14,8 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-// class CustomizedLabel extends React.Component {
-//   render () {
-//     const {x, y, fill, value} = this.props;
-//    	return <text
-//                x={x}
-//                y={y+40}
 
-//                fontSize='16'
-//                fontFamily='sans-serif'
-//                fill= "blue"
-//                textAnchor="start">{value}</text>
-//   }
-// };
-
-function SeatGraph({ stateValue }) {
-  // const [data, setData] = React.useState(
-  //   [{"name":"Democrat","value": 0, "color": "blue"},
-  //   {"name":"Republican","value": 0, "color": "red"},
-  //   {"name":"Open","value":0, "color": "grey"}]);
+function SeatGraph({ stateValue, rowSize }) {
 
   function getData() {
     let incumbentData = {};
@@ -92,10 +75,13 @@ function SeatGraph({ stateValue }) {
             dataKey="value"
             fill="fill"
             radius={[0, 10, 10, 0]}
-            // label={<CustomizedLabel />}
+          // label={<CustomizedLabel />}
           />
         </BarChart>
       </ResponsiveContainer>
+      <span className="summaryInformation">
+        Number of Districts: {rowSize}
+      </span>
     </>
   );
 }

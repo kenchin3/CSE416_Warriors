@@ -14,7 +14,15 @@
             "Pop 2020": "828677",
             "Pop 2022": "791871",
             "Area 2020": "1632.170",
-            "Area 2022": "32900.699"
+            "Area 2022": "32900.699",
+            "Incumbent": {
+                "District": 1,
+                "Name": "Kevin Hern",
+                "Win": "Win",
+                "Party": "Rep",
+                "Geo Variation": "0.675",
+                "Pop Variation": "0.955"
+            }
         },
         {
             "District": 2,
@@ -30,7 +38,15 @@
             "Pop 2020": "791871",
             "Pop 2022": "798552",
             "Area 2020": "1103.297",
-            "Area 2022": "9777.448"
+            "Area 2022": "9777.448",
+            "Incumbent": {
+                "District": 2,
+                "Name": "Josh Brecheen",
+                "Win": "Win",
+                "Party": "Rep",
+                "Geo Variation": "0.657",
+                "Pop Variation": "1.008"
+            }
         },
         {
             "District": 3,
@@ -46,7 +62,15 @@
             "Pop 2020": "785191",
             "Pop 2022": "791870",
             "Area 2020": "34116.192",
-            "Area 2022": "9891.652"
+            "Area 2022": "9891.652",
+            "Incumbent": {
+                "District": 3,
+                "Name": "Frank Lucas",
+                "Win": "Win",
+                "Party": "Rep",
+                "Geo Variation": "15.863",
+                "Pop Variation": "0.960"
+            }
         },
         {
             "District": 4,
@@ -62,7 +86,15 @@
             "Pop 2020": "791871",
             "Pop 2022": "722078",
             "Area 2020": "22414.755",
-            "Area 2022": "20996.362"
+            "Area 2022": "20996.362",
+            "Incumbent": {
+                "District": 4,
+                "Name": "Tom Cole",
+                "Win": "Win",
+                "Party": "Rep",
+                "Geo Variation": "1.011",
+                "Pop Variation": "0.991"
+            }
         },
         {
             "District": 5,
@@ -78,7 +110,15 @@
             "Pop 2020": "824855",
             "Pop 2022": "791870",
             "Area 2020": "2074.038",
-            "Area 2022": "3584.012"
+            "Area 2022": "3584.012",
+            "Incumbent": {
+                "District": 5,
+                "Name": "Stephanie Bice",
+                "Win": "Win",
+                "Party": "Rep",
+                "Geo Variation": "0.170",
+                "Pop Variation": "1.096"
+            }
         }
     ]
 }

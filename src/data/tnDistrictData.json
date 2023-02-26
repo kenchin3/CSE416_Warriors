@@ -5,90 +5,144 @@
             "Winner": "Diana Harshbarger",
             "Geo Variation": "",
             "Pop Variation": "",
-            "Pop 2020": "772206",
-            "Pop 2022": "",
-            "Area 2020": "",
-            "Area 2022": ""
+            "Pop 2020": "705123",
+            "Pop 2022": "772206",
+            "Area 2020": "4141.92",
+            "Area 2022": "4475.068",
+            "Incumbent": {
+                "District": 1,
+                "Name": "Diana Harshbarger",
+                "Win": "Win",
+                "Party": "Rep"
+            }
         },
         {
             "District": 2,
             "Winner": "Tim Burchett",
             "Geo Variation": "",
             "Pop Variation": "",
-            "Pop 2020": "783395",
-            "Pop 2022": "",
-            "Area 2020": "",
-            "Area 2022": ""
+            "Pop 2020": "705123",
+            "Pop 2022": "783395",
+            "Area 2020": "2320.68",
+            "Area 2022": "2690.451",
+            "Incumbent": {
+                "District": 2,
+                "Name": "Tim Burchett",
+                "Win": "Win",
+                "Party": "Rep"
+            }
         },
         {
             "District": 3,
             "Winner": "Charles J. Fleischmann",
             "Geo Variation": "",
             "Pop Variation": "",
-            "Pop 2020": "776693",
-            "Pop 2022": "",
-            "Area 2020": "",
-            "Area 2022": ""
+            "Pop 2020": "705122",
+            "Pop 2022": "776693",
+            "Area 2020": "4570.32",
+            "Area 2022": "4075.389",
+            "Incumbent": {
+                "District": 3,
+                "Name": "Charles J. Fleischmann",
+                "Win": "Win",
+                "Party": "Rep"
+            }
         },
         {
             "District": 4,
             "Winner": "Scott DesJarlais",
             "Geo Variation": "",
             "Pop Variation": "",
-            "Pop 2020": "781570",
-            "Pop 2022": "",
-            "Area 2020": "",
-            "Area 2022": ""
+            "Pop 2020": "705123",
+            "Pop 2022": "781570",
+            "Area 2020": "5984.84",
+            "Area 2022": "6582.199",
+            "Incumbent": {
+                "District": 4,
+                "Name": "Scott DesJarlais",
+                "Win": "Win",
+                "Party": "Rep"
+            }
         },
         {
             "District": 5,
             "Winner": "Jim Cooper",
             "Geo Variation": "",
             "Pop Variation": "",
-            "Pop 2020": "775588",
-            "Pop 2022": "",
-            "Area 2020": "",
-            "Area 2022": ""
+            "Pop 2020": "705123",
+            "Pop 2022": "775588",
+            "Area 2020": "1248.57",
+            "Area 2022": "2082.419",
+            "Incumbent": {
+                "District": 5,
+                "Name": "Jim Cooper",
+                "Win": "No",
+                "Party": "Rep"
+            }
         },
         {
             "District": 6,
             "Winner": "John Rose",
             "Geo Variation": "",
             "Pop Variation": "",
-            "Pop 2020": "",
-            "Pop 2022": "",
-            "Area 2020": "",
-            "Area 2022": ""
+            "Pop 2020": "705123",
+            "Pop 2022": "784694",
+            "Area 2020": "6474.21",
+            "Area 2022": "6056.141",
+            "Incumbent": {
+                "District": 6,
+                "Name": "John Rose",
+                "Win": "Win",
+                "Party": "Rep"
+            }
         },
         {
             "District": 7,
             "Winner": "Mark Green",
             "Geo Variation": "",
             "Pop Variation": "",
-            "Pop 2020": "784694",
-            "Pop 2022": "",
-            "Area 2020": "",
-            "Area 2022": ""
+            "Pop 2020": "705123",
+            "Pop 2022": "784694",
+            "Area 2020": "9160.44",
+            "Area 2022": "6046.995",
+            "Incumbent": {
+                "District": 7,
+                "Name": "Mark Green",
+                "Win": "Win",
+                "Party": "Rep"
+            }
         },
         {
             "District": 8,
             "Winner": "David Kustoff",
             "Geo Variation": "",
             "Pop Variation": "",
-            "Pop 2020": "764865",
-            "Pop 2022": "",
-            "Area 2020": "",
-            "Area 2022": ""
+            "Pop 2020": "705122",
+            "Pop 2022": "764865",
+            "Area 2020": "6850.53",
+            "Area 2022": "9399.594",
+            "Incumbent": {
+                "District": 8,
+                "Name": "David Kustoff",
+                "Win": "Win",
+                "Party": "Rep"
+            }
         },
         {
             "District": 9,
             "Winner": "Steve Cohene",
             "Geo Variation": "",
             "Pop Variation": "",
-            "Pop 2020": "767682",
-            "Pop 2022": "",
-            "Area 2020": "",
-            "Area 2022": ""
+            "Pop 2020": "705123",
+            "Pop 2022": "767682",
+            "Area 2020": "483.39",
+            "Area 2022": "810.385",
+            "Incumbent": {
+                "District": 9,
+                "Name": "Steve Cohen",
+                "Win": "Win",
+                "Party": "Dem"
+            }
         }
     ]
 }

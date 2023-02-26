@@ -15,7 +15,7 @@ function IncumbentTable({ stateValue, district, setDistrict, incumbentData }) {
     setDistrict(event.target.innerText - 1);
   };
 
- 
+
   return (
     <>
       <TableContainer component={Paper}>
@@ -40,17 +40,17 @@ function IncumbentTable({ stateValue, district, setDistrict, incumbentData }) {
                   setDistrict(row.District - 1);
                 }}
                 // classes={{ hover: classes.hover, selected: classes.selected }}
-                className= "districtRow"
-                style={{backgroundColor: (row.District-1 == district) ? 'grey': 'white'}}
+                className="districtRow"
+                style={{ backgroundColor: (row.District - 1 == district) ? 'grey' : 'white' }}
               >
                 <TableCell component="th" scope="row" >
                   {row.District}
                 </TableCell>
-                <TableCell align="right">{row.Name}</TableCell>
-                <TableCell align="right">{row.Party}</TableCell>
-                <TableCell align="right">{row.Win}</TableCell>
-                <TableCell align="right">{row["Pop Variation"]}</TableCell>
-                <TableCell align="right">{row["Geo Variation"]}</TableCell>
+                <TableCell align="right">{row.Incumbent.Name}</TableCell>
+                <TableCell align="right">{row.Incumbent.Party}</TableCell>
+                <TableCell align="right">{row.Incumbent.Win}</TableCell>
+                <TableCell align="right">{(parseInt(row["Pop 2022"]) / parseInt(row["Pop 2020"])).toFixed(3)}</TableCell>
+                <TableCell align="right">{(parseInt(row["Area 2022"]) / parseInt(row["Area 2020"])).toFixed(3)}</TableCell>
               </TableRow>
             ))}
           </TableBody>

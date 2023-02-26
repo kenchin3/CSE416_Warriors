@@ -19,9 +19,9 @@ import MenuItem from "@mui/material/MenuItem";
 import InputLabel from "@mui/material/InputLabel";
 import SeatGraph from "./SeatGraph";
 import React from "react";
-import okIncumbent from "./../data/okIncumbent.json";
-import tnIncumbent from "./../data/tnIncumbent.json";
-import paIncumbent from "./../data/paIncumbent.json";
+import okDistrictData from "./../data/okDistrictData.json";
+import paDistrictData from "./../data/paDistrictData.json"
+import tnDistrictData from "./../data/tnDistrictData.json"
 
 function Data({
   filter,
@@ -44,19 +44,19 @@ function Data({
       case "":
         setIncumbentData([]);
       case "pa":
-        setIncumbentData(paIncumbent.data);
+        setIncumbentData(paDistrictData.data);
         incumbentData.map((row) => rowLength++);
         setRowSize(rowLength);
         //console.log(rowSize);
         break;
       case "tn":
-        setIncumbentData(tnIncumbent.data);
+        setIncumbentData(tnDistrictData.data);
         incumbentData.map((row) => rowLength++);
         setRowSize(rowLength);
         //console.log(rowSize);
         break;
       case "ok":
-        setIncumbentData(okIncumbent.data);
+        setIncumbentData(okDistrictData.data);
         incumbentData.map((row) => rowLength++);
         setRowSize(rowLength);
         //console.log(rowSize);
@@ -139,7 +139,7 @@ function Data({
           </AccordionSummary>
           <AccordionDetails>
             <Typography component="span">
-            {stateValue && <IncumbentTable
+              {stateValue && <IncumbentTable
                 stateValue={stateValue}
                 district={district}
                 setDistrict={setDistrict}
@@ -154,10 +154,8 @@ function Data({
             <Typography>Summary Information</Typography>
           </AccordionSummary>
           <AccordionDetails>
-            <SeatGraph stateValue={stateValue} />
-            <span className="summaryInformation">
-              Number of Districts: {rowSize}
-            </span>
+            {stateValue && <SeatGraph stateValue={stateValue} rowSize={rowSize} />
+            }
           </AccordionDetails>
         </Accordion>
       </div>

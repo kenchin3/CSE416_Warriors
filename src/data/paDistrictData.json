@@ -5,172 +5,272 @@
             "Winner": "Brian Fitzpatrick",
             "Geo Variation": "",
             "Pop Variation": "",
-            "Pop 2020": "",
-            "Pop 2022": "",
+            "Pop 2020": "763834",
+            "Pop 2022": "764866",
             "Area 2020": "655.201",
-            "Area 2022": ""
+            "Area 2022": "67.542",
+            "Incumbent": {
+                "District": 1,
+                "Name": "Brian Fitzpatrick",
+                "Win": "Win",
+                "Party": "Rep"
+            }
         },
         {
             "District": 2,
             "Winner": "Brendan Boyle",
             "Geo Variation": "",
             "Pop Variation": "",
-            "Pop 2020": "",
-            "Pop 2022": "",
+            "Pop 2020": "767191",
+            "Pop 2022": "764,865",
             "Area 2020": "65.945",
-            "Area 2022": ""
+            "Area 2022": "2842.798",
+            "Incumbent": {
+                "District": 2,
+                "Name": "Brendan Boyle ",
+                "Win": "Win",
+                "Party": "Dem"
+            }
         },
         {
             "District": 3,
             "Winner": "Dwight Evans",
             "Geo Variation": "",
             "Pop Variation": "",
-            "Pop 2020": "",
-            "Pop 2022": "",
+            "Pop 2020": "741180",
+            "Pop 2022": "764864",
             "Area 2020": "480.801",
-            "Area 2022": ""
+            "Area 2022": "1185.651",
+            "Incumbent": {
+                "District": 3,
+                "Name": "Dwight Evans",
+                "Win": "Win",
+                "Party": "Dem"
+            }
         },
         {
             "District": 4,
             "Winner": "Madeleine Dean",
             "Geo Variation": "",
             "Pop Variation": "",
-            "Pop 2020": "",
-            "Pop 2022": "",
+            "Pop 2020": "771749",
+            "Pop 2022": "764865",
             "Area 2020": "221.704",
-            "Area 2022": ""
+            "Area 2022": "54.859",
+            "Incumbent": {
+                "District": 4,
+                "Name": "Madeleine Dean",
+                "Win": "Win",
+                "Party": "Dem"
+            }
         },
         {
             "District": 5,
             "Winner": "Mary Gay Scanlon",
             "Geo Variation": "",
             "Pop Variation": "",
-            "Pop 2020": "",
-            "Pop 2022": "",
+            "Pop 2020": "754121",
+            "Pop 2022": "764866",
             "Area 2020": "922.566",
-            "Area 2022": ""
+            "Area 2022": "718.911",
+            "Incumbent": {
+                "District": 5,
+                "Name": "Mary Gay Scanlon",
+                "Win": "Win",
+                "Party": "Dem"
+            }
         },
         {
             "District": 6,
             "Winner": "Chrissy Houlahan",
             "Geo Variation": "",
             "Pop Variation": "",
-            "Pop 2020": "",
-            "Pop 2022": "",
+            "Pop 2020": "768151",
+            "Pop 2022": "764864",
             "Area 2020": "867.563",
-            "Area 2022": ""
+            "Area 2022": "734.363",
+            "Incumbent": {
+                "District": 6,
+                "Name": "Chrissy Houlahan",
+                "Win": "Win",
+                "Party": "Dem"
+            }
         },
         {
             "District": 7,
             "Winner": "Susan Wild",
             "Geo Variation": "",
             "Pop Variation": "",
-            "Pop 2020": "",
-            "Pop 2022": "",
+            "Pop 2020": "771318",
+            "Pop 2022": "764865",
             "Area 2020": "1117.711",
-            "Area 2022": ""
+            "Area 2022": "239.865",
+            "Incumbent": {
+                "District": 7,
+                "Name": "Susan Wild",
+                "Win": "Win",
+                "Party": "Dem"
+            }
         },
         {
             "District": 8,
             "Winner": "Matt Cartwright",
             "Geo Variation": "",
             "Pop Variation": "",
-            "Pop 2020": "",
-            "Pop 2022": "",
+            "Pop 2020": "763499",
+            "Pop 2022": "764866",
             "Area 2020": "1545.007",
-            "Area 2022": ""
+            "Area 2022": "936.838",
+            "Incumbent": {
+                "District": 8,
+                "Name": "Matt Cartwright",
+                "Win": "Win",
+                "Party": "Dem"
+            }
         },
         {
             "District": 9,
             "Winner": "Dan Meuser",
             "Geo Variation": "",
             "Pop Variation": "",
-            "Pop 2020": "",
-            "Pop 2022": "",
+            "Pop 2020": "766968",
+            "Pop 2022": "764864",
             "Area 2020": "9975.768",
-            "Area 2022": ""
+            "Area 2022": "6158.914",
+            "Incumbent": {
+                "District": 9,
+                "Name": "Dan Meuser",
+                "Win": "Win",
+                "Party": "Rep"
+            }
         },
         {
             "District": 10,
             "Winner": "Scott Perry",
             "Geo Variation": "",
             "Pop Variation": "",
-            "Pop 2020": "",
-            "Pop 2022": "",
+            "Pop 2020": "764361",
+            "Pop 2022": "764864",
             "Area 2020": "6049.108",
-            "Area 2022": ""
+            "Area 2022": "1546.909",
+            "Incumbent": {
+                "District": 10,
+                "Name": "Scott Perry",
+                "Win": "Win",
+                "Party": "Rep"
+            }
         },
         {
             "District": 11,
             "Winner": "Lloyd Smucker",
             "Geo Variation": "",
             "Pop Variation": "",
-            "Pop 2020": "",
-            "Pop 2022": "",
+            "Pop 2020": "772986",
+            "Pop 2022": "764864",
             "Area 2020": "2864.952",
-            "Area 2022": ""
+            "Area 2022": "1295.685",
+            "Incumbent": {
+                "District": 11,
+                "Name": "Lloyd Smucker",
+                "Win": "Win",
+                "Party": "Rep"
+            }
         },
         {
             "District": 12,
             "Winner": "Summer Lee",
             "Geo Variation": "",
             "Pop Variation": "",
-            "Pop 2020": "",
-            "Pop 2022": "",
+            "Pop 2020": "756600",
+            "Pop 2022": "764864",
             "Area 2020": "9808.608",
-            "Area 2022": ""
+            "Area 2022": "910.015",
+            "Incumbent": {
+                "District": 12,
+                "Name": "N/a",
+                "Win": "Open",
+                "Party": "N/a"
+            }
         },
         {
             "District": 13,
             "Winner": "John Joyce",
             "Geo Variation": "",
             "Pop Variation": "",
-            "Pop 2020": "",
-            "Pop 2022": "",
+            "Pop 2020": "762589",
+            "Pop 2022": "764864",
             "Area 2020": "4110.076",
-            "Area 2022": ""
+            "Area 2022": "434.221",
+            "Incumbent": {
+                "District": 13,
+                "Name": "John Joyce",
+                "Win": "Win",
+                "Party": "Rep"
+            }
         },
         {
             "District": 14,
             "Winner": "Guy Reschenthaler",
             "Geo Variation": "",
             "Pop Variation": "",
-            "Pop 2020": "",
-            "Pop 2022": "",
+            "Pop 2020": "761114",
+            "Pop 2022": "764866",
             "Area 2020": "897.920",
-            "Area 2022": ""
+            "Area 2022": "4814.387",
+            "Incumbent": {
+                "District": 14,
+                "Name": "Guy Reschenthaler",
+                "Win": "Win",
+                "Party": "Rep"
+            }
         },
         {
             "District": 15,
             "Winner": "Glenn Thompson",
             "Geo Variation": "",
             "Pop Variation": "",
-            "Pop 2020": "",
-            "Pop 2022": "",
+            "Pop 2020": "758343",
+            "Pop 2022": "764864",
             "Area 2020": "299.887",
-            "Area 2022": ""
+            "Area 2022": "6410.728",
+            "Incumbent": {
+                "District": 15,
+                "Name": "Glenn Thompson",
+                "Win": "Win",
+                "Party": "Rep"
+            }
         },
         {
             "District": 16,
             "Winner": "Mike Kelly",
             "Geo Variation": "",
             "Pop Variation": "",
-            "Pop 2020": "",
-            "Pop 2022": "",
+            "Pop 2020": "763417",
+            "Pop 2022": "764865",
             "Area 2020": "2731.955",
-            "Area 2022": ""
+            "Area 2022": "4652.711",
+            "Incumbent": {
+                "District": 16,
+                "Name": "Mike Kelly",
+                "Win": "Win",
+                "Party": "Rep"
+            }
         },
         {
             "District": 17,
             "Winner": "Conor Lamb",
             "Geo Variation": "",
             "Pop Variation": "",
-            "Pop 2020": "",
-            "Pop 2022": "",
+            "Pop 2020": "756635",
+            "Pop 2022": "764864",
             "Area 2020": "3326.210",
-            "Area 2022": ""
+            "Area 2022": "13094.271",
+            "Incumbent": {
+                "District": 17,
+                "Name": "Conor Lamb",
+                "Win": "Open",
+                "Party": "Dem"
+            }
         }
-
-
     ]
 }
