@@ -139,12 +139,12 @@ function Data({
           </AccordionSummary>
           <AccordionDetails>
             <Typography component="span">
-              <IncumbentTable
+            {stateValue && <IncumbentTable
                 stateValue={stateValue}
                 district={district}
                 setDistrict={setDistrict}
                 incumbentData={incumbentData}
-              />
+              />}
             </Typography>
           </AccordionDetails>
         </Accordion>

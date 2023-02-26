@@ -147,7 +147,7 @@ function Ensemble({ stateValue, setStateValue }) {
                                 // onChange={ }
                                 >
                                     <span className="paper2Header">Comparison:</span>
-                                    <span className="paper2Options">
+                                    <span className="paper2Options" >
                                         <FormControlLabel
                                             className="formControlLabel"
                                             value="Geometric Variation"
@@ -165,22 +165,7 @@ function Ensemble({ stateValue, setStateValue }) {
                             </span>
                         </FormControl>
                     </Paper>
-                    <FormControl className="form" size="small">
-                        <Select
-                            labelId="inputLabel"
-                            className="select"
-                            displayEmpty
-                            value={stateValue}
-                            onChange={handleStateChange}
-                        >
-                            <MenuItem value={stateValue}>
-                                <em>Select State</em>
-                            </MenuItem>
-                            <MenuItem value={"pa"}>Pennsylvania</MenuItem>
-                            <MenuItem value={"tn"}>Tennessee</MenuItem>
-                            <MenuItem value={"ok"}>Oklahoma</MenuItem>
-                        </Select>
-                    </FormControl>
+                   
 
                     <EnsembleSummary />
                     <Typography variant="p">Available SeaWulf Plans</Typography>

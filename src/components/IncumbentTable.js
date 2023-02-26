@@ -15,48 +15,7 @@ function IncumbentTable({ stateValue, district, setDistrict, incumbentData }) {
     setDistrict(event.target.innerText - 1);
   };
 
-  // function makeData() {
-  //   let arr = [0];
-  //   // incumbentData.forEach(element => {
-  //   //     if (element.Party == "Rep") {
-  //   //         arr[0] += 1
-  //   //     }
-  //   //     else if (element.Party = "Dem") {
-  //   //         arr[1] += 1
-  //   //     }
-  //   // });
-  //   // let
-  //   // console.log(arr)
-  //   return arr;
-  // }
-  // const series = [
-  //   {
-  //     data: makeData(),
-  //   },
-  // ];
-
-  // const options = {
-  //   chart: {
-  //     type: "bar",
-  //     height: 350,
-  //   },
-  //   plotOptions: {
-  //     bar: {
-  //       borderRadius: 4,
-  //       horizontal: true,
-  //     },
-  //   },
-  //   dataLabels: {
-  //     enabled: true,
-  //     formatter: function (val, opt) {
-  //       return val !== 0 ? val : "";
-  //     },
-  //   },
-  //   xaxis: {
-  //     categories: ["Repblican", "Democrats"],
-  //   },
-  // };
-
+ 
   return (
     <>
       <TableContainer component={Paper}>
@@ -77,8 +36,14 @@ function IncumbentTable({ stateValue, district, setDistrict, incumbentData }) {
                 key={row.District}
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                 district={row.District}
+                onClick={() => {
+                  setDistrict(row.District - 1);
+                }}
+                // classes={{ hover: classes.hover, selected: classes.selected }}
+                className= "districtRow"
+                style={{backgroundColor: (row.District-1 == district) ? 'grey': 'white'}}
               >
-                <TableCell component="th" scope="row" onClick={handleClick}>
+                <TableCell component="th" scope="row" >
                   {row.District}
                 </TableCell>
                 <TableCell align="right">{row.Name}</TableCell>
