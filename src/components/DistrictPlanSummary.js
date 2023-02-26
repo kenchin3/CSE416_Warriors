@@ -15,7 +15,7 @@ function DistrictPlanSummary() {
                     <TableRow>
                         <TableCell align="left">Incumbent</TableCell>
                         <TableCell align="left">Party</TableCell>
-                        <TableCell align="left">Incumbent District Var</TableCell>
+                        <TableCell align="left">Incumbent District Variation</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>

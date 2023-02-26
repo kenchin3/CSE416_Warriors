@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactApexChart from 'react-apexcharts';
-import { FormControl, MenuItem, Select, Grid } from '@mui/material';
+import { FormControl, MenuItem, Select, Grid, Typography, Paper, RadioGroup, FormControlLabel, Radio } from '@mui/material';
 import EnsembleSummary from './EnsembleSummary';
 import DistrictPlanSummary from './DistrictPlanSummary';
 
@@ -46,7 +46,7 @@ function Ensemble({ stateValue, setStateValue }) {
             ]
         },
         {
-            name: 'Democrats',
+            name: '2022 Incumbents',
             type: 'scatter',
             data: [
                 {
@@ -118,6 +118,53 @@ function Ensemble({ stateValue, setStateValue }) {
 
             <Grid container spacing={1} component="span">
                 <Grid item xs={6} md={6} component="span">
+                    <Paper className="paper1" elevation={10}>
+                        <FormControl className="form" size="small">
+                            <Select
+                                labelId="inputLabel"
+                                className="select"
+                                displayEmpty
+                                value={stateValue}
+                            // onChange={ }
+                            >
+                                <MenuItem value={stateValue}>
+                                    <em>Select State</em>
+                                </MenuItem>
+                                <MenuItem value={"pa"}>Pennsylvania</MenuItem>
+                                <MenuItem value={"tn"}>Tennessee</MenuItem>
+                                <MenuItem value={"ok"}>Oklahoma</MenuItem>
+                            </Select>
+                        </FormControl>
+                    </Paper>
+
+                    <Paper className="paper2" elevation={10}>
+                        <FormControl className="paper2Content">
+                            <span className="paper22">
+                                <RadioGroup
+                                    defaultValue="20"
+                                    name="radio-buttons-group"
+                                    row={true}
+                                // onChange={ }
+                                >
+                                    <span className="paper2Header">Comparison:</span>
+                                    <span className="paper2Options">
+                                        <FormControlLabel
+                                            className="formControlLabel"
+                                            value="Geometric Variation"
+                                            control={<Radio />}
+                                            label="Geometric Variation"
+                                        />
+                                        <FormControlLabel
+                                            className="formControlLabel"
+                                            value="Population Variation"
+                                            control={<Radio />}
+                                            label="Population Variation"
+                                        />
+                                    </span>
+                                </RadioGroup>
+                            </span>
+                        </FormControl>
+                    </Paper>
                     <FormControl className="form" size="small">
                         <Select
                             labelId="inputLabel"
@@ -135,6 +182,8 @@ function Ensemble({ stateValue, setStateValue }) {
                         </Select>
                     </FormControl>
 
+                    <EnsembleSummary />
+                    <Typography variant="p">Available SeaWulf Plans</Typography>
                     <FormControl className="form" size="small">
                         <Select
                             labelId="inputLabel"
@@ -149,8 +198,6 @@ function Ensemble({ stateValue, setStateValue }) {
                             <MenuItem value={3}>Plan 3</MenuItem>
                         </Select>
                     </FormControl>
-
-                    <EnsembleSummary />
                     <DistrictPlanSummary />
                 </Grid>
                 <Grid item xs={6} md={6}>

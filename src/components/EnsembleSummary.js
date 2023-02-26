@@ -15,7 +15,6 @@ function EnsembleSummary() {
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell>District</TableCell>
               <TableCell align="right">Number of District Plans</TableCell>
               <TableCell align="right">Number of Incumbents</TableCell>
               <TableCell align="right">Incumbents predicted to win</TableCell>
@@ -28,11 +27,10 @@ function EnsembleSummary() {
               // key={row.name}
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
             >
-              <TableCell component="th" scope="row">
+              <TableCell align="right" component="th" scope="row">
                 {10}
               </TableCell>
 
-              <TableCell align="right">{10}</TableCell>
               <TableCell align="right">{10}</TableCell>
               <TableCell align="right">{3}</TableCell>
               <TableCell align="right">{0.1}</TableCell>
