@@ -27,9 +27,10 @@ function Map({ stateValue, filter }) {
   const [stateFile, setStateFile] = React.useState(null);
 
   let center = (stateValue) => {
+    console.log(stateValue);
     switch (stateValue) {
       case "":
-        return [39.8282, -98.579];
+        return [14.8282, -98.579];
       case "pa":
         return [41.166113, -77.61552];
       case "tn":
@@ -37,7 +38,7 @@ function Map({ stateValue, filter }) {
       case "ok":
         return [35.4356, -97.37];
       default:
-        return [0, 0];
+        return [14.8282, -98.579];
     }
   };
 
@@ -117,16 +118,20 @@ function Map({ stateValue, filter }) {
       <MapContainer
         className="markercluster-map"
         center={center(stateValue)}
-        zoom={7}
+        zoom={3}
         // maxZoom={10}
-        minZoom={1}
-        maxZoom={10}
-        bounceAtZoomLimits={true}
+        minZoom={3}
+        maxZoom={7}
+        // bounceAtZoomLimits={true}
+        // maxBounds={[
+        //   [20, -160],
+        //   [50, -60],
+        // ]}
         maxBounds={[
-          [-100, 100],
-          [-100, 100],
+          [20, -130],
+          [50, -60],
         ]}
-        maxBoundsViscosity={0}
+        // maxBoundsViscosity={1.0}
       >
         <ChangeView
           center={center(stateValue)}
