@@ -20,8 +20,8 @@ import InputLabel from "@mui/material/InputLabel";
 import SeatGraph from "./SeatGraph";
 import React from "react";
 import okDistrictData from "./../data/okDistrictData.json";
-import paDistrictData from "./../data/paDistrictData.json"
-import tnDistrictData from "./../data/tnDistrictData.json"
+import paDistrictData from "./../data/paDistrictData.json";
+import tnDistrictData from "./../data/tnDistrictData.json";
 
 function Data({
   filter,
@@ -102,7 +102,7 @@ function Data({
           <FormControl className="paper2Content">
             <span className="paper22">
               <RadioGroup
-                defaultValue="20"
+                defaultValue="2022"
                 name="radio-buttons-group"
                 row={true}
                 onChange={handleChange}
@@ -139,12 +139,14 @@ function Data({
           </AccordionSummary>
           <AccordionDetails>
             <Typography component="span">
-              {stateValue && <IncumbentTable
-                stateValue={stateValue}
-                district={district}
-                setDistrict={setDistrict}
-                incumbentData={incumbentData}
-              />}
+              {stateValue && (
+                <IncumbentTable
+                  stateValue={stateValue}
+                  district={district}
+                  setDistrict={setDistrict}
+                  incumbentData={incumbentData}
+                />
+              )}
             </Typography>
           </AccordionDetails>
         </Accordion>
@@ -154,8 +156,9 @@ function Data({
             <Typography>Summary Information</Typography>
           </AccordionSummary>
           <AccordionDetails>
-            {stateValue && <SeatGraph stateValue={stateValue} rowSize={rowSize} />
-            }
+            {stateValue && (
+              <SeatGraph stateValue={stateValue} rowSize={rowSize} />
+            )}
           </AccordionDetails>
         </Accordion>
       </div>
