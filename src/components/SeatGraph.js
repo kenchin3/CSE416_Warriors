@@ -14,9 +14,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-
 function SeatGraph({ stateValue, rowSize }) {
-
   function getData() {
     let incumbentData = {};
 
@@ -75,13 +73,11 @@ function SeatGraph({ stateValue, rowSize }) {
             dataKey="value"
             fill="fill"
             radius={[0, 10, 10, 0]}
-          // label={<CustomizedLabel />}
+            // label={<CustomizedLabel />}
           />
         </BarChart>
       </ResponsiveContainer>
-      <span className="summaryInformation">
-        Number of Districts: {rowSize}
-      </span>
+      <span className="summaryInformation">Number of Districts: {rowSize}</span>
     </>
   );
 }

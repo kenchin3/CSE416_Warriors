@@ -11,10 +11,9 @@ import DistrictData from "./DistrictData";
 
 function IncumbentTable({ stateValue, district, setDistrict, incumbentData }) {
   const handleClick = (event) => {
-    console.log(event.target.innerText);
+    // console.log(event.target.innerText);
     setDistrict(event.target.innerText - 1);
   };
-
 
   return (
     <>
@@ -41,16 +40,31 @@ function IncumbentTable({ stateValue, district, setDistrict, incumbentData }) {
                 }}
                 // classes={{ hover: classes.hover, selected: classes.selected }}
                 className="districtRow"
-                style={{ backgroundColor: (row.District - 1 == district) ? 'grey' : 'white' }}
+                style={{
+                  backgroundColor:
+                    district === -1
+                      ? "white"
+                      : row.District - 1 === district
+                      ? "grey"
+                      : "white",
+                }}
               >
-                <TableCell component="th" scope="row" >
+                <TableCell component="th" scope="row">
                   {row.District}
                 </TableCell>
                 <TableCell align="right">{row.Incumbent.Name}</TableCell>
                 <TableCell align="right">{row.Incumbent.Party}</TableCell>
                 <TableCell align="right">{row.Incumbent.Win}</TableCell>
-                <TableCell align="right">{(parseInt(row["Pop 2022"]) / parseInt(row["Pop 2020"])).toFixed(3)}</TableCell>
-                <TableCell align="right">{(parseInt(row["Area 2022"]) / parseInt(row["Area 2020"])).toFixed(3)}</TableCell>
+                <TableCell align="right">
+                  {(
+                    parseInt(row["Pop 2022"]) / parseInt(row["Pop 2020"])
+                  ).toFixed(3)}
+                </TableCell>
+                <TableCell align="right">
+                  {(
+                    parseInt(row["Area 2022"]) / parseInt(row["Area 2020"])
+                  ).toFixed(3)}
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>
