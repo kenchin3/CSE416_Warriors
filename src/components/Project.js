@@ -11,9 +11,11 @@ function Project() {
   const [tabValue, setTabValue] = React.useState(0);
   const [stateValue, setStateValue] = React.useState("");
   const [filter, setFilter] = React.useState("2022");
-  const [district, setDistrict] = React.useState(1);
+  const [district, setDistrict] = React.useState(-1);
 
   const { twoZero, twoTwo, random } = filter;
+
+  console.log("project " + district);
 
   return (
     <div>

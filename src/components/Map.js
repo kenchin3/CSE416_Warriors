@@ -26,8 +26,10 @@ function ChangeView({ center, zoom }) {
 function Map({ stateValue, filter, districtValue }) {
   const [stateFile, setStateFile] = React.useState(null);
 
+  console.log("map " + districtValue);
+
   let center = (stateValue) => {
-    console.log(stateValue);
+    // console.log(stateValue);
     switch (stateValue) {
       case "":
         return [14.8282, -98.579];
@@ -74,21 +76,24 @@ function Map({ stateValue, filter, districtValue }) {
         return {
           fillColor: "red",
           color: "black",
-          fillOpacity: district == districtValue ? 1.0 : 0.5,
+          fillOpacity:
+            districtValue === -1 ? 0.5 : district === districtValue ? 1.0 : 0.5,
           weight: 0.8,
         };
       } else if (incumbents[district] === "Dem") {
         return {
           fillColor: "#0015BC",
           color: "black",
-          fillOpacity: district == districtValue ? 1.0 : 0.5,
+          fillOpacity:
+            districtValue === -1 ? 0.5 : district === districtValue ? 1.0 : 0.5,
           weight: 0.8,
         };
       } else {
         return {
           fillColor: "grey",
           color: "black",
-          fillOpacity: district == districtValue ? 1.0 : 0.5,
+          fillOpacity:
+            districtValue === -1 ? 0.5 : district === districtValue ? 1.0 : 0.5,
           weight: 0.8,
         };
       }
