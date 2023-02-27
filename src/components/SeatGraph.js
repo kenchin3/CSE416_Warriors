@@ -15,9 +15,7 @@ import {
 } from "recharts";
 import { Typography } from "@mui/material";
 
-
 function SeatGraph({ stateValue, rowSize }) {
-
   function getData() {
     let incumbentData = {};
 
@@ -84,7 +82,8 @@ function SeatGraph({ stateValue, rowSize }) {
         Number of Districts: {rowSize}
       </Typography>
     </>
-  );
+  )
+
 }
 
 export default SeatGraph;

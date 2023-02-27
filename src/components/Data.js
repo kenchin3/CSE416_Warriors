@@ -73,7 +73,7 @@ function Data({
 
   const handleStateChange = (event) => {
     setStateValue(event.target.value);
-    setDistrict(0);
+    setDistrict(-1);
   };
 
   return (
