@@ -113,7 +113,7 @@ function Map({ stateValue, filter, districtValue }) {
           [20, -130],
           [50, -60],
         ]}
-        // maxBoundsViscosity={1.0}
+      // maxBoundsViscosity={1.0}
       >
         <ChangeView
           center={center(stateValue)}
@@ -123,12 +123,18 @@ function Map({ stateValue, filter, districtValue }) {
           url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         />
-        {filter === "2022" &&
-          stateValue === "" && (
-            <GeoJSON data={pa2022.features} style={colorDistrict} />
-          ) && <GeoJSON data={ok2022.features} style={colorDistrict} /> && (
-            <GeoJSON data={tn2022.features} style={colorDistrict} />
-          )}
+        {
+          (filter == "2022" && stateValue == "") &&
+          (<GeoJSON data={pa2022.features} style={district2022} />)
+        }
+        {
+          (filter == "2022" && stateValue == "") &&
+          (<GeoJSON data={ok2022.features} style={district2022} />)
+        }
+        {
+          (filter == "2022" && stateValue == "") &&
+          (<GeoJSON data={tn2022.features} style={district2022} />)
+        }
         {filter === "2020" && stateValue === "pa" && (
           <GeoJSON data={pa2020.features} style={district2020} />
         )}

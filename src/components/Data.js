@@ -88,7 +88,7 @@ function Data({
               value={stateValue}
               onChange={handleStateChange}
             >
-              <MenuItem value={stateValue}>
+              <MenuItem value={""}>
                 <em>Select State</em>
               </MenuItem>
               <MenuItem value={"pa"}>Pennsylvania</MenuItem>
@@ -132,10 +132,19 @@ function Data({
             </span>
           </FormControl>
         </Paper>
-
         <Accordion className="accordion">
           <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-            <Typography>Incumbent Information</Typography>
+            <Typography>2022 Summary Information</Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            {stateValue && (
+              <SeatGraph stateValue={stateValue} rowSize={rowSize} />
+            )}
+          </AccordionDetails>
+        </Accordion>
+        <Accordion className="accordion">
+          <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+            <Typography>2022 Incumbent Information</Typography>
           </AccordionSummary>
           <AccordionDetails>
             <Typography component="span">
@@ -151,16 +160,7 @@ function Data({
           </AccordionDetails>
         </Accordion>
 
-        <Accordion className="accordion">
-          <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-            <Typography>Summary Information</Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            {stateValue && (
-              <SeatGraph stateValue={stateValue} rowSize={rowSize} />
-            )}
-          </AccordionDetails>
-        </Accordion>
+
       </div>
     </>
   );

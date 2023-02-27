@@ -89,7 +89,7 @@ function Ensemble({ stateValue, setStateValue }) {
             height: 350
         },
         title: {
-            text: 'District Plan Ensembles',
+            text: stateValue.toUpperCase() + ' District Plan Ensembles',
             align: 'left'
         },
         plotOptions: {
@@ -125,9 +125,10 @@ function Ensemble({ stateValue, setStateValue }) {
                                 className="select"
                                 displayEmpty
                                 value={stateValue}
-                            // onChange={ }
+                                onChange={handleStateChange}
+
                             >
-                                <MenuItem value={stateValue}>
+                                <MenuItem value={""}>
                                     <em>Select State</em>
                                 </MenuItem>
                                 <MenuItem value={"pa"}>Pennsylvania</MenuItem>
@@ -165,7 +166,7 @@ function Ensemble({ stateValue, setStateValue }) {
                             </span>
                         </FormControl>
                     </Paper>
-                   
+
 
                     <EnsembleSummary />
                     <Typography variant="p">Available SeaWulf Plans</Typography>

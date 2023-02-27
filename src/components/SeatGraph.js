@@ -13,6 +13,7 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
+import { Typography } from "@mui/material";
 
 
 function SeatGraph({ stateValue, rowSize }) {
@@ -56,7 +57,7 @@ function SeatGraph({ stateValue, rowSize }) {
 
   return (
     <>
-      <ResponsiveContainer width="100%" height={200}>
+      <ResponsiveContainer width="100%" height={100}>
         <BarChart
           data={getData()}
           layout="vertical"
@@ -74,14 +75,14 @@ function SeatGraph({ stateValue, rowSize }) {
           <Bar
             dataKey="value"
             fill="fill"
-            radius={[0, 10, 10, 0]}
+            radius={[0, 3, 3, 0]}
           // label={<CustomizedLabel />}
           />
         </BarChart>
       </ResponsiveContainer>
-      <span className="summaryInformation">
+      <Typography className="summaryInformation">
         Number of Districts: {rowSize}
-      </span>
+      </Typography>
     </>
   );
 }
