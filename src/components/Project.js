@@ -10,8 +10,8 @@ import { tab } from "@testing-library/user-event/dist/tab.js";
 function Project() {
   const [tabValue, setTabValue] = React.useState(0);
   const [stateValue, setStateValue] = React.useState("");
-  const [filter, setFilter] = React.useState("");
-  const [district, setDistrict] = React.useState(1);;
+  const [filter, setFilter] = React.useState("2022");
+  const [district, setDistrict] = React.useState(1);
 
   const { twoZero, twoTwo, random } = filter;
 
@@ -40,18 +40,19 @@ function Project() {
             />
           </Grid>
           <Grid item xs={6} md={6}>
-            <Map stateValue={stateValue} filter={filter} districtValue={district} />
+            <Map
+              stateValue={stateValue}
+              filter={filter}
+              districtValue={district}
+            />
           </Grid>
         </Grid>
       ) : (
         <span />
       )}
-      {tabValue === 0 &&
-        (
-          <Ensemble stateValue={stateValue}
-            setStateValue={setStateValue} />
-        )
-      }
+      {tabValue === 0 && (
+        <Ensemble stateValue={stateValue} setStateValue={setStateValue} />
+      )}
     </div>
   );
 }
