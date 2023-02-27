@@ -23,7 +23,7 @@ function ChangeView({ center, zoom }) {
   return null;
 }
 
-function Map({ stateValue, filter }) {
+function Map({ stateValue, filter, districtValue }) {
   const [stateFile, setStateFile] = React.useState(null);
 
   let center = (stateValue) => {
@@ -65,18 +65,6 @@ function Map({ stateValue, filter }) {
         incumbents = okIncumbent;
         break;
 
-      // case "pa" && filter.twoZero:
-      //   incumbents = pa2020
-      // case "pa" && filter.twoTwo:
-      //   incumbents = pa2022
-      // case "tn" && filter.twoZero:
-      //   incumbents = tn2020
-      // case "tn" && filter.twoTwo:
-      //   incumbents = tn2022
-      // case "ok" && filter.twoZero:
-      //   incumbents = ok2020
-      // case "ok" && filter.twoTwo:
-      //   incumbents = ok2022
     }
 
     if (incumbents) {
@@ -87,31 +75,28 @@ function Map({ stateValue, filter }) {
         return {
           fillColor: "red",
           color: "black",
-          fillOpacity: 0.65,
+          fillOpacity: district == districtValue ? 1.0 : 0.5,
           weight: 0.8,
         };
       } else if (incumbents[district] === "Dem") {
         return {
           fillColor: "#0015BC",
           color: "black",
-          fillOpacity: 0.65,
+          fillOpacity: district == districtValue ? 1.0 : 0.5,
           weight: 0.8,
         };
       } else {
         return {
           fillColor: "grey",
           color: "black",
-          fillOpacity: 0.65,
+          fillOpacity: district == districtValue ? 1.0 : 0.5,
           weight: 0.8,
         };
       }
     }
   };
 
-  // fillColor: 'blue',
-  // color: 'lime'
 
-  // const { twoZero, twoTwo, random } = filter;
 
   return (
     <>
@@ -131,11 +116,11 @@ function Map({ stateValue, filter }) {
           [20, -130],
           [50, -60],
         ]}
-        // maxBoundsViscosity={1.0}
+      // maxBoundsViscosity={1.0}
       >
         <ChangeView
           center={center(stateValue)}
-          zoom={stateValue !== "" ? 7 : 4}
+          zoom={stateValue !== "" ? 6 : 4}
         />
         <TileLayer
           url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"

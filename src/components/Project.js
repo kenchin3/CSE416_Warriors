@@ -40,7 +40,7 @@ function Project() {
             />
           </Grid>
           <Grid item xs={6} md={6}>
-            <Map stateValue={stateValue} filter={filter} />
+            <Map stateValue={stateValue} filter={filter} districtValue={district} />
           </Grid>
         </Grid>
       ) : (
