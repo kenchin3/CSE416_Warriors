@@ -55,7 +55,7 @@ function SeatGraph({ stateValue, rowSize }) {
 
   return (
     <>
-      <ResponsiveContainer width="100%" height={100}>
+      <ResponsiveContainer width="100%" height={125}>
         <BarChart
           data={getData()}
           layout="vertical"
