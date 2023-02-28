@@ -88,12 +88,21 @@ function Data({
               value={stateValue}
               onChange={handleStateChange}
             >
-              <MenuItem value={""}>
-                <em>Select State</em>
+              <MenuItem className="selectState" value={""}>
+                <em>
+                  {" "}
+                  <span className="selectState">Select State</span>{" "}
+                </em>
               </MenuItem>
-              <MenuItem value={"pa"}>Pennsylvania</MenuItem>
-              <MenuItem value={"tn"}>Tennessee</MenuItem>
-              <MenuItem value={"ok"}>Oklahoma</MenuItem>
+              <MenuItem className="selectState" value={"pa"}>
+                <span className="selectState">Pennsylvania</span>
+              </MenuItem>
+              <MenuItem className="selectState" value={"tn"}>
+                <span className="selectState">Tennessee</span>
+              </MenuItem>
+              <MenuItem className="selectState" value={"ok"}>
+                <span className="selectState">Oklahoma</span>
+              </MenuItem>
             </Select>
           </FormControl>
         </Paper>
@@ -106,6 +115,7 @@ function Data({
                 name="radio-buttons-group"
                 row={true}
                 onChange={handleChange}
+                className="radioGroup"
               >
                 <span className="paper2Header">Boundary :</span>
                 <span className="paper2Options">
@@ -134,7 +144,10 @@ function Data({
         </Paper>
         <Accordion className="accordion">
           <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-            <Typography>2022 Summary Information</Typography>
+            <Typography>
+              {" "}
+              <span className="accordionHeader">2022 Summary Information</span>
+            </Typography>
           </AccordionSummary>
           <AccordionDetails>
             {stateValue && (
@@ -144,7 +157,11 @@ function Data({
         </Accordion>
         <Accordion className="accordion">
           <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-            <Typography>2022 Incumbent Information</Typography>
+            <Typography>
+              <span className="accordionHeader">
+                2022 Incumbent Information
+              </span>
+            </Typography>
           </AccordionSummary>
           <AccordionDetails>
             <Typography component="span">
@@ -159,8 +176,6 @@ function Data({
             </Typography>
           </AccordionDetails>
         </Accordion>
-
-
       </div>
     </>
   );
