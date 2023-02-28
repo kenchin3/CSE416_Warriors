@@ -38,9 +38,9 @@ function SeatGraph({ stateValue, rowSize }) {
     }
     let arr = [0, 0, 0];
     incumbentData.forEach((element) => {
-      if (element.Win == "Open") {
+      if (element.Win === "Open") {
         arr[2] += 1;
-      } else if (element.Party == "Rep") {
+      } else if (element.Party === "Rep") {
         arr[1] += 1;
       } else {
         arr[0] += 1;
@@ -55,7 +55,7 @@ function SeatGraph({ stateValue, rowSize }) {
 
   return (
     <>
-      <ResponsiveContainer width="100%" height={100}>
+      <ResponsiveContainer width="100%" height={125}>
         <BarChart
           data={getData()}
           layout="vertical"
@@ -74,7 +74,7 @@ function SeatGraph({ stateValue, rowSize }) {
             dataKey="value"
             fill="fill"
             radius={[0, 3, 3, 0]}
-          // label={<CustomizedLabel />}
+            // label={<CustomizedLabel />}
           />
         </BarChart>
       </ResponsiveContainer>
@@ -82,8 +82,7 @@ function SeatGraph({ stateValue, rowSize }) {
         Number of Districts: {rowSize}
       </Typography>
     </>
-  )
-
+  );
 }
 
 export default SeatGraph;

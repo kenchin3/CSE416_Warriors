@@ -33,11 +33,21 @@ function DistrictData({ district, setDistrict, stateValue }) {
             <TableHead>
               <TableRow>
                 <TableCell>District</TableCell>
-                <TableCell align="right">Winner</TableCell>
-                <TableCell align="right">Population 2020</TableCell>
-                <TableCell align="right">Population 2022</TableCell>
-                <TableCell align="right">Geographic Area 2020</TableCell>
-                <TableCell align="right">Geographic Area 2022</TableCell>
+                <TableCell className="tableCellHeader" align="center">
+                  Winner
+                </TableCell>
+                <TableCell className="tableCellHeader" align="center">
+                  Population 2020
+                </TableCell>
+                <TableCell className="tableCellHeader" align="center">
+                  Population 2022
+                </TableCell>
+                <TableCell className="tableCellHeader" align="center">
+                  Geographic Area 2020
+                </TableCell>
+                <TableCell className="tableCellHeader" align="center">
+                  Geographic Area 2022
+                </TableCell>
               </TableRow>
             </TableHead>
             {district !== -1 && (
@@ -46,23 +56,23 @@ function DistrictData({ district, setDistrict, stateValue }) {
                   // key={row.name}
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                 >
-                  <TableCell component="th" scope="row">
+                  <TableCell className="tableCell" component="th" scope="row">
                     {districtData[district]["District"]}
                   </TableCell>
 
-                  <TableCell align="right">
+                  <TableCell className="tableCell" align="center">
                     {districtData[district]["Winner"]}
                   </TableCell>
-                  <TableCell align="right">
+                  <TableCell className="tableCell" align="center">
                     {districtData[district]["Pop 2020"]}
                   </TableCell>
-                  <TableCell align="right">
+                  <TableCell className="tableCell" align="center">
                     {districtData[district]["Pop 2022"]}
                   </TableCell>
-                  <TableCell align="right">
+                  <TableCell className="tableCell" align="center">
                     {districtData[district]["Area 2020"]}
                   </TableCell>
-                  <TableCell align="right">
+                  <TableCell className="tableCell" align="center">
                     {districtData[district]["Area 2022"]}
                   </TableCell>
                 </TableRow>
