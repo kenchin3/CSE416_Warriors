@@ -8,6 +8,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import DistrictData from "./DistrictData";
+import "./IncumbentTable.css";
 
 function IncumbentTable({ stateValue, district, setDistrict, incumbentData }) {
   const handleClick = (event) => {
@@ -17,16 +18,28 @@ function IncumbentTable({ stateValue, district, setDistrict, incumbentData }) {
 
   return (
     <>
-      <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
+      <TableContainer className="table" component={Paper}>
+        <Table size="small" aria-label="a dense table">
           <TableHead>
             <TableRow>
-              <TableCell>District</TableCell>
-              <TableCell align="right">Name</TableCell>
-              <TableCell align="right">Party</TableCell>
-              <TableCell align="right">Election Result&nbsp;(2022)</TableCell>
-              <TableCell align="right">Geographic Var</TableCell>
-              <TableCell align="right">Population Var</TableCell>
+              <TableCell className="tableCellHeader" align="center">
+                District
+              </TableCell>
+              <TableCell className="tableCellHeader" align="center">
+                Name
+              </TableCell>
+              <TableCell className="tableCellHeader" align="center">
+                Party
+              </TableCell>
+              <TableCell className="tableCellHeader" align="center">
+                Election Result
+              </TableCell>
+              <TableCell className="tableCellHeader" align="center">
+                Geographic Variance
+              </TableCell>
+              <TableCell className="tableCellHeader" align="center">
+                Population Variance
+              </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -49,18 +62,22 @@ function IncumbentTable({ stateValue, district, setDistrict, incumbentData }) {
                       : "white",
                 }}
               >
-                <TableCell component="th" scope="row">
+                <TableCell className="tableCell" component="th" scope="row">
                   {row.District}
                 </TableCell>
-                <TableCell align="right">{row.Incumbent.Name}</TableCell>
-                <TableCell align="right">{row.Incumbent.Party}</TableCell>
-                <TableCell align="right">{row.Incumbent.Win}</TableCell>
-                <TableCell align="right">
+                <TableCell className="tableCell">
+                  {row.Incumbent.Name}
+                </TableCell>
+                <TableCell className="tableCell">
+                  {row.Incumbent.Party}
+                </TableCell>
+                <TableCell className="tableCell">{row.Incumbent.Win}</TableCell>
+                <TableCell className="tableCell">
                   {(
                     parseInt(row["Pop 2022"]) / parseInt(row["Pop 2020"])
                   ).toFixed(3)}
                 </TableCell>
-                <TableCell align="right">
+                <TableCell className="tableCell">
                   {(
                     parseInt(row["Area 2022"]) / parseInt(row["Area 2020"])
                   ).toFixed(3)}
