@@ -21,7 +21,7 @@ function Ensemble({ stateValue, setStateValue }) {
   const paSeries = [
     {
       type: "boxPlot",
-      name: "districts",
+      name: "Districts",
       data: [
         {
           x: "1",
@@ -160,7 +160,6 @@ function Ensemble({ stateValue, setStateValue }) {
     },
   ];
 
-
   const tnSeries = [
     {
       type: "boxPlot",
@@ -243,7 +242,7 @@ function Ensemble({ stateValue, setStateValue }) {
       case "ok":
         return okSeries;
     }
-  };
+  }
 
   const handleDistrictPlanChange = (event) => {
     setDistrictPlan(event.target.value);
@@ -310,7 +309,7 @@ function Ensemble({ stateValue, setStateValue }) {
                   defaultValue="20"
                   name="radio-buttons-group"
                   row={true}
-                // onChange={ }
+                  // onChange={ }
                 >
                   <span className="paper2HeaderEnsemble">
                     Variation Comparison:
