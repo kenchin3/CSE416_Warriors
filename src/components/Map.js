@@ -9,6 +9,7 @@ import tn2022 from "./../geoJSON/tn2022.json";
 import okIncumbent from "./../data/okIncumbent.json";
 import tnIncumbent from "./../data/tnIncumbent.json";
 import paIncumbent from "./../data/paIncumbent.json";
+import "./Map.css";
 
 function ChangeView({ center, zoom }) {
   const map = useMap();

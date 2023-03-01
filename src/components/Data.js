@@ -35,6 +35,7 @@ function Data({
   tabValue,
   district,
   setDistrict,
+  setTabValue
 }) {
   const [rowSize, setRowSize] = React.useState(0);
   const [incumbentData, setIncumbentData] = React.useState([]);
@@ -67,82 +68,10 @@ function Data({
     }
   });
 
-  const handleChange = (event) => {
-    // //console.log(event.target.value);
-    setFilter(event.target.value);
-  };
-
-  const handleStateChange = (event) => {
-    setStateValue(event.target.value);
-    setDistrict(-1);
-  };
 
   return (
     <>
-      <div className="leftData">
-        <Paper className="paper1" elevation={10}>
-          <FormControl className="formD" size="small">
-            <Select
-              labelId="inputLabel"
-              className="select"
-              displayEmpty
-              value={stateValue}
-              onChange={handleStateChange}
-            >
-              <MenuItem className="selectState" value={""}>
-                <em>
-                  {" "}
-                  <span className="selectState">Select State</span>{" "}
-                </em>
-              </MenuItem>
-              <MenuItem className="selectState" value={"pa"}>
-                <span className="selectState">Pennsylvania</span>
-              </MenuItem>
-              <MenuItem className="selectState" value={"tn"}>
-                <span className="selectState">Tennessee</span>
-              </MenuItem>
-              <MenuItem className="selectState" value={"ok"}>
-                <span className="selectState">Oklahoma</span>
-              </MenuItem>
-            </Select>
-          </FormControl>
-        </Paper>
-
-        <Paper className="paper2D" elevation={10}>
-          <FormControl className="paper2ContentD">
-            <span className="paper2InsideD">
-              <RadioGroup
-                defaultValue="2022"
-                name="radio-buttons-group"
-                row={true}
-                onChange={handleChange}
-                className="radioGroup"
-              >
-                <span className="paper2HeaderD">Select Boundary :</span>
-                <span className="paper2Options">
-                  <FormControlLabel
-                    className="formControlLabelD"
-                    value="2020"
-                    control={<Radio />}
-                    label="2020"
-                  />
-                  <FormControlLabel
-                    className="formControlLabelD"
-                    value="2022"
-                    control={<Radio />}
-                    label="2022"
-                  />
-                  <FormControlLabel
-                    className="formControlLabelD"
-                    value="Random"
-                    control={<Radio />}
-                    label="Random"
-                  />
-                </span>
-              </RadioGroup>
-            </span>
-          </FormControl>
-        </Paper>
+      
         <Accordion className="accordion">
           <AccordionSummary expandIcon={<ExpandMoreIcon />}>
             <Typography>
@@ -181,7 +110,7 @@ function Data({
             </Typography>
           </AccordionDetails>
         </Accordion>
-      </div>
+   
     </>
   );
 }

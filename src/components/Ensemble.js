@@ -283,28 +283,9 @@ function Ensemble({ stateValue, setStateValue }) {
 
   return (
     <>
-      <Grid container spacing={1} component="span">
-        <Grid item xs={6} md={6} component="span">
-          <Paper className="paper1" elevation={10}>
-            <FormControl className="formEnsemble" size="small">
-              <Select
-                labelId="inputLabel"
-                className="select"
-                displayEmpty
-                value={stateValue}
-                onChange={handleStateChange}
-              >
-                <MenuItem value={""}>
-                  <em>Select State</em>
-                </MenuItem>
-                <MenuItem value={"pa"}>Pennsylvania</MenuItem>
-                <MenuItem value={"tn"}>Tennessee</MenuItem>
-                <MenuItem value={"ok"}>Oklahoma</MenuItem>
-              </Select>
-            </FormControl>
-          </Paper>
-
-          <Paper className="paper2Ensemble" elevation={10}>
+      {/* <Grid container spacing={1} component="span">
+        <Grid item xs={6} md={6} component="span"> */}
+          {/* <Paper className="paper2Ensemble" elevation={10}>
             <FormControl className="paper2ContentEnsemble">
               <span className="paper2InsideEnsemble">
                 <RadioGroup
@@ -333,8 +314,8 @@ function Ensemble({ stateValue, setStateValue }) {
                 </RadioGroup>
               </span>
             </FormControl>
-          </Paper>
-
+          </Paper> */}
+         <EnsembleSummary stateValue={stateValue} />
           <Typography variant="p">Available SeaWulf Plans</Typography>
           <FormControl className="formEnsemble" size="small">
             <Select
@@ -350,7 +331,7 @@ function Ensemble({ stateValue, setStateValue }) {
             </Select>
           </FormControl>
           <DistrictPlanSummary districtPlan={districtPlan} />
-        </Grid>
+        {/* </Grid>
         <Grid item xs={6} md={6}>
           <Paper className="paperBoxPlot">
             <ReactApexChart
@@ -358,14 +339,22 @@ function Ensemble({ stateValue, setStateValue }) {
               series={getSeries()}
               type="boxPlot"
               height={300}
+              to
             />
-          </Paper>
+          </Paper> */}
+         <ReactApexChart
+              options={options}
+              series={getSeries()}
+              type="boxPlot"
+              height={300}
+              to
+            />
 
-          <Paper className="paperEnsembleSummary">
-            <EnsembleSummary stateValue={stateValue} />
-          </Paper>
-        </Grid>
-      </Grid>
+          {/* <Paper className="paperEnsembleSummary"> */}
+           
+          {/* </Paper> */}
+        {/* </Grid>
+      </Grid> */}
     </>
   );
 }

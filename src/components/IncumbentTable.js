@@ -6,6 +6,7 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+import DistrictData from "./DistrictData"
 import "./IncumbentTable.css";
 
 function IncumbentTable({ stateValue, district, setDistrict, incumbentData }) {
@@ -93,11 +94,11 @@ function IncumbentTable({ stateValue, district, setDistrict, incumbentData }) {
         </Table>
       </TableContainer>
 
-      {/* <DistrictData
+      <DistrictData
         district={district}
         setDistrict={setDistrict}
         stateValue={stateValue}
-      /> */}
+      /> 
     </>
   );
 }
