@@ -22,22 +22,22 @@ function IncumbentTable({ stateValue, district, setDistrict, incumbentData }) {
         <Table size="small" aria-label="a dense table">
           <TableHead>
             <TableRow>
-              <TableCell className="tableCellHeader" align="center">
+              <TableCell className="tableCellHeaderIT" align="center">
                 District
               </TableCell>
-              <TableCell className="tableCellHeader" align="center">
+              <TableCell className="tableCellHeaderIT" align="center">
                 Name
               </TableCell>
-              <TableCell className="tableCellHeader" align="center">
+              <TableCell className="tableCellHeaderIT" align="center">
                 Party
               </TableCell>
-              <TableCell className="tableCellHeader" align="center">
+              <TableCell className="tableCellHeaderIT" align="center">
                 Election Result
               </TableCell>
-              <TableCell className="tableCellHeader" align="center">
+              <TableCell className="tableCellHeaderIT" align="center">
                 Geographic Variance
               </TableCell>
-              <TableCell className="tableCellHeader" align="center">
+              <TableCell className="tableCellHeaderIT" align="center">
                 Population Variance
               </TableCell>
             </TableRow>
@@ -63,28 +63,28 @@ function IncumbentTable({ stateValue, district, setDistrict, incumbentData }) {
                 }}
               >
                 <TableCell
-                  className="tableCell"
+                  className="tableCellIT"
                   align="center"
                   component="th"
                   scope="row"
                 >
                   {row.District}
                 </TableCell>
-                <TableCell className="tableCell" align="center">
+                <TableCell className="tableCellIT" align="center">
                   {row.Incumbent.Name}
                 </TableCell>
-                <TableCell className="tableCell" align="center">
+                <TableCell className="tableCellIT" align="center">
                   {row.Incumbent.Party}
                 </TableCell>
-                <TableCell className="tableCell" align="center">
+                <TableCell className="tableCellIT" align="center">
                   {row.Incumbent.Win}
                 </TableCell>
-                <TableCell className="tableCell" align="center">
+                <TableCell className="tableCellIT" align="center">
                   {(
                     parseInt(row["Pop 2022"]) / parseInt(row["Pop 2020"])
                   ).toFixed(3)}
                 </TableCell>
-                <TableCell className="tableCell" align="center">
+                <TableCell className="tableCellIT" align="center">
                   {(
                     parseInt(row["Area 2022"]) / parseInt(row["Area 2020"])
                   ).toFixed(3)}
