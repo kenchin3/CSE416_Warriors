@@ -1,26 +1,23 @@
 .tableCellES {
-  padding-left: 0px;
+  padding-left: 10px;
   padding-right: 0px;
   line-height: 16px;
   text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  margin-left: 0px;
-  margin-right: 0px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-weight: 400;
+  color: black;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
 }
 
 .tableCellHeaderES {
-  padding-left: 0px;
-  padding-right: 0px;
-  margin-left: 0px;
-  margin-right: 0px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  line-height: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: black;
   font-size: 16px;
-  text-align: center;
+  line-height: 18px;
+  font-weight: 550;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
 }
 
 .tableContainerES {
@@ -29,4 +26,9 @@
   width: 98%;
   left: 1%;
   right: 1%;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  color: black;
+  font-weight: 400;
 }

@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  MapContainer,
-  TileLayer,
-  GeoJSON,
-  useMap,
-  Polyline,
-} from "react-leaflet";
+import { MapContainer, TileLayer, GeoJSON, useMap } from "react-leaflet";
 import pa2020 from "./../geoJSON/pa2020.json";
 import pa2022 from "./../geoJSON/pa2022.json";
 import ok2020 from "./../geoJSON/ok2020.json";
@@ -24,9 +18,9 @@ function ChangeView({ center, zoom }) {
 }
 
 function Map({ stateValue, filter, districtValue }) {
-  const [stateFile, setStateFile] = React.useState(null);
+  // const [stateFile, setStateFile] = React.useState(null);
 
-  console.log("map " + districtValue);
+  // console.log("map " + districtValue);
 
   let center = (stateValue) => {
     // console.log(stateValue);
@@ -66,10 +60,14 @@ function Map({ stateValue, filter, districtValue }) {
       case "ok":
         incumbents = okIncumbent;
         break;
+      default:
+        break;
     }
 
     if (incumbents) {
-      incumbents = incumbents.data.map((a) => (a["Win"] == "Win" ? a["Party"] : "Open"));
+      incumbents = incumbents.data.map((a) =>
+        a["Win"] === "Win" ? a["Party"] : "Open"
+      );
       let district = parseInt(feature.properties.DISTRICT - 1);
 
       if (incumbents[district] === "Rep") {
@@ -118,7 +116,7 @@ function Map({ stateValue, filter, districtValue }) {
           [20, -130],
           [50, -60],
         ]}
-      // maxBoundsViscosity={1.0}
+        // maxBoundsViscosity={1.0}
       >
         <ChangeView
           center={center(stateValue)}
@@ -128,18 +126,15 @@ function Map({ stateValue, filter, districtValue }) {
           url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         />
-        {
-          (filter == "2022" && stateValue == "") &&
-          (<GeoJSON data={pa2022.features} style={district2022} />)
-        }
-        {
-          (filter == "2022" && stateValue == "") &&
-          (<GeoJSON data={ok2022.features} style={district2022} />)
-        }
-        {
-          (filter == "2022" && stateValue == "") &&
-          (<GeoJSON data={tn2022.features} style={district2022} />)
-        }
+        {filter === "2022" && stateValue === "" && (
+          <GeoJSON data={pa2022.features} style={district2022} />
+        )}
+        {filter === "2022" && stateValue === "" && (
+          <GeoJSON data={ok2022.features} style={district2022} />
+        )}
+        {filter === "2022" && stateValue === "" && (
+          <GeoJSON data={tn2022.features} style={district2022} />
+        )}
         {filter === "2020" && stateValue === "pa" && (
           <GeoJSON data={pa2020.features} style={district2020} />
         )}

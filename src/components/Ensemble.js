@@ -241,6 +241,8 @@ function Ensemble({ stateValue, setStateValue }) {
         return tnSeries;
       case "ok":
         return okSeries;
+      default:
+        return null;
     }
   }
 
@@ -284,7 +286,7 @@ function Ensemble({ stateValue, setStateValue }) {
       <Grid container spacing={1} component="span">
         <Grid item xs={6} md={6} component="span">
           <Paper className="paper1" elevation={10}>
-            <FormControl className="form" size="small">
+            <FormControl className="formEnsemble" size="small">
               <Select
                 labelId="inputLabel"
                 className="select"
@@ -302,9 +304,9 @@ function Ensemble({ stateValue, setStateValue }) {
             </FormControl>
           </Paper>
 
-          <Paper className="paper2" elevation={10}>
-            <FormControl className="paper2Content">
-              <span className="paper22Ensemble">
+          <Paper className="paper2Ensemble" elevation={10}>
+            <FormControl className="paper2ContentEnsemble">
+              <span className="paper2InsideEnsemble">
                 <RadioGroup
                   defaultValue="20"
                   name="radio-buttons-group"
@@ -333,9 +335,8 @@ function Ensemble({ stateValue, setStateValue }) {
             </FormControl>
           </Paper>
 
-          <EnsembleSummary stateValue={stateValue} />
           <Typography variant="p">Available SeaWulf Plans</Typography>
-          <FormControl className="form" size="small">
+          <FormControl className="formEnsemble" size="small">
             <Select
               labelId="inputLabel"
               className="select"
@@ -351,12 +352,18 @@ function Ensemble({ stateValue, setStateValue }) {
           <DistrictPlanSummary districtPlan={districtPlan} />
         </Grid>
         <Grid item xs={6} md={6}>
-          <ReactApexChart
-            options={options}
-            series={getSeries()}
-            type="boxPlot"
-            height={350}
-          />
+          <Paper className="paperBoxPlot">
+            <ReactApexChart
+              options={options}
+              series={getSeries()}
+              type="boxPlot"
+              height={300}
+            />
+          </Paper>
+
+          <Paper className="paperEnsembleSummary">
+            <EnsembleSummary stateValue={stateValue} />
+          </Paper>
         </Grid>
       </Grid>
     </>

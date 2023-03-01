@@ -4,8 +4,6 @@ import Header from "./Header.js";
 import Data from "./Data.js";
 import Grid from "@mui/material/Grid";
 import Ensemble from "./Ensemble.js";
-import Accordion from "@mui/material/Accordion";
-import { tab } from "@testing-library/user-event/dist/tab.js";
 
 function Project() {
   const [tabValue, setTabValue] = React.useState(0);
@@ -15,7 +13,7 @@ function Project() {
 
   const { twoZero, twoTwo, random } = filter;
 
-  console.log("project " + district);
+  // console.log("project " + district);
 
   return (
     <div>

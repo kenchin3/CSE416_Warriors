@@ -9,6 +9,7 @@ import {
   TableCell,
 } from "@mui/material";
 import "./EnsembleSummary.css";
+
 function EnsembleSummary({ stateValue }) {
   const [summaryData, setSummaryData] = React.useState({
     pa: {
@@ -46,19 +47,19 @@ function EnsembleSummary({ stateValue }) {
         <Table aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell className="tableCellHeaderES" align="left">
+              <TableCell className="tableCellHeaderES" align="center">
                 Number of District Plans
               </TableCell>
-              <TableCell className="tableCellHeaderES" align="left">
+              <TableCell className="tableCellHeaderES" align="center">
                 Number of Incumbents
               </TableCell>
-              <TableCell className="tableCellHeaderES" align="left">
+              <TableCell className="tableCellHeaderES" align="center">
                 Incumbents Predicted to Win
               </TableCell>
-              <TableCell className="tableCellHeaderES" align="left">
+              <TableCell className="tableCellHeaderES" align="center">
                 Average Geographic Pariation
               </TableCell>
-              <TableCell className="tableCellHeaderES" align="left">
+              <TableCell className="tableCellHeaderES" align="center">
                 Average population variation
               </TableCell>
             </TableRow>
@@ -70,23 +71,23 @@ function EnsembleSummary({ stateValue }) {
             >
               <TableCell
                 className="tableCellES"
-                align="left"
+                align="center"
                 component="th"
                 scope="row"
               >
                 {summaryData[stateValue]["District Plans Total"]}
               </TableCell>
 
-              <TableCell className="tableCellES" align="left">
+              <TableCell className="tableCellES" align="center">
                 {summaryData[stateValue]["Incumbents Total"]}
               </TableCell>
-              <TableCell className="tableCellES" align="left">
+              <TableCell className="tableCellES" align="center">
                 {summaryData[stateValue]["Incumbents Win"]}
               </TableCell>
-              <TableCell className="tableCellES" align="left">
+              <TableCell className="tableCellES" align="center">
                 {summaryData[stateValue]["Geo Var"]}
               </TableCell>
-              <TableCell className="tableCellES" align="left">
+              <TableCell className="tableCellES" align="center">
                 {summaryData[stateValue]["Pop Var"]}
               </TableCell>
             </TableRow>
