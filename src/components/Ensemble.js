@@ -165,7 +165,7 @@ function Ensemble({ stateValue, setStateValue }) {
                       label="Geometric"
                     />
                     <FormControlLabel
-                      className="formControlLabel"
+                      className="formControlLabelEnsemble"
                       value="Population Variation"
                       control={<Radio />}
                       label="Population"

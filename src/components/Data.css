@@ -27,12 +27,14 @@
 }
 
 .formLabel {
-  font-size: 14px;
+  font-size: 16px;
+  line-height: 24px;
   display: "flex";
 }
 
 .summaryInformation {
-  font-size: 14px;
+  font-size: 16px;
+  line-height: 24px;
   float: left;
 }
 
@@ -44,15 +46,17 @@
 .select {
   width: 100%;
   height: 30px;
-  font-size: 14px;
+  font-size: 16px;
+  line-height: 24px;
 }
 
 .paper2Header {
   display: inline-block;
-  font-size: 14px;
+  font-size: 16px;
+  line-height: 24px;
   align-self: center;
   margin-bottom: 3px;
-  margin-right: 10px;
+  margin-right: 20px;
   color: black;
   /* font-family: "Lucida Console", "Courier New", monospace; */
   /* background-color: yellow; */
@@ -77,11 +81,11 @@
 }
 
 .formControlLabel {
-  width: 70px;
+  width: 75px;
   height: 30px;
-  font-size: 14px;
-  line-height: 14px;
-  /* font-family: "Lucida Console", "Courier New", monospace; */
+  font-size: 16px;
+  line-height: 24px;
+  font-family: "Lucida Console", "Courier New", monospace;
 }
 
 .districtRow:hover {
@@ -98,4 +102,5 @@
 
 .radioGroup {
   font-family: "Lucida Console", "Courier New", monospace;
+  font: Helvetica;
 } */
