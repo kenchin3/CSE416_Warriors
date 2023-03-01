@@ -3,18 +3,16 @@ import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
-import TablePagination from "@material-ui/core/TablePagination";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import DistrictData from "./DistrictData";
 import "./IncumbentTable.css";
 
 function IncumbentTable({ stateValue, district, setDistrict, incumbentData }) {
-  const handleClick = (event) => {
-    // console.log(event.target.innerText);
-    setDistrict(event.target.innerText - 1);
-  };
+  // const handleClick = (event) => {
+  //   // console.log(event.target.innerText);
+  //   setDistrict(event.target.innerText - 1);
+  // };
 
   return (
     <>

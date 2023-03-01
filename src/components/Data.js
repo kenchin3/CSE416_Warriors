@@ -81,7 +81,7 @@ function Data({
     <>
       <div className="leftData">
         <Paper className="paper1" elevation={10}>
-          <FormControl className="form" size="small">
+          <FormControl className="formD" size="small">
             <Select
               labelId="inputLabel"
               className="select"
@@ -108,9 +108,9 @@ function Data({
           </FormControl>
         </Paper>
 
-        <Paper className="paper2" elevation={10}>
-          <FormControl className="paper2Content">
-            <span className="paper22">
+        <Paper className="paper2D" elevation={10}>
+          <FormControl className="paper2ContentD">
+            <span className="paper2InsideD">
               <RadioGroup
                 defaultValue="2022"
                 name="radio-buttons-group"
@@ -118,22 +118,22 @@ function Data({
                 onChange={handleChange}
                 className="radioGroup"
               >
-                <span className="paper2Header">Boundary :</span>
+                <span className="paper2HeaderD">Select Boundary :</span>
                 <span className="paper2Options">
                   <FormControlLabel
-                    className="formControlLabel"
+                    className="formControlLabelD"
                     value="2020"
                     control={<Radio />}
                     label="2020"
                   />
                   <FormControlLabel
-                    className="formControlLabel"
+                    className="formControlLabelD"
                     value="2022"
                     control={<Radio />}
                     label="2022"
                   />
                   <FormControlLabel
-                    className="formControlLabel"
+                    className="formControlLabelD"
                     value="Random"
                     control={<Radio />}
                     label="Random"
