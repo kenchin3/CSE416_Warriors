@@ -1,9 +1,10 @@
 .tableCell {
   padding-left: 10px;
   padding-right: 10px;
-  width: 50px;
   line-height: 16px;
   text-align: center;
+  margin-left: auto;
+  margin-right: auto;
   padding-top: 8px;
   padding-bottom: 8px;
 }

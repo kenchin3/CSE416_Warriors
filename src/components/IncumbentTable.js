@@ -62,22 +62,29 @@ function IncumbentTable({ stateValue, district, setDistrict, incumbentData }) {
                       : "white",
                 }}
               >
-                <TableCell className="tableCell" component="th" scope="row">
+                <TableCell
+                  className="tableCell"
+                  align="center"
+                  component="th"
+                  scope="row"
+                >
                   {row.District}
                 </TableCell>
-                <TableCell className="tableCell">
+                <TableCell className="tableCell" align="center">
                   {row.Incumbent.Name}
                 </TableCell>
-                <TableCell className="tableCell">
+                <TableCell className="tableCell" align="center">
                   {row.Incumbent.Party}
                 </TableCell>
-                <TableCell className="tableCell">{row.Incumbent.Win}</TableCell>
-                <TableCell className="tableCell">
+                <TableCell className="tableCell" align="center">
+                  {row.Incumbent.Win}
+                </TableCell>
+                <TableCell className="tableCell" align="center">
                   {(
                     parseInt(row["Pop 2022"]) / parseInt(row["Pop 2020"])
                   ).toFixed(3)}
                 </TableCell>
-                <TableCell className="tableCell">
+                <TableCell className="tableCell" align="center">
                   {(
                     parseInt(row["Area 2022"]) / parseInt(row["Area 2020"])
                   ).toFixed(3)}
@@ -88,11 +95,11 @@ function IncumbentTable({ stateValue, district, setDistrict, incumbentData }) {
         </Table>
       </TableContainer>
 
-      <DistrictData
+      {/* <DistrictData
         district={district}
         setDistrict={setDistrict}
         stateValue={stateValue}
-      />
+      /> */}
     </>
   );
 }

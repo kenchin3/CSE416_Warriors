@@ -24,16 +24,18 @@
 }
 
 .paper22Ensemble {
-  /* margin-left: auto;
-  margin-right: auto; */
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .paper2HeaderEnsemble {
   display: inline-block;
-  font-size: 14px;
+  font-size: 16px;
+  line-height: 24px;
   align-self: center;
   margin-bottom: 3px;
   margin-right: 10px;
+  /* margin-left: 10px; */
   color: black;
 }
 
@@ -46,8 +48,10 @@
 
 .formControlLabelEnsemble {
   /* background-color: palevioletred; */
-  width: 70px;
+  width: 110px;
   height: 30px;
-  font-size: 14px;
-  line-height: 14px;
+  font-size: 16px;
+  line-height: 24px;
+  /* margin-left: auto;
+  margin-right: auto; */
 }
