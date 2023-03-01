@@ -101,7 +101,7 @@ function Project() {
                             className="formControlLabelD"
                             value="Random"
                             control={<Radio />}
-                            label="Random"
+                            label="Ensemble1"
                           />
                         </span>
                       </RadioGroup>

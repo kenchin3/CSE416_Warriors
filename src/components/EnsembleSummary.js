@@ -57,10 +57,10 @@ function EnsembleSummary({ stateValue }) {
                 Incumbents Predicted to Win
               </TableCell>
               <TableCell className="tableCellHeaderES" align="center">
-                Average Geographic Pariation
+                Average Geographic Variation
               </TableCell>
               <TableCell className="tableCellHeaderES" align="center">
-                Average population variation
+                Average Population variation
               </TableCell>
             </TableRow>
           </TableHead>

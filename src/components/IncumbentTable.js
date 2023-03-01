@@ -22,7 +22,7 @@ function IncumbentTable({ stateValue, district, setDistrict, incumbentData }) {
           <TableHead>
             <TableRow>
               <TableCell className="tableCellHeaderIT" align="center">
-                District
+                <span className="tableCellHeaderIT">District</span>
               </TableCell>
               <TableCell className="tableCellHeaderIT" align="center">
                 Name

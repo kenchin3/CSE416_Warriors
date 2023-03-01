@@ -21,7 +21,7 @@ function Ensemble({ stateValue, setStateValue }) {
   const paSeries = [
     {
       type: "boxPlot",
-      name: "Districts",
+      name: "Ensemble",
       data: [
         {
           x: "1",
@@ -92,7 +92,7 @@ function Ensemble({ stateValue, setStateValue }) {
   const okSeries = [
     {
       type: "boxPlot",
-      name: "districts",
+      name: "Ensemble",
       data: [
         {
           x: "1",
@@ -163,7 +163,7 @@ function Ensemble({ stateValue, setStateValue }) {
   const tnSeries = [
     {
       type: "boxPlot",
-      name: "districts",
+      name: "Ensemble",
       data: [
         {
           x: "1",
@@ -254,6 +254,9 @@ function Ensemble({ stateValue, setStateValue }) {
     chart: {
       type: "boxPlot",
       height: 350,
+      toolbar: {
+        show: false
+      }
     },
     title: {
       text: stateValue.toUpperCase() + " District Plan Ensembles",
@@ -262,12 +265,16 @@ function Ensemble({ stateValue, setStateValue }) {
     plotOptions: {
       boxPlot: {
         colors: {
-          upper: "#5C4742",
-          lower: "#A5978B",
+          upper: "#055C9D",
+          lower: "#0E86D4",
         },
       },
     },
     legend: {
+      labels: {
+      colors: ["brown","red"]
+      }
+      ,
       onItemClick: {
         toggleDataSeries: false,
       },
@@ -331,30 +338,42 @@ function Ensemble({ stateValue, setStateValue }) {
             </Select>
           </FormControl>
           <DistrictPlanSummary districtPlan={districtPlan} />
-        {/* </Grid>
-        <Grid item xs={6} md={6}>
-          <Paper className="paperBoxPlot">
-            <ReactApexChart
-              options={options}
-              series={getSeries()}
-              type="boxPlot"
-              height={300}
-              to
-            />
-          </Paper> */}
+        
          <ReactApexChart
               options={options}
               series={getSeries()}
               type="boxPlot"
               height={300}
-              to
             />
 
-          {/* <Paper className="paperEnsembleSummary"> */}
-           
-          {/* </Paper> */}
-        {/* </Grid>
-      </Grid> */}
+          <FormControl className="paper2ContentEnsemble">
+              <span className="paper2InsideEnsemble">
+                <RadioGroup
+                  defaultValue="Geometric Variation"
+                  name="radio-buttons-group"
+                  row={true}
+      
+                >
+                  <span className="paper2HeaderEnsemble">
+                    Variation Comparison:
+                  </span>
+                  <span className="paper2OptionsEnsemble">
+                    <FormControlLabel
+                      className="formControlLabelEnsemble"
+                      value="Geometric Variation"
+                      control={<Radio />}
+                      label="Geometric"
+                    />
+                    <FormControlLabel
+                      className="formControlLabelEnsemble"
+                      value="Population Variation"
+                      control={<Radio />}
+                      label="Population"
+                    />
+                  </span>
+                </RadioGroup>
+              </span>
+            </FormControl>
     </>
   );
 }
