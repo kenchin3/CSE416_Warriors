@@ -69,7 +69,7 @@ function Map({ stateValue, filter, districtValue }) {
     }
 
     if (incumbents) {
-      incumbents = incumbents.data.map((a) => a["Party"]);
+      incumbents = incumbents.data.map((a) => (a["Win"] == "Win" ? a["Party"] : "Open"));
       let district = parseInt(feature.properties.DISTRICT - 1);
 
       if (incumbents[district] === "Rep") {
