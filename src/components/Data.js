@@ -18,6 +18,7 @@ import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import InputLabel from "@mui/material/InputLabel";
 import SeatGraph from "./SeatGraph";
+import Divider from "@mui/material/Divider";
 import React from "react";
 import okDistrictData from "./../data/okDistrictData.json";
 import paDistrictData from "./../data/paDistrictData.json";
@@ -165,13 +166,17 @@ function Data({
           </AccordionSummary>
           <AccordionDetails>
             <Typography component="span">
-              {stateValue && (
-                <IncumbentTable
-                  stateValue={stateValue}
-                  district={district}
-                  setDistrict={setDistrict}
-                  incumbentData={incumbentData}
-                />
+              {stateValue ? (
+                <span>
+                  <IncumbentTable
+                    stateValue={stateValue}
+                    district={district}
+                    setDistrict={setDistrict}
+                    incumbentData={incumbentData}
+                  />
+                </span>
+              ) : (
+                <span />
               )}
             </Typography>
           </AccordionDetails>
