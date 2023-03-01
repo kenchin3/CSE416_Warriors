@@ -334,7 +334,7 @@ function Ensemble({ stateValue, setStateValue }) {
             </FormControl>
           </Paper>
 
-          <EnsembleSummary />
+          <EnsembleSummary stateValue={stateValue} />
           <Typography variant="p">Available SeaWulf Plans</Typography>
           <FormControl className="form" size="small">
             <Select
@@ -349,7 +349,7 @@ function Ensemble({ stateValue, setStateValue }) {
               <MenuItem value={3}>Plan 3</MenuItem>
             </Select>
           </FormControl>
-          <DistrictPlanSummary />
+          <DistrictPlanSummary districtPlan={districtPlan} />
         </Grid>
         <Grid item xs={6} md={6}>
           <ReactApexChart

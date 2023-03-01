@@ -8,41 +8,72 @@ import {
     Table,
     TableCell,
 } from "@mui/material";
-function DistrictPlanSummary() {
+function DistrictPlanSummary({ districtPlan }) {
+    // const [planNumber, setPlanNumber] = React.useState(1)
 
-    const [districtIncumbentData, setDistrictIncumbentData] = React.useState([
+    const [districtIncumbentData, setDistrictIncumbentData] = React.useState(
         {
-            Name: "Joe Smith",
-            Party: "Republican",
-            "District Variation": 0.1
-        },
-        {
-            Name: "Michael Lee",
-            Party: "Democrat",
-            "District Variation": 0.4
+            1: [
+                {
+                    Name: "Joe Smith",
+                    Party: "Republican",
+                    "District Variation": 0.1
+                },
+                {
+                    Name: "Michael Lee",
+                    Party: "Democrat",
+                    "District Variation": 0.4
+                },
+                {
+                    Name: "Francesca Preston",
+                    Party: "Republican",
+                    "District Variation": 0.2
+                }
+            ],
+            2: [
+                {
+                    Name: "Jay Lincoln",
+                    Party: "Republican",
+                    "District Variation": 0.67
+                },
+                {
+                    Name: "Michael Karp",
+                    Party: "Republican",
+                    "District Variation": 0.42
+                },
+                {
+                    Name: "Jared Goodwin",
+                    Party: "Republican",
+                    "District Variation": 0.17
+                }
+            ],
+            3: [
+                {
+                    Name: "Ali Key",
+                    Party: "Democrat",
+                    "District Variation": 0.33
+                },
+                {
+                    Name: "Norah Mcgrath",
+                    Party: "Democrat",
+                    "District Variation": 0.82
+                },
+                {
+                    Name: "Jacoby Davenport",
+                    Party: "Democrat",
+                    "District Variation": 1.34
+                }
+            ]
         }
-    ])
 
-    // React.useEffect(() => {
-    //     setDistrictIncumbentData([
-    //         {
-    //             Name: "Joe Smith",
-    //             Party: "Republican",
-    //             "District Variation": 0.1
-    //         },
-    //         {
-    //             Name: "Michael Lee",
-    //             Party: "Democrat",
-    //             "District Variation": 0.4
-    //         }
-    //     ])
-    // })
+    )
+
     return (<>
         <TableContainer component={Paper}>
             <Table sx={{ minWidth: 650 }} aria-label="simple table">
                 <TableHead>
                     <TableRow>
-                        <TableCell>Number of Districts: {districtIncumbentData.length}</TableCell>
+                        <TableCell>Number of Districts: {districtIncumbentData[districtPlan].length}</TableCell>
                         {/* <TableCell>10</TableCell> */}
                     </TableRow>
                 </TableHead>
@@ -54,7 +85,7 @@ function DistrictPlanSummary() {
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {districtIncumbentData.map((row) => (
+                    {districtIncumbentData[districtPlan].map((row) => (
                         // console.log(row)
                         < TableRow
                             key={row.Name}
