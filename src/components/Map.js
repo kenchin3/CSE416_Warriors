@@ -106,8 +106,7 @@ function Map({ stateValue, filter, districtValue }) {
         center={center(stateValue)}
         zoom={3}
         minZoom={3}
-        maxZoom={7}
-     
+        maxZoom={10}
         maxBounds={[
           [20, -130],
           [50, -60],
@@ -116,7 +115,7 @@ function Map({ stateValue, filter, districtValue }) {
       >
         <ChangeView
           center={center(stateValue)}
-          zoom={stateValue !== "" ? 7 : 4}
+          zoom={stateValue !== "" ? 6 : 4}
         />
         <TileLayer
           url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"

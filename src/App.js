@@ -1,13 +1,12 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
 
-import Project from './components/Project.js'
+import Project from "./components/Project.js";
 
 function App() {
   return (
     <div className="App">
-    {/* //   <header className="App-header"> */}
-        {/* <img src={logo} className="App-logo" alt="logo" />
+      {/* //   <header className="App-header"> */}
+      {/* <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>

@@ -1,7 +1,23 @@
 .mapGrid {
-    /* display:grid;
-    grid-template-columns: 1fr 1.5fr 1fr;
-    grid-template-rows: auto auto 1fr 1fr 1fr auto auto;
-    grid-gap:10px; */
-    height: 100vh;
+  height: 100vh;
+}
+
+.paperP1 {
+  width: 45%;
+  display: inline-block;
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+  margin-top: 1.5%;
+}
+
+.formD {
+  height: 30px;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  width: 100%;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.userOptions {
+  width: 100%;
 }

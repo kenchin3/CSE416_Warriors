@@ -1,12 +1,17 @@
 import Box from "@mui/material/Box";
+import { yellow } from "@mui/material/colors";
 import "./Header.css";
 
 function Header({}) {
   return (
     <div>
       <Box className="headerContent" bgcolor="black">
-        {/* <span className="teamName"> 2017 Warriors</span> */}
-        <span className="title"> Incumbent Analysis</span>
+        <span className="fullTitle">
+          <span className="title"> Incumbent Analysis by </span>
+          <span className="title" style={{ color: "yellow" }}>
+            the Warriors
+          </span>
+        </span>
       </Box>
     </div>
   );

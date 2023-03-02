@@ -9,6 +9,7 @@ import {
   TableCell,
 } from "@mui/material";
 import "./EnsembleSummary.css";
+import makeStyles from "@material-ui/core/styles/makeStyles";
 
 function EnsembleSummary({ stateValue }) {
   const [summaryData, setSummaryData] = React.useState({
@@ -41,26 +42,54 @@ function EnsembleSummary({ stateValue }) {
       "Pop Var": 0,
     },
   });
+
+  const useStyles = makeStyles({
+    cell: {
+      color: "black",
+      paddingLeft: "10px",
+      paddingRight: "10px",
+      paddingTop: "10px",
+      paddingBottom: "10px",
+      lineHeight: "16px",
+      fontWeight: 400,
+      fontFamily: ["Roboto", "Helvetica", "Arial", "sans-serif"],
+    },
+    header: {
+      color: "black",
+      paddingLeft: "10px",
+      paddingRight: "10px",
+      lineHeight: "18px",
+      // textAlign: "center",
+      paddingTop: "10px",
+      paddingBottom: "10px",
+      fontSize: "15px",
+      fontWeight: 550,
+      fontFamily: ["Roboto", "Helvetica", "Arial", "sans-serif"],
+    },
+  });
+
+  const classes = useStyles();
+
   return (
     <>
       <TableContainer component={Paper} className="tableContainerES">
         <Table aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell className="tableCellHeaderES" align="center">
+              <TableCell className={classes.header} align="center">
                 Number of District Plans
               </TableCell>
-              <TableCell className="tableCellHeaderES" align="center">
+              <TableCell className={classes.header} align="center">
                 Number of Incumbents
               </TableCell>
-              <TableCell className="tableCellHeaderES" align="center">
+              <TableCell className={classes.header} align="center">
                 Incumbents Predicted to Win
               </TableCell>
-              <TableCell className="tableCellHeaderES" align="center">
+              <TableCell className={classes.header} align="center">
                 Average Geographic Variation
               </TableCell>
-              <TableCell className="tableCellHeaderES" align="center">
-                Average Population variation
+              <TableCell className={classes.header} align="center">
+                Average Population Variation
               </TableCell>
             </TableRow>
           </TableHead>

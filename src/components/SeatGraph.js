@@ -2,6 +2,7 @@ import React from "react";
 import okIncumbent from "./../data/okIncumbent.json";
 import tnIncumbent from "./../data/tnIncumbent.json";
 import paIncumbent from "./../data/paIncumbent.json";
+import "./SeatGraph.css";
 import {
   BarChart,
   Bar,
@@ -22,9 +23,9 @@ function SeatGraph({ stateValue, rowSize }) {
     switch (stateValue) {
       case "":
         return [
-          { name: "Democrat", value: 0, color: "blue" },
-          { name: "Republican", value: 0, color: "red" },
-          { name: "Open", value: 0, color: "grey" },
+          { name: "Democrat ", value: 0, color: "blue" },
+          { name: "Republican ", value: 0, color: "red" },
+          { name: "Open ", value: 0, color: "grey" },
         ];
       case "pa":
         incumbentData = paIncumbent.data;
@@ -47,9 +48,9 @@ function SeatGraph({ stateValue, rowSize }) {
       }
     });
     return [
-      { name: "Democrat", value: arr[0], fill: "blue" },
-      { name: "Republican", value: arr[1], fill: "red" },
-      { name: "Open", value: arr[2], fill: "grey" },
+      { name: "Democrat ", value: arr[0], fill: "blue" },
+      { name: "Republican ", value: arr[1], fill: "red" },
+      { name: "Open ", value: arr[2], fill: "grey" },
     ];
   }
 
@@ -78,9 +79,13 @@ function SeatGraph({ stateValue, rowSize }) {
           />
         </BarChart>
       </ResponsiveContainer>
-      <Typography className="summaryInformation">
-        Number of Districts: {rowSize}
-      </Typography>
+      <Typography className="summaryInformation"></Typography>
+      <div className="summaryInformationLocaiton">
+        <div className="summaryInformationFont">
+          <span style={{ fontWeight: 550 }}> Number of Districts: </span>{" "}
+          {rowSize}
+        </div>
+      </div>
     </>
   );
 }
