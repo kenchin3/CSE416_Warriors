@@ -72,7 +72,7 @@ function Ensemble({ stateValue, setStateValue, districtPlan }) {
           <Typography>
             {" "}
             <span className="accordionHeaderEnsemble">
-              District Plan {districtPlan} Summary
+              Ensemble Summary
             </span>
           </Typography>
         </AccordionSummary>
@@ -100,7 +100,7 @@ function Ensemble({ stateValue, setStateValue, districtPlan }) {
           <Typography>
             {" "}
             <span className="accordionHeaderEnsemble">
-              District Plan {districtPlan} Box Plot
+              Incumbent Box Plot
             </span>
           </Typography>
         </AccordionSummary>

@@ -100,7 +100,7 @@ function Data({
           <Typography>
             <span className="accordionHeader">
               {" "}
-              {districtPlanYear} Box Plot
+              Incumbent Box Plot
             </span>
           </Typography>
         </AccordionSummary>
