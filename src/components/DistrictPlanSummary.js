@@ -16,51 +16,60 @@ function DistrictPlanSummary({ districtPlan }) {
       {
         Name: "Joe Smith",
         Party: "Republican",
-        "District Variation": 0.1,
+        "Geo Var": 0.1,
+        "Pop Var": 0.3
       },
       {
         Name: "Michael Lee",
         Party: "Democrat",
-        "District Variation": 0.4,
+        "Geo Var": 0.4,
+        "Pop Var": 0.3
       },
       {
         Name: "Francesca Preston",
         Party: "Republican",
-        "District Variation": 0.2,
+        "Geo Var": 0.2,
+        "Pop Var": 0.3
       },
     ],
     2: [
       {
         Name: "Jay Lincoln",
         Party: "Republican",
-        "District Variation": 0.67,
+        "Geo Var": 0.67,
+        "Pop Var": 0.3
       },
       {
         Name: "Michael Karp",
         Party: "Republican",
-        "District Variation": 0.42,
+        "Geo Var": 0.42,
+        "Pop Var": 0.3
       },
       {
         Name: "Jared Goodwin",
         Party: "Republican",
-        "District Variation": 0.17,
+        "Geo Var": 0.17,
+        "Pop Var": 0.3
       },
     ],
     3: [
       {
         Name: "Ali Key",
         Party: "Democrat",
-        "District Variation": 0.33,
+        "Geo Var": 0.33,
+        "Pop Var": 0.3
       },
       {
         Name: "Norah Mcgrath",
         Party: "Democrat",
-        "District Variation": 0.82,
+        "Geo Var": 0.82,
+        "Pop Var": 0.3
       },
       {
         Name: "Jacoby Davenport",
         Party: "Democrat",
-        "District Variation": 1.34,
+        "Geo Var": 1.34,
+        "Pop Var": 0.3
       },
     ],
   });
@@ -82,7 +91,8 @@ function DistrictPlanSummary({ districtPlan }) {
             <TableRow>
               <TableCell align="left">Incumbent</TableCell>
               <TableCell align="left">Party</TableCell>
-              <TableCell align="left">Incumbent District Variation</TableCell>
+              <TableCell align="left">Geo Var</TableCell>
+              <TableCell align="left">Pop Var</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -94,7 +104,8 @@ function DistrictPlanSummary({ districtPlan }) {
               >
                 <TableCell align="left">{row.Name}</TableCell>
                 <TableCell align="left">{row.Party}</TableCell>
-                <TableCell align="left">{row["District Variation"]}</TableCell>
+                <TableCell align="left">{row["Geo Var"]}</TableCell>
+                <TableCell align="left">{row["Pop Var"]}</TableCell>
               </TableRow>
             ))}
           </TableBody>

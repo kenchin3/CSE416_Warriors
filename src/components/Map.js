@@ -33,7 +33,7 @@ function Map({ stateValue, filter, districtValue }) {
       case "tn":
         return [35.886, -86.422];
       case "ok":
-        return [35.4356, -97.37];
+        return [35.4356, -98.37];
       default:
         return [14.8282, -98.579];
     }
@@ -105,14 +105,9 @@ function Map({ stateValue, filter, districtValue }) {
         className="markercluster-map"
         center={center(stateValue)}
         zoom={3}
-        // maxZoom={10}
         minZoom={3}
         maxZoom={7}
-        // bounceAtZoomLimits={true}
-        // maxBounds={[
-        //   [20, -160],
-        //   [50, -60],
-        // ]}
+     
         maxBounds={[
           [20, -130],
           [50, -60],
@@ -121,7 +116,7 @@ function Map({ stateValue, filter, districtValue }) {
       >
         <ChangeView
           center={center(stateValue)}
-          zoom={stateValue !== "" ? 6 : 4}
+          zoom={stateValue !== "" ? 7 : 4}
         />
         <TileLayer
           url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"

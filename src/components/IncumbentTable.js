@@ -48,8 +48,10 @@ function IncumbentTable({ stateValue, district, setDistrict, incumbentData }) {
         <Table size="small" aria-label="a dense table">
           <TableHead>
             <TableRow>
+
               <TableCell className={classes.header} align="center">
                 District
+
               </TableCell>
               <TableCell className={classes.header} align="center">
                 Name

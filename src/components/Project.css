@@ -3,5 +3,5 @@
     grid-template-columns: 1fr 1.5fr 1fr;
     grid-template-rows: auto auto 1fr 1fr 1fr auto auto;
     grid-gap:10px; */
-    height: 90vh;
+    height: 100vh;
 }
