@@ -4,9 +4,18 @@ import Header from "./Header.js";
 import Data from "./Data.js";
 import Grid from "@mui/material/Grid";
 import Ensemble from "./Ensemble.js";
-import "./Project.css"
+import "./Project.css";
 
-import {Paper, FormControl, Select, Menu, MenuItem, Radio, RadioGroup, FormControlLabel} from "@mui/material";
+import {
+  Paper,
+  FormControl,
+  Select,
+  Menu,
+  MenuItem,
+  Radio,
+  RadioGroup,
+  FormControlLabel,
+} from "@mui/material";
 
 function Project() {
   const [tabValue, setTabValue] = React.useState(1);
@@ -16,15 +25,13 @@ function Project() {
 
   const { twoZero, twoTwo, random } = filter;
 
- 
   const handleChange = (event) => {
     // //console.log(event.target.value);
     setFilter(event.target.value);
     if (event.target.value == "Random") {
-      setTabValue(0)
-    }
-    else {
-      setTabValue(1)
+      setTabValue(0);
+    } else {
+      setTabValue(1);
     }
   };
 
@@ -35,80 +42,76 @@ function Project() {
 
   return (
     <div>
-      {/* <Header
-        tabValue={tabValue}
-        setTabValue={setTabValue}
-        stateValue={stateValue}
-        setStateValue={setStateValue}
-      /> */}
-      
-        <Grid container spacing={1} component="span">
-          <Grid item xs={6} md={6} component="span">
-            <div className="leftData">
-                <Paper className="paper1" elevation={10}>
-                  <FormControl className="formD" size="small">
-                    <Select
-                      labelId="inputLabel"
-                      className="select"
-                      displayEmpty
-                      value={stateValue}
-                      onChange={handleStateChange}
-                    >
-                      <MenuItem className="selectState" value={""}>
-                        <em>
-                          {" "}
-                          <span className="selectState">Select State</span>{" "}
-                        </em>
-                      </MenuItem>
-                      <MenuItem className="selectState" value={"pa"}>
-                        <span className="selectState">Pennsylvania</span>
-                      </MenuItem>
-                      <MenuItem className="selectState" value={"tn"}>
-                        <span className="selectState">Tennessee</span>
-                      </MenuItem>
-                      <MenuItem className="selectState" value={"ok"}>
-                        <span className="selectState">Oklahoma</span>
-                      </MenuItem>
-                    </Select>
-                  </FormControl>
-                </Paper>
+      <Header />
 
-                <Paper className="paper2D" elevation={10}>
-                  <FormControl className="paper2ContentD">
-                    <span className="paper2InsideD">
-                      <RadioGroup
-                        defaultValue="2022"
-                        name="radio-buttons-group"
-                        row={true}
-                        onChange={handleChange}
-                        className="radioGroup"
-                      >
-                        <span className="paper2HeaderD">Select Boundary :</span>
-                        <span className="paper2Options">
-                          <FormControlLabel
-                            className="formControlLabelD"
-                            value="2020"
-                            control={<Radio />}
-                            label="2020"
-                          />
-                          <FormControlLabel
-                            className="formControlLabelD"
-                            value="2022"
-                            control={<Radio />}
-                            label="2022"
-                          />
-                          <FormControlLabel
-                            className="formControlLabelD"
-                            value="Random"
-                            control={<Radio />}
-                            label="Random"
-                          />
-                        </span>
-                      </RadioGroup>
+      <Grid container spacing={1} component="span">
+        <Grid item xs={6} md={6} component="span">
+          <div className="leftData">
+            <Paper className="paper1" elevation={10}>
+              <FormControl className="formD" size="small">
+                <Select
+                  labelId="inputLabel"
+                  className="select"
+                  displayEmpty
+                  value={stateValue}
+                  onChange={handleStateChange}
+                >
+                  <MenuItem className="selectState" value={""}>
+                    <em>
+                      {" "}
+                      <span className="selectState">Select State</span>{" "}
+                    </em>
+                  </MenuItem>
+                  <MenuItem className="selectState" value={"pa"}>
+                    <span className="selectState">Pennsylvania</span>
+                  </MenuItem>
+                  <MenuItem className="selectState" value={"tn"}>
+                    <span className="selectState">Tennessee</span>
+                  </MenuItem>
+                  <MenuItem className="selectState" value={"ok"}>
+                    <span className="selectState">Oklahoma</span>
+                  </MenuItem>
+                </Select>
+              </FormControl>
+            </Paper>
+
+            <Paper className="paper2D" elevation={10}>
+              <FormControl className="paper2ContentD">
+                <span className="paper2InsideD">
+                  <RadioGroup
+                    defaultValue="2022"
+                    name="radio-buttons-group"
+                    row={true}
+                    onChange={handleChange}
+                    className="radioGroup"
+                  >
+                    <span className="paper2HeaderD">Select Boundary :</span>
+                    <span className="paper2Options">
+                      <FormControlLabel
+                        className="formControlLabelD"
+                        value="2020"
+                        control={<Radio />}
+                        label="2020"
+                      />
+                      <FormControlLabel
+                        className="formControlLabelD"
+                        value="2022"
+                        control={<Radio />}
+                        label="2022"
+                      />
+                      <FormControlLabel
+                        className="formControlLabelD"
+                        value="Random"
+                        control={<Radio />}
+                        label="Random"
+                      />
                     </span>
-                  </FormControl>
-                </Paper>
-              {tabValue === 1 ? 
+                  </RadioGroup>
+                </span>
+              </FormControl>
+            </Paper>
+            {
+              tabValue === 1 ? (
                 <Data
                   filter={filter}
                   setFilter={setFilter}
@@ -121,22 +124,25 @@ function Project() {
                   district={district}
                   setDistrict={setDistrict}
                 />
-                : 
-                <Ensemble stateValue={stateValue} setStateValue={setStateValue} />
-                  // <span />
-                  }
-              </div>
-                </Grid>
-                <Grid item xs={6} md={6} className="mapGrid">
-                  <Map
-                    stateValue={stateValue}
-                    filter={filter}
-                    districtValue={district}
-                  />
-              </Grid>
+              ) : (
+                <Ensemble
+                  stateValue={stateValue}
+                  setStateValue={setStateValue}
+                />
+              )
+              // <span />
+            }
+          </div>
         </Grid>
-      
-      
+        <Grid item xs={6} md={6} className="mapGrid">
+          <Map
+            stateValue={stateValue}
+            filter={filter}
+            districtValue={district}
+          />
+        </Grid>
+      </Grid>
+
       {/* {tabValue === 0 && (
         <Ensemble stateValue={stateValue} setStateValue={setStateValue} />
       )} */}
