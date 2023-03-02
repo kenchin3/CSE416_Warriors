@@ -23,6 +23,7 @@ function Project() {
   const [filter, setFilter] = React.useState("2022");
   const [district, setDistrict] = React.useState(-1);
   const [districtPlan, setDistrictPlan] = React.useState(0);
+  const [districtPlanYear, setDistrictPlanYear] = React.useState(2022);
 
   const { twoZero, twoTwo, random } = filter;
 
@@ -32,6 +33,8 @@ function Project() {
     if (event.target.value == "2020" || event.target.value == "2022") {
       setTabValue(1);
       setDistrictPlan(0);
+      if (event.target.value == "2020") setDistrictPlanYear(2020);
+      else setDistrictPlanYear(2022);
     } else {
       setTabValue(0);
       setDistrictPlan(event.target.value);
@@ -49,8 +52,8 @@ function Project() {
 
       <Grid container spacing={1} component="span">
         <Grid item xs={6} md={6} component="span">
-          <div className="leftData">
-            <Paper className="paper1" elevation={10}>
+          <div className="userOptions">
+            <Paper className="paperP1" elevation={5}>
               <FormControl className="formD" size="small">
                 <Select
                   labelId="inputLabel"
@@ -78,7 +81,7 @@ function Project() {
               </FormControl>
             </Paper>
 
-            <Paper className="paper1" elevation={10}>
+            <Paper className="paperP1" elevation={5}>
               <FormControl className="formD" size="small">
                 <Select
                   labelId="inputLabel"
@@ -87,11 +90,16 @@ function Project() {
                   value={filter}
                   onChange={handleChange}
                 >
+                  <MenuItem className="selectState" value={"2022"}>
+                    <em>
+                      <span className="selectState">Select District Plan</span>
+                    </em>
+                  </MenuItem>
                   <MenuItem className="selectState" value={"2020"}>
-                    <span className="selectState">2020</span>
+                    <span className="selectState">2020 District Plan</span>
                   </MenuItem>
                   <MenuItem className="selectState" value={"2022"}>
-                    <span className="selectState">2022</span>
+                    <span className="selectState">2022 District Plan</span>
                   </MenuItem>
                   <MenuItem className="selectState" value={1}>
                     <span className="selectState">District Plan 1</span>
@@ -104,60 +112,30 @@ function Project() {
                   </MenuItem>
                 </Select>
               </FormControl>
-
-              {/* <FormControl className="paper2ContentD">
-                    <span className="paper2InsideD">
-                      <RadioGroup
-                        defaultValue="2022"
-                        name="radio-buttons-group"
-                        row={true}
-                        onChange={handleChange}
-                        className="radioGroup"
-                      >
-                        <span className="paper2HeaderD">Select Boundary :</span>
-                        <span className="paper2Options">
-                          <FormControlLabel
-                            className="formControlLabelD"
-                            value="2020"
-                            control={<Radio />}
-                            label="2020"
-                          />
-                          <FormControlLabel
-                            className="formControlLabelD"
-                            value="2022"
-                            control={<Radio />}
-                            label="2022"
-                          />
-                          <FormControlLabel
-                            className="formControlLabelD"
-                            value="Random"
-                            control={<Radio />}
-                            label="Ensemble1"
-                          />
-                        </span>
-                      </RadioGroup>
-                    </span>
-                  </FormControl> */}
             </Paper>
-            <label>***District Plans 1-3 are from the Ensemble</label>
-
-            {tabValue === 1 ? (
-              <Data
-                filter={filter}
-                setFilter={setFilter}
-                twoZero={twoZero}
-                twoTwo={twoTwo}
-                random={random}
-                setStateValue={setStateValue}
-                stateValue={stateValue}
-                tabValue={tabValue}
-                district={district}
-                setDistrict={setDistrict}
-              />
-            ) : (
-              <Ensemble stateValue={stateValue} setStateValue={setStateValue} districtPlan={districtPlan}/>
-            )}
+            {/* <label>***District Plans 1-3 are from the Ensemble</label> */}
           </div>
+          {tabValue === 1 ? (
+            <Data
+              filter={filter}
+              setFilter={setFilter}
+              twoZero={twoZero}
+              twoTwo={twoTwo}
+              random={random}
+              setStateValue={setStateValue}
+              stateValue={stateValue}
+              tabValue={tabValue}
+              district={district}
+              setDistrict={setDistrict}
+              districtPlanYear={districtPlanYear}
+            />
+          ) : (
+            <Ensemble
+              stateValue={stateValue}
+              setStateValue={setStateValue}
+              districtPlan={districtPlan}
+            />
+          )}
         </Grid>
         <Grid item xs={6} md={6} className="mapGrid">
           <Map

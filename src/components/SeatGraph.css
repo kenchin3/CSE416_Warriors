@@ -1,0 +1,16 @@
+.summaryInformationFont {
+  color: black;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  line-height: 20px;
+  font-size: 15px;
+  font-weight: 400;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}
+
+.summaryInformationLocation {
+  margin-top: 10px;
+  float: left;
+}

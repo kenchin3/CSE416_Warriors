@@ -2,13 +2,14 @@
   height: 30px;
   width: 100%;
   position: relative;
+  text-align: center;
 }
 
 .title {
   color: white;
   font-size: 20px;
-  /* transform: translate(-50%, -50%);
-  top: 50%;
-  left: 50%; */
+  line-height: 30px;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 550;
   margin: auto;
 }

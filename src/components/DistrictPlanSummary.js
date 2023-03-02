@@ -8,6 +8,8 @@ import {
   Table,
   TableCell,
 } from "@mui/material";
+import makeStyles from "@material-ui/core/styles/makeStyles";
+import "./DistrictDataSummary.css";
 function DistrictPlanSummary({ districtPlan }) {
   // const [planNumber, setPlanNumber] = React.useState(1)
 
@@ -17,19 +19,19 @@ function DistrictPlanSummary({ districtPlan }) {
         Name: "Joe Smith",
         Party: "Republican",
         "Geo Var": 0.1,
-        "Pop Var": 0.3
+        "Pop Var": 0.3,
       },
       {
         Name: "Michael Lee",
         Party: "Democrat",
         "Geo Var": 0.4,
-        "Pop Var": 0.3
+        "Pop Var": 0.3,
       },
       {
         Name: "Francesca Preston",
         Party: "Republican",
         "Geo Var": 0.2,
-        "Pop Var": 0.3
+        "Pop Var": 0.3,
       },
     ],
     2: [
@@ -37,19 +39,19 @@ function DistrictPlanSummary({ districtPlan }) {
         Name: "Jay Lincoln",
         Party: "Republican",
         "Geo Var": 0.67,
-        "Pop Var": 0.3
+        "Pop Var": 0.3,
       },
       {
         Name: "Michael Karp",
         Party: "Republican",
         "Geo Var": 0.42,
-        "Pop Var": 0.3
+        "Pop Var": 0.3,
       },
       {
         Name: "Jared Goodwin",
         Party: "Republican",
         "Geo Var": 0.17,
-        "Pop Var": 0.3
+        "Pop Var": 0.3,
       },
     ],
     3: [
@@ -57,42 +59,80 @@ function DistrictPlanSummary({ districtPlan }) {
         Name: "Ali Key",
         Party: "Democrat",
         "Geo Var": 0.33,
-        "Pop Var": 0.3
+        "Pop Var": 0.3,
       },
       {
         Name: "Norah Mcgrath",
         Party: "Democrat",
         "Geo Var": 0.82,
-        "Pop Var": 0.3
+        "Pop Var": 0.3,
       },
       {
         Name: "Jacoby Davenport",
         Party: "Democrat",
         "Geo Var": 1.34,
-        "Pop Var": 0.3
+        "Pop Var": 0.3,
       },
     ],
   });
 
+  const useStyles = makeStyles({
+    cell: {
+      color: "black",
+      paddingLeft: "40px",
+      paddingRight: "40px",
+      paddingTop: "10px",
+      paddingBottom: "10px",
+      lineHeight: "16px",
+      fontWeight: 400,
+      fontFamily: ["Roboto", "Helvetica", "Arial", "sans-serif"],
+    },
+    header: {
+      color: "black",
+      paddingLeft: "40px",
+      paddingRight: "40px",
+      lineHeight: "18px",
+      // textAlign: "center",
+      paddingTop: "10px",
+      paddingBottom: "10px",
+      fontSize: "15px",
+      fontWeight: 550,
+      fontFamily: ["Roboto", "Helvetica", "Arial", "sans-serif"],
+    },
+  });
+
+  const classes = useStyles();
+
   return (
     <>
+      <div className="districtDataSummaryFont">
+        <span style={{ fontWeight: 550, fontSize: 15 }}>
+          {" "}
+          Number of Districts:{" "}
+        </span>
+        {districtIncumbentData[districtPlan].length}
+        <br />
+        <br />
+      </div>
       <TableContainer component={Paper}>
         <Table aria-label="simple table">
           <TableHead>
-            <TableRow>
-              <TableCell>
-                Number of Districts:{" "}
-                {districtIncumbentData[districtPlan].length}
-              </TableCell>
-              {/* <TableCell>10</TableCell> */}
-            </TableRow>
+            <TableRow></TableRow>
           </TableHead>
           <TableHead>
             <TableRow>
-              <TableCell align="left">Incumbent</TableCell>
-              <TableCell align="left">Party</TableCell>
-              <TableCell align="left">Geo Var</TableCell>
-              <TableCell align="left">Pop Var</TableCell>
+              <TableCell className={classes.header} align="center">
+                Incumbent
+              </TableCell>
+              <TableCell className={classes.header} align="center">
+                Party
+              </TableCell>
+              <TableCell className={classes.header} align="center">
+                Geo Var
+              </TableCell>
+              <TableCell className={classes.header} align="center">
+                Pop Var
+              </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -102,10 +142,38 @@ function DistrictPlanSummary({ districtPlan }) {
                 key={row.Name}
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
-                <TableCell align="left">{row.Name}</TableCell>
-                <TableCell align="left">{row.Party}</TableCell>
-                <TableCell align="left">{row["Geo Var"]}</TableCell>
-                <TableCell align="left">{row["Pop Var"]}</TableCell>
+                <TableCell
+                  style={{
+                    color: row.Party === "Republican" ? "#D70040" : "blue",
+                  }}
+                  align="center"
+                >
+                  {row.Name}
+                </TableCell>
+                <TableCell
+                  style={{
+                    color: row.Party === "Republican" ? "#D70040" : "blue",
+                  }}
+                  align="center"
+                >
+                  {row.Party}
+                </TableCell>
+                <TableCell
+                  style={{
+                    color: row.Party === "Republican" ? "#D70040" : "blue",
+                  }}
+                  align="center"
+                >
+                  {row["Geo Var"]}
+                </TableCell>
+                <TableCell
+                  style={{
+                    color: row.Party === "Republican" ? "#D70040" : "blue",
+                  }}
+                  align="center"
+                >
+                  {row["Pop Var"]}
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>

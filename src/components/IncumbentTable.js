@@ -48,10 +48,8 @@ function IncumbentTable({ stateValue, district, setDistrict, incumbentData }) {
         <Table size="small" aria-label="a dense table">
           <TableHead>
             <TableRow>
-
               <TableCell className={classes.header} align="center">
                 District
-
               </TableCell>
               <TableCell className={classes.header} align="center">
                 Name
@@ -78,6 +76,7 @@ function IncumbentTable({ stateValue, district, setDistrict, incumbentData }) {
                 district={row.District}
                 onClick={() => {
                   setDistrict(row.District - 1);
+                  console.log(row["Incumbent"]["Party"] === "Rep");
                 }}
                 // classes={{ hover: classes.hover, selected: classes.selected }}
                 className="districtRow"
@@ -86,7 +85,7 @@ function IncumbentTable({ stateValue, district, setDistrict, incumbentData }) {
                     district === -1
                       ? "white"
                       : row.District - 1 === district
-                      ? "grey"
+                      ? "#D3D3D3"
                       : "white",
                 }}
               >
@@ -95,24 +94,63 @@ function IncumbentTable({ stateValue, district, setDistrict, incumbentData }) {
                   align="center"
                   component="th"
                   scope="row"
+                  style={{
+                    color:
+                      row["Incumbent"]["Party"] === "Rep" ? "#D70040" : "blue",
+                  }}
                 >
                   {row.District}
                 </TableCell>
-                <TableCell className="tableCellIT" align="center">
+                <TableCell
+                  className="tableCellIT"
+                  align="center"
+                  style={{
+                    color:
+                      row["Incumbent"]["Party"] === "Rep" ? "#D70040" : "blue",
+                  }}
+                >
                   {row.Incumbent.Name}
                 </TableCell>
-                <TableCell className="tableCellIT" align="center">
+                <TableCell
+                  className="tableCellIT"
+                  align="center"
+                  style={{
+                    color:
+                      row["Incumbent"]["Party"] === "Rep" ? "#D70040" : "blue",
+                  }}
+                >
                   {row.Incumbent.Party}
                 </TableCell>
-                <TableCell className="tableCellIT" align="center">
+                <TableCell
+                  className="tableCellIT"
+                  align="center"
+                  style={{
+                    color:
+                      row["Incumbent"]["Party"] === "Rep" ? "#D70040" : "blue",
+                  }}
+                >
                   {row.Incumbent.Win}
                 </TableCell>
-                <TableCell className="tableCellIT" align="center">
+                <TableCell
+                  className="tableCellIT"
+                  align="center"
+                  style={{
+                    color:
+                      row["Incumbent"]["Party"] === "Rep" ? "#D70040" : "blue",
+                  }}
+                >
                   {(
                     parseInt(row["Pop 2022"]) / parseInt(row["Pop 2020"])
                   ).toFixed(3)}
                 </TableCell>
-                <TableCell className="tableCellIT" align="center">
+                <TableCell
+                  className="tableCellIT"
+                  align="center"
+                  style={{
+                    color:
+                      row["Incumbent"]["Party"] === "Rep" ? "#D70040" : "blue",
+                  }}
+                >
                   {(
                     parseInt(row["Area 2022"]) / parseInt(row["Area 2020"])
                   ).toFixed(3)}

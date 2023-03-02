@@ -5,7 +5,6 @@ import DistrictPlanSummary from "./DistrictPlanSummary";
 import "./Ensemble.css";
 
 function BoxPlot({ stateValue, setStateValue }) {
-
   const paSeries = [
     {
       type: "boxPlot",
@@ -222,13 +221,13 @@ function BoxPlot({ stateValue, setStateValue }) {
   const options = {
     chart: {
       type: "boxPlot",
-      height: 350,
+      height: 300,
       toolbar: {
-        show: false
-      }
+        show: false,
+      },
     },
     title: {
-      text: stateValue.toUpperCase() + " District Plan Ensembles",
+      // text: stateValue.toUpperCase() + " District Plan Ensembles",
       align: "left",
     },
     plotOptions: {
@@ -241,9 +240,8 @@ function BoxPlot({ stateValue, setStateValue }) {
     },
     legend: {
       labels: {
-      colors: ["brown","red"]
-      }
-      ,
+        colors: ["brown", "red"],
+      },
       onItemClick: {
         toggleDataSeries: false,
       },
@@ -269,15 +267,12 @@ function BoxPlot({ stateValue, setStateValue }) {
 
   return (
     <>
-        
-         <ReactApexChart
-              options={options}
-              series={getSeries()}
-              type="boxPlot"
-              height={300}
-            />
-
-    
+      <ReactApexChart
+        options={options}
+        series={getSeries()}
+        type="boxPlot"
+        height={300}
+      />
     </>
   );
 }

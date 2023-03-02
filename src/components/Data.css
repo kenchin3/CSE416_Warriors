@@ -32,20 +32,6 @@
   display: "flex";
 }
 
-.summaryInformation {
-  font-size: 16px;
-  line-height: 24px;
-  float: left;
-}
-
-.formD {
-  width: 100%;
-  height: 30px;
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-  font-size: 16px;
-  line-height: 24px;
-}
-
 .select {
   width: 100%;
   height: 30px;
@@ -102,18 +88,21 @@
   height: 30px;
   font-size: 16px;
   line-height: 24px;
-  font-family: "Lucida Console", "Courier New", monospace;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
 }
 
 .districtRow:hover {
   cursor: pointer;
 }
 
-/* .accordionHeader {
-  font-family: "Lucida Console", "Courier New", monospace;
+.accordionHeader {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 550;
+  font-size: 17px;
+  line-height: 18px;
 }
 
-.selectState {
+/* .selectState {
   font-family: "Lucida Console", "Courier New", monospace;
 }
 
