@@ -72,9 +72,36 @@ function Project() {
                     </Select>
                   </FormControl>
                 </Paper>
-
-                <Paper className="paper2D" elevation={10}>
-                  <FormControl className="paper2ContentD">
+            
+                <Paper className="paper1" elevation={10}>
+                      <FormControl className="formD" size="small">
+                          <Select
+                            labelId="inputLabel"
+                            className="select"
+                            displayEmpty
+                            value={filter}
+                            onChange={handleChange}
+                          >
+                            
+                            <MenuItem className="selectState" value={"2020"}>
+                              <span className="selectState">2020</span>
+                            </MenuItem>
+                            <MenuItem className="selectState" value={"2022"}>
+                              <span className="selectState">2022</span>
+                            </MenuItem>
+                            <MenuItem className="selectState" value={"Random"}>
+                              <span className="selectState">District Plan 1</span>
+                            </MenuItem>
+                            <MenuItem className="selectState" value={"Random"}>
+                              <span className="selectState">District Plan 2</span>
+                            </MenuItem>
+                            <MenuItem className="selectState" value={"Random"}>
+                              <span className="selectState">District Plan 3</span>
+                            </MenuItem>
+                          </Select>
+                        </FormControl>
+                       
+                  {/* <FormControl className="paper2ContentD">
                     <span className="paper2InsideD">
                       <RadioGroup
                         defaultValue="2022"
@@ -106,8 +133,11 @@ function Project() {
                         </span>
                       </RadioGroup>
                     </span>
-                  </FormControl>
+                  </FormControl> */}
                 </Paper>
+               <label>***District Plans 1-3 are from the Ensemble</label>
+              
+                
               {tabValue === 1 ? 
                 <Data
                   filter={filter}
@@ -122,8 +152,9 @@ function Project() {
                   setDistrict={setDistrict}
                 />
                 : 
-                <Ensemble stateValue={stateValue} setStateValue={setStateValue} />
-                  // <span />
+               ( stateValue && 
+              <Ensemble stateValue={stateValue} setStateValue={setStateValue} />
+                 )
                   }
               </div>
                 </Grid>
