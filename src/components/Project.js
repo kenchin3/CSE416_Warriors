@@ -4,9 +4,18 @@ import Header from "./Header.js";
 import Data from "./Data.js";
 import Grid from "@mui/material/Grid";
 import Ensemble from "./Ensemble.js";
-import "./Project.css"
+import "./Project.css";
 
-import {Paper, FormControl, Select, Menu, MenuItem, Radio, RadioGroup, FormControlLabel} from "@mui/material";
+import {
+  Paper,
+  FormControl,
+  Select,
+  Menu,
+  MenuItem,
+  Radio,
+  RadioGroup,
+  FormControlLabel,
+} from "@mui/material";
 
 function Project() {
   const [tabValue, setTabValue] = React.useState(1);
@@ -16,15 +25,13 @@ function Project() {
 
   const { twoZero, twoTwo, random } = filter;
 
- 
   const handleChange = (event) => {
     // //console.log(event.target.value);
     setFilter(event.target.value);
     if (event.target.value == "Random") {
-      setTabValue(0)
-    }
-    else {
-      setTabValue(1)
+      setTabValue(0);
+    } else {
+      setTabValue(1);
     }
   };
 
@@ -35,12 +42,8 @@ function Project() {
 
   return (
     <div>
-      {/* <Header
-        tabValue={tabValue}
-        setTabValue={setTabValue}
-        stateValue={stateValue}
-        setStateValue={setStateValue}
-      /> */}
+
+      <Header />
       
         <Grid container spacing={1} component="span">
           <Grid item xs={6} md={6} component="span">
@@ -151,23 +154,26 @@ function Project() {
                   district={district}
                   setDistrict={setDistrict}
                 />
-                : 
-               ( stateValue && 
-              <Ensemble stateValue={stateValue} setStateValue={setStateValue} />
-                 )
-                  }
-              </div>
-                </Grid>
-                <Grid item xs={6} md={6} className="mapGrid">
-                  <Map
-                    stateValue={stateValue}
-                    filter={filter}
-                    districtValue={district}
-                  />
-              </Grid>
+              ) : (
+                <Ensemble
+                  stateValue={stateValue}
+                  setStateValue={setStateValue}
+                />
+              )
+              // <span />
+            }
+          </div>
         </Grid>
-      
-      
+        <Grid item xs={6} md={6} className="mapGrid">
+          <Map
+            stateValue={stateValue}
+            filter={filter}
+            districtValue={district}
+          />
+
+        </Grid>
+      </Grid>
+
       {/* {tabValue === 0 && (
         <Ensemble stateValue={stateValue} setStateValue={setStateValue} />
       )} */}

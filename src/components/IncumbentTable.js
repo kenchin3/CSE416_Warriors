@@ -6,8 +6,8 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import DistrictData from "./DistrictData"
-import "./IncumbentTable.css";
+import DistrictData from "./DistrictData";
+import makeStyles from "@material-ui/core/styles/makeStyles";
 
 function IncumbentTable({ stateValue, district, setDistrict, incumbentData }) {
   // const handleClick = (event) => {
@@ -15,28 +15,57 @@ function IncumbentTable({ stateValue, district, setDistrict, incumbentData }) {
   //   setDistrict(event.target.innerText - 1);
   // };
 
+  const useStyles = makeStyles({
+    cell: {
+      color: "black",
+      paddingLeft: "10px",
+      paddingRight: "10px",
+      paddingTop: "10px",
+      paddingBottom: "10px",
+      lineHeight: "16px",
+      fontWeight: 400,
+      fontFamily: ["Roboto", "Helvetica", "Arial", "sans-serif"],
+    },
+    header: {
+      color: "black",
+      paddingLeft: "10px",
+      paddingRight: "10px",
+      lineHeight: "18px",
+      // textAlign: "center",
+      paddingTop: "10px",
+      paddingBottom: "10px",
+      fontSize: "15px",
+      fontWeight: 550,
+      fontFamily: ["Roboto", "Helvetica", "Arial", "sans-serif"],
+    },
+  });
+
+  const classes = useStyles();
+
   return (
     <>
       <TableContainer className="table" component={Paper}>
         <Table size="small" aria-label="a dense table">
           <TableHead>
             <TableRow>
-              <TableCell className="tableCellHeaderIT" align="center">
-                <span className="tableCellHeaderIT">District</span>
+
+              <TableCell className={classes.header} align="center">
+                District
+
               </TableCell>
-              <TableCell className="tableCellHeaderIT" align="center">
+              <TableCell className={classes.header} align="center">
                 Name
               </TableCell>
-              <TableCell className="tableCellHeaderIT" align="center">
+              <TableCell className={classes.header} align="center">
                 Party
               </TableCell>
-              <TableCell className="tableCellHeaderIT" align="center">
+              <TableCell className={classes.header} align="center">
                 Election Result
               </TableCell>
-              <TableCell className="tableCellHeaderIT" align="center">
+              <TableCell className={classes.header} align="center">
                 Geographic Variance
               </TableCell>
-              <TableCell className="tableCellHeaderIT" align="center">
+              <TableCell className={classes.header} align="center">
                 Population Variance
               </TableCell>
             </TableRow>
@@ -98,7 +127,7 @@ function IncumbentTable({ stateValue, district, setDistrict, incumbentData }) {
         district={district}
         setDistrict={setDistrict}
         stateValue={stateValue}
-      /> 
+      />
     </>
   );
 }
