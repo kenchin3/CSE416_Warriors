@@ -22,16 +22,19 @@ function Project() {
   const [stateValue, setStateValue] = React.useState("");
   const [filter, setFilter] = React.useState("2022");
   const [district, setDistrict] = React.useState(-1);
+  const [districtPlan, setDistrictPlan] = React.useState(0);
 
   const { twoZero, twoTwo, random } = filter;
 
   const handleChange = (event) => {
     // //console.log(event.target.value);
     setFilter(event.target.value);
-    if (event.target.value == "Random") {
-      setTabValue(0);
-    } else {
+    if (event.target.value == "2020" || event.target.value == "2022") {
       setTabValue(1);
+      setDistrictPlan(0);
+    } else {
+      setTabValue(0);
+      setDistrictPlan(event.target.value);
     }
   };
 
@@ -90,13 +93,13 @@ function Project() {
                   <MenuItem className="selectState" value={"2022"}>
                     <span className="selectState">2022</span>
                   </MenuItem>
-                  <MenuItem className="selectState" value={"Random"}>
+                  <MenuItem className="selectState" value={1}>
                     <span className="selectState">District Plan 1</span>
                   </MenuItem>
-                  <MenuItem className="selectState" value={"Random"}>
+                  <MenuItem className="selectState" value={2}>
                     <span className="selectState">District Plan 2</span>
                   </MenuItem>
-                  <MenuItem className="selectState" value={"Random"}>
+                  <MenuItem className="selectState" value={3}>
                     <span className="selectState">District Plan 3</span>
                   </MenuItem>
                 </Select>
@@ -152,7 +155,7 @@ function Project() {
                 setDistrict={setDistrict}
               />
             ) : (
-              <Ensemble stateValue={stateValue} setStateValue={setStateValue} />
+              <Ensemble stateValue={stateValue} setStateValue={setStateValue} districtPlan={districtPlan}/>
             )}
           </div>
         </Grid>

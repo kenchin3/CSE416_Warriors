@@ -23,6 +23,7 @@ import React from "react";
 import okDistrictData from "./../data/okDistrictData.json";
 import paDistrictData from "./../data/paDistrictData.json";
 import tnDistrictData from "./../data/tnDistrictData.json";
+import BoxPlot from "./BoxPlot";
 
 function Data({
   filter,
@@ -110,6 +111,7 @@ function Data({
             </Typography>
           </AccordionDetails>
         </Accordion>
+        <BoxPlot stateValue={stateValue}/>
    
     </>
   );
