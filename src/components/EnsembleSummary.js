@@ -17,29 +17,37 @@ function EnsembleSummary({ stateValue }) {
       "District Plans Total": 300,
       "Incumbents Total": 17,
       "Incumbents Win": 14,
-      "Geo Var": 1.43,
-      "Pop Var": 0.79,
+      "Geo Var22": 1.43,
+      "Geo Var20": 1.33,
+      "Pop Var22": 0.79,
+      "Pop Var20": 1.29,
     },
     ok: {
       "District Plans Total": 1000,
       "Incumbents Total": 5,
       "Incumbents Win": 5,
-      "Geo Var": 1.2,
-      "Pop Var": 0.45,
+      "Geo Var22": 1.82,
+      "Geo Var20": 1.93,
+      "Pop Var22": 2.35,
+      "Pop Var20": 1.98,
     },
     tn: {
       "District Plans Total": 13,
       "Incumbents Total": 12,
       "Incumbents Win": 11,
-      "Geo Var": 1.31,
-      "Pop Var": 0.67,
+      "Geo Var22": 1.43,
+      "Geo Var20": 1.89,
+      "Pop Var22": 0.79,
+      "Pop Var20": 1.29,
     },
     "": {
       "District Plans Total": 0,
       "Incumbents Total": 0,
       "Incumbents Win": 0,
-      "Geo Var": 0,
-      "Pop Var": 0,
+      "Geo Var22": 1.12,
+      "Geo Var20": 1.42,
+      "Pop Var22": 0.39,
+      "Pop Var20": 0.45,
     },
   });
 
@@ -86,10 +94,16 @@ function EnsembleSummary({ stateValue }) {
                 Incumbents Predicted to Win
               </TableCell>
               <TableCell className={classes.header} align="center">
-                Average Geographic Variation
+                Average Geographic Variation (2022)
               </TableCell>
               <TableCell className={classes.header} align="center">
-                Average Population Variation
+                Average Geographic Variation (2020)
+              </TableCell>
+              <TableCell className={classes.header} align="center">
+                Average Population Variation (2022)
+              </TableCell>
+              <TableCell className={classes.header} align="center">
+                Average Population Variation (2020)
               </TableCell>
             </TableRow>
           </TableHead>
@@ -114,10 +128,16 @@ function EnsembleSummary({ stateValue }) {
                 {summaryData[stateValue]["Incumbents Win"]}
               </TableCell>
               <TableCell className="tableCellES" align="center">
-                {summaryData[stateValue]["Geo Var"]}
+                {summaryData[stateValue]["Geo Var22"]}
               </TableCell>
               <TableCell className="tableCellES" align="center">
-                {summaryData[stateValue]["Pop Var"]}
+                {summaryData[stateValue]["Geo Var20"]}
+              </TableCell>
+              <TableCell className="tableCellES" align="center">
+                {summaryData[stateValue]["Pop Var22"]}
+              </TableCell>
+              <TableCell className="tableCellES" align="center">
+                {summaryData[stateValue]["Pop Var20"]}
               </TableCell>
             </TableRow>
           </TableBody>
