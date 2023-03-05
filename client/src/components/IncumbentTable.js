@@ -42,6 +42,14 @@ function IncumbentTable({ stateValue, district, setDistrict, incumbentData }) {
 
   const classes = useStyles();
 
+  function rowColor(party, result) {
+    if (result == "Open"){return "grey"}
+    else if (party == "Rep"){return "#D70040"}
+    else{return "blue"}
+
+
+  }
+
   return (
     <>
       <TableContainer className="table" component={Paper}>
@@ -96,7 +104,7 @@ function IncumbentTable({ stateValue, district, setDistrict, incumbentData }) {
                   scope="row"
                   style={{
                     color:
-                      row["Incumbent"]["Party"] === "Rep" ? "#D70040" : "blue",
+                      rowColor(row["Incumbent"]["Party"], row["Incumbent"]["Win"])
                   }}
                 >
                   {row.District}
@@ -106,7 +114,7 @@ function IncumbentTable({ stateValue, district, setDistrict, incumbentData }) {
                   align="center"
                   style={{
                     color:
-                      row["Incumbent"]["Party"] === "Rep" ? "#D70040" : "blue",
+                    rowColor(row["Incumbent"]["Party"], row["Incumbent"]["Win"]),
                   }}
                 >
                   {row.Incumbent.Name}
@@ -116,7 +124,7 @@ function IncumbentTable({ stateValue, district, setDistrict, incumbentData }) {
                   align="center"
                   style={{
                     color:
-                      row["Incumbent"]["Party"] === "Rep" ? "#D70040" : "blue",
+                    rowColor(row["Incumbent"]["Party"], row["Incumbent"]["Win"]),
                   }}
                 >
                   {row.Incumbent.Party}
@@ -126,7 +134,7 @@ function IncumbentTable({ stateValue, district, setDistrict, incumbentData }) {
                   align="center"
                   style={{
                     color:
-                      row["Incumbent"]["Party"] === "Rep" ? "#D70040" : "blue",
+                    rowColor(row["Incumbent"]["Party"], row["Incumbent"]["Win"]),
                   }}
                 >
                   {row.Incumbent.Win}
@@ -136,7 +144,7 @@ function IncumbentTable({ stateValue, district, setDistrict, incumbentData }) {
                   align="center"
                   style={{
                     color:
-                      row["Incumbent"]["Party"] === "Rep" ? "#D70040" : "blue",
+                    rowColor(row["Incumbent"]["Party"], row["Incumbent"]["Win"]),
                   }}
                 >
                   {(
@@ -148,7 +156,7 @@ function IncumbentTable({ stateValue, district, setDistrict, incumbentData }) {
                   align="center"
                   style={{
                     color:
-                      row["Incumbent"]["Party"] === "Rep" ? "#D70040" : "blue",
+                    rowColor(row["Incumbent"]["Party"], row["Incumbent"]["Win"]),
                   }}
                 >
                   {(
