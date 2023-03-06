@@ -13,14 +13,19 @@ public class IncumbentController {
     @Autowired
     private IncumbentService incumbentService;
 
-    @RequestMapping("/incumbents")
-    public List<Incumbent> getAllIncumbents() {
-        return incumbentService.getAllIncumbents();
-    }
+    // @RequestMapping("/incumbents")
+    // public List<Incumbent> getAllIncumbents() {
+    //     return incumbentService.getAllIncumbents();
+    // }
 
-    @RequestMapping("/incumbents/{district}")
-    public Incumbent getIncumbent(@PathVariable Integer district) {
-        return incumbentService.getIncumbent(district);
+    // @RequestMapping("/incumbents/{district}")
+    // public Incumbent getIncumbent(@PathVariable Integer district) {
+    //     return incumbentService.getIncumbent(district);
+    // }
+
+    @RequestMapping("/incumbents/{state}")
+    public List<Incumbent> getStateIncumbents(@PathVariable String state) {
+        return incumbentService.getStateIncumbents(state);
     }
 
 
