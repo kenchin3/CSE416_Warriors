@@ -18,7 +18,7 @@ function DistrictData({ district, setDistrict, stateValue }) {
   React.useEffect(() => {
 
     axios
-      .get("http://localhost:8080/district/ok")
+      .get("http://localhost:8080/district")
       .then(response => console.log(response.data));
     // switch (stateValue) {
     //   case "pa":
