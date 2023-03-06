@@ -1,15 +1,15 @@
 package com.example.incumbent;
 
-import java.util.List;
+import java.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin(maxAge = 3600)
 @RestController
-public class IncumbentController {
+public class DistrictController {
 
     @Autowired
-    private IncumbentService incumbentService;
+    private DistrictService districtService;
 
     // @RequestMapping("/incumbents")
     // public List<Incumbent> getAllIncumbents() {
@@ -20,10 +20,15 @@ public class IncumbentController {
     // public Incumbent getIncumbent(@PathVariable Integer district) {
     // return incumbentService.getIncumbent(district);
     // }
-    @CrossOrigin(maxAge = 3600)
-    @RequestMapping("/incumbents/{state}")
-    public List<Incumbent> getStateIncumbents(@PathVariable String state) {
-        return incumbentService.getStateIncumbents(state);
+
+    @RequestMapping("/district/{state}")
+    public List<District> getDistrictByState(@PathVariable String state) {
+        return districtService.getDistrictByState(state);
+    }
+
+    @RequestMapping("/district")
+    public Map<String, List<District>> getAllDistricts() {
+        return districtService.getAllDistricts();
     }
 
 }
