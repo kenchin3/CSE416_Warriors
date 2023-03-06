@@ -3,6 +3,7 @@ import okDistrictData from "./../data/okDistrictData.json";
 import tnDistrictData from "./../data/tnDistrictData.json";
 import paDistrictData from "./../data/paDistrictData.json";
 import "./DistrictData.css";
+import axios from "axios";
 // import Table from "@mui/material/Table";
 // import TableBody from "@mui/material/TableBody";
 // import TableCell from "@mui/material/TableCell";
@@ -13,18 +14,23 @@ import "./DistrictData.css";
 
 function DistrictData({ district, setDistrict, stateValue }) {
   const [districtData, setdistrictData] = React.useState(paDistrictData.data);
+
   React.useEffect(() => {
-    switch (stateValue) {
-      case "pa":
-        setdistrictData(paDistrictData.data);
-        break;
-      case "tn":
-        setdistrictData(tnDistrictData.data);
-        break;
-      case "ok":
-        setdistrictData(okDistrictData.data);
-        break;
-    }
+
+    axios
+      .get("http://localhost:8080/district/ok")
+      .then(response => console.log(response.data));
+    // switch (stateValue) {
+    //   case "pa":
+    //     setdistrictData(paDistrictData.data);
+    //     break;
+    //   case "tn":
+    //     setdistrictData(tnDistrictData.data);
+    //     break;
+    //   case "ok":
+    //     setdistrictData(okDistrictData.data);
+    //     break;
+    // }
   });
   return (
     <div className="districtDataLocation">
