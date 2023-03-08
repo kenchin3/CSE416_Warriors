@@ -1,8 +1,8 @@
 import React from "react";
-import okDistrictData from "./../data/okDistrictData.json";
-import tnDistrictData from "./../data/tnDistrictData.json";
-import paDistrictData from "./../data/paDistrictData.json";
-import "./DistrictData.css";
+// import okDistrictData from "./../data/okDistrictData.json";
+// import tnDistrictData from "./../data/tnDistrictData.json";
+// import paDistrictData from "./../data/paDistrictData.json";
+// import "./DistrictData.css";
 import axios from "axios";
 // import Table from "@mui/material/Table";
 // import TableBody from "@mui/material/TableBody";
@@ -13,54 +13,45 @@ import axios from "axios";
 // import Paper from "@mui/material/Paper";
 
 function DistrictData({ district, setDistrict, stateValue }) {
-  const [districtData, setdistrictData] = React.useState(paDistrictData.data);
+  const [districtData, setdistrictData] = React.useState();
 
   React.useEffect(() => {
+  
+    axios.get("http://localhost:8080/district").then((res) => {
+      setdistrictData(res.data);
+      console.log(res);
+    });
+  }, []);
 
-    axios
-      .get("http://localhost:8080/district")
-      .then(response => console.log(response.data));
-    // switch (stateValue) {
-    //   case "pa":
-    //     setdistrictData(paDistrictData.data);
-    //     break;
-    //   case "tn":
-    //     setdistrictData(tnDistrictData.data);
-    //     break;
-    //   case "ok":
-    //     setdistrictData(okDistrictData.data);
-    //     break;
-    // }
-  });
   return (
     <div className="districtDataLocation">
       {district !== -1 && (
         <div className="districtDataFont">
           <span style={{ fontWeight: 550, fontSize: 15 }}> District: </span>
-          {districtData[district]["District"]} <br />
+          {districtData[stateValue][district]["district"]} <br />
           <span style={{ fontWeight: 550, fontSize: 15 }}> Winner: </span>
-          {districtData[district]["Winner"]} <br />
+          {districtData[stateValue][district]["winner"]} <br />
           <span style={{ fontWeight: 550, fontSize: 15 }}>
             {" "}
             2020 Population:{" "}
           </span>
-          {districtData[district]["Pop 2020"]} <br />
+          {districtData[stateValue][district]["pop2020"]} <br />
           <span style={{ fontWeight: 550, fontSize: 15 }}>
             {" "}
             2022 Population:{" "}
           </span>
-          {districtData[district]["Pop 2022"]} <br />
+          {districtData[stateValue][district]["pop2022"]} <br />
           <span style={{ fontWeight: 550, fontSize: 15 }}>
             {" "}
             2020 Geographic Area:{" "}
           </span>{" "}
           2020
-          {districtData[district]["Area 2020"]} <br />
+          {districtData[stateValue][district]["area2020"]} <br />
           <span style={{ fontWeight: 550, fontSize: 15 }}>
             {" "}
             2022 Geographic Area:{" "}
           </span>{" "}
-          {districtData[district]["Area 2022"]}
+          {districtData[stateValue][district]["area2022"]}
         </div>
       )}
     </div>

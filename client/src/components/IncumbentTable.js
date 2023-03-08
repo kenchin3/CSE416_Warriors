@@ -84,7 +84,7 @@ function IncumbentTable({ stateValue, district, setDistrict, incumbentData }) {
                 district={row.District}
                 onClick={() => {
                   setDistrict(row.District - 1);
-                  console.log(row["Incumbent"]["Party"] === "Rep");
+                 
                 }}
                 // classes={{ hover: classes.hover, selected: classes.selected }}
                 className="districtRow"
