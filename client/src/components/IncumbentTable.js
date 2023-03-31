@@ -31,7 +31,7 @@ function IncumbentTable({ stateValue, district, setDistrict, incumbentData }) {
       paddingLeft: "10px",
       paddingRight: "10px",
       lineHeight: "18px",
-      // textAlign: "center",
+      // textAlign: "left",
       paddingTop: "10px",
       paddingBottom: "10px",
       fontSize: "15px",
@@ -43,11 +43,13 @@ function IncumbentTable({ stateValue, district, setDistrict, incumbentData }) {
   const classes = useStyles();
 
   function rowColor(party, result) {
-    if (result == "Open"){return "grey"}
-    else if (party == "Rep"){return "#D70040"}
-    else{return "blue"}
-
-
+    if (result == "Open") {
+      return "grey";
+    } else if (party == "Rep") {
+      return "#D70040";
+    } else {
+      return "blue";
+    }
   }
 
   return (
@@ -56,22 +58,22 @@ function IncumbentTable({ stateValue, district, setDistrict, incumbentData }) {
         <Table size="small" aria-label="a dense table">
           <TableHead>
             <TableRow>
-              <TableCell className={classes.header} align="center">
+              <TableCell className={classes.header} align="left">
                 District
               </TableCell>
-              <TableCell className={classes.header} align="center">
+              <TableCell className={classes.header} align="left">
                 Name
               </TableCell>
-              <TableCell className={classes.header} align="center">
+              <TableCell className={classes.header} align="left">
                 Party
               </TableCell>
-              <TableCell className={classes.header} align="center">
+              <TableCell className={classes.header} align="left">
                 Election Result
               </TableCell>
-              <TableCell className={classes.header} align="center">
+              <TableCell className={classes.header} align="left">
                 Geographic Variance
               </TableCell>
-              <TableCell className={classes.header} align="center">
+              <TableCell className={classes.header} align="left">
                 Population Variance
               </TableCell>
             </TableRow>
@@ -84,7 +86,6 @@ function IncumbentTable({ stateValue, district, setDistrict, incumbentData }) {
                 district={row.District}
                 onClick={() => {
                   setDistrict(row.District - 1);
-                 
                 }}
                 // classes={{ hover: classes.hover, selected: classes.selected }}
                 className="districtRow"
@@ -99,52 +100,62 @@ function IncumbentTable({ stateValue, district, setDistrict, incumbentData }) {
               >
                 <TableCell
                   className="tableCellIT"
-                  align="center"
+                  align="left"
                   component="th"
                   scope="row"
                   style={{
-                    color:
-                      rowColor(row["Incumbent"]["Party"], row["Incumbent"]["Win"])
+                    color: rowColor(
+                      row["Incumbent"]["Party"],
+                      row["Incumbent"]["Win"]
+                    ),
                   }}
                 >
                   {row.District}
                 </TableCell>
                 <TableCell
                   className="tableCellIT"
-                  align="center"
+                  align="left"
                   style={{
-                    color:
-                    rowColor(row["Incumbent"]["Party"], row["Incumbent"]["Win"]),
+                    color: rowColor(
+                      row["Incumbent"]["Party"],
+                      row["Incumbent"]["Win"]
+                    ),
                   }}
                 >
                   {row.Incumbent.Name}
                 </TableCell>
                 <TableCell
                   className="tableCellIT"
-                  align="center"
+                  align="left"
                   style={{
-                    color:
-                    rowColor(row["Incumbent"]["Party"], row["Incumbent"]["Win"]),
+                    color: rowColor(
+                      row["Incumbent"]["Party"],
+                      row["Incumbent"]["Win"]
+                    ),
                   }}
                 >
                   {row.Incumbent.Party}
                 </TableCell>
                 <TableCell
                   className="tableCellIT"
-                  align="center"
+                  align="left"
                   style={{
-                    color:
-                    rowColor(row["Incumbent"]["Party"], row["Incumbent"]["Win"]),
+                    color: rowColor(
+                      row["Incumbent"]["Party"],
+                      row["Incumbent"]["Win"]
+                    ),
                   }}
                 >
                   {row.Incumbent.Win}
                 </TableCell>
                 <TableCell
                   className="tableCellIT"
-                  align="center"
+                  align="left"
                   style={{
-                    color:
-                    rowColor(row["Incumbent"]["Party"], row["Incumbent"]["Win"]),
+                    color: rowColor(
+                      row["Incumbent"]["Party"],
+                      row["Incumbent"]["Win"]
+                    ),
                   }}
                 >
                   {(
@@ -153,10 +164,12 @@ function IncumbentTable({ stateValue, district, setDistrict, incumbentData }) {
                 </TableCell>
                 <TableCell
                   className="tableCellIT"
-                  align="center"
+                  align="left"
                   style={{
-                    color:
-                    rowColor(row["Incumbent"]["Party"], row["Incumbent"]["Win"]),
+                    color: rowColor(
+                      row["Incumbent"]["Party"],
+                      row["Incumbent"]["Win"]
+                    ),
                   }}
                 >
                   {(

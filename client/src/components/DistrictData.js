@@ -16,10 +16,8 @@ function DistrictData({ district, setDistrict, stateValue }) {
   const [districtData, setdistrictData] = React.useState();
 
   React.useEffect(() => {
-  
     axios.get("http://localhost:8080/district").then((res) => {
       setdistrictData(res.data);
-      console.log(res);
     });
   }, []);
 
@@ -35,23 +33,33 @@ function DistrictData({ district, setDistrict, stateValue }) {
             {" "}
             2020 Population:{" "}
           </span>
-          {districtData[stateValue][district]["pop2020"]} <br />
+          {districtData[stateValue][district]["pop2020"]
+            .toString()
+            .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{" "}
+          <br />
           <span style={{ fontWeight: 550, fontSize: 15 }}>
             {" "}
             2022 Population:{" "}
           </span>
-          {districtData[stateValue][district]["pop2022"]} <br />
+          {districtData[stateValue][district]["pop2022"]
+            .toString()
+            .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{" "}
+          <br />
           <span style={{ fontWeight: 550, fontSize: 15 }}>
             {" "}
             2020 Geographic Area:{" "}
           </span>{" "}
-          2020
-          {districtData[stateValue][district]["area2020"]} <br />
+          {districtData[stateValue][district]["area2020"]
+            .toString()
+            .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{" "}
+          <br />
           <span style={{ fontWeight: 550, fontSize: 15 }}>
             {" "}
             2022 Geographic Area:{" "}
           </span>{" "}
-          {districtData[stateValue][district]["area2022"]}
+          {districtData[stateValue][district]["area2022"]
+            .toString()
+            .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
         </div>
       )}
     </div>
