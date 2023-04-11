@@ -1,0 +1,62 @@
+{
+   "precints": [
+    {
+        "CODE": "pa_01_0001",
+        "DIST": "01",
+        "PRECINCT": "0001",
+        "NAME": "Kings County",
+        "POP": "7979",
+        "AREA": "1003",
+        "NEIGHBORS": ["pa_01_0003", "pa_02_0044", "pa_02_0034"]
+    },
+    {
+        "CODE": "pa_01_0002",
+        "DIST": "01",
+        "PRECINCT": "0002",
+        "NAME": "Kings County",
+        "POP": "7979",
+        "AREA": "1003",
+        "NEIGHBORS": ["pa_01_0001", "pa_02_0054", "pa_02_0027"]
+    }
+   ]
+}   
+
+{
+    "state": "pa",
+    "districtPlans": 
+    {
+        "2020": geoJSON,
+        "2022": geoJSON,
+        "random1": geoJSON,
+        "random2": geoJSON,
+        "random3": geoJSON,
+    },
+    "ensemble": {
+        "boxAndWhisker": {
+            "geoVar": [{"min": float, "max": float, "q1": float, "q2": float, "q3": float},{"min": float, "max": float, "q1": float, "q2": float, "q3": float},{"min": float, "max": float, "q1": float, "q2": float, "q3": float}],
+            "popVar": [{"min": float, "max": float, "q1": float, "q2": float, "q3": float},{"min": float, "max": float, "q1": float, "q2": float, "q3": float},{"min": float, "max": float, "q1": float, "q2": float, "q3": float}]
+        },
+        "avgGeo": float,
+        "avgPop": float
+    } 
+ }   
+
+ {
+    "state": "pa",
+    "incumbents": [
+        {
+            "District": 1,
+            "Name": "Brian Fitzpatrick",
+            "Win": "Win",
+            "Party": "Rep"
+
+        },
+        {
+            "District": 2,
+            "Name": "Brendan Boyle ",
+            "Win": "Win",
+            "Party": "Dem"
+        }
+    ]
+
+ }   

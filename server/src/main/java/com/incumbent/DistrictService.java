@@ -9,16 +9,6 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class DistrictService {
-        // Map<String, List<Incumbent>> stateIncumbent = new HashMap<String,
-        // List<Incumbent>>() {{
-        // put("ok", new ArrayList<>(
-        // Arrays.asList(
-        // new Incumbent(1, "Kevin Hern", true, "Rep", 0.675, 0.955),
-        // new Incumbent(2, "Josh Brecheen", true, "Rep", 0.657, 1.008),
-        // new Incumbent(3, "Frank Lucas", true, "Rep", 15.863, 0.960)
-        // )
-        // ));
-        // }};
         Map<String, List<District>> stateDistricts = Map.ofEntries(
                         Map.entry("ok", new ArrayList<>(
                                         Arrays.asList(
