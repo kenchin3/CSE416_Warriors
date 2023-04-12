@@ -6,6 +6,7 @@
         "PRECINCT": "0001",
         "NAME": "Kings County",
         "POP": "7979",
+        "VAP": "6823",
         "AREA": "1003",
         "NEIGHBORS": ["pa_01_0003", "pa_02_0044", "pa_02_0034"]
     },
@@ -14,7 +15,8 @@
         "DIST": "01",
         "PRECINCT": "0002",
         "NAME": "Kings County",
-        "POP": "7979",
+        "POP": "7979",,
+        "VAP": "5922",
         "AREA": "1003",
         "NEIGHBORS": ["pa_01_0001", "pa_02_0054", "pa_02_0027"]
     }
@@ -25,7 +27,7 @@
     "state": "pa",
     "districtPlans": 
     {
-        "2020": geoJSON,
+        "name"" 2020": geoJSON,
         "2022": geoJSON,
         "random1": geoJSON,
         "random2": geoJSON,
