@@ -8,12 +8,21 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import DistrictData from "./DistrictData";
 import makeStyles from "@material-ui/core/styles/makeStyles";
+import axios from "axios";
 
-function IncumbentTable({ stateValue, district, setDistrict, incumbentData }) {
-  // const handleClick = (event) => {
-  //   // console.log(event.target.innerText);
-  //   setDistrict(event.target.innerText - 1);
-  // };
+function IncumbentTable({ stateValue, district, setDistrict}) {
+  const [incumbentData, setIncumbentData] = React.useState();
+
+  // React.useEffect(() => {
+
+  // })
+  React.useEffect(() => {
+    axios.get("http://localhost:8080/api/getIncumbentByState", { params: { state: stateValue.toUpperCase() } })
+      .then((res) => {
+      console.log(res.data);
+      setIncumbentData(res.data);
+    });
+  }, [stateValue]);
 
   const useStyles = makeStyles({
     cell: {
@@ -45,7 +54,7 @@ function IncumbentTable({ stateValue, district, setDistrict, incumbentData }) {
   function rowColor(party, result) {
     if (result == "Open") {
       return "grey";
-    } else if (party == "Rep") {
+    } else if (party == "REP") {
       return "#D70040";
     } else {
       return "blue";
@@ -79,11 +88,12 @@ function IncumbentTable({ stateValue, district, setDistrict, incumbentData }) {
             </TableRow>
           </TableHead>
           <TableBody>
-            {incumbentData.map((row) => (
+            {/* {incumbentData && console.log(incumbentData.map((row) => row.party))} */}
+            {incumbentData && incumbentData.map((row) => (
               <TableRow
-                key={row.District}
+                key={row.district}
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                district={row.District}
+                district={row.district}
                 onClick={() => {
                   setDistrict(row.District - 1);
                 }}
@@ -93,7 +103,7 @@ function IncumbentTable({ stateValue, district, setDistrict, incumbentData }) {
                   backgroundColor:
                     district === -1
                       ? "white"
-                      : row.District - 1 === district
+                      : row.district - 1 === district
                       ? "#D3D3D3"
                       : "white",
                 }}
@@ -105,50 +115,50 @@ function IncumbentTable({ stateValue, district, setDistrict, incumbentData }) {
                   scope="row"
                   style={{
                     color: rowColor(
-                      row["Incumbent"]["Party"],
-                      row["Incumbent"]["Win"]
+                      row.party,
+                      row.electionResult
                     ),
                   }}
                 >
-                  {row.District}
+                  {row.district}
                 </TableCell>
                 <TableCell
                   className="tableCellIT"
                   align="left"
                   style={{
                     color: rowColor(
-                      row["Incumbent"]["Party"],
-                      row["Incumbent"]["Win"]
+                      row.party,
+                      row.electionResult
                     ),
                   }}
                 >
-                  {row.Incumbent.Name}
+                  {row.name}
                 </TableCell>
                 <TableCell
                   className="tableCellIT"
                   align="left"
                   style={{
                     color: rowColor(
-                      row["Incumbent"]["Party"],
-                      row["Incumbent"]["Win"]
+                      row.party,
+                      row.electionResult
                     ),
                   }}
                 >
-                  {row.Incumbent.Party}
+                  {row.party}
                 </TableCell>
                 <TableCell
                   className="tableCellIT"
                   align="left"
                   style={{
                     color: rowColor(
-                      row["Incumbent"]["Party"],
-                      row["Incumbent"]["Win"]
+                      row.party,
+                      row.electionResult
                     ),
                   }}
                 >
-                  {row.Incumbent.Win}
+                  {row.electionResult ? "Win" : "Loss"}
                 </TableCell>
-                <TableCell
+                {/* <TableCell
                   className="tableCellIT"
                   align="left"
                   style={{
@@ -161,8 +171,8 @@ function IncumbentTable({ stateValue, district, setDistrict, incumbentData }) {
                   {(
                     parseInt(row["Pop 2022"]) / parseInt(row["Pop 2020"])
                   ).toFixed(3)}
-                </TableCell>
-                <TableCell
+                </TableCell> */}
+                {/* <TableCell
                   className="tableCellIT"
                   align="left"
                   style={{
@@ -175,7 +185,7 @@ function IncumbentTable({ stateValue, district, setDistrict, incumbentData }) {
                   {(
                     parseInt(row["Area 2022"]) / parseInt(row["Area 2020"])
                   ).toFixed(3)}
-                </TableCell>
+                </TableCell> */}
               </TableRow>
             ))}
           </TableBody>

@@ -6,12 +6,12 @@ import math
 # file = ("./OK_precincts.json")
 # state = "pa"
 # file = ("./PA_pop.json")
-state = "pa"
-file = ("./PA_1.json")
+state = "ok"
+file = ("./ok_boundary.json")
 
 shp = gpd.read_file(file)
 
-rW = lps.weights.Rook.from_dataframe(shp, idVariable="CODE")
+rW = lps.weights.Rook.from_dataframe(shp, idVariable="GEOID")
 
 outputName = state + "_neighbors.csv"
 header = ['id','NEIGHBORS']
