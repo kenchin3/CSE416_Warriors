@@ -16,8 +16,9 @@ function DistrictData({ district, setDistrict, stateValue }) {
   const [districtData, setdistrictData] = React.useState();
 
   React.useEffect(() => {
-    axios.get("http://localhost:8080/district").then((res) => {
+    axios.get("http://localhost:8080/states/" + stateValue).then((res) => {
       setdistrictData(res.data);
+      console.log(JSON.stringify(res.data));
     });
   }, []);
 
@@ -26,14 +27,14 @@ function DistrictData({ district, setDistrict, stateValue }) {
       {district !== -1 && (
         <div className="districtDataFont">
           <span style={{ fontWeight: 550, fontSize: 15 }}> District: </span>
-          {districtData[stateValue][district]["district"]} <br />
+          {districtData[district - 1]["district"]} <br />
           <span style={{ fontWeight: 550, fontSize: 15 }}> Winner: </span>
-          {districtData[stateValue][district]["winner"]} <br />
+          {districtData[district - 1]["winner"]} <br />
           <span style={{ fontWeight: 550, fontSize: 15 }}>
             {" "}
             2020 Population:{" "}
           </span>
-          {districtData[stateValue][district]["pop2020"]
+          {districtData[district - 1]["pop2020"]
             .toString()
             .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{" "}
           <br />
@@ -41,7 +42,7 @@ function DistrictData({ district, setDistrict, stateValue }) {
             {" "}
             2022 Population:{" "}
           </span>
-          {districtData[stateValue][district]["pop2022"]
+          {districtData[district - 1]["pop2022"]
             .toString()
             .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{" "}
           <br />
@@ -49,7 +50,7 @@ function DistrictData({ district, setDistrict, stateValue }) {
             {" "}
             2020 Geographic Area:{" "}
           </span>{" "}
-          {districtData[stateValue][district]["area2020"]
+          {districtData[district - 1]["area2020"]
             .toString()
             .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{" "}
           <br />
@@ -57,7 +58,7 @@ function DistrictData({ district, setDistrict, stateValue }) {
             {" "}
             2022 Geographic Area:{" "}
           </span>{" "}
-          {districtData[stateValue][district]["area2022"]
+          {districtData[district - 1]["area2022"]
             .toString()
             .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
         </div>

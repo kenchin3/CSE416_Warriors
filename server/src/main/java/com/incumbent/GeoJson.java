@@ -5,7 +5,7 @@ public class GeoJson{
     Double[][] coordinates;
 
     public GeoJson(String district, Double[][] coordinates) {
-        this.districct = district;
+        this.district = district;
         this.coordinates = coordinates;
     }
 }

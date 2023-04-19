@@ -9,9 +9,10 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class GeoJsonService {
-        Map<String, GeoJson> stateGeoJson = Map.ofEntries(
-            Map.entry("ok", new GeoJson("1", { {1, 3, 5, 7}, {9, 11, 13, 15}, {17, 19, 21, 23} })
-                ) );
+        // These 3 lines of code commented to fix server
+        // Map<String, GeoJson> stateGeoJson = Map.ofEntries(
+        //     Map.entry("ok", new GeoJson("1", { {1, 3, 5, 7}, {9, 11, 13, 15}, {17, 19, 21, 23} })
+        //         ) );
             
                 // new ArrayList<>(Arrays.asList(
                 //     new Feature("Feature", new Geometry("Polygon", new ArrayList<ArrayList<ArrayList<Double>>>()), new Properties(1))
@@ -25,7 +26,8 @@ public class GeoJsonService {
         //         return stateDistricts.get(state);
         // }
 
-        public Map<String, GeoJson> getAllGeoJsons() {
-                return stateGeoJson;
-        }
+        //These 3 lines of code commented to fix server
+        // public Map<String, GeoJson> getAllGeoJsons() {
+        //         return stateGeoJson;
+        // }
 }
