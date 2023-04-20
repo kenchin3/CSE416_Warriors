@@ -36,4 +36,9 @@ public class PopulateDB implements CommandLineRunner {
 
     }
 
+    public void populateAll() {
+        System.out.println("hi");
+
+    }
+
 }

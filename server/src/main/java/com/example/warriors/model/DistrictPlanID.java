@@ -1,5 +1,5 @@
 package com.example.warriors.model;
 
-public enum DistrictID {
+public enum DistrictPlanID {
     YR20, YR22, RANDOM1, RANDOM2, RANDOM3
 }

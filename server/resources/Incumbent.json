@@ -1,0 +1,220 @@
+[
+        {
+            "name": "Kevin Hern",
+            "party": "REP",
+            "electionResult": true,
+            "district": "1",
+            "state": "OK"
+        },
+        {
+            "name": "Markwayne Mullin",
+            "party": "REP",
+            "electionResult": true,
+            "district": "2",
+            "state": "OK"
+        },
+        {
+            "name": "Frank Lucas",
+            "party": "REP",
+            "electionResult": true,
+            "district": "3",
+            "state": "OK"
+        },
+        {
+            "name": "Tom Cole",
+            "party": "REP",
+            "electionResult": true,
+            "district": "4",
+            "state": "OK"
+        },
+        {
+            "name": "Stephanie Bice",
+            "party": "REP",
+            "electionResult": true,
+            "district": "5",
+            "state": "OK"
+        },
+        {
+            "name": "Diana Harshbarger",
+            "party": "REP",
+            "electionResult": true,
+            "district": "1",
+            "state": "TN"
+        },
+        {
+            "name": "Tim Burchett",
+            "party": "REP",
+            "electionResult": true,
+            "district": "2",
+            "state": "TN"
+        },
+        {
+            "name": "Charles J. Fleischmann",
+            "party": "REP",
+            "electionResult": true,
+            "district": "3",
+            "state": "TN"
+        },
+        {
+            "name": "Scott DesJarlais",
+            "party": "REP",
+            "electionResult": true,
+            "district": "4",
+            "state": "TN"
+        },
+        {
+            "name": "Jim Cooper",
+            "party": "DEM",
+            "electionResult": false,
+            "district": "5",
+            "state": "TN"
+        },
+        {
+            "name": "John Rose",
+            "party": "REP",
+            "electionResult": true,
+            "district": "6",
+            "state": "TN"
+        },
+        {
+            "name": "Mark Green",
+            "party": "REP",
+            "electionResult": false,
+            "district": "7",
+            "state": "TN"
+        },
+        {
+            "name": "David Kustoff",
+            "party": "REP",
+            "electionResult": true,
+            "district": "8",
+            "state": "TN"
+        },
+        {
+            "name": "Steve Cohen",
+            "party": "DEM",
+            "electionResult": true,
+            "district": "9",
+            "state": "TN"
+        },
+        {
+            "name": "Brian Fitzpatrick",
+            "party": "REP",
+            "electionResult": true,
+            "district": "1",
+            "state": "PA"
+        },
+        {
+            "name": "Brendan Boyle",
+            "party": "DEM",
+            "electionResult": true,
+            "district": "2",
+            "state": "PA"
+        },
+        {
+            "name": "Dwight Evans",
+            "party": "DEM",
+            "electionResult": true,
+            "district": "3",
+            "state": "PA"
+        },
+        {
+            "name": "Madeleine Dean",
+            "party": "DEM",
+            "electionResult": true,
+            "district": "4",
+            "state": "PA"
+        },
+        {
+            "name": "Mary Gay Scanlon",
+            "party": "DEM",
+            "electionResult": true,
+            "district": "5",
+            "state": "PA"
+        },
+        {
+            "name": "Chrissy Houlahan",
+            "party": "DEM",
+            "electionResult": true,
+            "district": "6",
+            "state": "PA"
+        },
+        {
+            "name": "Susan Wild",
+            "party": "DEM",
+            "electionResult": true,
+            "district": "7",
+            "state": "PA"
+        },
+        {
+            "name": "Matt Cartwright",
+            "party": "DEM",
+            "electionResult": true,
+            "district": "8",
+            "state": "PA"
+        },
+        {
+            "name": "Dan Meuser",
+            "party": "REP",
+            "electionResult": true,
+            "district": "9",
+            "state": "PA"
+        },
+        {
+            "name": "Scott Perry",
+            "party": "REP",
+            "electionResult": true,
+            "district": "10",
+            "state": "PA"
+        },
+        {
+            "name": "Lloyd Smucker",
+            "party": "REP",
+            "electionResult": true,
+            "district": "11",
+            "state": "PA"
+        },
+        {
+            "name": "Fred Keller",
+            "party": "REP",
+            "electionResult": false,
+            "district": "12",
+            "state": "PA"
+        },
+        {
+            "name": "John Joyce",
+            "party": "REP",
+            "electionResult": true,
+            "district": "13",
+            "state": "PA"
+        },
+        {
+            "name": "Guy Reschenthaler",
+            "party": "REP",
+            "electionResult": true,
+            "district": "14",
+            "state": "PA"
+        },
+        {
+            "name": "Glenn Thompson",
+            "party": "REP",
+            "electionResult": true,
+            "district": "15",
+            "state": "PA"
+        },
+        {
+            "name": "Mike Kelly",
+            "party": "REP",
+            "electionResult": true,
+            "district": "16",
+            "state": "PA"
+        },
+        {
+            "name": "Conor Lamb",
+            "party": "DEM",
+            "electionResult": true,
+            "district": "17",
+            "state": "PA"
+        }
+
+]

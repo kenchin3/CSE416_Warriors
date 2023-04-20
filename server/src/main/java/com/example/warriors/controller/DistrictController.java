@@ -9,7 +9,7 @@ import java.util.List;
 import org.springframework.web.bind.annotation.*;
 import com.example.warriors.model.District;
 import com.example.warriors.model.State;
-import com.example.warriors.model.DistrictID;
+import com.example.warriors.model.DistrictPlanID;
 import com.example.warriors.repository.DistrictRepository;
 
 @CrossOrigin(maxAge = 3600)

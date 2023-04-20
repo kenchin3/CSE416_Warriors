@@ -7,37 +7,26 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "Districts")
 public class District {
 
-    private DistrictID districtID;
+    private DistrictPlanID districtPlanID;
     private State state;
     private String district;
     private Double population;
     private Double area;
 
-    public District(DistrictID districtID, State state, String district, Double population, Double area) {
-        this.districtID = districtID;
+    public District(DistrictPlanID districtPlanID, State state, String district, Double population, Double area) {
+        this.districtPlanID = districtPlanID;
         this.state = state;
         this.district = district;
         this.population = population;
         this.area = area;
     }
 
-    @Override
-    public String toString() {
-        return "{" +
-                " districtID='" + getDistrictID() + "'" +
-                ", state='" + getState() + "'" +
-                ", district='" + getDistrict() + "'" +
-                ", population='" + getPopulation() + "'" +
-                ", area='" + getArea() + "'" +
-                "}";
+    public DistrictPlanID getDistrictPlanID() {
+        return this.districtPlanID;
     }
 
-    public DistrictID getDistrictID() {
-        return this.districtID;
-    }
-
-    public void setDistrictID(DistrictID districtID) {
-        this.districtID = districtID;
+    public void setDistrictPlanID(DistrictPlanID districtPlanID) {
+        this.districtPlanID = districtPlanID;
     }
 
     public State getState() {
@@ -70,6 +59,17 @@ public class District {
 
     public void setArea(Double area) {
         this.area = area;
+    }
+
+    @Override
+    public String toString() {
+        return "{" +
+                " districtPlanID='" + getDistrictPlanID() + "'" +
+                ", state='" + getState() + "'" +
+                ", district='" + getDistrict() + "'" +
+                ", population='" + getPopulation() + "'" +
+                ", area='" + getArea() + "'" +
+                "}";
     }
 
 }

@@ -7,14 +7,26 @@ import com.example.warriors.model.State;
 import com.example.warriors.model.Incumbent;
 import com.example.warriors.model.Party;
 import com.example.warriors.repository.IncumbentRepository;
+import com.example.warriors.repository.MapRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Iterator;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 @SpringBootApplication
 public class WarriorsApplication implements CommandLineRunner {
 
 	@Autowired
 	private IncumbentRepository incumbentRepository;
+	@Autowired
+	private MapRepository mapRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(WarriorsApplication.class, args);
@@ -22,24 +34,33 @@ public class WarriorsApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
+		populateAll();
+	}
 
+	public void populateAll() {
 		incumbentRepository.deleteAll();
 
-		incumbentRepository.save(new Incumbent("Kevin Hern", Party.REP, true, "1", State.OK));
-		incumbentRepository.save(new Incumbent("Markwayne Mullin", Party.REP, true, "2", State.OK));
-		incumbentRepository.save(new Incumbent("Frank Lucas", Party.REP, true, "3", State.OK));
-		incumbentRepository.save(new Incumbent("Tom Cole", Party.REP, true, "4", State.OK));
-		incumbentRepository.save(new Incumbent("Stephanie Bice", Party.REP, true, "5", State.OK));
+		try {
+			JSONParser parser = new JSONParser();
+			Object obj = parser.parse(new FileReader("resources/Incumbent.json"));
+			JSONArray jsonArray = (JSONArray) obj;
 
-		incumbentRepository.save(new Incumbent("Diana Harshbarger ", Party.REP, true, "1", State.TN));
-		incumbentRepository.save(new Incumbent("Tim Burchett", Party.REP, true, "2", State.TN));
-		incumbentRepository.save(new Incumbent("Charles J. Fleischmann", Party.REP, true, "3", State.TN));
-		incumbentRepository.save(new Incumbent("Scott DesJarlais", Party.REP, true, "4", State.TN));
-		incumbentRepository.save(new Incumbent("Jim Cooper", Party.DEM, false, "5", State.TN));
-		incumbentRepository.save(new Incumbent("John Rose", Party.REP, true, "6", State.TN));
-		incumbentRepository.save(new Incumbent("Mark Green", Party.REP, false, "7", State.TN));
-		incumbentRepository.save(new Incumbent("David Kustoff", Party.REP, true, "8", State.TN));
-		incumbentRepository.save(new Incumbent("Steve Cohen", Party.DEM, true, "9", State.TN));
-		System.out.println(incumbentRepository.findByState(State.OK));
+			jsonArray.forEach(item -> {
+				JSONObject incumbent = (JSONObject) item;
+				String name = (String) incumbent.get("name");
+				Party party = Party.valueOf((String) incumbent.get("party"));
+				State state = State.valueOf((String) incumbent.get("state"));
+				Boolean electionResult = (Boolean) incumbent.get("electionResult");
+				String district = (String) incumbent.get("district");
+				incumbentRepository.save(new Incumbent(name, party, electionResult, district, state));
+
+			});
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
 	}
 }

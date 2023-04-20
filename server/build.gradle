@@ -16,6 +16,7 @@ configurations {
 
 repositories {
 	mavenCentral()
+	
 }
 
 dependencies {
@@ -25,6 +26,9 @@ dependencies {
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation 'com.googlecode.json-simple:json-simple:1.1.1'
+	implementation 'mil.nga.sf:sf-geojson:3.3.2'
+
 }
 
 tasks.named('test') {
