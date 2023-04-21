@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import java.util.List;
 import org.springframework.web.bind.annotation.*;
 import com.example.warriors.model.Incumbent;
-import com.example.warriors.model.State;
+import com.example.warriors.model.StateID;
 import com.example.warriors.repository.MapRepository;
 import mil.nga.sf.geojson.FeatureCollection;
 import com.example.warriors.model.Map;

@@ -1,0 +1,37 @@
+[
+    {
+        "districtPlanID": "YR22",
+        "state": "OK",
+        "district": "1",
+        "population": "791871",
+        "area": "32900.699"
+    },
+    {
+        "districtPlanID": "YR22",
+        "state": "OK",
+        "district": "2",
+        "population": "722078",
+        "area": "9777.448"
+    },
+    {
+        "districtPlanID": "YR22",
+        "state": "OK",
+        "district": "3",
+        "population": "791870",
+        "area": "9891.652"
+    },
+    {
+        "districtPlanID": "YR22",
+        "state": "OK",
+        "district": "4",
+        "population": "722078",
+        "area": "20996.362"
+    },
+    {
+        "districtPlanID": "YR22",
+        "state": "OK",
+        "district": "5",
+        "population": "791870",
+        "area": "3584.012"
+    }
+]

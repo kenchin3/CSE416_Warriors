@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import java.util.List;
 import org.springframework.web.bind.annotation.*;
 import com.example.warriors.model.Incumbent;
-import com.example.warriors.model.State;
+import com.example.warriors.model.StateID;
 import com.example.warriors.repository.IncumbentRepository;
 
 @CrossOrigin(maxAge = 3600)
@@ -29,7 +29,7 @@ public class IncumbentController {
     }
 
     @GetMapping("/getIncumbentByState")
-    public List<Incumbent> getIncumbentByState(@RequestParam("state") State state) {
+    public List<Incumbent> getIncumbentByState(@RequestParam("state") StateID state) {
         return incumbentRepository.findByState(state);
     }
 

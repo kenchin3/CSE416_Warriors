@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import java.util.List;
 import org.springframework.web.bind.annotation.*;
 import com.example.warriors.model.District;
-import com.example.warriors.model.State;
+import com.example.warriors.model.StateID;
 import com.example.warriors.model.DistrictPlanID;
 import com.example.warriors.repository.DistrictRepository;
 
@@ -30,7 +30,7 @@ public class DistrictController {
     }
 
     @GetMapping("/getDistrictByState")
-    public List<District> getDistrictByState(@RequestParam("state") State state) {
+    public List<District> getDistrictByState(@RequestParam("state") StateID state) {
         return districtRepository.findByState(state);
     }
 

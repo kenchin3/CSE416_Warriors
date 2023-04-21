@@ -1,7 +1,7 @@
 package com.example.warriors.model;
 
 import java.util.List;
-import com.example.warriors.model.State;
+import com.example.warriors.model.StateID;
 import com.example.warriors.model.DistrictPlanID;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;

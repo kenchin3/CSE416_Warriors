@@ -1,6 +1,6 @@
 package com.example.warriors.model;
 
-import com.example.warriors.model.State;
+import com.example.warriors.model.StateID;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -8,12 +8,12 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class District {
 
     private DistrictPlanID districtPlanID;
-    private State state;
+    private StateID state;
     private String district;
     private Double population;
     private Double area;
 
-    public District(DistrictPlanID districtPlanID, State state, String district, Double population, Double area) {
+    public District(DistrictPlanID districtPlanID, StateID state, String district, Double population, Double area) {
         this.districtPlanID = districtPlanID;
         this.state = state;
         this.district = district;
@@ -29,11 +29,11 @@ public class District {
         this.districtPlanID = districtPlanID;
     }
 
-    public State getState() {
+    public StateID getState() {
         return this.state;
     }
 
-    public void setState(State state) {
+    public void setState(StateID state) {
         this.state = state;
     }
 

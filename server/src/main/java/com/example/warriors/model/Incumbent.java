@@ -1,6 +1,6 @@
 package com.example.warriors.model;
 
-import com.example.warriors.model.State;
+import com.example.warriors.model.StateID;
 import com.example.warriors.model.Party;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -12,9 +12,9 @@ public class Incumbent {
     private Party party;
     private Boolean electionResult;
     private String district;
-    private State state;
+    private StateID state;
 
-    public Incumbent(String name, Party party, Boolean electionResult, String district, State state) {
+    public Incumbent(String name, Party party, Boolean electionResult, String district, StateID state) {
         this.name = name;
         this.party = party;
         this.electionResult = electionResult;
@@ -58,11 +58,11 @@ public class Incumbent {
         this.district = district;
     }
 
-    public State getState() {
+    public StateID getState() {
         return this.state;
     }
 
-    public void setState(State state) {
+    public void setState(StateID state) {
         this.state = state;
     }
 
