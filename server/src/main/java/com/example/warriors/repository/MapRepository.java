@@ -9,6 +9,6 @@ import mil.nga.sf.geojson.FeatureCollection;
 
 public interface MapRepository extends MongoRepository<Map, String> {
 
-    // public List<Incumbent> findByState(State state);
+    public List<Map> findByState(StateID state);
 
 }

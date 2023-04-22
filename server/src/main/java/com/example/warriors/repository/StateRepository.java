@@ -7,6 +7,6 @@ import com.example.warriors.model.StateID;
 
 public interface StateRepository extends MongoRepository<State, String> {
 
-    public List<State> findByState(StateID state);
+    public State findByState(StateID state);
 
 }

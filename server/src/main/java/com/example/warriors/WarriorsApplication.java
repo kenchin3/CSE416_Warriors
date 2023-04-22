@@ -12,6 +12,7 @@ import com.example.warriors.model.Ensemble;
 import com.example.warriors.model.BoxAndWhisker;
 import com.example.warriors.model.District;
 import com.example.warriors.model.State;
+import com.example.warriors.model.Map;
 import com.example.warriors.repository.IncumbentRepository;
 import com.example.warriors.repository.MapRepository;
 import com.example.warriors.repository.DistrictRepository;
@@ -29,6 +30,10 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import mil.nga.sf.geojson.FeatureConverter;
+import mil.nga.sf.geojson.FeatureCollection;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 @SpringBootApplication
 public class WarriorsApplication implements CommandLineRunner {
@@ -44,7 +49,7 @@ public class WarriorsApplication implements CommandLineRunner {
 	@Autowired
 	private StateRepository stateRepository;
 	@Autowired
-	private StateRepository ensembleRepository;
+	private EnsembleRepository ensembleRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(WarriorsApplication.class, args);
@@ -56,10 +61,27 @@ public class WarriorsApplication implements CommandLineRunner {
 	}
 
 	public void populateAll() {
-		incumbentRepository.deleteAll();
-		districtRepository.deleteAll();
-
 		try {
+			populateIncumbent();
+			populateDistrict();
+			populateEnsmeble();
+			populateBoxAndWhisker();
+			populateMap();
+			populateState();
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (ParseException e) {
+			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	public void populateIncumbent() throws IOException, FileNotFoundException {
+		try {
+			incumbentRepository.deleteAll();
 			JSONParser parser = new JSONParser();
 			Object obj = parser.parse(new FileReader("resources/Incumbent.json"));
 			JSONArray jsonArray = (JSONArray) obj;
@@ -73,11 +95,18 @@ public class WarriorsApplication implements CommandLineRunner {
 				String district = (String) incumbent.get("district");
 				incumbentRepository.save(new Incumbent(name, party, electionResult, district,
 						state));
-
 			});
-			// JSONParser parser = new JSONParser();
-			obj = parser.parse(new FileReader("resources/District.json"));
-			jsonArray = (JSONArray) obj;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void populateDistrict() throws IOException, FileNotFoundException {
+		try {
+			districtRepository.deleteAll();
+			JSONParser parser = new JSONParser();
+			Object obj = parser.parse(new FileReader("resources/District.json"));
+			JSONArray jsonArray = (JSONArray) obj;
 
 			jsonArray.forEach(item -> {
 				JSONObject districtObj = (JSONObject) item;
@@ -87,12 +116,19 @@ public class WarriorsApplication implements CommandLineRunner {
 				Double population = Double.parseDouble((String) districtObj.get("population"));
 				Double area = Double.parseDouble((String) districtObj.get("area"));
 				District newDistrict = new District(districtPlanID, state, district, population, area);
-				System.out.println(newDistrict);
 				districtRepository.save(newDistrict);
 			});
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
-			obj = parser.parse(new FileReader("resources/BoxAndWhisker.json"));
-			jsonArray = (JSONArray) obj;
+	public void populateBoxAndWhisker() throws IOException, FileNotFoundException {
+		try {
+			boxAndWhiskerRepository.deleteAll();
+			JSONParser parser = new JSONParser();
+			Object obj = parser.parse(new FileReader("resources/BoxAndWhisker.json"));
+			JSONArray jsonArray = (JSONArray) obj;
 			jsonArray.forEach(item -> {
 				JSONObject boxAndWhisker = (JSONObject) item;
 				StateID state = StateID.valueOf((String) boxAndWhisker.get("state"));
@@ -105,37 +141,56 @@ public class WarriorsApplication implements CommandLineRunner {
 				boxAndWhiskerRepository.save(new BoxAndWhisker(state, type, q1, q3, q2, max, min));
 
 			});
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
-			obj = parser.parse(new FileReader("resources/Ensemble.json"));
-			jsonArray = (JSONArray) obj;
+	public void populateEnsmeble() throws IOException, FileNotFoundException {
+		try {
+			ensembleRepository.deleteAll();
+			JSONParser parser = new JSONParser();
+			Object obj = parser.parse(new FileReader("resources/Ensemble.json"));
+			JSONArray jsonArray = (JSONArray) obj;
 			jsonArray.forEach(item -> {
 				JSONObject ensemble = (JSONObject) item;
 				StateID state = StateID.valueOf((String) ensemble.get("state"));
-				String type = (String) ensemble.get("type");
 				Double avgGeoVar = Double.parseDouble((String) ensemble.get("avgGeoVar"));
 				Double avgPopVar = Double.parseDouble((String) ensemble.get("avgPopVar"));
 				Integer incumbentWin = Integer.parseInt((String) ensemble.get("incumbentWin"));
 				List<BoxAndWhisker> boxAndWhiskers = boxAndWhiskerRepository.findByState(state);
-				ensembleRepository
-						.save(new Ensemble(state, boxAndWhiskers, avgGeoVar, avgPopVar, incumbentWin));
-
+				ensembleRepository.save(new Ensemble(state, boxAndWhiskers, avgGeoVar, avgPopVar, incumbentWin));
 			});
-
-			// Ensemble ensemble =
-
-			// ensembleRepository.save
-
-			// StateID state = StateID.OK
-			// List<Incumbent> incumbents = incumbentRepository.findByState(state);
-			// List<District> districts = districtRepository.findByState(state);
-			// Ensemble ensemble = ensembleRepository,.
-			// stateRepository.save(new State())
-
-		} catch (IOException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
+		}
+	}
+
+	public void populateMap() throws IOException, FileNotFoundException {
+		try {
+			mapRepository.deleteAll();
+			JSONParser parser = new JSONParser();
+			Object obj = parser.parse(new FileReader("resources/ok2022.json"));
+			JSONObject map = (JSONObject) obj;
+			mapRepository.save(new Map(StateID.OK, DistrictPlanID.YR20, map));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void populateState() throws IOException, FileNotFoundException, ParseException {
+		try {
+			StateID state = StateID.OK;
+			stateRepository.deleteAll();
+			List<Incumbent> incumbents = incumbentRepository.findByState(state);
+			List<District> districts = districtRepository.findByState(state);
+			List<Map> maps = mapRepository.findByState(state);
+			Ensemble ensemble = ensembleRepository.findByState(state);
+			stateRepository.save(new State(state, districts, incumbents, maps, ensemble));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
 	}
+
 }

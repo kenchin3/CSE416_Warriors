@@ -7,6 +7,6 @@ import com.example.warriors.model.StateID;
 
 public interface EnsembleRepository extends MongoRepository<Ensemble, String> {
 
-    public List<Ensemble> findByState(StateID state);
+    public Ensemble findByState(StateID state);
 
 }

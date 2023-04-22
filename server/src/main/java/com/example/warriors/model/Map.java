@@ -5,40 +5,52 @@ import com.example.warriors.model.StateID;
 import com.example.warriors.model.DistrictPlanID;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-import mil.nga.sf.geojson.Feature;
+import mil.nga.sf.geojson.FeatureCollection;
+import org.json.simple.JSONObject;
 
 @Document(collection = "Maps")
 public class Map {
 
-    private List<Feature> features;
-    private String type;
+    private StateID state;
+    private DistrictPlanID districtPlanID;
+    private JSONObject features;
 
-    public Map(List<Feature> features, String type) {
+    public Map(StateID state, DistrictPlanID districtPlanID, JSONObject features) {
+        this.state = state;
+        this.districtPlanID = districtPlanID;
         this.features = features;
-        this.type = type;
     }
 
-    public List<Feature> getFeatures() {
+    public StateID getState() {
+        return this.state;
+    }
+
+    public void setState(StateID state) {
+        this.state = state;
+    }
+
+    public DistrictPlanID getDistrictPlanID() {
+        return this.districtPlanID;
+    }
+
+    public void setDistrictPlanID(DistrictPlanID districtPlanID) {
+        this.districtPlanID = districtPlanID;
+    }
+
+    public JSONObject getFeatures() {
         return this.features;
     }
 
-    public void setFeatures(List<Feature> features) {
+    public void setFeatures(JSONObject features) {
         this.features = features;
-    }
-
-    public String getType() {
-        return this.type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
     }
 
     @Override
     public String toString() {
         return "{" +
-                " features='" + getFeatures() + "'" +
-                ", type='" + getType() + "'" +
+                " state='" + getState() + "'" +
+                ", districtPlanID='" + getDistrictPlanID() + "'" +
+                ", features='" + getFeatures() + "'" +
                 "}";
     }
 

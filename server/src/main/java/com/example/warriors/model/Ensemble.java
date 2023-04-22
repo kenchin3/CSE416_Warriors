@@ -8,6 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "Ensemble")
 public class Ensemble {
+    @Id
     private StateID state;
     private List<BoxAndWhisker> boxAndWhiskers;
     private Double avgGeoVar;
