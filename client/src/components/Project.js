@@ -13,10 +13,12 @@ function Project() {
   const [stateData, setStateData] = React.useState();
   const [tabValue, setTabValue] = React.useState(1);
   const [stateValue, setStateValue] = React.useState("");
-  const [filter, setFilter] = React.useState("2022");
+  const [filter, setFilter] = React.useState("YR22");
   const [district, setDistrict] = React.useState(-1);
   const [districtPlan, setDistrictPlan] = React.useState(0);
   const [districtPlanYear, setDistrictPlanYear] = React.useState(2022);
+  const [districtData, setDistrictData] = React.useState();
+  const [incumbentData, setIncumbentData] = React.useState();
   const {twoZero, twoTwo, random } = filter;
   
 
@@ -24,18 +26,21 @@ function Project() {
     if (stateValue) {
       axios.get("http://localhost:8080/api/getState", { params: { state: stateValue.toUpperCase() } })
         .then((res) => {
-        console.log(res.data);
         setStateData(res.data);
+        setDistrictData(res.data.districts);
+        setIncumbentData(res.data.setIncumbentData);
+        console.log(res.data);
+       
       });
     }
   }, [stateValue]);
 
   const handleChange = (event) => {
     setFilter(event.target.value);
-    if (event.target.value === "2020" || event.target.value === "2022") {
+    if (event.target.value === "YR22" || event.target.value === "YR20") {
       setTabValue(1);
       setDistrictPlan(0);
-      if (event.target.value === "2020") setDistrictPlanYear(2020);
+      if (event.target.value === "YR20") setDistrictPlanYear(2020);
       else setDistrictPlanYear(2022);
     } else {
       setTabValue(0);
@@ -92,15 +97,15 @@ function Project() {
                   value={filter}
                   onChange={handleChange}
                 >
-                  <MenuItem className="selectState" value={"2022"}>
+                  <MenuItem className="selectState" value={"YR22"}>
                     <em>
                       <span className="selectState">Select District Plan</span>
                     </em>
                   </MenuItem>
-                  <MenuItem className="selectState" value={"2020"}>
+                  <MenuItem className="selectState" value={"YR20"}>
                     <span className="selectState">2020 District Plan</span>
                   </MenuItem>
-                  <MenuItem className="selectState" value={"2022"}>
+                  <MenuItem className="selectState" value={"YR22"}>
                     <span className="selectState">2022 District Plan</span>
                   </MenuItem>
                   <MenuItem className="selectState" value={1}>
@@ -130,6 +135,9 @@ function Project() {
               district={district}
               setDistrict={setDistrict}
               districtPlanYear={districtPlanYear}
+              stateData={stateData}
+              incumbentData={incumbentData}
+              districtData={districtData}
             />
           ) : (
             <Ensemble
@@ -144,6 +152,8 @@ function Project() {
             stateValue={stateValue}
             filter={filter}
             districtValue={district}
+            stateData={stateData}
+            incumbentData={incumbentData}
           />
         </Grid>
       </Grid>

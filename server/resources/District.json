@@ -4,34 +4,44 @@
         "state": "OK",
         "district": "1",
         "population": "791871",
-        "area": "32900.699"
+        "area": "32900.699",
+        "popVar": "0.955",
+        "geoVar": "0.675"
     },
     {
         "districtPlanID": "YR22",
         "state": "OK",
         "district": "2",
         "population": "722078",
-        "area": "9777.448"
+        "area": "9777.448",
+        "popVar": "1.008",
+        "geoVar": "0.657"
     },
     {
         "districtPlanID": "YR22",
         "state": "OK",
         "district": "3",
         "population": "791870",
-        "area": "9891.652"
+        "area": "9891.652",
+        "popVar": "0.960",
+        "geoVar": "15.863"
     },
     {
         "districtPlanID": "YR22",
         "state": "OK",
         "district": "4",
         "population": "722078",
-        "area": "20996.362"
+        "area": "20996.362",
+        "popVar": "0.991",
+        "geoVar": "1.011"
     },
     {
         "districtPlanID": "YR22",
         "state": "OK",
         "district": "5",
         "population": "791870",
-        "area": "3584.012"
+        "area": "3584.012",
+        "popVar": "1.096",
+        "geoVar": "0.170"
     }
 ]

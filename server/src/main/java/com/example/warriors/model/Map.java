@@ -13,12 +13,15 @@ public class Map {
 
     private StateID state;
     private DistrictPlanID districtPlanID;
-    private JSONObject features;
+    private JSONObject boundary;
 
-    public Map(StateID state, DistrictPlanID districtPlanID, JSONObject features) {
+    public Map() {
+    }
+
+    public Map(StateID state, DistrictPlanID districtPlanID, JSONObject boundary) {
         this.state = state;
         this.districtPlanID = districtPlanID;
-        this.features = features;
+        this.boundary = boundary;
     }
 
     public StateID getState() {
@@ -37,12 +40,27 @@ public class Map {
         this.districtPlanID = districtPlanID;
     }
 
-    public JSONObject getFeatures() {
-        return this.features;
+    public JSONObject getBoundary() {
+        return this.boundary;
     }
 
-    public void setFeatures(JSONObject features) {
-        this.features = features;
+    public void setBoundary(JSONObject boundary) {
+        this.boundary = boundary;
+    }
+
+    public Map state(StateID state) {
+        setState(state);
+        return this;
+    }
+
+    public Map districtPlanID(DistrictPlanID districtPlanID) {
+        setDistrictPlanID(districtPlanID);
+        return this;
+    }
+
+    public Map boundary(JSONObject boundary) {
+        setBoundary(boundary);
+        return this;
     }
 
     @Override
@@ -50,7 +68,7 @@ public class Map {
         return "{" +
                 " state='" + getState() + "'" +
                 ", districtPlanID='" + getDistrictPlanID() + "'" +
-                ", features='" + getFeatures() + "'" +
+                ", boundary='" + getBoundary() + "'" +
                 "}";
     }
 

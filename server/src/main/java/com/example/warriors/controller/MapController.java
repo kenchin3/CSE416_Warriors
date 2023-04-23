@@ -25,4 +25,9 @@ public class MapController {
         return mapRepository.findAll();
     }
 
+    @GetMapping("/getMapByState")
+    public List<Map> getIncumbentByState(@RequestParam("state") StateID state) {
+        return mapRepository.findByState(state);
+    }
+
 }

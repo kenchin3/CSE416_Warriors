@@ -10,19 +10,23 @@ import DistrictData from "./DistrictData";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import axios from "axios";
 
-function IncumbentTable({ stateValue, district, setDistrict }) {
-  const [incumbentData, setIncumbentData] = React.useState();
+function IncumbentTable({ stateValue, district, setDistrict, stateData}) {
+  const [incumbentTableData, setIncumbentTableData] = React.useState();
 
   React.useEffect(() => {
-    axios
-      .get("http://localhost:8080/api/getIncumbentByState", {
-        params: { state: stateValue.toUpperCase() },
-      })
-      .then((res) => {
-        console.log(res.data);
-        setIncumbentData(res.data);
-      });
-  }, [stateValue]);
+    if (stateData && stateData["incumbents"].length > 0 && stateData["districts"].length > 0 ) {
+     let incumbents = stateData["incumbents"]
+     let districts = stateData["districts"];
+     for (let i=0; i<incumbents.length;i++){
+      let district = districts.filter(function(d){return d.district==incumbents[i].district})[0]
+      incumbents[i]["geoVar"] = district["geoVar"];
+      incumbents[i]["popVar"] = district["popVar"];
+      incumbents[i]["area"] = district["area"];
+      incumbents[i]["pop"] = district["population"];
+     }
+     setIncumbentTableData(incumbents);
+     }
+  }, [stateData]);
 
   const useStyles = makeStyles({
     cell: {
@@ -60,6 +64,7 @@ function IncumbentTable({ stateValue, district, setDistrict }) {
     }
   }
 
+
   return (
     <>
       <TableContainer className="table" component={Paper}>
@@ -87,14 +92,16 @@ function IncumbentTable({ stateValue, district, setDistrict }) {
             </TableRow>
           </TableHead>
           <TableBody>
-            {incumbentData &&
-              incumbentData.map((row) => (
+            
+            {incumbentTableData &&
+          
+            incumbentTableData.map((row) => (
                 <TableRow
                   key={row.district}
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                   district={row.district}
                   onClick={() => {
-                    setDistrict(row.District - 1);
+                    setDistrict(parseInt(row.district) - 1);
                   }}
                   className="districtRow"
                   style={{
@@ -144,34 +151,28 @@ function IncumbentTable({ stateValue, district, setDistrict }) {
                   >
                     {row.electionResult ? "Win" : "Loss"}
                   </TableCell>
-                  {/* <TableCell
+                  <TableCell
                   className="tableCellIT"
                   align="left"
                   style={{
-                    color: rowColor(
-                      row["Incumbent"]["Party"],
-                      row["Incumbent"]["Win"]
-                    ),
+                    color: rowColor(row.party, row.electionResult),
                   }}
                 >
                   {(
-                    parseInt(row["Pop 2022"]) / parseInt(row["Pop 2020"])
-                  ).toFixed(3)}
-                </TableCell> */}
-                  {/* <TableCell
+                    row["popVar"]
+                  )}
+                </TableCell> 
+                  <TableCell
                   className="tableCellIT"
                   align="left"
                   style={{
-                    color: rowColor(
-                      row["Incumbent"]["Party"],
-                      row["Incumbent"]["Win"]
-                    ),
+                    color: rowColor(row.party, row.electionResult),
                   }}
                 >
                   {(
-                    parseInt(row["Area 2022"]) / parseInt(row["Area 2020"])
-                  ).toFixed(3)}
-                </TableCell> */}
+                    row["geoVar"]
+                  )}
+                </TableCell> 
                 </TableRow>
               ))}
           </TableBody>
@@ -182,6 +183,7 @@ function IncumbentTable({ stateValue, district, setDistrict }) {
         district={district}
         setDistrict={setDistrict}
         stateValue={stateValue}
+        incumbentTableData={incumbentTableData}
       />
     </>
   );

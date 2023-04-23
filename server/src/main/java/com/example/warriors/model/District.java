@@ -12,13 +12,21 @@ public class District {
     private String district;
     private Double population;
     private Double area;
+    private Double popVar;
+    private Double geoVar;
 
-    public District(DistrictPlanID districtPlanID, StateID state, String district, Double population, Double area) {
+    public District() {
+    }
+
+    public District(DistrictPlanID districtPlanID, StateID state, String district, Double population, Double area,
+            Double popVar, Double geoVar) {
         this.districtPlanID = districtPlanID;
         this.state = state;
         this.district = district;
         this.population = population;
         this.area = area;
+        this.popVar = popVar;
+        this.geoVar = geoVar;
     }
 
     public DistrictPlanID getDistrictPlanID() {
@@ -61,6 +69,57 @@ public class District {
         this.area = area;
     }
 
+    public Double getPopVar() {
+        return this.popVar;
+    }
+
+    public void setPopVar(Double popVar) {
+        this.popVar = popVar;
+    }
+
+    public Double getGeoVar() {
+        return this.geoVar;
+    }
+
+    public void setGeoVar(Double geoVar) {
+        this.geoVar = geoVar;
+    }
+
+    public District districtPlanID(DistrictPlanID districtPlanID) {
+        setDistrictPlanID(districtPlanID);
+        return this;
+    }
+
+    public District state(StateID state) {
+        setState(state);
+        return this;
+    }
+
+    public District district(String district) {
+        setDistrict(district);
+        return this;
+    }
+
+    public District population(Double population) {
+        setPopulation(population);
+        return this;
+    }
+
+    public District area(Double area) {
+        setArea(area);
+        return this;
+    }
+
+    public District popVar(Double popVar) {
+        setPopVar(popVar);
+        return this;
+    }
+
+    public District geoVar(Double geoVar) {
+        setGeoVar(geoVar);
+        return this;
+    }
+
     @Override
     public String toString() {
         return "{" +
@@ -69,6 +128,8 @@ public class District {
                 ", district='" + getDistrict() + "'" +
                 ", population='" + getPopulation() + "'" +
                 ", area='" + getArea() + "'" +
+                ", popVar='" + getPopVar() + "'" +
+                ", geoVar='" + getGeoVar() + "'" +
                 "}";
     }
 

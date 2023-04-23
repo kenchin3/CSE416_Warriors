@@ -115,7 +115,9 @@ public class WarriorsApplication implements CommandLineRunner {
 				String district = (String) districtObj.get("district");
 				Double population = Double.parseDouble((String) districtObj.get("population"));
 				Double area = Double.parseDouble((String) districtObj.get("area"));
-				District newDistrict = new District(districtPlanID, state, district, population, area);
+				Double popVar = Double.parseDouble((String) districtObj.get("popVar"));
+				Double geoVar = Double.parseDouble((String) districtObj.get("geoVar"));
+				District newDistrict = new District(districtPlanID, state, district, population, area, popVar, geoVar);
 				districtRepository.save(newDistrict);
 			});
 		} catch (Exception e) {
@@ -180,9 +182,30 @@ public class WarriorsApplication implements CommandLineRunner {
 		try {
 			mapRepository.deleteAll();
 			JSONParser parser = new JSONParser();
-			Object obj = parser.parse(new FileReader("resources/ok2022.json"));
+			Object obj = parser.parse(new FileReader("resources/ok2020.json"));
 			JSONObject map = (JSONObject) obj;
 			mapRepository.save(new Map(StateID.OK, DistrictPlanID.YR20, map));
+
+			obj = parser.parse(new FileReader("resources/ok2022.json"));
+			map = (JSONObject) obj;
+			mapRepository.save(new Map(StateID.OK, DistrictPlanID.YR22, map));
+
+			obj = parser.parse(new FileReader("resources/tn2020.json"));
+			map = (JSONObject) obj;
+			mapRepository.save(new Map(StateID.TN, DistrictPlanID.YR20, map));
+
+			obj = parser.parse(new FileReader("resources/tn2022.json"));
+			map = (JSONObject) obj;
+			mapRepository.save(new Map(StateID.TN, DistrictPlanID.YR22, map));
+
+			obj = parser.parse(new FileReader("resources/pa2020.json"));
+			map = (JSONObject) obj;
+			mapRepository.save(new Map(StateID.PA, DistrictPlanID.YR20, map));
+
+			obj = parser.parse(new FileReader("resources/pa2022.json"));
+			map = (JSONObject) obj;
+			mapRepository.save(new Map(StateID.PA, DistrictPlanID.YR22, map));
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -190,12 +213,27 @@ public class WarriorsApplication implements CommandLineRunner {
 
 	public void populateState() throws IOException, FileNotFoundException, ParseException {
 		try {
-			StateID state = StateID.OK;
 			stateRepository.deleteAll();
+
+			StateID state = StateID.OK;
 			List<Incumbent> incumbents = incumbentRepository.findByState(state);
 			List<District> districts = districtRepository.findByState(state);
 			List<Map> maps = mapRepository.findByState(state);
 			Ensemble ensemble = ensembleRepository.findByState(state);
+			stateRepository.save(new State(state, districts, incumbents, maps, ensemble));
+
+			state = StateID.PA;
+			incumbents = incumbentRepository.findByState(state);
+			districts = districtRepository.findByState(state);
+			maps = mapRepository.findByState(state);
+			ensemble = ensembleRepository.findByState(state);
+			stateRepository.save(new State(state, districts, incumbents, maps, ensemble));
+
+			state = StateID.TN;
+			incumbents = incumbentRepository.findByState(state);
+			districts = districtRepository.findByState(state);
+			maps = mapRepository.findByState(state);
+			ensemble = ensembleRepository.findByState(state);
 			stateRepository.save(new State(state, districts, incumbents, maps, ensemble));
 		} catch (Exception e) {
 			e.printStackTrace();

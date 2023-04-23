@@ -1,11 +1,5 @@
 import React from "react";
 import { MapContainer, TileLayer, GeoJSON, useMap } from "react-leaflet";
-import pa2020 from "./../geoJSON/pa2020.json";
-import pa2022 from "./../geoJSON/pa2022.json";
-import ok2020 from "./../geoJSON/ok2020.json";
-import ok2022 from "./../geoJSON/ok2022.json";
-import tn2020 from "./../geoJSON/tn2020.json";
-import tn2022 from "./../geoJSON/tn2022.json";
 import okIncumbent from "./../data/okIncumbent.json";
 import tnIncumbent from "./../data/tnIncumbent.json";
 import paIncumbent from "./../data/paIncumbent.json";
@@ -17,7 +11,19 @@ function ChangeView({ center, zoom }) {
   return null;
 }
 
-function Map({ stateValue, filter, districtValue }) {
+function Map({ stateValue, filter, districtValue, stateData, incumbentData}) {
+  const [bdy20, setBdy20] = React.useState();
+  const [bdy22, setBdy22] = React.useState();
+
+  React.useEffect(() => {
+    if (stateData) {
+      let data = stateData.maps.filter(function(map){return map.districtPlanID=="YR20"})[0]["boundary"]["features"]
+      setBdy20(data);
+      data = stateData.maps.filter(function(map){return map.districtPlanID=="YR22"})[0]["boundary"]["features"]
+      setBdy22(data);
+     }
+    }, [stateData]);
+
   let center = (stateValue) => {
     switch (stateValue) {
       case "":
@@ -44,21 +50,7 @@ function Map({ stateValue, filter, districtValue }) {
   };
 
   let colorDistrict = (feature) => {
-    let incumbents;
-    switch (stateValue) {
-      case "pa":
-        incumbents = paIncumbent;
-        break;
-      case "tn":
-        incumbents = tnIncumbent;
-        break;
-      case "ok":
-        incumbents = okIncumbent;
-        break;
-      default:
-        break;
-    }
-
+    let incumbents = incumbentData
     if (incumbents) {
       incumbents = incumbents.data.map((a) =>
         a["Win"] === "Win" ? a["Party"] : "Open"
@@ -114,32 +106,11 @@ function Map({ stateValue, filter, districtValue }) {
           url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         />
-        {filter === "2022" && stateValue === "" && (
-          <GeoJSON data={pa2022.features} style={district2022} />
+        {bdy20 && filter == "YR20" && (
+          <GeoJSON data={bdy20} style={district2020} />
         )}
-        {filter === "2022" && stateValue === "" && (
-          <GeoJSON data={ok2022.features} style={district2022} />
-        )}
-        {filter === "2022" && stateValue === "" && (
-          <GeoJSON data={tn2022.features} style={district2022} />
-        )}
-        {filter === "2020" && stateValue === "pa" && (
-          <GeoJSON data={pa2020.features} style={district2020} />
-        )}
-        {filter === "2022" && stateValue === "pa" && (
-          <GeoJSON data={pa2022.features} style={colorDistrict} />
-        )}
-        {filter === "2020" && stateValue === "ok" && (
-          <GeoJSON data={ok2020.features} style={district2020} />
-        )}
-        {filter === "2022" && stateValue === "ok" && (
-          <GeoJSON data={ok2022.features} style={colorDistrict} />
-        )}
-        {filter === "2020" && stateValue === "tn" && (
-          <GeoJSON data={tn2020.features} style={district2020} />
-        )}
-        {filter === "2022" && stateValue === "tn" && (
-          <GeoJSON data={tn2022.features} style={colorDistrict} />
+        {bdy22 && filter == "YR22" && (
+          <GeoJSON data={bdy22} style={colorDistrict} />
         )}
       </MapContainer>
     </>
