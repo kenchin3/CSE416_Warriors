@@ -10,18 +10,18 @@ import DistrictData from "./DistrictData";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import axios from "axios";
 
-function IncumbentTable({ stateValue, district, setDistrict}) {
+function IncumbentTable({ stateValue, district, setDistrict }) {
   const [incumbentData, setIncumbentData] = React.useState();
 
-  // React.useEffect(() => {
-
-  // })
   React.useEffect(() => {
-    axios.get("http://localhost:8080/api/getIncumbentByState", { params: { state: stateValue.toUpperCase() } })
+    axios
+      .get("http://localhost:8080/api/getIncumbentByState", {
+        params: { state: stateValue.toUpperCase() },
+      })
       .then((res) => {
-      console.log(res.data);
-      setIncumbentData(res.data);
-    });
+        console.log(res.data);
+        setIncumbentData(res.data);
+      });
   }, [stateValue]);
 
   const useStyles = makeStyles({
@@ -40,7 +40,6 @@ function IncumbentTable({ stateValue, district, setDistrict}) {
       paddingLeft: "10px",
       paddingRight: "10px",
       lineHeight: "18px",
-      // textAlign: "left",
       paddingTop: "10px",
       paddingBottom: "10px",
       fontSize: "15px",
@@ -52,9 +51,9 @@ function IncumbentTable({ stateValue, district, setDistrict}) {
   const classes = useStyles();
 
   function rowColor(party, result) {
-    if (result == "Open") {
+    if (result === "Open") {
       return "grey";
-    } else if (party == "REP") {
+    } else if (party === "REP") {
       return "#D70040";
     } else {
       return "blue";
@@ -88,77 +87,64 @@ function IncumbentTable({ stateValue, district, setDistrict}) {
             </TableRow>
           </TableHead>
           <TableBody>
-            {/* {incumbentData && console.log(incumbentData.map((row) => row.party))} */}
-            {incumbentData && incumbentData.map((row) => (
-              <TableRow
-                key={row.district}
-                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                district={row.district}
-                onClick={() => {
-                  setDistrict(row.District - 1);
-                }}
-                // classes={{ hover: classes.hover, selected: classes.selected }}
-                className="districtRow"
-                style={{
-                  backgroundColor:
-                    district === -1
-                      ? "white"
-                      : row.district - 1 === district
-                      ? "#D3D3D3"
-                      : "white",
-                }}
-              >
-                <TableCell
-                  className="tableCellIT"
-                  align="left"
-                  component="th"
-                  scope="row"
+            {incumbentData &&
+              incumbentData.map((row) => (
+                <TableRow
+                  key={row.district}
+                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                  district={row.district}
+                  onClick={() => {
+                    setDistrict(row.District - 1);
+                  }}
+                  className="districtRow"
                   style={{
-                    color: rowColor(
-                      row.party,
-                      row.electionResult
-                    ),
+                    backgroundColor:
+                      district === -1
+                        ? "white"
+                        : row.district - 1 === district
+                        ? "#D3D3D3"
+                        : "white",
                   }}
                 >
-                  {row.district}
-                </TableCell>
-                <TableCell
-                  className="tableCellIT"
-                  align="left"
-                  style={{
-                    color: rowColor(
-                      row.party,
-                      row.electionResult
-                    ),
-                  }}
-                >
-                  {row.name}
-                </TableCell>
-                <TableCell
-                  className="tableCellIT"
-                  align="left"
-                  style={{
-                    color: rowColor(
-                      row.party,
-                      row.electionResult
-                    ),
-                  }}
-                >
-                  {row.party}
-                </TableCell>
-                <TableCell
-                  className="tableCellIT"
-                  align="left"
-                  style={{
-                    color: rowColor(
-                      row.party,
-                      row.electionResult
-                    ),
-                  }}
-                >
-                  {row.electionResult ? "Win" : "Loss"}
-                </TableCell>
-                {/* <TableCell
+                  <TableCell
+                    className="tableCellIT"
+                    align="left"
+                    component="th"
+                    scope="row"
+                    style={{
+                      color: rowColor(row.party, row.electionResult),
+                    }}
+                  >
+                    {row.district}
+                  </TableCell>
+                  <TableCell
+                    className="tableCellIT"
+                    align="left"
+                    style={{
+                      color: rowColor(row.party, row.electionResult),
+                    }}
+                  >
+                    {row.name}
+                  </TableCell>
+                  <TableCell
+                    className="tableCellIT"
+                    align="left"
+                    style={{
+                      color: rowColor(row.party, row.electionResult),
+                    }}
+                  >
+                    {row.party}
+                  </TableCell>
+                  <TableCell
+                    className="tableCellIT"
+                    align="left"
+                    style={{
+                      color: rowColor(row.party, row.electionResult),
+                    }}
+                  >
+                    {row.electionResult ? "Win" : "Loss"}
+                  </TableCell>
+                  {/* <TableCell
                   className="tableCellIT"
                   align="left"
                   style={{
@@ -172,7 +158,7 @@ function IncumbentTable({ stateValue, district, setDistrict}) {
                     parseInt(row["Pop 2022"]) / parseInt(row["Pop 2020"])
                   ).toFixed(3)}
                 </TableCell> */}
-                {/* <TableCell
+                  {/* <TableCell
                   className="tableCellIT"
                   align="left"
                   style={{
@@ -186,8 +172,8 @@ function IncumbentTable({ stateValue, district, setDistrict}) {
                     parseInt(row["Area 2022"]) / parseInt(row["Area 2020"])
                   ).toFixed(3)}
                 </TableCell> */}
-              </TableRow>
-            ))}
+                </TableRow>
+              ))}
           </TableBody>
         </Table>
       </TableContainer>

@@ -6,16 +6,7 @@ import Grid from "@mui/material/Grid";
 import Ensemble from "./Ensemble.js";
 import "./Project.css";
 
-import {
-  Paper,
-  FormControl,
-  Select,
-  Menu,
-  MenuItem,
-  Radio,
-  RadioGroup,
-  FormControlLabel,
-} from "@mui/material";
+import { Paper, FormControl, Select, MenuItem } from "@mui/material";
 
 function Project() {
   const [tabValue, setTabValue] = React.useState(1);
@@ -28,12 +19,11 @@ function Project() {
   const { twoZero, twoTwo, random } = filter;
 
   const handleChange = (event) => {
-    // //console.log(event.target.value);
     setFilter(event.target.value);
-    if (event.target.value == "2020" || event.target.value == "2022") {
+    if (event.target.value === "2020" || event.target.value === "2022") {
       setTabValue(1);
       setDistrictPlan(0);
-      if (event.target.value == "2020") setDistrictPlanYear(2020);
+      if (event.target.value === "2020") setDistrictPlanYear(2020);
       else setDistrictPlanYear(2022);
     } else {
       setTabValue(0);
@@ -113,8 +103,8 @@ function Project() {
                 </Select>
               </FormControl>
             </Paper>
-            {/* <label>***District Plans 1-3 are from the Ensemble</label> */}
           </div>
+
           {tabValue === 1 ? (
             <Data
               filter={filter}
@@ -145,10 +135,6 @@ function Project() {
           />
         </Grid>
       </Grid>
-
-      {/* {tabValue === 0 && (
-        <Ensemble stateValue={stateValue} setStateValue={setStateValue} />
-      )} */}
     </div>
   );
 }

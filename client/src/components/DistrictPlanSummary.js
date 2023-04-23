@@ -11,8 +11,6 @@ import {
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import "./DistrictDataSummary.css";
 function DistrictPlanSummary({ districtPlan }) {
-  // const [planNumber, setPlanNumber] = React.useState(1)
-
   const [districtIncumbentData, setDistrictIncumbentData] = React.useState({
     1: [
       {
@@ -92,7 +90,6 @@ function DistrictPlanSummary({ districtPlan }) {
       paddingLeft: "40px",
       paddingRight: "40px",
       lineHeight: "18px",
-      // textAlign: "center",
       paddingTop: "10px",
       paddingBottom: "10px",
       fontSize: "15px",
@@ -137,7 +134,6 @@ function DistrictPlanSummary({ districtPlan }) {
           </TableHead>
           <TableBody>
             {districtIncumbentData[districtPlan].map((row) => (
-              // console.log(row)
               <TableRow
                 key={row.Name}
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
