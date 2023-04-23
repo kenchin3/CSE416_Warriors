@@ -19,6 +19,8 @@ function Project() {
   const [districtPlanYear, setDistrictPlanYear] = React.useState(2022);
   const [districtData, setDistrictData] = React.useState();
   const [incumbentData, setIncumbentData] = React.useState();
+  const [mapData, setMapData] = React.useState();
+  const [ensembleData, setEnsembleData] = React.useState();
   const {twoZero, twoTwo, random } = filter;
   
 
@@ -28,9 +30,10 @@ function Project() {
         .then((res) => {
         setStateData(res.data);
         setDistrictData(res.data.districts);
-        setIncumbentData(res.data.setIncumbentData);
-        console.log(res.data);
-       
+        setMapData(res.data.maps);
+        setIncumbentData(res.data.incumbents);
+        setEnsembleData(res.data.ensemble);
+        // setFilter("YR22");
       });
     }
   }, [stateValue]);
@@ -138,12 +141,14 @@ function Project() {
               stateData={stateData}
               incumbentData={incumbentData}
               districtData={districtData}
+              ensembleData={ensembleData}
             />
           ) : (
             <Ensemble
               stateValue={stateValue}
               setStateValue={setStateValue}
               districtPlan={districtPlan}
+              ensembleData={ensembleData}
             />
           )}
         </Grid>
@@ -151,8 +156,10 @@ function Project() {
           <Map
             stateValue={stateValue}
             filter={filter}
+            setFilter={setFilter}
             districtValue={district}
             stateData={stateData}
+            mapData={mapData}
             incumbentData={incumbentData}
           />
         </Grid>

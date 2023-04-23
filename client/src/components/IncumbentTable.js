@@ -14,7 +14,7 @@ function IncumbentTable({ stateValue, district, setDistrict, stateData}) {
   const [incumbentTableData, setIncumbentTableData] = React.useState();
 
   React.useEffect(() => {
-    if (stateData && stateData["incumbents"].length > 0 && stateData["districts"].length > 0 ) {
+    if (stateData && stateData["incumbents"].length > 0 ) {
      let incumbents = stateData["incumbents"]
      let districts = stateData["districts"];
      for (let i=0; i<incumbents.length;i++){

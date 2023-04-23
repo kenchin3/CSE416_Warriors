@@ -11,19 +11,8 @@ function ChangeView({ center, zoom }) {
   return null;
 }
 
-function Map({ stateValue, filter, districtValue, stateData, incumbentData}) {
-  const [bdy20, setBdy20] = React.useState();
-  const [bdy22, setBdy22] = React.useState();
-
-  React.useEffect(() => {
-    if (stateData) {
-      let data = stateData.maps.filter(function(map){return map.districtPlanID=="YR20"})[0]["boundary"]["features"]
-      setBdy20(data);
-      data = stateData.maps.filter(function(map){return map.districtPlanID=="YR22"})[0]["boundary"]["features"]
-      setBdy22(data);
-     }
-    }, [stateData]);
-
+function Map({ stateValue, filter, setFilter, districtValue, stateData, mapData, incumbentData}) {
+ 
   let center = (stateValue) => {
     switch (stateValue) {
       case "":
@@ -51,13 +40,12 @@ function Map({ stateValue, filter, districtValue, stateData, incumbentData}) {
 
   let colorDistrict = (feature) => {
     let incumbents = incumbentData
-    if (incumbents) {
-      incumbents = incumbents.data.map((a) =>
-        a["Win"] === "Win" ? a["Party"] : "Open"
-      );
-      let district = parseInt(feature.properties.DISTRICT - 1);
 
-      if (incumbents[district] === "Rep") {
+ 
+    if (incumbents) {
+      let district = parseInt(feature.properties.DISTRICT - 1);
+   
+      if (incumbents[district] && incumbents[district]["party"] === "REP") {
         return {
           fillColor: "red",
           color: "black",
@@ -65,7 +53,7 @@ function Map({ stateValue, filter, districtValue, stateData, incumbentData}) {
             districtValue === -1 ? 0.5 : district === districtValue ? 1.0 : 0.5,
           weight: 0.8,
         };
-      } else if (incumbents[district] === "Dem") {
+      } else if (incumbents[district] &&  incumbents[district]["party"]  === "DEM") {
         return {
           fillColor: "#0015BC",
           color: "black",
@@ -106,11 +94,11 @@ function Map({ stateValue, filter, districtValue, stateData, incumbentData}) {
           url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         />
-        {bdy20 && filter == "YR20" && (
-          <GeoJSON data={bdy20} style={district2020} />
+        {mapData && filter == "YR20" && (
+          <GeoJSON data={mapData.filter(function(map){return map.districtPlanID=="YR20"})[0]["boundary"]["features"]} style={district2020} />
         )}
-        {bdy22 && filter == "YR22" && (
-          <GeoJSON data={bdy22} style={colorDistrict} />
+        {mapData && filter == "YR22" && (
+          <GeoJSON data={mapData.filter(function(map){return map.districtPlanID=="YR22"})[0]["boundary"]["features"]} style={colorDistrict} />
         )}
       </MapContainer>
     </>

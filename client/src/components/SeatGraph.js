@@ -6,34 +6,14 @@ import "./SeatGraph.css";
 import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer } from "recharts";
 import { Typography } from "@mui/material";
 
-function SeatGraph({ stateValue, rowSize }) {
+function SeatGraph({ stateValue, incumbentData }) {
   function getData() {
-    let incumbentData = {};
-
-    switch (stateValue) {
-      case "":
-        return [
-          { name: "Democrat ", value: 0, color: "blue" },
-          { name: "Republican ", value: 0, color: "red" },
-          { name: "Open ", value: 0, color: "grey" },
-        ];
-      case "pa":
-        incumbentData = paIncumbent.data;
-        break;
-      case "tn":
-        incumbentData = tnIncumbent.data;
-        break;
-      case "ok":
-        incumbentData = okIncumbent.data;
-        break;
-      default:
-        break;
-    }
+   
     let arr = [0, 0, 0];
     incumbentData.forEach((element) => {
-      if (element.Win === "Open") {
+      if (element.electionResult === "Open") {
         arr[2] += 1;
-      } else if (element.Party === "Rep") {
+      } else if (element.party === "REP") {
         arr[1] += 1;
       } else {
         arr[0] += 1;
@@ -70,7 +50,7 @@ function SeatGraph({ stateValue, rowSize }) {
       <div className="summaryInformationLocaiton">
         <div className="summaryInformationFont">
           <span style={{ fontWeight: 550 }}> Number of Districts: </span>{" "}
-          {rowSize}
+          {incumbentData.length}
         </div>
       </div>
     </>

@@ -15,7 +15,7 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
-function Ensemble({ stateValue, setStateValue, districtPlan }) {
+function Ensemble({ stateValue, setStateValue, districtPlan, ensembleData }) {
   return (
     <>
       <Accordion className="accordionEnsemble">
@@ -26,7 +26,7 @@ function Ensemble({ stateValue, setStateValue, districtPlan }) {
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <EnsembleSummary stateValue={stateValue} />
+          <EnsembleSummary stateValue={stateValue}  ensembleData={ensembleData}/>
         </AccordionDetails>
       </Accordion>
 

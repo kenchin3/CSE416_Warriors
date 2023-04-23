@@ -14,35 +14,7 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import BarGraph from "./BarGraph";
 
-function Data({ stateValue, district, setDistrict, stateData, incumbentData }) {
-  const [rowSize, setRowSize] = React.useState(0);
-  // const [incumbentData, setIncumbentData] = React.useState([]);
-
-  // React.useEffect(() => {
-  //   let rowLength = 0;
-  //   switch (stateValue) {
-  //     case "":
-  //       setIncumbentData([]);
-  //     case "pa":
-  //       setIncumbentData(paDistrictData.data);
-  //       incumbentData.map((row) => rowLength++);
-  //       setRowSize(rowLength);
-  //       break;
-  //     case "tn":
-  //       setIncumbentData(tnDistrictData.data);
-  //       incumbentData.map((row) => rowLength++);
-  //       setRowSize(rowLength);
-  //       break;
-  //     case "ok":
-  //       setIncumbentData(okDistrictData.data);
-  //       incumbentData.map((row) => rowLength++);
-  //       setRowSize(rowLength);
-  //       break;
-  //     default:
-  //       break;
-  //   }
-  // });
-
+function Data({ stateValue, district, setDistrict, stateData, incumbentData, ensembleData }) {
   return (
     <>
       <Accordion className="accordion">
@@ -53,8 +25,8 @@ function Data({ stateValue, district, setDistrict, stateData, incumbentData }) {
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
-          {stateValue && (
-            <SeatGraph stateValue={stateValue} rowSize={rowSize} />
+          {incumbentData && (
+            <SeatGraph stateValue={stateValue} incumbentData={incumbentData}/>
           )}
         </AccordionDetails>
       </Accordion>
@@ -91,7 +63,7 @@ function Data({ stateValue, district, setDistrict, stateData, incumbentData }) {
             </span>
           </Typography>
         </AccordionSummary>
-        {stateValue && <BoxPlot stateValue={stateValue} />}
+        {stateValue && <BoxPlot stateValue={stateValue} ensembleData={ensembleData}/>}
       </Accordion>
     </>
   );

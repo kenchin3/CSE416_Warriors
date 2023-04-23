@@ -11,7 +11,7 @@ import {
 import "./EnsembleSummary.css";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 
-function EnsembleSummary({ stateValue }) {
+function EnsembleSummary({ stateValue, ensembleData }) {
   const [summaryData, setSummaryData] = React.useState({
     pa: {
       "District Plans Total": 300,
@@ -93,17 +93,12 @@ function EnsembleSummary({ stateValue }) {
                 Incumbents Predicted to Win
               </TableCell>
               <TableCell className={classes.header} align="center">
-                Average Geographic Variation (2022)
+                Average Geographic Variation 
               </TableCell>
               <TableCell className={classes.header} align="center">
-                Average Geographic Variation (2020)
+                Average Geographic Variation
               </TableCell>
-              <TableCell className={classes.header} align="center">
-                Average Population Variation (2022)
-              </TableCell>
-              <TableCell className={classes.header} align="center">
-                Average Population Variation (2020)
-              </TableCell>
+             
             </TableRow>
           </TableHead>
           <TableBody>
@@ -116,27 +111,22 @@ function EnsembleSummary({ stateValue }) {
                 component="th"
                 scope="row"
               >
-                {summaryData[stateValue]["District Plans Total"]}
+                {"10,000"}
               </TableCell>
 
               <TableCell className="tableCellES" align="center">
-                {summaryData[stateValue]["Incumbents Total"]}
+                {ensembleData.incumbentWin}
               </TableCell>
               <TableCell className="tableCellES" align="center">
-                {summaryData[stateValue]["Incumbents Win"]}
+                {ensembleData.incumbentWin}
               </TableCell>
               <TableCell className="tableCellES" align="center">
-                {summaryData[stateValue]["Geo Var22"]}
+                {ensembleData.avgGeoVar}
               </TableCell>
               <TableCell className="tableCellES" align="center">
-                {summaryData[stateValue]["Geo Var20"]}
+                {ensembleData.avgPopVar}
               </TableCell>
-              <TableCell className="tableCellES" align="center">
-                {summaryData[stateValue]["Pop Var22"]}
-              </TableCell>
-              <TableCell className="tableCellES" align="center">
-                {summaryData[stateValue]["Pop Var20"]}
-              </TableCell>
+    
             </TableRow>
           </TableBody>
         </Table>
