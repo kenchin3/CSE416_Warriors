@@ -3,17 +3,7 @@ import okIncumbent from "./../data/okIncumbent.json";
 import tnIncumbent from "./../data/tnIncumbent.json";
 import paIncumbent from "./../data/paIncumbent.json";
 import "./SeatGraph.css";
-import {
-  BarChart,
-  Bar,
-  Cell,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend,
-  ResponsiveContainer,
-} from "recharts";
+import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer } from "recharts";
 import { Typography } from "@mui/material";
 
 function SeatGraph({ stateValue, rowSize }) {
@@ -35,6 +25,8 @@ function SeatGraph({ stateValue, rowSize }) {
         break;
       case "ok":
         incumbentData = okIncumbent.data;
+        break;
+      default:
         break;
     }
     let arr = [0, 0, 0];
@@ -71,12 +63,7 @@ function SeatGraph({ stateValue, rowSize }) {
             dataKey="name"
           />
 
-          <Bar
-            dataKey="value"
-            fill="fill"
-            radius={[0, 3, 3, 0]}
-            // label={<CustomizedLabel />}
-          />
+          <Bar dataKey="value" fill="fill" radius={[0, 3, 3, 0]} />
         </BarChart>
       </ResponsiveContainer>
       <Typography className="summaryInformation"></Typography>

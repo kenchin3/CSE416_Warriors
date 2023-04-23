@@ -67,7 +67,6 @@ function EnsembleSummary({ stateValue }) {
       paddingLeft: "10px",
       paddingRight: "10px",
       lineHeight: "18px",
-      // textAlign: "center",
       paddingTop: "10px",
       paddingBottom: "10px",
       fontSize: "15px",
@@ -109,7 +108,6 @@ function EnsembleSummary({ stateValue }) {
           </TableHead>
           <TableBody>
             <TableRow
-              // key={row.name}
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
             >
               <TableCell

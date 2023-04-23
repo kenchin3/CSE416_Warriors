@@ -14,17 +14,11 @@ import "./Map.css";
 function ChangeView({ center, zoom }) {
   const map = useMap();
   map.setView(center, zoom);
-  // map.fitBounds()
   return null;
 }
 
 function Map({ stateValue, filter, districtValue }) {
-  // const [stateFile, setStateFile] = React.useState(null);
-
-  // console.log("map " + districtValue);
-
   let center = (stateValue) => {
-    // console.log(stateValue);
     switch (stateValue) {
       case "":
         return [14.8282, -98.579];
@@ -111,7 +105,6 @@ function Map({ stateValue, filter, districtValue }) {
           [20, -130],
           [50, -60],
         ]}
-        // maxBoundsViscosity={1.0}
       >
         <ChangeView
           center={center(stateValue)}

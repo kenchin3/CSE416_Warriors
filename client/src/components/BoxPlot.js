@@ -1,7 +1,5 @@
 import React from "react";
 import ReactApexChart from "react-apexcharts";
-import EnsembleSummary from "./EnsembleSummary";
-import DistrictPlanSummary from "./DistrictPlanSummary";
 import "./Ensemble.css";
 
 function BoxPlot({ stateValue, setStateValue }) {
@@ -221,13 +219,12 @@ function BoxPlot({ stateValue, setStateValue }) {
   const options = {
     chart: {
       type: "boxPlot",
-      height: 300,
+      height: 250,
       toolbar: {
         show: false,
       },
     },
     title: {
-      // text: stateValue.toUpperCase() + " District Plan Ensembles",
       align: "left",
     },
     plotOptions: {
@@ -271,7 +268,7 @@ function BoxPlot({ stateValue, setStateValue }) {
         options={options}
         series={getSeries()}
         type="boxPlot"
-        height={300}
+        height={250}
       />
     </>
   );
