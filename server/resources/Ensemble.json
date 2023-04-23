@@ -4,6 +4,18 @@
     "avgGeoVar": "0.4",
     "avgPopVar": "0.5",
     "incumbentWin": "3"
+    },
+    {
+        "state": "PA",
+        "avgGeoVar": "0.4",
+        "avgPopVar": "0.5",
+        "incumbentWin": "3"
+    },
+    {
+        "state": "TN",
+        "avgGeoVar": "0.4",
+        "avgPopVar": "0.5",
+        "incumbentWin": "3"
     }
 ]
 

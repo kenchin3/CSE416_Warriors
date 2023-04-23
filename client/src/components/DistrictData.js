@@ -18,7 +18,7 @@ function DistrictData({ district, setDistrict, stateValue, incumbentTableData })
             {" "}
             2020 Population:{" "}
           </span>
-          {incumbentTableData[district]["pop"]
+          {
            }{" "}
           <br />
           <span style={{ fontWeight: 550, fontSize: 15 }}>
@@ -32,7 +32,7 @@ function DistrictData({ district, setDistrict, stateValue, incumbentTableData })
             {" "}
             2020 Geographic Area:{" "}
           </span>{" "}
-          {incumbentTableData[district]["area"]
+          {
            }{" "}
           <br />
           <span style={{ fontWeight: 550, fontSize: 15 }}>

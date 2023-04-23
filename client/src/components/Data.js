@@ -38,7 +38,16 @@ function Data({ stateValue, district, setDistrict, stateData, incumbentData, ens
         </AccordionSummary>
         <AccordionDetails>
           <Typography component="span">
-            {stateValue ? (
+          <span>
+                <IncumbentTable
+                  stateValue={stateValue}
+                  district={district}
+                  setDistrict={setDistrict}
+                  stateData={stateData}
+                  
+                />
+              </span>
+            {/* {stateValue ? (
               <span>
                 <IncumbentTable
                   stateValue={stateValue}
@@ -50,7 +59,7 @@ function Data({ stateValue, district, setDistrict, stateData, incumbentData, ens
               </span>
             ) : (
               <span />
-            )}
+            )} */}
           </Typography>
         </AccordionDetails>
       </Accordion>

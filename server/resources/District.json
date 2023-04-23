@@ -43,5 +43,239 @@
         "area": "3584.012",
         "popVar": "1.096",
         "geoVar": "0.170"
+    },
+    {
+        "districtPlanID": "YR22",
+        "state": "TN",
+        "district": "1",
+        "population": "772206",
+        "area": "4475.068",
+        "popVar": "1.096",
+        "geoVar": "0.170"
+    },
+    {
+        "districtPlanID": "YR22",
+        "state": "TN",
+        "district": "2",
+        "population": "783395",
+        "area": "2690.451",
+        "popVar": "1.096",
+        "geoVar": "0.170"
+    },
+    {
+        "districtPlanID": "YR22",
+        "state": "TN",
+        "district": "3",
+        "population": "776693",
+        "area": "4075.389",
+        "popVar": "1.096",
+        "geoVar": "0.170"
+    },
+    {
+        "districtPlanID": "YR22",
+        "state": "TN",
+        "district": "4",
+        "population": "781570",
+        "area": "6582.199",
+        "popVar": "1.096",
+        "geoVar": "0.170"
+    },
+    {
+        "districtPlanID": "YR22",
+        "state": "TN",
+        "district": "5",
+        "population": "775588",
+        "area": "2082.419",
+        "popVar": "1.096",
+        "geoVar": "0.170"
+    },
+    {
+        "districtPlanID": "YR22",
+        "state": "TN",
+        "district": "6",
+        "population": "784694",
+        "area": "6056.141",
+        "popVar": "1.096",
+        "geoVar": "0.170"
+    },
+    {
+        "districtPlanID": "YR22",
+        "state": "TN",
+        "district": "7",
+        "population": "784694",
+        "area": "6046.995",
+        "popVar": "1.096",
+        "geoVar": "0.170"
+    },
+    {
+        "districtPlanID": "YR22",
+        "state": "TN",
+        "district": "8",
+        "population": "764865",
+        "area": "9399.594",
+        "popVar": "1.096",
+        "geoVar": "0.170"
+    },
+    {
+        "districtPlanID": "YR22",
+        "state": "TN",
+        "district": "9",
+        "population": "767682",
+        "area": "810.385",
+        "popVar": "1.096",
+        "geoVar": "0.170"
+    },
+    {
+        "districtPlanID": "YR22",
+        "state": "PA",
+        "district": "1",
+        "population": "764866",
+        "area": "67.542",
+        "popVar": "1.096",
+        "geoVar": "0.170"
+    },
+    {
+        "districtPlanID": "YR22",
+        "state": "PA",
+        "district": "2",
+        "population": "764865",
+        "area": "2842.798",
+        "popVar": "1.096",
+        "geoVar": "0.170"
+    },
+    {
+        "districtPlanID": "YR22",
+        "state": "PA",
+        "district": "3",
+        "population": "764864",
+        "area": "1185.651",
+        "popVar": "1.096",
+        "geoVar": "0.170"
+    },
+    {
+        "districtPlanID": "YR22",
+        "state": "PA",
+        "district": "4",
+        "population": "764865",
+        "area": "54.859",
+        "popVar": "1.096",
+        "geoVar": "0.170"
+    },
+    {
+        "districtPlanID": "YR22",
+        "state": "PA",
+        "district": "5",
+        "population": "764866",
+        "area": "718.911",
+        "popVar": "1.096",
+        "geoVar": "0.170"
+    },
+    {
+        "districtPlanID": "YR22",
+        "state": "PA",
+        "district": "6",
+        "population": "764864",
+        "area": "734.363",
+        "popVar": "1.096",
+        "geoVar": "0.170"
+    },
+    {
+        "districtPlanID": "YR22",
+        "state": "PA",
+        "district": "7",
+        "population": "764865",
+        "area": "239.865",
+        "popVar": "1.096",
+        "geoVar": "0.170"
+    },
+    {
+        "districtPlanID": "YR22",
+        "state": "PA",
+        "district": "8",
+        "population": "764866",
+        "area": "1545.007",
+        "popVar": "1.096",
+        "geoVar": "0.170"
+    },
+    {
+        "districtPlanID": "YR22",
+        "state": "PA",
+        "district": "9",
+        "population": "764864",
+        "area": "6158.914",
+        "popVar": "1.096",
+        "geoVar": "0.170"
+    },
+    {
+        "districtPlanID": "YR22",
+        "state": "PA",
+        "district": "10",
+        "population": "764864",
+        "area": "1546.909",
+        "popVar": "1.096",
+        "geoVar": "0.170"
+    },
+    {
+        "districtPlanID": "YR22",
+        "state": "PA",
+        "district": "11",
+        "population": "764864",
+        "area": "1295.685",
+        "popVar": "1.096",
+        "geoVar": "0.170"
+    },
+    {
+        "districtPlanID": "YR22",
+        "state": "PA",
+        "district": "12",
+        "population": "764864",
+        "area": "910.015",
+        "popVar": "1.096",
+        "geoVar": "0.170"
+    },
+    {
+        "districtPlanID": "YR22",
+        "state": "PA",
+        "district": "13",
+        "population": "764864",
+        "area": "434.221",
+        "popVar": "1.096",
+        "geoVar": "0.170"
+    },
+    {
+        "districtPlanID": "YR22",
+        "state": "PA",
+        "district": "14",
+        "population": "764866",
+        "area": "4814.387",
+        "popVar": "1.096",
+        "geoVar": "0.170"
+    },
+    {
+        "districtPlanID": "YR22",
+        "state": "PA",
+        "district": "15",
+        "population": "764864",
+        "area": "6410.728",
+        "popVar": "1.096",
+        "geoVar": "0.170"
+    },
+    {
+        "districtPlanID": "YR22",
+        "state": "PA",
+        "district": "16",
+        "population": "764865",
+        "area": "4652.711",
+        "popVar": "1.096",
+        "geoVar": "0.170"
+    },
+    {
+        "districtPlanID": "YR22",
+        "state": "PA",
+        "district": "17",
+        "population": "764864",
+        "area": "13094.271",
+        "popVar": "1.096",
+        "geoVar": "0.170"
     }
 ]

@@ -1,8 +1,6 @@
 import React from "react";
 import { MapContainer, TileLayer, GeoJSON, useMap } from "react-leaflet";
-import okIncumbent from "./../data/okIncumbent.json";
-import tnIncumbent from "./../data/tnIncumbent.json";
-import paIncumbent from "./../data/paIncumbent.json";
+
 import "./Map.css";
 
 function ChangeView({ center, zoom }) {
@@ -11,7 +9,16 @@ function ChangeView({ center, zoom }) {
   return null;
 }
 
-function Map({ stateValue, filter, setFilter, districtValue, stateData, mapData, incumbentData}) {
+function Map({ stateValue, filter, setFilter, districtValue, stateData}) {
+  const [mapData, setMapData] = React.useState();
+  const [incumbentData, setIncumbentData] = React.useState();
+
+  React.useEffect(() => {
+    if (stateData) {
+    setMapData(stateData.maps);
+    setIncumbentData(stateData.incumbents);
+  }
+  }, [stateData]);
  
   let center = (stateValue) => {
     switch (stateValue) {
@@ -94,10 +101,11 @@ function Map({ stateValue, filter, setFilter, districtValue, stateData, mapData,
           url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         />
-        {mapData && filter == "YR20" && (
+
+        {stateValue && mapData && filter == "YR20" && (
           <GeoJSON data={mapData.filter(function(map){return map.districtPlanID=="YR20"})[0]["boundary"]["features"]} style={district2020} />
         )}
-        {mapData && filter == "YR22" && (
+        {stateValue && mapData && filter == "YR22" && (
           <GeoJSON data={mapData.filter(function(map){return map.districtPlanID=="YR22"})[0]["boundary"]["features"]} style={colorDistrict} />
         )}
       </MapContainer>

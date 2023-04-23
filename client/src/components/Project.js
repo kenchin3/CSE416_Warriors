@@ -33,6 +33,7 @@ function Project() {
         setMapData(res.data.maps);
         setIncumbentData(res.data.incumbents);
         setEnsembleData(res.data.ensemble);
+        // console.log(mapData);
         // setFilter("YR22");
       });
     }
@@ -159,7 +160,7 @@ function Project() {
             setFilter={setFilter}
             districtValue={district}
             stateData={stateData}
-            mapData={mapData}
+            // mapData={mapData}
             incumbentData={incumbentData}
           />
         </Grid>
