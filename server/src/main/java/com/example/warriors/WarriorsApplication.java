@@ -64,9 +64,9 @@ public class WarriorsApplication implements CommandLineRunner {
 		try {
 			populateIncumbent();
 			populateDistrict();
-			populateEnsmeble();
 			populateBoxAndWhisker();
 			populateMap();
+			populateEnsmeble();
 			populateState();
 
 		} catch (IOException e) {
@@ -132,13 +132,23 @@ public class WarriorsApplication implements CommandLineRunner {
 			jsonArray.forEach(item -> {
 				JSONObject boxAndWhisker = (JSONObject) item;
 				StateID state = StateID.valueOf((String) boxAndWhisker.get("state"));
+
 				String type = (String) boxAndWhisker.get("type");
-				Double q1 = Double.parseDouble((String) boxAndWhisker.get("q1"));
-				Double q2 = Double.parseDouble((String) boxAndWhisker.get("q2"));
-				Double q3 = Double.parseDouble((String) boxAndWhisker.get("q3"));
-				Double max = Double.parseDouble((String) boxAndWhisker.get("max"));
-				Double min = Double.parseDouble((String) boxAndWhisker.get("min"));
-				boxAndWhiskerRepository.save(new BoxAndWhisker(state, type, q1, q3, q2, max, min));
+				JSONArray bowArr = (JSONArray) boxAndWhisker.get("data");
+
+				Double[][] result = new Double[bowArr.size()][];
+				for (int i = 0; i < bowArr.size(); i++) {
+
+					JSONArray innerArray = (JSONArray) bowArr.get(i);
+					Double[] innerResult = new Double[innerArray.size()];
+
+					for (int j = 0; j < innerArray.size(); j++) {
+						innerResult[j] = Double.valueOf((String) innerArray.get(j));
+					}
+
+					result[i] = innerResult;
+				}
+				boxAndWhiskerRepository.save(new BoxAndWhisker(state, type, result));
 
 			});
 		} catch (Exception e) {

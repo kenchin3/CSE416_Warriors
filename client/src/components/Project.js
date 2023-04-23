@@ -5,6 +5,7 @@ import Data from "./Data.js";
 import Grid from "@mui/material/Grid";
 import Ensemble from "./Ensemble.js";
 import "./Project.css";
+import axios from "axios";
 
 import {
   Paper,
@@ -18,14 +19,25 @@ import {
 } from "@mui/material";
 
 function Project() {
+  const [stateData, setStateData] = React.useState();
   const [tabValue, setTabValue] = React.useState(1);
   const [stateValue, setStateValue] = React.useState("");
   const [filter, setFilter] = React.useState("2022");
   const [district, setDistrict] = React.useState(-1);
   const [districtPlan, setDistrictPlan] = React.useState(0);
   const [districtPlanYear, setDistrictPlanYear] = React.useState(2022);
+  const {twoZero, twoTwo, random } = filter;
+  
 
-  const { twoZero, twoTwo, random } = filter;
+  React.useEffect(() => {
+    if (stateValue) {
+      axios.get("http://localhost:8080/api/getState", { params: { state: stateValue.toUpperCase() } })
+        .then((res) => {
+        console.log(res.data);
+        setStateData(res.data);
+      });
+    }
+  }, [stateValue]);
 
   const handleChange = (event) => {
     // //console.log(event.target.value);

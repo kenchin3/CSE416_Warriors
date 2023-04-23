@@ -9,20 +9,17 @@ public class BoxAndWhisker {
 
     private StateID state;
     private String type;
-    private Double q1;
-    private Double q3;
-    private Double q2;
-    private Double max;
-    private Double min;
+    private Double[][] data;
+    // private Double q1;
+    // private Double q3;
+    // private Double q2;
+    // private Double max;
+    // private Double min;
 
-    public BoxAndWhisker(StateID state, String type, Double q1, Double q3, Double q2, Double max, Double min) {
+    public BoxAndWhisker(StateID state, String type, Double[][] data) {
         this.state = state;
         this.type = type;
-        this.q1 = q1;
-        this.q3 = q3;
-        this.q2 = q2;
-        this.max = max;
-        this.min = min;
+        this.data = data;
     }
 
     public StateID getState() {
@@ -41,44 +38,27 @@ public class BoxAndWhisker {
         this.type = type;
     }
 
-    public Double getQ1() {
-        return this.q1;
+    public Double[][] getData() {
+        return this.data;
     }
 
-    public void setQ1(Double q1) {
-        this.q1 = q1;
+    public void setData(Double[][] data) {
+        this.data = data;
     }
 
-    public Double getQ3() {
-        return this.q3;
+    public BoxAndWhisker state(StateID state) {
+        setState(state);
+        return this;
     }
 
-    public void setQ3(Double q3) {
-        this.q3 = q3;
+    public BoxAndWhisker type(String type) {
+        setType(type);
+        return this;
     }
 
-    public Double getQ2() {
-        return this.q2;
-    }
-
-    public void setQ2(Double q2) {
-        this.q2 = q2;
-    }
-
-    public Double getMax() {
-        return this.max;
-    }
-
-    public void setMax(Double max) {
-        this.max = max;
-    }
-
-    public Double getMin() {
-        return this.min;
-    }
-
-    public void setMin(Double min) {
-        this.min = min;
+    public BoxAndWhisker data(Double[][] data) {
+        setData(data);
+        return this;
     }
 
     @Override
@@ -86,11 +66,7 @@ public class BoxAndWhisker {
         return "{" +
                 " state='" + getState() + "'" +
                 ", type='" + getType() + "'" +
-                ", q1='" + getQ1() + "'" +
-                ", q3='" + getQ3() + "'" +
-                ", q2='" + getQ2() + "'" +
-                ", max='" + getMax() + "'" +
-                ", min='" + getMin() + "'" +
+                ", data='" + getData() + "'" +
                 "}";
     }
 

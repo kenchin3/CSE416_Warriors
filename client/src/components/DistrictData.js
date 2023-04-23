@@ -15,12 +15,12 @@ import axios from "axios";
 function DistrictData({ district, setDistrict, stateValue }) {
   const [districtData, setdistrictData] = React.useState();
 
-  React.useEffect(() => {
-    axios.get("http://localhost:8080/states/" + stateValue).then((res) => {
-      setdistrictData(res.data);
-      console.log(JSON.stringify(res.data));
-    });
-  }, []);
+  // React.useEffect(() => {
+  //   axios.get("http://localhost:8080/states/" + stateValue).then((res) => {
+  //     setdistrictData(res.data);
+  //     console.log(JSON.stringify(res.data));
+  //   });
+  // }, []);
 
   return (
     <div className="districtDataLocation">
