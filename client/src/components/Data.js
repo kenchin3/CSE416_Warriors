@@ -47,19 +47,6 @@ function Data({ stateValue, district, setDistrict, stateData, incumbentData, ens
                   
                 />
               </span>
-            {/* {stateValue ? (
-              <span>
-                <IncumbentTable
-                  stateValue={stateValue}
-                  district={district}
-                  setDistrict={setDistrict}
-                  stateData={stateData}
-                  
-                />
-              </span>
-            ) : (
-              <span />
-            )} */}
           </Typography>
         </AccordionDetails>
       </Accordion>

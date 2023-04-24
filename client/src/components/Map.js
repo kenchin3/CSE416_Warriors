@@ -1,5 +1,12 @@
 import React from "react";
 import { MapContainer, TileLayer, GeoJSON, useMap } from "react-leaflet";
+import axios from "axios";
+import pa2020 from "./../geoJSON/pa2020.json";
+import pa2022 from "./../geoJSON/pa2022.json";
+import ok2020 from "./../geoJSON/ok2020.json";
+import ok2022 from "./../geoJSON/ok2022.json";
+import tn2020 from "./../geoJSON/tn2020.json";
+import tn2022 from "./../geoJSON/tn2022.json";
 
 import "./Map.css";
 
@@ -9,16 +16,19 @@ function ChangeView({ center, zoom }) {
   return null;
 }
 
-function Map({ stateValue, filter, setFilter, districtValue, stateData}) {
+function Map({ stateValue, filter, setFilter, districtValue, stateData, incumbentData}) {
   const [mapData, setMapData] = React.useState();
-  const [incumbentData, setIncumbentData] = React.useState();
 
   React.useEffect(() => {
-    if (stateData) {
-    setMapData(stateData.maps);
-    setIncumbentData(stateData.incumbents);
-  }
-  }, [stateData]);
+    if (stateValue) {
+      axios.get("http://localhost:8080/api/getMapByState", { params: { state: stateValue.toUpperCase() } })
+        .then((res) => {
+          setMapData(res.data);
+      });
+      
+    }
+  }, [stateValue]);
+
  
   let center = (stateValue) => {
     switch (stateValue) {
@@ -102,12 +112,25 @@ function Map({ stateValue, filter, setFilter, districtValue, stateData}) {
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         />
 
-        {stateValue && mapData && filter == "YR20" && (
-          <GeoJSON data={mapData.filter(function(map){return map.districtPlanID=="YR20"})[0]["boundary"]["features"]} style={district2020} />
+        {filter === "YR20" && stateValue === "pa" && (
+          <GeoJSON data={pa2020.features} style={district2020} />
         )}
-        {stateValue && mapData && filter == "YR22" && (
-          <GeoJSON data={mapData.filter(function(map){return map.districtPlanID=="YR22"})[0]["boundary"]["features"]} style={colorDistrict} />
+        {filter === "YR22" && stateValue === "pa" && (
+          <GeoJSON data={pa2022.features} style={colorDistrict} />
         )}
+        {filter === "YR20" && stateValue === "ok" && (
+          <GeoJSON data={ok2020.features} style={district2020} />
+        )}
+        {filter === "YR22" && stateValue === "ok" && (
+          <GeoJSON data={ok2022.features} style={colorDistrict} />
+        )}
+        {filter === "YR20" && stateValue === "tn" && (
+          <GeoJSON data={tn2020.features} style={district2020} />
+        )}
+        {filter === "YR22" && stateValue === "tn" && (
+          <GeoJSON data={tn2022.features} style={colorDistrict} />
+        )}
+       
       </MapContainer>
     </>
   );

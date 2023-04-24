@@ -160,7 +160,6 @@ function Project() {
             setFilter={setFilter}
             districtValue={district}
             stateData={stateData}
-            // mapData={mapData}
             incumbentData={incumbentData}
           />
         </Grid>
