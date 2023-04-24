@@ -35,7 +35,7 @@ function Project() {
           setMapData(res.data.maps);
           setIncumbentData(res.data.incumbents);
           setEnsembleData(res.data.ensemble);
-          // console.log(mapData);
+          console.log(res.data);
           // setFilter("YR22");
         });
     }
