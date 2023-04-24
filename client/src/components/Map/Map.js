@@ -1,12 +1,12 @@
 import React from "react";
 import { MapContainer, TileLayer, GeoJSON, useMap } from "react-leaflet";
 import axios from "axios";
-import pa2020 from "./../geoJSON/pa2020.json";
-import pa2022 from "./../geoJSON/pa2022.json";
-import ok2020 from "./../geoJSON/ok2020.json";
-import ok2022 from "./../geoJSON/ok2022.json";
-import tn2020 from "./../geoJSON/tn2020.json";
-import tn2022 from "./../geoJSON/tn2022.json";
+import pa2020 from "../../geoJSON/pa2020.json";
+import pa2022 from "../../geoJSON/pa2022.json";
+import ok2020 from "../../geoJSON/ok2020.json";
+import ok2022 from "../../geoJSON/ok2022.json";
+import tn2020 from "../../geoJSON/tn2020.json";
+import tn2022 from "../../geoJSON/tn2022.json";
 
 import "./Map.css";
 
@@ -16,20 +16,28 @@ function ChangeView({ center, zoom }) {
   return null;
 }
 
-function Map({ stateValue, filter, setFilter, districtValue, stateData, incumbentData}) {
+function Map({
+  stateValue,
+  filter,
+  setFilter,
+  districtValue,
+  stateData,
+  incumbentData,
+}) {
   const [mapData, setMapData] = React.useState();
 
   React.useEffect(() => {
     if (stateValue) {
-      axios.get("http://localhost:8080/api/getMapByState", { params: { state: stateValue.toUpperCase() } })
+      axios
+        .get("http://localhost:8080/api/getMapByState", {
+          params: { state: stateValue.toUpperCase() },
+        })
         .then((res) => {
           setMapData(res.data);
-      });
-      
+        });
     }
   }, [stateValue]);
 
- 
   let center = (stateValue) => {
     switch (stateValue) {
       case "":
@@ -56,12 +64,11 @@ function Map({ stateValue, filter, setFilter, districtValue, stateData, incumben
   };
 
   let colorDistrict = (feature) => {
-    let incumbents = incumbentData
+    let incumbents = incumbentData;
 
- 
     if (incumbents) {
       let district = parseInt(feature.properties.DISTRICT - 1);
-   
+
       if (incumbents[district] && incumbents[district]["party"] === "REP") {
         return {
           fillColor: "red",
@@ -70,7 +77,10 @@ function Map({ stateValue, filter, setFilter, districtValue, stateData, incumben
             districtValue === -1 ? 0.5 : district === districtValue ? 1.0 : 0.5,
           weight: 0.8,
         };
-      } else if (incumbents[district] &&  incumbents[district]["party"]  === "DEM") {
+      } else if (
+        incumbents[district] &&
+        incumbents[district]["party"] === "DEM"
+      ) {
         return {
           fillColor: "#0015BC",
           color: "black",
@@ -130,7 +140,6 @@ function Map({ stateValue, filter, setFilter, districtValue, stateData, incumben
         {filter === "YR22" && stateValue === "tn" && (
           <GeoJSON data={tn2022.features} style={colorDistrict} />
         )}
-       
       </MapContainer>
     </>
   );

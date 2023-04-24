@@ -8,37 +8,29 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import DistrictData from "./DistrictData";
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import axios from "axios";
+import "./IncumbentTable.css";
 
-function IncumbentTable({ stateValue, district, setDistrict, stateData}) {
+function IncumbentTable({ stateValue, district, setDistrict, stateData }) {
   const [incumbentTableData, setIncumbentTableData] = React.useState();
 
   React.useEffect(() => {
-    if (stateData && stateData["incumbents"].length > 0 ) {
-     let incumbents = stateData["incumbents"]
-     let districts = stateData["districts"];
-     for (let i=0; i<incumbents.length;i++){
-      let district = districts.filter(function(d){return d.district==incumbents[i].district})[0]
-      incumbents[i]["geoVar"] = district["geoVar"];
-      incumbents[i]["popVar"] = district["popVar"];
-      incumbents[i]["area"] = district["area"];
-      incumbents[i]["pop"] = district["population"];
-     }
-     setIncumbentTableData(incumbents);
-     }
+    if (stateData && stateData["incumbents"].length > 0) {
+      let incumbents = stateData["incumbents"];
+      let districts = stateData["districts"];
+      for (let i = 0; i < incumbents.length; i++) {
+        let district = districts.filter(function (d) {
+          return d.district == incumbents[i].district;
+        })[0];
+        incumbents[i]["geoVar"] = district["geoVar"];
+        incumbents[i]["popVar"] = district["popVar"];
+        incumbents[i]["area"] = district["area"];
+        incumbents[i]["pop"] = district["population"];
+      }
+      setIncumbentTableData(incumbents);
+    }
   }, [stateData]);
 
   const useStyles = makeStyles({
-    cell: {
-      color: "black",
-      paddingLeft: "10px",
-      paddingRight: "10px",
-      paddingTop: "10px",
-      paddingBottom: "10px",
-      lineHeight: "16px",
-      fontWeight: 400,
-      fontFamily: ["Roboto", "Helvetica", "Arial", "sans-serif"],
-    },
     header: {
       color: "black",
       paddingLeft: "10px",
@@ -63,7 +55,6 @@ function IncumbentTable({ stateValue, district, setDistrict, stateData}) {
       return "blue";
     }
   }
-
 
   return (
     <>
@@ -92,10 +83,8 @@ function IncumbentTable({ stateValue, district, setDistrict, stateData}) {
             </TableRow>
           </TableHead>
           <TableBody>
-            
             {incumbentTableData &&
-          
-            incumbentTableData.map((row) => (
+              incumbentTableData.map((row) => (
                 <TableRow
                   key={row.district}
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
@@ -152,27 +141,23 @@ function IncumbentTable({ stateValue, district, setDistrict, stateData}) {
                     {row.electionResult ? "Win" : "Loss"}
                   </TableCell>
                   <TableCell
-                  className="tableCellIT"
-                  align="left"
-                  style={{
-                    color: rowColor(row.party, row.electionResult),
-                  }}
-                >
-                  {(
-                    row["popVar"]
-                  )}
-                </TableCell> 
+                    className="tableCellIT"
+                    align="left"
+                    style={{
+                      color: rowColor(row.party, row.electionResult),
+                    }}
+                  >
+                    {row["popVar"]}
+                  </TableCell>
                   <TableCell
-                  className="tableCellIT"
-                  align="left"
-                  style={{
-                    color: rowColor(row.party, row.electionResult),
-                  }}
-                >
-                  {(
-                    row["geoVar"]
-                  )}
-                </TableCell> 
+                    className="tableCellIT"
+                    align="left"
+                    style={{
+                      color: rowColor(row.party, row.electionResult),
+                    }}
+                  >
+                    {row["geoVar"]}
+                  </TableCell>
                 </TableRow>
               ))}
           </TableBody>

@@ -9,7 +9,8 @@ import {
 import EnsembleSummary from "./EnsembleSummary";
 import DistrictPlanSummary from "./DistrictPlanSummary";
 import "./Ensemble.css";
-import BoxPlot from "./BoxPlot";
+import BoxPlot from "../BoxPlot";
+import BarGraph from "../BarGraph";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
@@ -26,7 +27,10 @@ function Ensemble({ stateValue, setStateValue, districtPlan, ensembleData }) {
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <EnsembleSummary stateValue={stateValue}  ensembleData={ensembleData}/>
+          <EnsembleSummary
+            stateValue={stateValue}
+            ensembleData={ensembleData}
+          />
         </AccordionDetails>
       </Accordion>
 
@@ -80,7 +84,8 @@ function Ensemble({ stateValue, setStateValue, districtPlan, ensembleData }) {
             </span>
           </FormControl>
 
-          <BoxPlot stateValue={stateValue} />
+          <BoxPlot stateValue={stateValue} ensembleData={ensembleData} />
+          <BarGraph stateValue={stateValue} ensembleData={ensembleData} />
         </AccordionDetails>
       </Accordion>
     </>

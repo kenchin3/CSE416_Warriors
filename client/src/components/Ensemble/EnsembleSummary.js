@@ -12,18 +12,7 @@ import "./EnsembleSummary.css";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 
 function EnsembleSummary({ stateValue, ensembleData }) {
-
   const useStyles = makeStyles({
-    cell: {
-      color: "black",
-      paddingLeft: "10px",
-      paddingRight: "10px",
-      paddingTop: "10px",
-      paddingBottom: "10px",
-      lineHeight: "16px",
-      fontWeight: 400,
-      fontFamily: ["Roboto", "Helvetica", "Arial", "sans-serif"],
-    },
     header: {
       color: "black",
       paddingLeft: "10px",
@@ -55,12 +44,11 @@ function EnsembleSummary({ stateValue, ensembleData }) {
                 Incumbents Predicted to Win
               </TableCell>
               <TableCell className={classes.header} align="center">
-                Average Geographic Variation 
+                Average Geographic Variation
               </TableCell>
               <TableCell className={classes.header} align="center">
                 Average Geographic Variation
               </TableCell>
-             
             </TableRow>
           </TableHead>
           <TableBody>
@@ -88,7 +76,6 @@ function EnsembleSummary({ stateValue, ensembleData }) {
               <TableCell className="tableCellES" align="center">
                 {ensembleData.avgPopVar}
               </TableCell>
-    
             </TableRow>
           </TableBody>
         </Table>

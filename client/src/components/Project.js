@@ -1,9 +1,9 @@
 import React from "react";
-import Map from "./Map.js";
+import Map from "./Map/Map.js";
 import Header from "./Header.js";
-import Data from "./Data.js";
+import Data from "./Data/Data.js";
 import Grid from "@mui/material/Grid";
-import Ensemble from "./Ensemble.js";
+import Ensemble from "./Ensemble/Ensemble.js";
 import "./Project.css";
 import axios from "axios";
 
@@ -21,21 +21,23 @@ function Project() {
   const [incumbentData, setIncumbentData] = React.useState();
   const [mapData, setMapData] = React.useState();
   const [ensembleData, setEnsembleData] = React.useState();
-  const {twoZero, twoTwo, random } = filter;
-  
+  const { twoZero, twoTwo, random } = filter;
 
   React.useEffect(() => {
     if (stateValue) {
-      axios.get("http://localhost:8080/api/getState", { params: { state: stateValue.toUpperCase() } })
+      axios
+        .get("http://localhost:8080/api/getState", {
+          params: { state: stateValue.toUpperCase() },
+        })
         .then((res) => {
-        setStateData(res.data);
-        setDistrictData(res.data.districts);
-        setMapData(res.data.maps);
-        setIncumbentData(res.data.incumbents);
-        setEnsembleData(res.data.ensemble);
-        // console.log(mapData);
-        // setFilter("YR22");
-      });
+          setStateData(res.data);
+          setDistrictData(res.data.districts);
+          setMapData(res.data.maps);
+          setIncumbentData(res.data.incumbents);
+          setEnsembleData(res.data.ensemble);
+          // console.log(mapData);
+          // setFilter("YR22");
+        });
     }
   }, [stateValue]);
 

@@ -75,16 +75,6 @@ function DistrictPlanSummary({ districtPlan }) {
   });
 
   const useStyles = makeStyles({
-    cell: {
-      color: "black",
-      paddingLeft: "40px",
-      paddingRight: "40px",
-      paddingTop: "10px",
-      paddingBottom: "10px",
-      lineHeight: "16px",
-      fontWeight: 400,
-      fontFamily: ["Roboto", "Helvetica", "Arial", "sans-serif"],
-    },
     header: {
       color: "black",
       paddingLeft: "40px",
