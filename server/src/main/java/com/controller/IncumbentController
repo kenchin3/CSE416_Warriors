@@ -1,0 +1,37 @@
+import com.example.model.Incumbent;
+import com.example.repository.IncumbentRepo;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+  
+import java.util.List;
+  
+// Annotation 
+@RestController
+  
+// Class 
+public class IncumbentController {
+  
+    @Autowired
+    private IncumbentRepo repo;
+  
+    @PostMapping("/addIncumbent")
+    public String saveIncumbent(@RequestBody Incumbent incumbent){
+        repo.save(incumbent);
+        
+        return "Added Successfully";
+    }
+  
+    @GetMapping("/findAllBooks")
+    public List<Book> getIncumbents() {
+        
+        return repo.findAll();
+    }
+  
+    @DeleteMapping("/delete/{id}")
+    public String deleteIncumbent(@PathVariable String str){
+        repo.deleteById(str);
+        
+        return "Deleted Successfully";
+    }
+  
+}
