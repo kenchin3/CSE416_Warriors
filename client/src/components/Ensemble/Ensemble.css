@@ -1,0 +1,49 @@
+.paper2ContentEnsemble {
+  width: 100%;
+  height: 30px;
+}
+
+.paper2InsideEnsemble {
+  margin-left: 1%;
+  float: left;
+}
+
+.paper2HeaderEnsemble {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-size: 14px;
+  line-height: 18px;
+  display: inline-block;
+  color: black;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-right: 5px;
+  margin-left: 10px;
+}
+
+.paper2OptionsEnsemble {
+  display: inline-block;
+  color: black;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.formControlLabelEnsemble {
+  width: 110px;
+  height: 30px;
+  font-size: 14px;
+  line-height: 26px;
+}
+
+.accordionHeaderEnsemble {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 550;
+  font-size: 17px;
+  line-height: 18px;
+}
+
+.accordionEnsemble {
+  width: 98%;
+  left: 1%;
+  right: 1%;
+  margin-top: 2%;
+}

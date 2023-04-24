@@ -1,14 +1,13 @@
 import React from "react";
-import okIncumbent from "./../data/okIncumbent.json";
-import tnIncumbent from "./../data/tnIncumbent.json";
-import paIncumbent from "./../data/paIncumbent.json";
+import okIncumbent from "../../data/okIncumbent.json";
+import tnIncumbent from "../../data/tnIncumbent.json";
+import paIncumbent from "../../data/paIncumbent.json";
 import "./SeatGraph.css";
 import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer } from "recharts";
 import { Typography } from "@mui/material";
 
 function SeatGraph({ stateValue, incumbentData }) {
   function getData() {
-   
     let arr = [0, 0, 0];
     incumbentData.forEach((element) => {
       if (element.electionResult === "Open") {

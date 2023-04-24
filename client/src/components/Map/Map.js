@@ -9,17 +9,17 @@ function ChangeView({ center, zoom }) {
   return null;
 }
 
-function Map({ stateValue, filter, setFilter, districtValue, stateData}) {
+function Map({ stateValue, filter, setFilter, districtValue, stateData }) {
   const [mapData, setMapData] = React.useState();
   const [incumbentData, setIncumbentData] = React.useState();
 
   React.useEffect(() => {
     if (stateData) {
-    setMapData(stateData.maps);
-    setIncumbentData(stateData.incumbents);
-  }
+      setMapData(stateData.maps);
+      setIncumbentData(stateData.incumbents);
+    }
   }, [stateData]);
- 
+
   let center = (stateValue) => {
     switch (stateValue) {
       case "":
@@ -46,12 +46,10 @@ function Map({ stateValue, filter, setFilter, districtValue, stateData}) {
   };
 
   let colorDistrict = (feature) => {
-    let incumbents = incumbentData
-
- 
+    let incumbents = incumbentData;
     if (incumbents) {
       let district = parseInt(feature.properties.DISTRICT - 1);
-   
+
       if (incumbents[district] && incumbents[district]["party"] === "REP") {
         return {
           fillColor: "red",
@@ -60,7 +58,10 @@ function Map({ stateValue, filter, setFilter, districtValue, stateData}) {
             districtValue === -1 ? 0.5 : district === districtValue ? 1.0 : 0.5,
           weight: 0.8,
         };
-      } else if (incumbents[district] &&  incumbents[district]["party"]  === "DEM") {
+      } else if (
+        incumbents[district] &&
+        incumbents[district]["party"] === "DEM"
+      ) {
         return {
           fillColor: "#0015BC",
           color: "black",
@@ -103,10 +104,24 @@ function Map({ stateValue, filter, setFilter, districtValue, stateData}) {
         />
 
         {stateValue && mapData && filter == "YR20" && (
-          <GeoJSON data={mapData.filter(function(map){return map.districtPlanID=="YR20"})[0]["boundary"]["features"]} style={district2020} />
+          <GeoJSON
+            data={
+              mapData.filter(function (map) {
+                return map.districtPlanID == "YR20";
+              })[0]["boundary"]["features"]
+            }
+            style={district2020}
+          />
         )}
         {stateValue && mapData && filter == "YR22" && (
-          <GeoJSON data={mapData.filter(function(map){return map.districtPlanID=="YR22"})[0]["boundary"]["features"]} style={colorDistrict} />
+          <GeoJSON
+            data={
+              mapData.filter(function (map) {
+                return map.districtPlanID == "YR22";
+              })[0]["boundary"]["features"]
+            }
+            style={colorDistrict}
+          />
         )}
       </MapContainer>
     </>

@@ -9,7 +9,7 @@ import {
   TableCell,
 } from "@mui/material";
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import "./DistrictDataSummary.css";
+import "./DistrictPlanSummary.css";
 function DistrictPlanSummary({ districtPlan }) {
   const [districtIncumbentData, setDistrictIncumbentData] = React.useState({
     1: [
@@ -75,16 +75,6 @@ function DistrictPlanSummary({ districtPlan }) {
   });
 
   const useStyles = makeStyles({
-    cell: {
-      color: "black",
-      paddingLeft: "40px",
-      paddingRight: "40px",
-      paddingTop: "10px",
-      paddingBottom: "10px",
-      lineHeight: "16px",
-      fontWeight: 400,
-      fontFamily: ["Roboto", "Helvetica", "Arial", "sans-serif"],
-    },
     header: {
       color: "black",
       paddingLeft: "40px",
@@ -118,16 +108,16 @@ function DistrictPlanSummary({ districtPlan }) {
           </TableHead>
           <TableHead>
             <TableRow>
-              <TableCell className={classes.header} align="center">
+              <TableCell className={classes.header} align="left">
                 Incumbent
               </TableCell>
-              <TableCell className={classes.header} align="center">
+              <TableCell className={classes.header} align="left">
                 Party
               </TableCell>
-              <TableCell className={classes.header} align="center">
+              <TableCell className={classes.header} align="left">
                 Geo Var
               </TableCell>
-              <TableCell className={classes.header} align="center">
+              <TableCell className={classes.header} align="left">
                 Pop Var
               </TableCell>
             </TableRow>
@@ -142,7 +132,7 @@ function DistrictPlanSummary({ districtPlan }) {
                   style={{
                     color: row.Party === "Republican" ? "#D70040" : "blue",
                   }}
-                  align="center"
+                  align="left"
                 >
                   {row.Name}
                 </TableCell>
@@ -150,7 +140,7 @@ function DistrictPlanSummary({ districtPlan }) {
                   style={{
                     color: row.Party === "Republican" ? "#D70040" : "blue",
                   }}
-                  align="center"
+                  align="left"
                 >
                   {row.Party}
                 </TableCell>
@@ -158,7 +148,7 @@ function DistrictPlanSummary({ districtPlan }) {
                   style={{
                     color: row.Party === "Republican" ? "#D70040" : "blue",
                   }}
-                  align="center"
+                  align="left"
                 >
                   {row["Geo Var"]}
                 </TableCell>
@@ -166,7 +156,7 @@ function DistrictPlanSummary({ districtPlan }) {
                   style={{
                     color: row.Party === "Republican" ? "#D70040" : "blue",
                   }}
-                  align="center"
+                  align="left"
                 >
                   {row["Pop Var"]}
                 </TableCell>

@@ -1,13 +1,16 @@
 import React from "react";
-import axios from "axios";
+import "./DistrictData.css";
 
-function DistrictData({ district, setDistrict, stateValue, incumbentTableData }) {
+function DistrictData({
+  district,
+  setDistrict,
+  stateValue,
+  incumbentTableData,
+}) {
   const [districtData, setdistrictData] = React.useState();
-
 
   return (
     <div className="districtDataLocation">
-      
       {district !== -1 && (
         <div className="districtDataFont">
           <span style={{ fontWeight: 550, fontSize: 15 }}> District: </span>
@@ -18,29 +21,22 @@ function DistrictData({ district, setDistrict, stateValue, incumbentTableData })
             {" "}
             2020 Population:{" "}
           </span>
-          {
-           }{" "}
-          <br />
+          {} <br />
           <span style={{ fontWeight: 550, fontSize: 15 }}>
             {" "}
             2022 Population:{" "}
           </span>
-          {incumbentTableData[district]["pop"]
-           }{" "}
-          <br />
+          {incumbentTableData[district]["pop"]} <br />
           <span style={{ fontWeight: 550, fontSize: 15 }}>
             {" "}
             2020 Geographic Area:{" "}
           </span>{" "}
-          {
-           }{" "}
-          <br />
+          {} <br />
           <span style={{ fontWeight: 550, fontSize: 15 }}>
             {" "}
             2022 Geographic Area:{" "}
           </span>{" "}
-          {incumbentTableData[district]["area"]
-           }
+          {incumbentTableData[district]["area"]}
         </div>
       )}
     </div>
