@@ -9,7 +9,7 @@
 }
 
 .paper2HeaderEnsemble {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: "Helvetica";
   font-size: 14px;
   line-height: 18px;
   display: inline-block;
@@ -35,7 +35,7 @@
 }
 
 .accordionHeaderEnsemble {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: "Helvetica";
   font-weight: 550;
   font-size: 14px;
 }
@@ -44,5 +44,5 @@
   width: 98%;
   left: 1%;
   right: 1%;
-  margin-top: 2%;
+  margin-top: 1%;
 }

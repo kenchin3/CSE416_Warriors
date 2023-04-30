@@ -35,7 +35,7 @@ function Project() {
           setMapData(res.data.maps);
           setIncumbentData(res.data.incumbents);
           setEnsembleData(res.data.ensemble);
-          console.log(res.data);
+          // console.log(res.data);
           // setFilter("YR22");
         });
     }
@@ -55,6 +55,7 @@ function Project() {
   };
 
   const handleStateChange = (event) => {
+    console.log(event.target.value);
     setStateValue(event.target.value);
     setDistrict(-1);
   };
@@ -63,7 +64,7 @@ function Project() {
     <div>
       <Header />
 
-      <Grid container spacing={1} component="span">
+      <Grid container spacing={0} component="span">
         <Grid item xs={6} md={6} component="span">
           <div className="userOptions">
             <Paper className="paperP1" elevation={5}>
@@ -158,6 +159,7 @@ function Project() {
         <Grid item xs={6} md={6} className="mapGrid">
           <Map
             stateValue={stateValue}
+            setStateValue={setStateValue}
             filter={filter}
             setFilter={setFilter}
             districtValue={district}

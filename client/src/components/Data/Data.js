@@ -1,13 +1,9 @@
 import "./Data.css";
 import IncumbentTable from "./IncumbentTable";
-import Card from "@mui/material/Card";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import SeatGraph from "../SeatGraph";
+import SeatGraph from "./SeatGraph";
 import React from "react";
-import okDistrictData from "../../data/okDistrictData.json";
-import paDistrictData from "../../data/paDistrictData.json";
-import tnDistrictData from "../../data/tnDistrictData.json";
 import BoxPlot from "../BoxPlot";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
@@ -24,7 +20,7 @@ function Data({
 }) {
   return (
     <>
-      <Accordion className="accordion">
+      <Accordion disableGutters className="accordion">
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
           <Typography>
             {" "}
@@ -37,7 +33,7 @@ function Data({
           )}
         </AccordionDetails>
       </Accordion>
-      <Accordion className="accordion">
+      <Accordion disableGutters className="accordion">
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
           <Typography>
             <span className="accordionHeader">2022 Incumbent Information</span>
@@ -56,18 +52,20 @@ function Data({
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion className="accordion">
+      <Accordion disableGutters className="accordion">
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
           <Typography>
             <span className="accordionHeader"> Incumbent Box Plot</span>
           </Typography>
         </AccordionSummary>
-        {stateValue && (
-          <BoxPlot stateValue={stateValue} ensembleData={ensembleData} />
-        )}
-        {stateValue && (
-          <BarGraph stateValue={stateValue} ensembleData={ensembleData} />
-        )}
+        <AccordionDetails>
+          {stateValue && (
+            <BoxPlot stateValue={stateValue} ensembleData={ensembleData} />
+          )}
+          {stateValue && (
+            <BarGraph stateValue={stateValue} ensembleData={ensembleData} />
+          )}
+        </AccordionDetails>
       </Accordion>
     </>
   );
