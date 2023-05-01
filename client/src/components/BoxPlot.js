@@ -2,20 +2,7 @@ import React from "react";
 import ReactApexChart from "react-apexcharts";
 import "./Ensemble/Ensemble.css";
 
-function BoxPlot({ stateValue, setStateValue, ensembleData }) {
-  const [boxPlotData, setboxPlotData] = React.useState();
-  React.useEffect(() => {
-    if (ensembleData) {
-      let data = ensembleData.boxAndWhiskers[0]["data"];
-      let d = [];
-      for (let i = 0; i < data.length; i++) {
-        let row = { x: i.toString(), y: data[i] };
-        d.push(row);
-      }
-      let bW = [{ type: "boxPlot", name: "Ensemble", data: d }];
-      setboxPlotData(bW);
-    }
-  }, [ensembleData]);
+function BoxPlot({ stateValue, setStateValue, bWData}) {
 
   const options = {
     chart: {
@@ -51,10 +38,10 @@ function BoxPlot({ stateValue, setStateValue, ensembleData }) {
 
   return (
     <>
-      {boxPlotData && (
+      {bWData && (
         <ReactApexChart
           options={options}
-          series={boxPlotData}
+          series={bWData}
           type="boxPlot"
           height={250}
         />

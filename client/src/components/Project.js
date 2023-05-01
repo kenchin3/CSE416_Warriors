@@ -55,7 +55,6 @@ function Project() {
   };
 
   const handleStateChange = (event) => {
-    console.log(event.target.value);
     setStateValue(event.target.value);
     setDistrict(-1);
   };

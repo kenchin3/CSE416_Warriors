@@ -131,8 +131,8 @@
         "district": "1",
         "population": "764866",
         "area": "67.542",
-        "popVar": "1.096",
-        "geoVar": "0.170"
+        "popVar": "1.001",
+        "geoVar": "0.103"
     },
     {
         "districtPlanID": "YR22",
@@ -140,8 +140,8 @@
         "district": "2",
         "population": "764865",
         "area": "2842.798",
-        "popVar": "1.096",
-        "geoVar": "0.170"
+        "popVar": ".997",
+        "geoVar": "43.109 "
     },
     {
         "districtPlanID": "YR22",
@@ -149,8 +149,8 @@
         "district": "3",
         "population": "764864",
         "area": "1185.651",
-        "popVar": "1.096",
-        "geoVar": "0.170"
+        "popVar": "1.032",
+        "geoVar": "2.466"
     },
     {
         "districtPlanID": "YR22",
@@ -158,8 +158,8 @@
         "district": "4",
         "population": "764865",
         "area": "54.859",
-        "popVar": "1.096",
-        "geoVar": "0.170"
+        "popVar": "0.991",
+        "geoVar": "0.24"
     },
     {
         "districtPlanID": "YR22",
@@ -167,8 +167,8 @@
         "district": "5",
         "population": "764866",
         "area": "718.911",
-        "popVar": "1.096",
-        "geoVar": "0.170"
+        "popVar": "1.014",
+        "geoVar": "0.779"
     },
     {
         "districtPlanID": "YR22",
@@ -176,8 +176,8 @@
         "district": "6",
         "population": "764864",
         "area": "734.363",
-        "popVar": "1.096",
-        "geoVar": "0.170"
+        "popVar": "0.996",
+        "geoVar": "0.846"
     },
     {
         "districtPlanID": "YR22",
@@ -185,8 +185,8 @@
         "district": "7",
         "population": "764865",
         "area": "239.865",
-        "popVar": "1.096",
-        "geoVar": "0.170"
+        "popVar": "0.992",
+        "geoVar": "0.215"
     },
     {
         "districtPlanID": "YR22",
@@ -194,8 +194,8 @@
         "district": "8",
         "population": "764866",
         "area": "1545.007",
-        "popVar": "1.096",
-        "geoVar": "0.170"
+        "popVar": "1.002",
+        "geoVar": "0.606"
     },
     {
         "districtPlanID": "YR22",
@@ -203,8 +203,8 @@
         "district": "9",
         "population": "764864",
         "area": "6158.914",
-        "popVar": "1.096",
-        "geoVar": "0.170"
+        "popVar": ".997",
+        "geoVar": "0.617"
     },
     {
         "districtPlanID": "YR22",
@@ -212,8 +212,8 @@
         "district": "10",
         "population": "764864",
         "area": "1546.909",
-        "popVar": "1.096",
-        "geoVar": "0.170"
+        "popVar": "1.001",
+        "geoVar": "0.256"
     },
     {
         "districtPlanID": "YR22",
@@ -221,8 +221,8 @@
         "district": "11",
         "population": "764864",
         "area": "1295.685",
-        "popVar": "1.096",
-        "geoVar": "0.170"
+        "popVar": "0.989",
+        "geoVar": "0.452"
     },
     {
         "districtPlanID": "YR22",
@@ -230,8 +230,8 @@
         "district": "12",
         "population": "764864",
         "area": "910.015",
-        "popVar": "1.096",
-        "geoVar": "0.170"
+        "popVar": "1.011",
+        "geoVar": "0.093"
     },
     {
         "districtPlanID": "YR22",
@@ -239,8 +239,8 @@
         "district": "13",
         "population": "764864",
         "area": "434.221",
-        "popVar": "1.096",
-        "geoVar": "0.170"
+        "popVar": "1.003",
+        "geoVar": "0.106"
     },
     {
         "districtPlanID": "YR22",
@@ -248,8 +248,8 @@
         "district": "14",
         "population": "764866",
         "area": "4814.387",
-        "popVar": "1.096",
-        "geoVar": "0.170"
+        "popVar": "1.005",
+        "geoVar": ".362"
     },
     {
         "districtPlanID": "YR22",
@@ -257,8 +257,8 @@
         "district": "15",
         "population": "764864",
         "area": "6410.728",
-        "popVar": "1.096",
-        "geoVar": "0.170"
+        "popVar": "1.009",
+        "geoVar": "21.377"
     },
     {
         "districtPlanID": "YR22",
@@ -266,8 +266,8 @@
         "district": "16",
         "population": "764865",
         "area": "4652.711",
-        "popVar": "1.096",
-        "geoVar": "0.170"
+        "popVar": "1.002",
+        "geoVar": "1.703"
     },
     {
         "districtPlanID": "YR22",
@@ -275,7 +275,7 @@
         "district": "17",
         "population": "764864",
         "area": "13094.271",
-        "popVar": "1.096",
-        "geoVar": "0.170"
+        "popVar": "1.011",
+        "geoVar": "3.937"
     }
 ]

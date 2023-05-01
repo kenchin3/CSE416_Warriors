@@ -5,7 +5,7 @@ function SeatGraph({ stateValue, incumbentData }) {
   function getData() {
     let arr = [0, 0, 0];
     incumbentData.forEach((element) => {
-      if (element.electionResult === "Open") {
+      if (element.party === "NONE") {
         arr[2] += 1;
       } else if (element.party === "REP") {
         arr[1] += 1;
