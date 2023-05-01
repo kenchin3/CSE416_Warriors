@@ -1,6 +1,5 @@
 import "./Data.css";
 import IncumbentTable from "./IncumbentTable";
-import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Card";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import SeatGraph from "./SeatGraph";
@@ -12,6 +11,7 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import BarGraph from "../BarGraph";
 import {
   FormControl,
+  Typography,
   RadioGroup,
   FormControlLabel,
   Radio,

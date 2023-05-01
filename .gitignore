@@ -5,7 +5,9 @@
 /server/node_modules
 /server/**/build/
 /server/.gradle/
+server/.gradle/
 /server/build
+server/build
 
 node_modules
 /.pnp
