@@ -23,6 +23,8 @@ function IncumbentTable({ stateValue, district, setDistrict, stateData }) {
         })[0];
         incumbents[i]["geoVar"] = district["geoVar"];
         incumbents[i]["popVar"] = district["popVar"];
+        incumbents[i]["geoDiff"] = district["geoDiff"];
+        incumbents[i]["popDiff"] = district["popDiff"];
         incumbents[i]["area"] = district["area"];
         incumbents[i]["pop"] = district["population"];
       }

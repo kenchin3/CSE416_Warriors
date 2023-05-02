@@ -105,7 +105,7 @@ public class WarriorsApplication implements CommandLineRunner {
 		try {
 			districtRepository.deleteAll();
 			JSONParser parser = new JSONParser();
-			Object obj = parser.parse(new FileReader("resources/District.json"));
+			Object obj = parser.parse(new FileReader("resources/District1.json"));
 			JSONArray jsonArray = (JSONArray) obj;
 
 			jsonArray.forEach(item -> {
@@ -117,7 +117,10 @@ public class WarriorsApplication implements CommandLineRunner {
 				Double area = Double.parseDouble((String) districtObj.get("area"));
 				Double popVar = Double.parseDouble((String) districtObj.get("popVar"));
 				Double geoVar = Double.parseDouble((String) districtObj.get("geoVar"));
-				District newDistrict = new District(districtPlanID, state, district, population, area, popVar, geoVar);
+				Double popDiff = Double.parseDouble((String) districtObj.get("popDiff"));
+				Double geoDiff = Double.parseDouble((String) districtObj.get("geoDiff"));
+				District newDistrict = new District(districtPlanID, state, district, population, area, popVar, geoVar,
+						popDiff, geoDiff);
 				districtRepository.save(newDistrict);
 			});
 		} catch (Exception e) {
@@ -145,12 +148,18 @@ public class WarriorsApplication implements CommandLineRunner {
 					Double[] innerResult = new Double[innerArray.size()];
 
 					for (int j = 0; j < innerArray.size(); j++) {
-						innerResult[j] = Double.valueOf((String) innerArray.get(j));
+						innerResult[j] = (Double) innerArray.get(j);
 					}
 
 					result[i] = innerResult;
 				}
-				boxAndWhiskerRepository.save(new BoxAndWhisker(state, type, result));
+
+				Double[] result2 = new Double[bowArr.size()];
+				JSONArray dotsArr = (JSONArray) boxAndWhisker.get("dots22");
+				for (int i = 0; i < dotsArr.size(); i++) {
+					result2[i] = (Double) dotsArr.get(i);
+				}
+				boxAndWhiskerRepository.save(new BoxAndWhisker(state, type, result, result2));
 
 			});
 		} catch (Exception e) {

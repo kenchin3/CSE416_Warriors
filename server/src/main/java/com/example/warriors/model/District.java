@@ -3,6 +3,7 @@ package com.example.warriors.model;
 import com.example.warriors.model.StateID;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import java.util.Objects;
 
 @Document(collection = "Districts")
 public class District {
@@ -14,12 +15,14 @@ public class District {
     private Double area;
     private Double popVar;
     private Double geoVar;
+    private Double popDiff;
+    private Double geoDiff;
 
     public District() {
     }
 
     public District(DistrictPlanID districtPlanID, StateID state, String district, Double population, Double area,
-            Double popVar, Double geoVar) {
+            Double popVar, Double geoVar, Double popDiff, Double geoDiff) {
         this.districtPlanID = districtPlanID;
         this.state = state;
         this.district = district;
@@ -27,6 +30,8 @@ public class District {
         this.area = area;
         this.popVar = popVar;
         this.geoVar = geoVar;
+        this.popDiff = popDiff;
+        this.geoDiff = geoDiff;
     }
 
     public DistrictPlanID getDistrictPlanID() {
@@ -85,6 +90,22 @@ public class District {
         this.geoVar = geoVar;
     }
 
+    public Double getPopDiff() {
+        return this.popDiff;
+    }
+
+    public void setPopDiff(Double popDiff) {
+        this.popDiff = popDiff;
+    }
+
+    public Double getGeoDiff() {
+        return this.geoDiff;
+    }
+
+    public void setGeoDiff(Double geoDiff) {
+        this.geoDiff = geoDiff;
+    }
+
     public District districtPlanID(DistrictPlanID districtPlanID) {
         setDistrictPlanID(districtPlanID);
         return this;
@@ -120,6 +141,36 @@ public class District {
         return this;
     }
 
+    public District popDiff(Double popDiff) {
+        setPopDiff(popDiff);
+        return this;
+    }
+
+    public District geoDiff(Double geoDiff) {
+        setGeoDiff(geoDiff);
+        return this;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == this)
+            return true;
+        if (!(o instanceof District)) {
+            return false;
+        }
+        District district = (District) o;
+        return Objects.equals(districtPlanID, district.districtPlanID) && Objects.equals(state, district.state)
+                && Objects.equals(district, district.district) && Objects.equals(population, district.population)
+                && Objects.equals(area, district.area) && Objects.equals(popVar, district.popVar)
+                && Objects.equals(geoVar, district.geoVar) && Objects.equals(popDiff, district.popDiff)
+                && Objects.equals(geoDiff, district.geoDiff);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(districtPlanID, state, district, population, area, popVar, geoVar, popDiff, geoDiff);
+    }
+
     @Override
     public String toString() {
         return "{" +
@@ -130,6 +181,8 @@ public class District {
                 ", area='" + getArea() + "'" +
                 ", popVar='" + getPopVar() + "'" +
                 ", geoVar='" + getGeoVar() + "'" +
+                ", popDiff='" + getPopDiff() + "'" +
+                ", geoDiff='" + getGeoDiff() + "'" +
                 "}";
     }
 

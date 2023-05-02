@@ -39,19 +39,33 @@ function Data({
       for (let i = 0; i < data.length; i++) {
         let row = { x: i.toString(), y: data[i] };
         d.push(row);
-
-      let bW = [{ type: "boxPlot", name: "Ensemble", data: d }];
-      setgeoBW(bW);
       }
+
+      data = ensembleData.boxAndWhiskers[0]["dots22"];
+      let dots = [];
+      for (let i = 0; i < data.length; i++) {
+        let row = { x: i.toString(), y: data[i] };
+        dots.push(row);
+      }
+      let bW = [{ type: "boxPlot", name: "Ensemble", data: d }, { type: "scatter", name: "2022 Incumbents", data: dots}];
+      console.log(bW)
+      setgeoBW(bW);
+
+
       data = ensembleData.boxAndWhiskers[1]["data"];
       d = [];
       for (let i = 0; i < data.length; i++) {
         let row = { x: i.toString(), y: data[i] };
         d.push(row);
-
-      let bW = [{ type: "boxPlot", name: "Ensemble", data: d }];
-      setpopBW(bW);
       }
+      data = ensembleData.boxAndWhiskers[0]["dots22"];
+      dots = [];
+      for (let i = 0; i < data.length; i++) {
+        let row = { x: i.toString(), y: data[i] };
+        dots.push(row);
+      }
+      bW = [{ type: "boxPlot", name: "Ensemble", data: d }, { type: "scatter", name: "2022 Incumbents", data: dots}];
+      setpopBW(bW);
     }
   }, [ensembleData]);
 
