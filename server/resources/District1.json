@@ -339,5 +339,115 @@
     "geoVar": "3.937",
     "popDiff": "8322.0",
     "geoDiff": "9768.321"
+  },
+  {
+    "districtPlanID": "RANDOM1",
+    "state": "TN",
+    "district": "04",
+    "population": "962800.7195873839",
+    "area": "2.16",
+    "popVar": "1.0000000411169048",
+    "geoVar": "1.166979403647094",
+    "popDiff": "-0.0395873838",
+    "geoDiff": "-0.3092249096"
+  },
+  {
+    "districtPlanID": "RANDOM1",
+    "state": "TN",
+    "district": "04",
+    "population": "962800.72",
+    "area": "2.16",
+    "popVar": "1.0",
+    "geoVar": "1.167",
+    "popDiff": "-0.04",
+    "geoDiff": "-0.309"
+  },
+  {
+    "districtPlanID": "RANDOM1",
+    "state": "TN",
+    "district": "01",
+    "population": "750254.29",
+    "area": "0.71",
+    "popVar": "1.0",
+    "geoVar": "0.782",
+    "popDiff": "0.13",
+    "geoDiff": "0.202"
+  },
+  {
+    "districtPlanID": "RANDOM1",
+    "state": "TN",
+    "district": "07",
+    "population": "1065048.726",
+    "area": "2.58",
+    "popVar": "1.0",
+    "geoVar": "1.078",
+    "popDiff": "-0.116",
+    "geoDiff": "-0.185"
+  },
+  {
+    "districtPlanID": "RANDOM1",
+    "state": "TN",
+    "district": "09",
+    "population": "945858.956",
+    "area": "0.67",
+    "popVar": "1.0",
+    "geoVar": "3.032",
+    "popDiff": "-0.056",
+    "geoDiff": "-0.445"
+  },
+  {
+    "districtPlanID": "RANDOM1",
+    "state": "TN",
+    "district": "08",
+    "population": "699760.969",
+    "area": "1.76",
+    "popVar": "1.0",
+    "geoVar": "0.854",
+    "popDiff": "0.291",
+    "geoDiff": "0.303"
+  },
+  {
+    "districtPlanID": "RANDOM1",
+    "state": "TN",
+    "district": "06",
+    "population": "803042.49",
+    "area": "1.05",
+    "popVar": "1.0",
+    "geoVar": "0.721",
+    "popDiff": "0.11",
+    "geoDiff": "0.411"
+  },
+  {
+    "districtPlanID": "RANDOM1",
+    "state": "TN",
+    "district": "06",
+    "population": "803042.496",
+    "area": "1.91",
+    "popVar": "1.0",
+    "geoVar": "1.311",
+    "popDiff": "0.104",
+    "geoDiff": "-0.451"
+  },
+  {
+    "districtPlanID": "RANDOM1",
+    "state": "TN",
+    "district": "02",
+    "population": "921554.928",
+    "area": "0.49",
+    "popVar": "1.0",
+    "geoVar": "0.761",
+    "popDiff": "-0.048",
+    "geoDiff": "0.156"
+  },
+  {
+    "districtPlanID": "RANDOM1",
+    "state": "TN",
+    "district": "05",
+    "population": "1020200.824",
+    "area": "0.67",
+    "popVar": "1.0",
+    "geoVar": "2.493",
+    "popDiff": "-0.124",
+    "geoDiff": "-0.398"
   }
 ]

@@ -38,16 +38,11 @@ function Data({
         d.push(row);
       }
 
-<<<<<<< HEAD
       data = ensembleData.boxAndWhiskers[0]["dots22"];
       let dots = [];
       for (let i = 0; i < data.length; i++) {
         let row = { x: i.toString(), y: data[i] };
         dots.push(row);
-=======
-        let bW = [{ type: "boxPlot", name: "Ensemble", data: d }];
-        setgeoBW(bW);
->>>>>>> 05c483bd08d1c85a0a45b234c93a09cc163d31c5
       }
       let bW = [{ type: "boxPlot", name: "Ensemble", data: d }, { type: "scatter", name: "2022 Incumbents", data: dots}];
       console.log(bW)
@@ -59,12 +54,6 @@ function Data({
       for (let i = 0; i < data.length; i++) {
         let row = { x: i.toString(), y: data[i] };
         d.push(row);
-<<<<<<< HEAD
-=======
-
-        let bW = [{ type: "boxPlot", name: "Ensemble", data: d }];
-        setpopBW(bW);
->>>>>>> 05c483bd08d1c85a0a45b234c93a09cc163d31c5
       }
       data = ensembleData.boxAndWhiskers[0]["dots22"];
       dots = [];

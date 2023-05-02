@@ -7,6 +7,7 @@ import ok2020 from "../../geoJSON/ok2020.json";
 import ok2022 from "../../geoJSON/ok2022.json";
 import tn2020 from "../../geoJSON/tn2020.json";
 import tn2022 from "../../geoJSON/tn2022.json";
+import tn1 from "../../geoJSON/plan_0_boundary.json";
 import L from "leaflet";
 import leafletPip from "@mapbox/leaflet-pip";
 
@@ -220,6 +221,11 @@ function Map({
             data={tn2022.features}
             style={colorDistrict}
             onEachFeature={userMovementChanges}
+          />
+        )}
+        {filter == 1 && (
+          <GeoJSON
+            data={tn1.features}
           />
         )}
       </MapContainer>
