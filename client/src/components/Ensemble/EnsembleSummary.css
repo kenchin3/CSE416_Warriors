@@ -7,7 +7,7 @@
   padding-bottom: 10px;
   font-weight: 400;
   color: black;
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: "Helvetica";
 }
 
 .tableContainerES {
@@ -16,7 +16,7 @@
   width: 98%;
   left: 1%;
   right: 1%;
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: "Helvetica";
   font-size: 14px;
   line-height: 24px;
   color: black;

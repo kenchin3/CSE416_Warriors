@@ -35,18 +35,25 @@ function IncumbentTable({ stateValue, district, setDistrict, stateData }) {
   const useStyles = makeStyles({
     header: {
       color: "black",
-      paddingLeft: "10px",
-      paddingRight: "10px",
-      lineHeight: "18px",
-      paddingTop: "10px",
-      paddingBottom: "10px",
-      fontSize: "15px",
+      paddingLeft: "auto",
+      paddingRight: "auto",
+      lineHeight: "13px",
+      fontSize: "13px",
       fontWeight: 550,
-      fontFamily: ["Roboto", "Helvetica", "Arial", "sans-serif"],
+      fontFamily: ["Helvetica"],
     },
   });
 
   const classes = useStyles();
+
+  // const tableColumnsNames = [
+  //   "District",
+  //   "Name",
+  //   "Party",
+  //   "Election Result",
+  //   "Geographic σ2",
+  //   "Population σ2",
+  // ];
 
   function rowColor(party, result) {
     if (result === "Open") {
@@ -77,10 +84,10 @@ function IncumbentTable({ stateValue, district, setDistrict, stateData }) {
                 Election Result
               </TableCell>
               <TableCell className={classes.header} align="left">
-                Geographic Variance
+                Geographic σ2
               </TableCell>
               <TableCell className={classes.header} align="left">
-                Population Variance
+                Population σ2
               </TableCell>
             </TableRow>
           </TableHead>
@@ -105,7 +112,7 @@ function IncumbentTable({ stateValue, district, setDistrict, stateData }) {
                   }}
                 >
                   <TableCell
-                    className="tableCellIT"
+                    className={classes.content}
                     align="left"
                     component="th"
                     scope="row"
@@ -116,7 +123,7 @@ function IncumbentTable({ stateValue, district, setDistrict, stateData }) {
                     {row.district}
                   </TableCell>
                   <TableCell
-                    className="tableCellIT"
+                    className={classes.content}
                     align="left"
                     style={{
                       color: rowColor(row.party, row.electionResult),
@@ -125,7 +132,7 @@ function IncumbentTable({ stateValue, district, setDistrict, stateData }) {
                     {row.name}
                   </TableCell>
                   <TableCell
-                    className="tableCellIT"
+                    className={classes.content}
                     align="left"
                     style={{
                       color: rowColor(row.party, row.electionResult),
@@ -134,7 +141,7 @@ function IncumbentTable({ stateValue, district, setDistrict, stateData }) {
                     {row.party}
                   </TableCell>
                   <TableCell
-                    className="tableCellIT"
+                    className={classes.content}
                     align="left"
                     style={{
                       color: rowColor(row.party, row.electionResult),
@@ -143,7 +150,7 @@ function IncumbentTable({ stateValue, district, setDistrict, stateData }) {
                     {row.electionResult ? "Win" : "Loss"}
                   </TableCell>
                   <TableCell
-                    className="tableCellIT"
+                    className={classes.content}
                     align="left"
                     style={{
                       color: rowColor(row.party, row.electionResult),
@@ -152,7 +159,7 @@ function IncumbentTable({ stateValue, district, setDistrict, stateData }) {
                     {row["popVar"]}
                   </TableCell>
                   <TableCell
-                    className="tableCellIT"
+                    className={classes.content}
                     align="left"
                     style={{
                       color: rowColor(row.party, row.electionResult),

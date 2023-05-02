@@ -51,7 +51,7 @@ function SeatGraph({ stateValue, incumbentData }) {
             offsetX: 0,
             style: {
               fontSize: "11px",
-              fontWeight: 700,
+              fontWeight: 550,
             },
           },
         },

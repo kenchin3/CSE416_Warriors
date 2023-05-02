@@ -15,12 +15,12 @@ function EnsembleSummary({ stateValue, ensembleData }) {
   const useStyles = makeStyles({
     header: {
       color: "black",
-      paddingLeft: "10px",
-      paddingRight: "10px",
-      lineHeight: "18px",
+      paddingLeft: "auto",
+      paddingRight: "auto",
+      lineHeight: "12px",
       paddingTop: "10px",
       paddingBottom: "10px",
-      fontSize: "15px",
+      fontSize: "13px",
       fontWeight: 550,
       fontFamily: ["Roboto", "Helvetica", "Arial", "sans-serif"],
     },
@@ -34,19 +34,19 @@ function EnsembleSummary({ stateValue, ensembleData }) {
         <Table aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell className={classes.header} align="center">
+              <TableCell className={classes.header} align="left">
                 Number of District Plans
               </TableCell>
-              <TableCell className={classes.header} align="center">
+              <TableCell className={classes.header} align="left">
                 Number of Incumbents
               </TableCell>
-              <TableCell className={classes.header} align="center">
+              <TableCell className={classes.header} align="left">
                 Incumbents Predicted to Win
               </TableCell>
-              <TableCell className={classes.header} align="center">
+              <TableCell className={classes.header} align="left">
                 Average Geographic Variation
               </TableCell>
-              <TableCell className={classes.header} align="center">
+              <TableCell className={classes.header} align="left">
                 Average Geographic Variation
               </TableCell>
             </TableRow>
@@ -57,23 +57,23 @@ function EnsembleSummary({ stateValue, ensembleData }) {
             >
               <TableCell
                 className="tableCellES"
-                align="center"
+                align="left"
                 component="th"
                 scope="row"
               >
                 {"10,000"}
               </TableCell>
 
-              <TableCell className="tableCellES" align="center">
+              <TableCell className="tableCellES" align="left">
                 {ensembleData.incumbentWin}
               </TableCell>
-              <TableCell className="tableCellES" align="center">
+              <TableCell className="tableCellES" align="left">
                 {ensembleData.incumbentWin}
               </TableCell>
-              <TableCell className="tableCellES" align="center">
+              <TableCell className="tableCellES" align="left">
                 {ensembleData.avgGeoVar}
               </TableCell>
-              <TableCell className="tableCellES" align="center">
+              <TableCell className="tableCellES" align="left">
                 {ensembleData.avgPopVar}
               </TableCell>
             </TableRow>

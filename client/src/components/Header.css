@@ -1,5 +1,5 @@
 .headerContent {
-  height: 30px;
+  height: 20px;
   width: 100%;
   position: relative;
   text-align: center;
@@ -8,8 +8,8 @@
 .title {
   color: white;
   font-size: 20px;
-  line-height: 30px;
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  line-height: 10px;
+  font-family: "Helvetica";
   font-weight: 550;
   margin: auto;
 }

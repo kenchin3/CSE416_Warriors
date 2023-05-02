@@ -2,11 +2,8 @@ import "./Data.css";
 import IncumbentTable from "./IncumbentTable";
 import Card from "@mui/material/Card";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import SeatGraph from "../SeatGraph";
+import SeatGraph from "./SeatGraph";
 import React from "react";
-import okDistrictData from "../../data/okDistrictData.json";
-import paDistrictData from "../../data/paDistrictData.json";
-import tnDistrictData from "../../data/tnDistrictData.json";
 import BoxPlot from "../BoxPlot";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
@@ -28,9 +25,9 @@ function Data({
   incumbentData,
   ensembleData,
 }) {
-  const [bWFilter, setbWFilter] = React.useState("geometric")
-  const [geoBW, setgeoBW] = React.useState()
-  const [popBW, setpopBW] = React.useState()
+  const [bWFilter, setbWFilter] = React.useState("geometric");
+  const [geoBW, setgeoBW] = React.useState();
+  const [popBW, setpopBW] = React.useState();
 
   React.useEffect(() => {
     if (ensembleData) {
@@ -41,11 +38,16 @@ function Data({
         d.push(row);
       }
 
+<<<<<<< HEAD
       data = ensembleData.boxAndWhiskers[0]["dots22"];
       let dots = [];
       for (let i = 0; i < data.length; i++) {
         let row = { x: i.toString(), y: data[i] };
         dots.push(row);
+=======
+        let bW = [{ type: "boxPlot", name: "Ensemble", data: d }];
+        setgeoBW(bW);
+>>>>>>> 05c483bd08d1c85a0a45b234c93a09cc163d31c5
       }
       let bW = [{ type: "boxPlot", name: "Ensemble", data: d }, { type: "scatter", name: "2022 Incumbents", data: dots}];
       console.log(bW)
@@ -57,6 +59,12 @@ function Data({
       for (let i = 0; i < data.length; i++) {
         let row = { x: i.toString(), y: data[i] };
         d.push(row);
+<<<<<<< HEAD
+=======
+
+        let bW = [{ type: "boxPlot", name: "Ensemble", data: d }];
+        setpopBW(bW);
+>>>>>>> 05c483bd08d1c85a0a45b234c93a09cc163d31c5
       }
       data = ensembleData.boxAndWhiskers[0]["dots22"];
       dots = [];
@@ -76,7 +84,7 @@ function Data({
 
   return (
     <>
-      <Accordion className="accordion">
+      <Accordion disableGutters className="accordion">
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
           <Typography>
             {" "}
@@ -89,7 +97,7 @@ function Data({
           )}
         </AccordionDetails>
       </Accordion>
-      <Accordion className="accordion">
+      <Accordion disableGutters className="accordion">
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
           <Typography>
             <span className="accordionHeader">2022 Incumbent Information</span>
@@ -108,43 +116,46 @@ function Data({
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion className="accordion">
+      <Accordion disableGutters className="accordion">
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
           <Typography>
             <span className="accordionHeader"> Incumbent Box Plot</span>
           </Typography>
         </AccordionSummary>
         <FormControl className="paper2ContentEnsemble">
-            <span className="paper2InsideEnsemble">
-              <RadioGroup
-                defaultValue="geometric"
-                name="radio-buttons-group"
-                row={true}
-                onChange={handleBWFilter}
-              >
-                <span className="paper2HeaderEnsemble">
-                  Variation Comparison:
-                </span>
-                <span className="paper2OptionsEnsemble">
-                  <FormControlLabel
-                    className="formControlLabelEnsemble"
-                    value="geometric"
-                    control={<Radio />}
-                    label="geometric"
-                  />
-                  <FormControlLabel
-                    className="formControlLabelEnsemble"
-                    value="population"
-                    control={<Radio />}
-                    label="population"
-                  />
-                </span>
-              </RadioGroup>
-            </span>
-          </FormControl>
+          <span className="paper2InsideEnsemble">
+            <RadioGroup
+              defaultValue="geometric"
+              name="radio-buttons-group"
+              row={true}
+              onChange={handleBWFilter}
+            >
+              <span className="paper2HeaderEnsemble">
+                Variation Comparison:
+              </span>
+              <span className="paper2OptionsEnsemble">
+                <FormControlLabel
+                  className="formControlLabelEnsemble"
+                  value="geometric"
+                  control={<Radio />}
+                  label="geometric"
+                />
+                <FormControlLabel
+                  className="formControlLabelEnsemble"
+                  value="population"
+                  control={<Radio />}
+                  label="population"
+                />
+              </span>
+            </RadioGroup>
+          </span>
+        </FormControl>
 
         {stateValue && (
-          <BoxPlot stateValue={stateValue} bWData={bWFilter == "geometric" ? geoBW : popBW}/>
+          <BoxPlot
+            stateValue={stateValue}
+            bWData={bWFilter == "geometric" ? geoBW : popBW}
+          />
         )}
         {stateValue && (
           <BarGraph stateValue={stateValue} ensembleData={ensembleData} />

@@ -7,6 +7,8 @@ import ok2020 from "../../geoJSON/ok2020.json";
 import ok2022 from "../../geoJSON/ok2022.json";
 import tn2020 from "../../geoJSON/tn2020.json";
 import tn2022 from "../../geoJSON/tn2022.json";
+import L from "leaflet";
+import leafletPip from "@mapbox/leaflet-pip";
 
 import "./Map.css";
 
@@ -18,6 +20,7 @@ function ChangeView({ center, zoom }) {
 
 function Map({
   stateValue,
+  setStateValue,
   filter,
   setFilter,
   districtValue,
@@ -25,6 +28,7 @@ function Map({
   incumbentData,
 }) {
   const [mapData, setMapData] = React.useState();
+  const [map, setMap] = React.useState(null);
 
   React.useEffect(() => {
     if (stateValue) {
@@ -55,11 +59,6 @@ function Map({
 
   const district2020 = {
     color: "black",
-    weight: 1,
-  };
-
-  const district2022 = {
-    color: "grey",
     weight: 1,
   };
 
@@ -100,6 +99,46 @@ function Map({
     }
   };
 
+  const determineStateValue = (latlng) => {
+    let strStateBoundaries = ["tn", "ok", "pa"];
+    let stateBoundaries = [tn2022, ok2022, pa2022];
+    let coordinate = [latlng.lng, latlng.lat];
+    let districtPointIsIn = {};
+    for (var j = 0; j < stateBoundaries.length; j++) {
+      for (var i = 0; i < stateBoundaries[j].features.length; i++) {
+        if (stateBoundaries[j].features[i]["geometry"]["type"] === "Polygon") {
+          let border = L.geoJSON(stateBoundaries[j].features[i]);
+          districtPointIsIn = leafletPip.pointInLayer(coordinate, border, true);
+          if (districtPointIsIn.length > 0) {
+            let stateAndDistrict =
+              strStateBoundaries[j] +
+              "-" +
+              districtPointIsIn[0]["feature"]["properties"]["DISTRICT"];
+            return stateAndDistrict;
+          }
+        } else if (
+          stateBoundaries[j].features[i]["geometry"]["type"] === "MultiPolygon"
+        ) {
+          console.log("MultiPolygon");
+        }
+      }
+    }
+    return "fail";
+  };
+
+  const userMovementChanges = (feature, layer) => {
+    layer.on("mouseover", function (e) {
+      let stateAndDistrict = determineStateValue(e.latlng);
+      console.log("1: " + stateAndDistrict);
+      // setStateValue(stateAndDistrict["State"]);
+    });
+    layer.on("click", function (e) {
+      let stateAndDistrict = determineStateValue(e.latlng);
+      stateAndDistrict = stateAndDistrict.split("-");
+      setStateValue(stateAndDistrict[0]);
+    });
+  };
+
   return (
     <>
       <MapContainer
@@ -122,7 +161,7 @@ function Map({
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         />
 
-        {filter === "YR20" && stateValue === "pa" && (
+        {/* {filter === "YR20" && stateValue === "pa" && (
           <GeoJSON data={pa2020.features} style={district2020} />
         )}
         {filter === "YR22" && stateValue === "pa" && (
@@ -139,6 +178,49 @@ function Map({
         )}
         {filter === "YR22" && stateValue === "tn" && (
           <GeoJSON data={tn2022.features} style={colorDistrict} />
+        )} */}
+
+        {filter === "YR20" && (
+          <GeoJSON
+            data={pa2020.features}
+            style={district2020}
+            onEachFeature={userMovementChanges}
+          />
+        )}
+        {filter === "YR22" && (
+          <GeoJSON
+            data={pa2022.features}
+            style={colorDistrict}
+            onEachFeature={userMovementChanges}
+          />
+        )}
+        {filter === "YR20" && (
+          <GeoJSON
+            data={ok2020.features}
+            style={district2020}
+            onEachFeature={userMovementChanges}
+          />
+        )}
+        {filter === "YR22" && (
+          <GeoJSON
+            data={ok2022.features}
+            style={colorDistrict}
+            onEachFeature={userMovementChanges}
+          />
+        )}
+        {filter === "YR20" && (
+          <GeoJSON
+            data={tn2020.features}
+            style={district2020}
+            onEachFeature={userMovementChanges}
+          />
+        )}
+        {filter === "YR22" && (
+          <GeoJSON
+            data={tn2022.features}
+            style={colorDistrict}
+            onEachFeature={userMovementChanges}
+          />
         )}
       </MapContainer>
     </>
