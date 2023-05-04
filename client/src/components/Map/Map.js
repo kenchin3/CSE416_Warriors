@@ -100,27 +100,61 @@ function Map({
     }
   };
 
+  // ok x range: -104 to -93
+  // y range: 32 to 38
+
+  // tn x range: -79 to -91
+  // y range: 33 to 38
+
+  // pa x range: -82 to -72
+  // y range: 37 to 44
+
+  const identifyStateWithPoint = (coordinate) => {
+    let stateMaxMinCoordinates = [
+      [-79, -91, 33, 38], // tn
+      [-93, -104, 32, 38], // ok
+      [-72, -82, 39, 44], // pa
+    ];
+    let stateNames = ["tn", "ok", "pa"];
+
+    for (let i = 0; i < stateMaxMinCoordinates.length; i++) {
+      if (
+        coordinate[0] < stateMaxMinCoordinates[i][0] &&
+        coordinate[0] > stateMaxMinCoordinates[i][1] &&
+        coordinate[1] > stateMaxMinCoordinates[i][2] &&
+        coordinate[1] < stateMaxMinCoordinates[i][3]
+      ) {
+        return stateNames[i];
+      }
+    }
+    return "fail";
+  };
+
   const determineStateValue = (latlng) => {
-    let strStateBoundaries = ["tn", "ok", "pa"];
-    let stateBoundaries = [tn2022, ok2022, pa2022];
+    let stateBoundary;
     let coordinate = [latlng.lng, latlng.lat];
     let districtPointIsIn = {};
-    for (var j = 0; j < stateBoundaries.length; j++) {
-      for (var i = 0; i < stateBoundaries[j].features.length; i++) {
-        if (stateBoundaries[j].features[i]["geometry"]["type"] === "Polygon") {
-          let border = L.geoJSON(stateBoundaries[j].features[i]);
-          districtPointIsIn = leafletPip.pointInLayer(coordinate, border, true);
-          if (districtPointIsIn.length > 0) {
-            let stateAndDistrict =
-              strStateBoundaries[j] +
-              "-" +
-              districtPointIsIn[0]["feature"]["properties"]["DISTRICT"];
-            return stateAndDistrict;
-          }
-        } else if (
-          stateBoundaries[j].features[i]["geometry"]["type"] === "MultiPolygon"
-        ) {
-          console.log("MultiPolygon");
+
+    let state = identifyStateWithPoint(coordinate);
+
+    if (state === "tn") {
+      stateBoundary = tn2022;
+    } else if (state === "ok") {
+      stateBoundary = ok2022;
+    } else if (state === "pa") {
+      stateBoundary = pa2022;
+    }
+
+    for (var i = 0; i < stateBoundary.features.length; i++) {
+      if (stateBoundary.features[i]["geometry"]["type"] === "Polygon") {
+        let border = L.geoJSON(stateBoundary.features[i]);
+        districtPointIsIn = leafletPip.pointInLayer(coordinate, border, true);
+        if (districtPointIsIn.length > 0) {
+          let stateAndDistrict =
+            state +
+            "-" +
+            districtPointIsIn[0]["feature"]["properties"]["DISTRICT"];
+          return stateAndDistrict;
         }
       }
     }
@@ -130,8 +164,6 @@ function Map({
   const userMovementChanges = (feature, layer) => {
     layer.on("mouseover", function (e) {
       let stateAndDistrict = determineStateValue(e.latlng);
-      console.log("1: " + stateAndDistrict);
-      // setStateValue(stateAndDistrict["State"]);
     });
     layer.on("click", function (e) {
       let stateAndDistrict = determineStateValue(e.latlng);
@@ -223,11 +255,7 @@ function Map({
             onEachFeature={userMovementChanges}
           />
         )}
-        {filter == 1 && (
-          <GeoJSON
-            data={tn1.features}
-          />
-        )}
+        {filter == 1 && <GeoJSON data={tn1.features} />}
       </MapContainer>
     </>
   );
