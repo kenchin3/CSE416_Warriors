@@ -8,6 +8,8 @@
 server/.gradle/
 /server/build
 server/build
+server/.gradle
+
 
 node_modules
 /.pnp

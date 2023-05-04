@@ -10,8 +10,12 @@ import {
 } from "@mui/material";
 import "./EnsembleSummary.css";
 import makeStyles from "@material-ui/core/styles/makeStyles";
+import ReactApexChart from "react-apexcharts";
 
-function EnsembleSummary({ stateValue, ensembleData }) {
+function EnsembleSummary({ stateValue, ensembleData, districtEnsembleData }) {
+  
+
+ 
   const useStyles = makeStyles({
     header: {
       color: "black",
@@ -28,9 +32,11 @@ function EnsembleSummary({ stateValue, ensembleData }) {
 
   const classes = useStyles();
 
+
+
   return (
     <>
-      <TableContainer component={Paper} className="tableContainerES">
+      ensembleData && (<TableContainer component={Paper} className="tableContainerES">
         <Table aria-label="simple table">
           <TableHead>
             <TableRow>
@@ -79,7 +85,8 @@ function EnsembleSummary({ stateValue, ensembleData }) {
             </TableRow>
           </TableBody>
         </Table>
-      </TableContainer>
+
+      </TableContainer>)
     </>
   );
 }

@@ -16,7 +16,7 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
-function Ensemble({ stateValue, setStateValue, districtPlan, ensembleData }) {
+function Ensemble({ stateValue, setStateValue, districtPlan, ensembleData, districtEnsembleData }) {
   return (
     <>
       <Accordion className="accordionEnsemble">
@@ -29,7 +29,9 @@ function Ensemble({ stateValue, setStateValue, districtPlan, ensembleData }) {
         <AccordionDetails>
           <EnsembleSummary
             stateValue={stateValue}
+            districtPlan={districtPlan}
             ensembleData={ensembleData}
+            districtEnsembleData={districtEnsembleData} 
           />
         </AccordionDetails>
       </Accordion>
@@ -39,12 +41,13 @@ function Ensemble({ stateValue, setStateValue, districtPlan, ensembleData }) {
           <Typography>
             {" "}
             <span className="accordionHeaderEnsemble">
-              District Plan {districtPlan} Incumbents
+             Random District Plan {districtPlan} Outcome
             </span>
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <DistrictPlanSummary districtPlan={districtPlan} />
+          <DistrictPlanSummary districtEnsembleData={districtEnsembleData} 
+          districtPlan={districtPlan}/>
         </AccordionDetails>
       </Accordion>
 
