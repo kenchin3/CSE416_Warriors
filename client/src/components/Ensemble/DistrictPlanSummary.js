@@ -1,5 +1,6 @@
 import React from "react";
 import ReactApexChart from "react-apexcharts";
+import EnsembleSummary from "./EnsembleSummary";
 import {
   TableContainer,
   Paper,
@@ -11,7 +12,70 @@ import {
 } from "@mui/material";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import "./DistrictDataSummary.css";
-function DistrictPlanSummary({ districtPlan, districtEnsembleData }) {
+function DistrictPlanSummeryTable({currData}) {
+  return(
+    <>
+  { 
+    currData &&
+    currData.districts.map((row) => 
+           <TableRow
+           key={row.Name}
+           sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+         >
+           <TableCell
+             align="center"
+           >
+             {row.district}
+           </TableCell>
+           <TableCell
+             align="center"
+           >
+             { " "}
+           </TableCell>
+           <TableCell
+             align="center"
+           >
+             {row.win_cand}
+           </TableCell>
+           <TableCell
+             align="center"
+           >
+             {row.win_party}
+           </TableCell>
+           <TableCell
+             align="center"
+           >
+             {row.geo_diff}
+           </TableCell>
+           <TableCell
+             align="center"
+           >
+             {row.pop_diff}
+           </TableCell>
+           <TableCell
+             align="center"
+           >
+             {row.dem_split}
+           </TableCell>
+           <TableCell
+             align="center"
+           >
+             {row.rep_split}
+           </TableCell>
+           <TableCell
+             align="center"
+           >
+             {row.safe_seat}
+           </TableCell>
+         </TableRow>
+    
+    
+    )}
+     </>
+  )
+
+}
+function DistrictPlanSummary({  stateValue, districtPlan, ensembleData,districtEnsembleData  }) {
   const [random1Data, setrandom1Data] = React.useState();
   const [random2Data, setrandom2Data] = React.useState();
   const [random3Data, setrandom3Data] = React.useState();
@@ -34,7 +98,11 @@ function DistrictPlanSummary({ districtPlan, districtEnsembleData }) {
 
   }, [districtPlan]);
 
-  function getOpenData() {
+  function getOpenData(districtPlan) {
+    let currData;
+    if (districtPlan == 1) {currData=random1Data}
+    else if (districtPlan == 2) {currData=random2Data}
+    else if (districtPlan == 3) {currData=random3Data}
     
     let res =  [{
       name: 'Dem',
@@ -45,18 +113,27 @@ function DistrictPlanSummary({ districtPlan, districtEnsembleData }) {
     }];
     return res;
   }
-  function getSafeData() {
-    
+  function getSplitData() {
+    let currData;
+    if (districtPlan == 1) {currData=random1Data}
+    else if (districtPlan == 2) {currData=random2Data}
+    else if (districtPlan == 3) {currData=random3Data}
+
     let res = [
       {
         name: "Democrat",
-        data: currData ? [currData.open_Dem] : [0],
+        data: currData ? [currData.open_Dem + currData.safe_dem] : [0],
       },
       {
         name: "Republican",
-        data: currData ? [currData.openRep] :[ 0],
-      }
+        data: currData ? [currData.openRep+currData.safe_rep] : [0],
+      },
+      {
+        name: "Open",
+        data: [0],
+      },
     ];
+   
     return res;
   }
 
@@ -126,9 +203,22 @@ function DistrictPlanSummary({ districtPlan, districtEnsembleData }) {
   // </>)
   return (
     <>
+        <EnsembleSummary
+            stateValue={stateValue}
+            districtPlan={districtPlan}
+            ensembleData={ensembleData}
+            districtEnsembleData={districtEnsembleData} 
+          />
      <ReactApexChart
         options={seatGraphOptions}
-        series={getOpenData()}
+        series={getOpenData(districtPlan)}
+        type="bar"
+        height="110"
+      />
+
+    <ReactApexChart
+        options={seatGraphOptions}
+        series={getSplitData(districtPlan)}
         type="bar"
         height="110"
       />
@@ -138,7 +228,7 @@ function DistrictPlanSummary({ districtPlan, districtEnsembleData }) {
           {" "}
           Number of Districts:{" "}
         </span>
-        {currData ? currData.districts.length : 0}
+        {random1Data ? random1Data.districts.length : 0}
         <br />
         <br />
       </div>
@@ -153,7 +243,13 @@ function DistrictPlanSummary({ districtPlan, districtEnsembleData }) {
                 District
               </TableCell>
               <TableCell className={classes.header} align="center">
+                Incumbent
+              </TableCell>
+              <TableCell className={classes.header} align="center">
                 Winner
+              </TableCell>
+              <TableCell className={classes.header} align="center">
+                Winner Party
               </TableCell>
               <TableCell className={classes.header} align="center">
                 Geometric Difference
@@ -173,52 +269,9 @@ function DistrictPlanSummary({ districtPlan, districtEnsembleData }) {
             </TableRow>
           </TableHead>
           <TableBody>
-         { 
-         currData &&
-         currData.districts.map((row) => 
-                <TableRow
-                key={row.Name}
-                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-              >
-                <TableCell
-                  align="center"
-                >
-                  {row.district}
-                </TableCell>
-                <TableCell
-                  align="center"
-                >
-                  {row.win_cand}
-                </TableCell>
-                <TableCell
-                  align="center"
-                >
-                  {row.geo_diff}
-                </TableCell>
-                <TableCell
-                  align="center"
-                >
-                  {row.pop_diff}
-                </TableCell>
-                <TableCell
-                  align="center"
-                >
-                  {row.dem_split}
-                </TableCell>
-                <TableCell
-                  align="center"
-                >
-                  {row.rep_split}
-                </TableCell>
-                <TableCell
-                  align="center"
-                >
-                  {row.safe_seat}
-                </TableCell>
-              </TableRow>
-         
-         
-         )}
+          {(districtPlan == 1) && <DistrictPlanSummeryTable currData={random1Data}></DistrictPlanSummeryTable>}
+          {(districtPlan == 2) && <DistrictPlanSummeryTable currData={random2Data}></DistrictPlanSummeryTable>}
+          {(districtPlan == 3) && <DistrictPlanSummeryTable currData={random3Data}></DistrictPlanSummeryTable>}
          </TableBody>
         </Table>
       </TableContainer>

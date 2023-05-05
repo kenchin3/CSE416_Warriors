@@ -36,7 +36,7 @@ function EnsembleSummary({ stateValue, ensembleData, districtEnsembleData }) {
 
   return (
     <>
-      ensembleData && (<TableContainer component={Paper} className="tableContainerES">
+      {ensembleData && (<TableContainer component={Paper} className="tableContainerES">
         <Table aria-label="simple table">
           <TableHead>
             <TableRow>
@@ -86,7 +86,7 @@ function EnsembleSummary({ stateValue, ensembleData, districtEnsembleData }) {
           </TableBody>
         </Table>
 
-      </TableContainer>)
+      </TableContainer>)}
     </>
   );
 }

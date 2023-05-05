@@ -53,7 +53,7 @@ function Project() {
       else setDistrictPlanYear(2022);
     } else {
       setTabValue(0);
-      console.log(districtPlan)
+      console.log(event.target.value)
       setDistrictPlan(event.target.value);
     }
   };

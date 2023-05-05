@@ -19,7 +19,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 function Ensemble({ stateValue, setStateValue, districtPlan, ensembleData, districtEnsembleData }) {
   return (
     <>
-      <Accordion className="accordionEnsemble">
+      {/* <Accordion className="accordionEnsemble">
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
           <Typography>
             {" "}
@@ -34,7 +34,7 @@ function Ensemble({ stateValue, setStateValue, districtPlan, ensembleData, distr
             districtEnsembleData={districtEnsembleData} 
           />
         </AccordionDetails>
-      </Accordion>
+      </Accordion> */}
 
       <Accordion className="accordionEnsemble">
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
@@ -46,8 +46,11 @@ function Ensemble({ stateValue, setStateValue, districtPlan, ensembleData, distr
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <DistrictPlanSummary districtEnsembleData={districtEnsembleData} 
-          districtPlan={districtPlan}/>
+          <DistrictPlanSummary  
+            stateValue={stateValue}
+            districtPlan={districtPlan}
+            ensembleData={ensembleData}
+            districtEnsembleData={districtEnsembleData} />
         </AccordionDetails>
       </Accordion>
 
