@@ -3,6 +3,7 @@ import Map from "./Map/Map.js";
 import Header from "./Header.js";
 import Data from "./Data/Data.js";
 import Grid from "@mui/material/Grid";
+import Button from "@mui/material/Button";
 import Ensemble from "./Ensemble/Ensemble.js";
 import "./Project.css";
 import axios from "axios";
@@ -57,6 +58,19 @@ function Project() {
       setDistrictPlan(event.target.value);
     }
   };
+
+  const resetPage = () => {
+    setTabValue(1)
+    setFilter("YR22")
+    setStateValue("")
+
+  }
+
+  const resetState = () => {
+    setTabValue(1)
+    setFilter("YR22")
+
+  }
 
   const handleStateChange = (event) => {
     setStateValue(event.target.value);
@@ -130,6 +144,8 @@ function Project() {
                 </Select>
               </FormControl>
             </Paper>
+            <Button variant="outlined" onClick={resetPage}>Reset Page</Button>
+            <Button variant="outlined" onClick={resetState}>Reset State</Button>
           </div>
 
           {tabValue === 1 ? (
@@ -152,6 +168,8 @@ function Project() {
             />
           ) : (
             <Ensemble
+              district={district}
+              setDistrict={setDistrict}
               stateValue={stateValue}
               setStateValue={setStateValue}
               districtPlan={districtPlan}

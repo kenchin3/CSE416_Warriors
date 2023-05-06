@@ -66,8 +66,9 @@ function Map({
   };
 
   let colorDistrictEnsemble = (feature) => {
-    let colors = ['#e6194b', '#3cb44b', '#ffe119', '#4363d8', '#f58231', '#911eb4', '#46f0f0', '#f032e6', '#bcf60c', '#fabebe', '#008080', '#e6beff', '#9a6324', '#fffac8', '#800000', '#aaffc3', '#808000', '#ffd8b1', '#000075', '#808080', '#ffffff', '#000000']
-    console.log(parseInt(feature.properties["CD"]))
+    let colors = ['#e6194B', '#3cb44b', '#ffe119', '#4363d8', '#f58231', '#911eb4', '#42d4f4', '#f032e6', '#dcbeff', '#fabed4', '#469990', '#bfef45', '#9A6324', '#fffac8', '#800000', '#aaffc3', '#808000', '#ffd8b1', '#000075', '#a9a9a9', '#ffffff', '#000000']
+    // console.log(parseInt(feature.properties["CD"]))
+    // console.log(filter)
     return {
       fillColor: colors[parseInt(feature.properties["CD"])],
       color: "grey",
@@ -77,6 +78,7 @@ function Map({
   }
 
   let colorDistrict = (feature) => {
+    
     let incumbents = incumbentData;
 
     if (incumbents) {

@@ -10,7 +10,7 @@ function DistrictData({
 
   return (
     <div>
-      {district !== -1 && (
+      {district !== -1 && incumbentTableData && (
         <div className="districtDataFont">
           <span style={{ fontWeight: 550, fontSize: 15 }}> District: </span>
           {incumbentTableData[district]["district"]} <br />

@@ -1,6 +1,7 @@
 import React from "react";
 import ReactApexChart from "react-apexcharts";
 import EnsembleSummary from "./EnsembleSummary";
+import DistrictEnsembleData from "./DistrictEnsembleData";
 import {
   TableContainer,
   Paper,
@@ -12,15 +13,19 @@ import {
 } from "@mui/material";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import "./DistrictDataSummary.css";
-function DistrictPlanSummeryTable({currData}) {
+function DistrictPlanSummeryTable({currData, setDistrict}) {
   return(
     <>
   { 
     currData &&
     currData.districts.map((row) => 
            <TableRow
-           key={row.Name}
+           key={row.district}
            sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+           onClick={() => {
+            
+            setDistrict(parseInt(row.district) - 1);
+          }}
          >
            <TableCell
              align="center"
@@ -45,14 +50,14 @@ function DistrictPlanSummeryTable({currData}) {
            <TableCell
              align="center"
            >
-             {row.geo_diff}
+             {row.geo_var}
            </TableCell>
            <TableCell
              align="center"
            >
-             {row.pop_diff}
+             {row.pop_var}
            </TableCell>
-           <TableCell
+           {/* <TableCell
              align="center"
            >
              {row.dem_split}
@@ -66,7 +71,7 @@ function DistrictPlanSummeryTable({currData}) {
              align="center"
            >
              {row.safe_seat}
-           </TableCell>
+           </TableCell> */}
          </TableRow>
     
     
@@ -75,7 +80,7 @@ function DistrictPlanSummeryTable({currData}) {
   )
 
 }
-function DistrictPlanSummary({  stateValue, districtPlan, ensembleData,districtEnsembleData  }) {
+function DistrictPlanSummary({ district, setDistrict,  stateValue, districtPlan, ensembleData, districtEnsembleData  }) {
   const [random1Data, setrandom1Data] = React.useState();
   const [random2Data, setrandom2Data] = React.useState();
   const [random3Data, setrandom3Data] = React.useState();
@@ -91,12 +96,6 @@ function DistrictPlanSummary({  stateValue, districtPlan, ensembleData,districtE
 
   }, [districtEnsembleData]);
 
-  React.useEffect(() => {
-    if (districtPlan == 1) {setCurrData(random1Data) }
-    else if (districtPlan == 2) {setCurrData(random2Data) }
-    else if (districtPlan == 3) {setCurrData(random3Data) }
-
-  }, [districtPlan]);
 
   function getOpenData(districtPlan) {
     let currData;
@@ -209,19 +208,19 @@ function DistrictPlanSummary({  stateValue, districtPlan, ensembleData,districtE
             ensembleData={ensembleData}
             districtEnsembleData={districtEnsembleData} 
           />
-     <ReactApexChart
-        options={seatGraphOptions}
-        series={getOpenData(districtPlan)}
-        type="bar"
-        height="110"
-      />
+        <ReactApexChart
+            options={seatGraphOptions}
+            series={getOpenData(districtPlan)}
+            type="bar"
+            height="110"
+          />
 
-    <ReactApexChart
-        options={seatGraphOptions}
-        series={getSplitData(districtPlan)}
-        type="bar"
-        height="110"
-      />
+        <ReactApexChart
+            options={seatGraphOptions}
+            series={getSplitData(districtPlan)}
+            type="bar"
+            height="110"
+        />
      
       <div className="districtDataSummaryFont">
         <span style={{ fontWeight: 550, fontSize: 15 }}>
@@ -252,12 +251,12 @@ function DistrictPlanSummary({  stateValue, districtPlan, ensembleData,districtE
                 Winner Party
               </TableCell>
               <TableCell className={classes.header} align="center">
-                Geometric Difference
+                Geometric Variance
               </TableCell>
               <TableCell className={classes.header} align="center">
-                Population Difference
+                Population Variance
               </TableCell>
-              <TableCell className={classes.header} align="center">
+              {/* <TableCell className={classes.header} align="center">
                 Dem Votes
               </TableCell>
               <TableCell className={classes.header} align="center">
@@ -265,15 +264,35 @@ function DistrictPlanSummary({  stateValue, districtPlan, ensembleData,districtE
               </TableCell>
               <TableCell className={classes.header} align="center">
                 Safe Seat
-              </TableCell>
+              </TableCell> */}
             </TableRow>
           </TableHead>
           <TableBody>
-          {(districtPlan == 1) && <DistrictPlanSummeryTable currData={random1Data}></DistrictPlanSummeryTable>}
-          {(districtPlan == 2) && <DistrictPlanSummeryTable currData={random2Data}></DistrictPlanSummeryTable>}
-          {(districtPlan == 3) && <DistrictPlanSummeryTable currData={random3Data}></DistrictPlanSummeryTable>}
+          {(districtPlan == 1) && <DistrictPlanSummeryTable currData={random1Data} setDistrict={setDistrict}></DistrictPlanSummeryTable>}
+          {(districtPlan == 2) && <DistrictPlanSummeryTable currData={random2Data} setDistrict={setDistrict}></DistrictPlanSummeryTable>}
+          {(districtPlan == 3) && <DistrictPlanSummeryTable currData={random3Data} setDistrict={setDistrict}></DistrictPlanSummeryTable>}
          </TableBody>
         </Table>
+
+        {(districtPlan == 1) && <DistrictEnsembleData
+            district={district}
+            setDistrict={setDistrict}
+            stateValue={stateValue}
+            districtEnsembleData={random1Data}
+          />}
+        {(districtPlan == 2) && <DistrictEnsembleData
+            district={district}
+            setDistrict={setDistrict}
+            stateValue={stateValue}
+            districtEnsembleData={random2Data}
+          />}
+        {(districtPlan == 3) && <DistrictEnsembleData
+            district={district}
+            setDistrict={setDistrict}
+            stateValue={stateValue}
+            districtEnsembleData={random3Data}
+          />}
+      
       </TableContainer>
     </>
   );
