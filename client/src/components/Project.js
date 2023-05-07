@@ -38,8 +38,8 @@ function Project() {
           setIncumbentData(res.data.incumbents);
           setEnsembleData(res.data.ensemble);
           setdistrictEnsembleData(res.data.districtEnsembles);
-          console.log(res.data.districtEnsembles);
-          console.log(res.data);
+          // console.log(res.data.districtEnsembles);
+          // console.log(res.data);
           // setFilter("YR22");
         });
     }
@@ -54,23 +54,21 @@ function Project() {
       else setDistrictPlanYear(2022);
     } else {
       setTabValue(0);
-      console.log(event.target.value)
+      // console.log(event.target.value);
       setDistrictPlan(event.target.value);
     }
   };
 
   const resetPage = () => {
-    setTabValue(1)
-    setFilter("YR22")
-    setStateValue("")
-
-  }
+    setTabValue(1);
+    setFilter("YR22");
+    setStateValue("");
+  };
 
   const resetState = () => {
-    setTabValue(1)
-    setFilter("YR22")
-
-  }
+    setTabValue(1);
+    setFilter("YR22");
+  };
 
   const handleStateChange = (event) => {
     setStateValue(event.target.value);
@@ -144,8 +142,22 @@ function Project() {
                 </Select>
               </FormControl>
             </Paper>
-            <Button variant="outlined" onClick={resetPage}>Reset Page</Button>
-            <Button variant="outlined" onClick={resetState}>Reset State</Button>
+
+            <Paper className="paperP2" elevation={5}>
+              <FormControl className="formD" size="small">
+                {" "}
+                <Button className="resetButton" onClick={resetPage}>
+                  Reset Page
+                </Button>{" "}
+              </FormControl>
+            </Paper>
+            <Paper className="paperP2" elevation={5}>
+              <FormControl className="formD" size="small">
+                <Button className="resetButton" onClick={resetState}>
+                  Reset State
+                </Button>
+              </FormControl>
+            </Paper>
           </div>
 
           {tabValue === 1 ? (
@@ -185,6 +197,7 @@ function Project() {
             filter={filter}
             setFilter={setFilter}
             districtValue={district}
+            setDistrict={setDistrict}
             stateData={stateData}
             incumbentData={incumbentData}
           />

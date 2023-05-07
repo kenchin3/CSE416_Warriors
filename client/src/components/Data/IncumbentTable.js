@@ -8,10 +8,23 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import DistrictData from "./DistrictData";
 import makeStyles from "@material-ui/core/styles/makeStyles";
+import TablePagination from "@mui/material/TablePagination";
 import "./IncumbentTable.css";
+import { TableFooter } from "@mui/material";
 
 function IncumbentTable({ stateValue, district, setDistrict, stateData }) {
   const [incumbentTableData, setIncumbentTableData] = React.useState();
+  const [pg, setpg] = React.useState(0);
+  const [rpg, setrpg] = React.useState(5);
+
+  function handleChangePage(event, newpage) {
+    setpg(newpage);
+  }
+
+  function handleChangeRowsPerPage(event) {
+    setrpg(parseInt(event.target.value, 10));
+    setpg(0);
+  }
 
   React.useEffect(() => {
     if (stateData && stateData["incumbents"].length > 0) {
@@ -51,8 +64,8 @@ function IncumbentTable({ stateValue, district, setDistrict, stateData }) {
   //   "Name",
   //   "Party",
   //   "Election Result",
-  //   "Geographic σ2",
-  //   "Population σ2",
+  //   "Geographic Var",
+  //   "Population Var",
   // ];
 
   function rowColor(party, result) {
@@ -84,16 +97,16 @@ function IncumbentTable({ stateValue, district, setDistrict, stateData }) {
                 Election Result
               </TableCell>
               <TableCell className={classes.header} align="left">
-                Geographic σ2
+                Geographic Var
               </TableCell>
               <TableCell className={classes.header} align="left">
-                Population σ2
+                Population Var
               </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {incumbentTableData &&
-              incumbentTableData.map((row) => (
+              incumbentTableData.slice(pg * rpg, pg * rpg + rpg).map((row) => (
                 <TableRow
                   key={row.district}
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
@@ -169,10 +182,19 @@ function IncumbentTable({ stateValue, district, setDistrict, stateData }) {
                   </TableCell>
                 </TableRow>
               ))}
+            <TableRow>
+              <TablePagination
+                rowsPerPageOptions={[5, 10, 20]}
+                count={stateData ? stateData["incumbents"].length : 0}
+                rowsPerPage={rpg}
+                page={pg}
+                onPageChange={handleChangePage}
+                onRowsPerPageChange={handleChangeRowsPerPage}
+              />
+            </TableRow>
           </TableBody>
         </Table>
       </TableContainer>
-
       <DistrictData
         district={district}
         setDistrict={setDistrict}

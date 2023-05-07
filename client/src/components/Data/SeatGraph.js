@@ -31,6 +31,7 @@ function SeatGraph({ stateValue, incumbentData }) {
   }
 
   const seatGraphOptions = {
+    colors: ["#0015BC", "#FF0000", "grey"],
     chart: {
       type: "bar",
       // height: 120,

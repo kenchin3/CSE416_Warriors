@@ -7,9 +7,9 @@ import ok2020 from "../../geoJSON/ok2020.json";
 import ok2022 from "../../geoJSON/ok2022.json";
 import tn2020 from "../../geoJSON/tn2020.json";
 import tn2022 from "../../geoJSON/tn2022.json";
-import tn1 from "../../geoJSON/plan_0_boundary.json";
-import tn2 from "../../geoJSON/plan_1_boundary.json";
-import tn3 from "../../geoJSON/plan_2_boundary.json";
+// import tn1 from "../../geoJSON/plan_0_boundary.json";
+// import tn2 from "../../geoJSON/plan_1_boundary.json";
+// import tn3 from "../../geoJSON/plan_2_boundary.json";
 import L from "leaflet";
 import leafletPip from "@mapbox/leaflet-pip";
 
@@ -27,6 +27,7 @@ function Map({
   filter,
   setFilter,
   districtValue,
+  setDistrict,
   stateData,
   incumbentData,
 }) {
@@ -66,23 +67,47 @@ function Map({
   };
 
   let colorDistrictEnsemble = (feature) => {
-    let colors = ['#e6194B', '#3cb44b', '#ffe119', '#4363d8', '#f58231', '#911eb4', '#42d4f4', '#f032e6', '#dcbeff', '#fabed4', '#469990', '#bfef45', '#9A6324', '#fffac8', '#800000', '#aaffc3', '#808000', '#ffd8b1', '#000075', '#a9a9a9', '#ffffff', '#000000']
+    let colors = [
+      "#e6194B",
+      "#3cb44b",
+      "#ffe119",
+      "#4363d8",
+      "#f58231",
+      "#911eb4",
+      "#42d4f4",
+      "#f032e6",
+      "#dcbeff",
+      "#fabed4",
+      "#469990",
+      "#bfef45",
+      "#9A6324",
+      "#fffac8",
+      "#800000",
+      "#aaffc3",
+      "#808000",
+      "#ffd8b1",
+      "#000075",
+      "#a9a9a9",
+      "#ffffff",
+      "#000000",
+    ];
     // console.log(parseInt(feature.properties["CD"]))
     // console.log(filter)
     return {
       fillColor: colors[parseInt(feature.properties["CD"])],
       color: "grey",
-      weight: 0.5, 
-      fillOpacity: .5
-    }
-  }
+      weight: 0.5,
+      fillOpacity: 0.5,
+    };
+  };
 
   let colorDistrict = (feature) => {
-    
     let incumbents = incumbentData;
 
     if (incumbents) {
       let district = parseInt(feature.properties.DISTRICT - 1);
+      // console.log("district: " + district);
+      // console.log("districtVal: " + districtValue);
 
       if (incumbents[district] && incumbents[district]["party"] === "REP") {
         return {
@@ -184,6 +209,8 @@ function Map({
       let stateAndDistrict = determineStateValue(e.latlng);
       stateAndDistrict = stateAndDistrict.split("-");
       setStateValue(stateAndDistrict[0]);
+      setDistrict(stateAndDistrict[1]);
+      // console.log("onclick: " + districtValue);
     });
   };
 
@@ -270,9 +297,15 @@ function Map({
             onEachFeature={userMovementChanges}
           />
         )}
-        {filter == 1 && <GeoJSON data={tn1.features} style={colorDistrictEnsemble}/>}
-        {filter == 2 && <GeoJSON data={tn2.features} style={colorDistrictEnsemble}/>}
-        {filter == 3 && <GeoJSON data={tn3.features} style={colorDistrictEnsemble}/>}
+        {/* {filter == 1 && (
+          <GeoJSON data={tn1.features} style={colorDistrictEnsemble} />
+        )}
+        {filter == 2 && (
+          <GeoJSON data={tn2.features} style={colorDistrictEnsemble} />
+        )}
+        {filter == 3 && (
+          <GeoJSON data={tn3.features} style={colorDistrictEnsemble} />
+        )} */}
       </MapContainer>
     </>
   );

@@ -10,7 +10,7 @@ function DistrictData({
 
   return (
     <div>
-      {district !== -1 && incumbentTableData && (
+      {districtData && district && district !== -1 && incumbentTableData && (
         <div className="districtDataFont">
           <span style={{ fontWeight: 550, fontSize: 15 }}> District: </span>
           {incumbentTableData[district]["district"]} <br />
@@ -20,21 +20,20 @@ function DistrictData({
             {" "}
             Population Difference:
           </span>
-          {
-           }{incumbentTableData[district]["popDiff"]} 
+          {}
+          {incumbentTableData[district]["popDiff"]}
           <br />
           <span style={{ fontWeight: 550, fontSize: 15 }}>
             {" "}
             2022 Population:{" "}
           </span>
-          {incumbentTableData[district]["pop"]} <br/>
+          {incumbentTableData[district]["pop"]} <br />
           <span style={{ fontWeight: 550, fontSize: 15 }}>
             {" "}
             Geographic Difference:
-          </span>{incumbentTableData[district]["geoDiff"].toFixed(3)}
-          {
-           }{" "}
-          <br />
+          </span>
+          {incumbentTableData[district]["geoDiff"].toFixed(3)}
+          {} <br />
           <span style={{ fontWeight: 550, fontSize: 15 }}>
             {" "}
             2022 Geographic Area:{" "}
