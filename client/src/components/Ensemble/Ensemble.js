@@ -16,7 +16,7 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
-function Ensemble({ district, setDistrict, stateValue, setStateValue, districtPlan, ensembleData, districtEnsembleData }) {
+function Ensemble({ district, setDistrict, stateValue, setStateValue, districtPlan, ensembleData, districtsRandom1, districtsRandom2, districtsRandom3 }) {
   return (
     <>
       {/* <Accordion className="accordionEnsemble">
@@ -52,7 +52,9 @@ function Ensemble({ district, setDistrict, stateValue, setStateValue, districtPl
             stateValue={stateValue}
             districtPlan={districtPlan}
             ensembleData={ensembleData}
-            districtEnsembleData={districtEnsembleData} />
+            districtsRandom1={districtsRandom1}
+            districtsRandom2={districtsRandom2} 
+            districtsRandom3={districtsRandom3}  />
         </AccordionDetails>
       </Accordion>
 

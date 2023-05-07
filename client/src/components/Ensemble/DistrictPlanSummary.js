@@ -84,7 +84,10 @@ function DistrictPlanSummary({
   stateValue,
   districtPlan,
   ensembleData,
-  districtEnsembleData,
+  districtsRandom1,
+  districtsRandom2,
+  districtsRandom3
+
 }) {
   const [random1Data, setrandom1Data] = React.useState();
   const [random2Data, setrandom2Data] = React.useState();
@@ -92,14 +95,23 @@ function DistrictPlanSummary({
   const [currData, setCurrData] = React.useState();
 
   React.useEffect(() => {
-    if (districtEnsembleData) {
-      console.log("test: " + JSON.stringify(districtEnsembleData));
-      setrandom1Data(districtEnsembleData[0].data);
-      setrandom2Data(districtEnsembleData[1].data);
-      setrandom3Data(districtEnsembleData[2].data);
-      setCurrData(districtEnsembleData[0].data);
+    if (districtsRandom1) {
+      setrandom1Data(districtsRandom1);
     }
-  }, [districtEnsembleData]);
+  }, [districtsRandom1]);
+
+  React.useEffect(() => {
+    if (districtsRandom2) {
+      setrandom2Data(districtsRandom2);
+    }
+  }, [districtsRandom2]);
+
+  React.useEffect(() => {
+    if (districtsRandom3) {
+      setrandom3Data(districtsRandom3);
+    }
+  }, [districtsRandom3]);
+  
 
   function getOpenData(districtPlan) {
     let currData;
@@ -114,11 +126,11 @@ function DistrictPlanSummary({
     let res = [
       {
         name: "Dem",
-        data: currData ? [currData.open_Dem, currData.safe_Dem] : [0, 0],
+        data: currData ? [currData.open_dem, currData.safe_dem] : [0, 0],
       },
       {
         name: "Rep",
-        data: currData ? [currData.openRep, currData.safe_rep] : [0, 0],
+        data: currData ? [currData.open_rep, currData.safe_rep] : [0, 0],
       },
     ];
     return res;
@@ -136,11 +148,11 @@ function DistrictPlanSummary({
     let res = [
       {
         name: "Democrat",
-        data: currData ? [currData.open_Dem + currData.safe_dem] : [0],
+        data: currData ? [currData.open_dem + currData.safe_dem] : [0],
       },
       {
         name: "Republican",
-        data: currData ? [currData.openRep + currData.safe_rep] : [0],
+        data: currData ? [currData.open_rep + currData.safe_rep] : [0],
       },
       {
         name: "Open",
@@ -222,7 +234,7 @@ function DistrictPlanSummary({
         stateValue={stateValue}
         districtPlan={districtPlan}
         ensembleData={ensembleData}
-        districtEnsembleData={districtEnsembleData}
+        // districtEnsembleData={districtEnsembleData}
       />
       <ReactApexChart
         options={seatGraphOptions}

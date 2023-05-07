@@ -16,21 +16,30 @@ public class State {
     @Id
     private StateID state;
     private List<District> districts;
-    private List<DistrictEnsemble> districtEnsembles;
-    private List<Incumbent> incumbents;
-    private List<Map> maps;
+    // private List<DistrictEnsemble> districtsYR22;
+    // private List<DistrictEnsemble> districtsRandom1;
+    // private List<DistrictEnsemble> districtsRandom2;
+    // private List<DistrictEnsemble> districtsRandom3;
+    private DistrictEnsemble districtsYR22;
+    private DistrictEnsemble districtsRandom1;
+    private DistrictEnsemble districtsRandom2;
+    private DistrictEnsemble districtsRandom3;
+    // private List<Incumbent> incumbents;
+    // private List<Map> maps;
     private Ensemble ensemble;
 
     public State() {
     }
 
-    public State(StateID state, List<District> districts, List<DistrictEnsemble> districtEnsembles,
-            List<Incumbent> incumbents, List<Map> maps, Ensemble ensemble) {
+    public State(StateID state, List<District> districts, DistrictEnsemble districtsYR22,
+            DistrictEnsemble districtsRandom1, DistrictEnsemble districtsRandom2, DistrictEnsemble districtsRandom3,
+            Ensemble ensemble) {
         this.state = state;
         this.districts = districts;
-        this.districtEnsembles = districtEnsembles;
-        this.incumbents = incumbents;
-        this.maps = maps;
+        this.districtsYR22 = districtsYR22;
+        this.districtsRandom1 = districtsRandom1;
+        this.districtsRandom2 = districtsRandom2;
+        this.districtsRandom3 = districtsRandom3;
         this.ensemble = ensemble;
     }
 
@@ -50,28 +59,36 @@ public class State {
         this.districts = districts;
     }
 
-    public List<DistrictEnsemble> getDistrictEnsembles() {
-        return this.districtEnsembles;
+    public DistrictEnsemble getDistrictsYR22() {
+        return this.districtsYR22;
     }
 
-    public void setDistrictEnsembles(List<DistrictEnsemble> districtEnsembles) {
-        this.districtEnsembles = districtEnsembles;
+    public void setDistrictsYR22(DistrictEnsemble districtsYR22) {
+        this.districtsYR22 = districtsYR22;
     }
 
-    public List<Incumbent> getIncumbents() {
-        return this.incumbents;
+    public DistrictEnsemble getDistrictsRandom1() {
+        return this.districtsRandom1;
     }
 
-    public void setIncumbents(List<Incumbent> incumbents) {
-        this.incumbents = incumbents;
+    public void setDistrictsRandom1(DistrictEnsemble districtsRandom1) {
+        this.districtsRandom1 = districtsRandom1;
     }
 
-    public List<Map> getMaps() {
-        return this.maps;
+    public DistrictEnsemble getDistrictsRandom2() {
+        return this.districtsRandom2;
     }
 
-    public void setMaps(List<Map> maps) {
-        this.maps = maps;
+    public void setDistrictsRandom2(DistrictEnsemble districtsRandom2) {
+        this.districtsRandom2 = districtsRandom2;
+    }
+
+    public DistrictEnsemble getDistrictsRandom3() {
+        return this.districtsRandom3;
+    }
+
+    public void setDistrictsRandom3(DistrictEnsemble districtsRandom3) {
+        this.districtsRandom3 = districtsRandom3;
     }
 
     public Ensemble getEnsemble() {
@@ -92,18 +109,23 @@ public class State {
         return this;
     }
 
-    public State districtEnsembles(List<DistrictEnsemble> districtEnsembles) {
-        setDistrictEnsembles(districtEnsembles);
+    public State districtsYR22(DistrictEnsemble districtsYR22) {
+        setDistrictsYR22(districtsYR22);
         return this;
     }
 
-    public State incumbents(List<Incumbent> incumbents) {
-        setIncumbents(incumbents);
+    public State districtsRandom1(DistrictEnsemble districtsRandom1) {
+        setDistrictsRandom1(districtsRandom1);
         return this;
     }
 
-    public State maps(List<Map> maps) {
-        setMaps(maps);
+    public State districtsRandom2(DistrictEnsemble districtsRandom2) {
+        setDistrictsRandom2(districtsRandom2);
+        return this;
+    }
+
+    public State districtsRandom3(DistrictEnsemble districtsRandom3) {
+        setDistrictsRandom3(districtsRandom3);
         return this;
     }
 
@@ -121,14 +143,16 @@ public class State {
         }
         State state = (State) o;
         return Objects.equals(state, state.state) && Objects.equals(districts, state.districts)
-                && Objects.equals(districtEnsembles, state.districtEnsembles)
-                && Objects.equals(incumbents, state.incumbents) && Objects.equals(maps, state.maps)
-                && Objects.equals(ensemble, state.ensemble);
+                && Objects.equals(districtsYR22, state.districtsYR22)
+                && Objects.equals(districtsRandom1, state.districtsRandom1)
+                && Objects.equals(districtsRandom2, state.districtsRandom2)
+                && Objects.equals(districtsRandom3, state.districtsRandom3) && Objects.equals(ensemble, state.ensemble);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(state, districts, districtEnsembles, incumbents, maps, ensemble);
+        return Objects.hash(state, districts, districtsYR22, districtsRandom1, districtsRandom2, districtsRandom3,
+                ensemble);
     }
 
     @Override
@@ -136,9 +160,10 @@ public class State {
         return "{" +
                 " state='" + getState() + "'" +
                 ", districts='" + getDistricts() + "'" +
-                ", districtEnsembles='" + getDistrictEnsembles() + "'" +
-                ", incumbents='" + getIncumbents() + "'" +
-                ", maps='" + getMaps() + "'" +
+                ", districtsYR22='" + getDistrictsYR22() + "'" +
+                ", districtsRandom1='" + getDistrictsRandom1() + "'" +
+                ", districtsRandom2='" + getDistrictsRandom2() + "'" +
+                ", districtsRandom3='" + getDistrictsRandom3() + "'" +
                 ", ensemble='" + getEnsemble() + "'" +
                 "}";
     }

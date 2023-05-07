@@ -68,8 +68,8 @@ public class WarriorsApplication implements CommandLineRunner {
 
 	public void populateAll() {
 		try {
-			populateIncumbent();
-			populateDistrict();
+			// populateIncumbent();
+			// populateDistrict();
 			populateBoxAndWhisker();
 			populateMap();
 			populateEnsmeble();
@@ -110,26 +110,41 @@ public class WarriorsApplication implements CommandLineRunner {
 
 	public void populateDistrict() throws IOException, FileNotFoundException {
 		try {
-			districtRepository.deleteAll();
+			districtEnsembleRepository.deleteAll();
 			JSONParser parser = new JSONParser();
 			Object obj = parser.parse(new FileReader("resources/District1.json"));
 			JSONArray jsonArray = (JSONArray) obj;
-
 			jsonArray.forEach(item -> {
 				JSONObject districtObj = (JSONObject) item;
-				DistrictPlanID districtPlanID = DistrictPlanID.valueOf((String) districtObj.get("districtPlanID"));
 				StateID state = StateID.valueOf((String) districtObj.get("state"));
-				String district = (String) districtObj.get("district");
-				Double population = Double.parseDouble((String) districtObj.get("population"));
-				Double area = Double.parseDouble((String) districtObj.get("area"));
-				Double popVar = Double.parseDouble((String) districtObj.get("popVar"));
-				Double geoVar = Double.parseDouble((String) districtObj.get("geoVar"));
-				Double popDiff = Double.parseDouble((String) districtObj.get("popDiff"));
-				Double geoDiff = Double.parseDouble((String) districtObj.get("geoDiff"));
-				District newDistrict = new District(districtPlanID, state, district, population, area, popVar, geoVar,
-						popDiff, geoDiff);
-				districtRepository.save(newDistrict);
+				DistrictPlanID districtPlanID = DistrictPlanID.valueOf((String) districtObj.get("districtPlanID"));
+				DistrictEnsemble newDistrictEnsemble = new DistrictEnsemble(districtObj, state, districtPlanID);
+				districtEnsembleRepository.save(newDistrictEnsemble);
 			});
+
+			// districtRepository.deleteAll();
+			// JSONParser parser = new JSONParser();
+			// Object obj = parser.parse(new FileReader("resources/District1.json"));
+			// JSONArray jsonArray = (JSONArray) obj;
+
+			// jsonArray.forEach(item -> {
+			// JSONObject districtObj = (JSONObject) item;
+			// DistrictPlanID districtPlanID = DistrictPlanID.valueOf((String)
+			// districtObj.get("districtPlanID"));
+			// StateID state = StateID.valueOf((String) districtObj.get("state"));
+			// String district = (String) districtObj.get("district");
+			// Double population = Double.parseDouble((String)
+			// districtObj.get("population"));
+			// Double area = Double.parseDouble((String) districtObj.get("area"));
+			// Double popVar = Double.parseDouble((String) districtObj.get("popVar"));
+			// Double geoVar = Double.parseDouble((String) districtObj.get("geoVar"));
+			// Double popDiff = Double.parseDouble((String) districtObj.get("popDiff"));
+			// Double geoDiff = Double.parseDouble((String) districtObj.get("geoDiff"));
+			// District newDistrict = new District(districtPlanID, state, district,
+			// population, area, popVar, geoVar,
+			// popDiff, geoDiff);
+			// districtRepository.save(newDistrict);
+			// });
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -139,7 +154,7 @@ public class WarriorsApplication implements CommandLineRunner {
 		try {
 			districtEnsembleRepository.deleteAll();
 			JSONParser parser = new JSONParser();
-			Object obj = parser.parse(new FileReader("resources/DistrictEnsemble.json"));
+			Object obj = parser.parse(new FileReader("resources/DistrictEnsembleTN.json"));
 			JSONArray jsonArray = (JSONArray) obj;
 			jsonArray.forEach(item -> {
 				JSONObject districtObj = (JSONObject) item;
@@ -147,43 +162,28 @@ public class WarriorsApplication implements CommandLineRunner {
 				DistrictPlanID districtPlanID = DistrictPlanID.valueOf((String) districtObj.get("districtPlanID"));
 				DistrictEnsemble newDistrictEnsemble = new DistrictEnsemble(districtObj, state, districtPlanID);
 				districtEnsembleRepository.save(newDistrictEnsemble);
-				// DistrictPlanID districtPlanID = DistrictPlanID
-				// .valueOf((String) districtObj.get("districtPlanID"));
-				// StateID state = StateID.valueOf((String) districtObj.get("state"));
-				// Double safeDem = Double.valueOf(districtObj.get("safe_dem").toString());
-				// Double safeRep = Double.valueOf(districtObj.get("safe_rep").toString());
-				// Double openDem = Double.valueOf(districtObj.get("open_Dem").toString());
-				// Double openRep =
-				// Double.valueOf(districtObj.get("incumbents_win").toString());
-				// Double incumbentWin =
-				// Double.valueOf(districtObj.get("dem_split").toString());
-				// JSONArray districts = (JSONArray) districtObj.get("districts");
-				// DistrictEnsemble newDistrictEnsemble = new DistrictEnsemble(districtPlanID,
-				// state, safeDem, safeRep,
-				// openDem, openRep, incumbentWin, districts);
-				// districtEnsembleRepository.save(newDistrictEnsemble);
 			});
-			// JSONParser parser = new JSONParser();
-			// Object obj = parser.parse(new FileReader("resources/DistrictEnsemble.json"));
-			// JSONArray jsonArray = (JSONArray) obj;
 
-			// jsonArray.forEach(item -> {
-			// JSONObject districtObj = (JSONObject) item;
-			// DistrictPlanID districtPlanID = DistrictPlanID.valueOf((String)
-			// districtObj.get("districtPlanID"));
-			// StateID state = StateID.valueOf((String) districtObj.get("state"));
-			// String district = (String) districtObj.get("district");
-			// String winner = (String) districtObj.get("winner");
-			// String safeSeat = (String) districtObj.get("safe_seat");
-			// Double demSplit = Double.valueOf(districtObj.get("dem_split").toString());
-			// Double rebSplit = Double.valueOf(districtObj.get("rep_split").toString());
-			// Double popDiff = Double.valueOf(districtObj.get("pop_diff").toString());
-			// Double geoDiff = Double.valueOf(districtObj.get("geo_diff").toString());
-			// DistrictEnsemble newDistrictEnsemble = new DistrictEnsemble(districtPlanID,
-			// state, district, popDiff,
-			// geoDiff, safeSeat, demSplit, rebSplit, winner);
-			// districtEnsembleRepository.save(newDistrictEnsemble);
-			// });
+			obj = parser.parse(new FileReader("resources/DistrictEnsemblePA.json"));
+			jsonArray = (JSONArray) obj;
+			jsonArray.forEach(item -> {
+				JSONObject districtObj = (JSONObject) item;
+				StateID state = StateID.valueOf((String) districtObj.get("state"));
+				DistrictPlanID districtPlanID = DistrictPlanID.valueOf((String) districtObj.get("districtPlanID"));
+				DistrictEnsemble newDistrictEnsemble = new DistrictEnsemble(districtObj, state, districtPlanID);
+				districtEnsembleRepository.save(newDistrictEnsemble);
+			});
+
+			obj = parser.parse(new FileReader("resources/DistrictEnsembleOK.json"));
+			jsonArray = (JSONArray) obj;
+			jsonArray.forEach(item -> {
+				JSONObject districtObj = (JSONObject) item;
+				StateID state = StateID.valueOf((String) districtObj.get("state"));
+				DistrictPlanID districtPlanID = DistrictPlanID.valueOf((String) districtObj.get("districtPlanID"));
+				DistrictEnsemble newDistrictEnsemble = new DistrictEnsemble(districtObj, state, districtPlanID);
+				districtEnsembleRepository.save(newDistrictEnsemble);
+			});
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -268,6 +268,18 @@ public class WarriorsApplication implements CommandLineRunner {
 			map = (JSONObject) obj;
 			mapRepository.save(new Map(StateID.TN, DistrictPlanID.YR22, map));
 
+			// obj = parser.parse(new FileReader("resources/tnRandom1.json"));
+			// map = (JSONObject) obj;
+			// mapRepository.save(new Map(StateID.TN, DistrictPlanID.RANDOM1, map));
+
+			// obj = parser.parse(new FileReader("resources/tnRandom2.json"));
+			// map = (JSONObject) obj;
+			// mapRepository.save(new Map(StateID.TN, DistrictPlanID.RANDOM2, map));
+
+			// obj = parser.parse(new FileReader("resources/tnRandom3.json"));
+			// map = (JSONObject) obj;
+			// mapRepository.save(new Map(StateID.TN, DistrictPlanID.RANDOM3, map));
+
 			obj = parser.parse(new FileReader("resources/pa2020.json"));
 			map = (JSONObject) obj;
 			mapRepository.save(new Map(StateID.PA, DistrictPlanID.YR20, map));
@@ -286,28 +298,56 @@ public class WarriorsApplication implements CommandLineRunner {
 			stateRepository.deleteAll();
 
 			StateID state = StateID.OK;
-			List<Incumbent> incumbents = incumbentRepository.findByState(state);
+			// List<Incumbent> incumbents = incumbentRepository.findByState(state);
 			List<District> districts = districtRepository.findByState(state);
-			List<DistrictEnsemble> districtEnsembles = districtEnsembleRepository.findByState(state);
-			List<Map> maps = mapRepository.findByState(state);
+			List<DistrictEnsemble> districtsYR22 = districtEnsembleRepository.findByStateAndDistrictPlanID(state,
+					DistrictPlanID.YR22);
+			List<DistrictEnsemble> districtsRandom1 = districtEnsembleRepository.findByStateAndDistrictPlanID(
+					state,
+					DistrictPlanID.RANDOM1);
+			List<DistrictEnsemble> districtsRandom2 = districtEnsembleRepository.findByStateAndDistrictPlanID(
+					state,
+					DistrictPlanID.RANDOM2);
+			List<DistrictEnsemble> districtsRandom3 = districtEnsembleRepository.findByStateAndDistrictPlanID(
+					state,
+					DistrictPlanID.RANDOM3);
+			// List<Map> maps = mapRepository.findByState(state);
 			Ensemble ensemble = ensembleRepository.findByState(state);
-			stateRepository.save(new State(state, districts, districtEnsembles, incumbents, maps, ensemble));
+			stateRepository.save(
+					new State(state, districts, districtsYR22.get(0), districtsRandom1.get(0), districtsRandom2.get(0),
+							districtsRandom3.get(0), ensemble));
 
 			state = StateID.PA;
-			incumbents = incumbentRepository.findByState(state);
+			// incumbents = incumbentRepository.findByState(state);
 			districts = districtRepository.findByState(state);
-			districtEnsembles = districtEnsembleRepository.findByState(state);
-			maps = mapRepository.findByState(state);
+			districtsYR22 = districtEnsembleRepository.findByStateAndDistrictPlanID(state, DistrictPlanID.YR22);
+			districtsRandom1 = districtEnsembleRepository.findByStateAndDistrictPlanID(state,
+					DistrictPlanID.RANDOM1);
+			districtsRandom2 = districtEnsembleRepository.findByStateAndDistrictPlanID(state,
+					DistrictPlanID.RANDOM2);
+			districtsRandom3 = districtEnsembleRepository.findByStateAndDistrictPlanID(state,
+					DistrictPlanID.RANDOM3);
+			// maps = mapRepository.findByState(state);
 			ensemble = ensembleRepository.findByState(state);
-			stateRepository.save(new State(state, districts, districtEnsembles, incumbents, maps, ensemble));
+			stateRepository.save(
+					new State(state, districts, districtsYR22.get(0), districtsRandom1.get(0), districtsRandom2.get(0),
+							districtsRandom3.get(0), ensemble));
 
 			state = StateID.TN;
-			incumbents = incumbentRepository.findByState(state);
+			// incumbents = incumbentRepository.findByState(state);
 			districts = districtRepository.findByState(state);
-			districtEnsembles = districtEnsembleRepository.findByState(state);
-			maps = mapRepository.findByState(state);
+			districtsYR22 = districtEnsembleRepository.findByStateAndDistrictPlanID(state, DistrictPlanID.YR22);
+			districtsRandom1 = districtEnsembleRepository.findByStateAndDistrictPlanID(state,
+					DistrictPlanID.RANDOM1);
+			districtsRandom2 = districtEnsembleRepository.findByStateAndDistrictPlanID(state,
+					DistrictPlanID.RANDOM2);
+			districtsRandom3 = districtEnsembleRepository.findByStateAndDistrictPlanID(state,
+					DistrictPlanID.RANDOM3);
+			// maps = mapRepository.findByState(state);
 			ensemble = ensembleRepository.findByState(state);
-			stateRepository.save(new State(state, districts, districtEnsembles, incumbents, maps, ensemble));
+			stateRepository.save(
+					new State(state, districts, districtsYR22.get(0), districtsRandom1.get(0), districtsRandom2.get(0),
+							districtsRandom3.get(0), ensemble));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

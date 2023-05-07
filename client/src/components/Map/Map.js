@@ -29,10 +29,11 @@ function Map({
   districtValue,
   setDistrict,
   stateData,
-  incumbentData,
+  district22,
 }) {
   const [mapData, setMapData] = React.useState();
   const [map, setMap] = React.useState(null);
+  const [incumbentData, setIncumbentData] = React.useState();
 
   React.useEffect(() => {
     if (stateValue) {
@@ -45,6 +46,13 @@ function Map({
         });
     }
   }, [stateValue]);
+
+  React.useEffect(() =>{
+    if (district22) {
+      setIncumbentData(district22.districts)
+      }
+  }
+  ,[district22])
 
   let center = (stateValue) => {
     switch (stateValue) {
@@ -103,13 +111,13 @@ function Map({
 
   let colorDistrict = (feature) => {
     let incumbents = incumbentData;
-
+   
     if (incumbents) {
       let district = parseInt(feature.properties.DISTRICT - 1);
       // console.log("district: " + district);
       // console.log("districtVal: " + districtValue);
 
-      if (incumbents[district] && incumbents[district]["party"] === "REP") {
+      if (incumbents[district] && incumbents[district]["incumbent"] === "rep") {
         return {
           fillColor: "red",
           color: "black",
@@ -119,7 +127,7 @@ function Map({
         };
       } else if (
         incumbents[district] &&
-        incumbents[district]["party"] === "DEM"
+        incumbents[district]["incumbent"] === "dem"
       ) {
         return {
           fillColor: "#0015BC",
@@ -265,7 +273,7 @@ function Map({
         {filter === "YR22" && (
           <GeoJSON
             data={pa2022.features}
-            style={colorDistrict}
+            style={colorDistrict  }
             onEachFeature={userMovementChanges}
           />
         )}
@@ -297,7 +305,7 @@ function Map({
             onEachFeature={userMovementChanges}
           />
         )}
-        {/* {filter == 1 && (
+       {/* {filter == 1 && (
           <GeoJSON data={tn1.features} style={colorDistrictEnsemble} />
         )}
         {filter == 2 && (
@@ -305,7 +313,7 @@ function Map({
         )}
         {filter == 3 && (
           <GeoJSON data={tn3.features} style={colorDistrictEnsemble} />
-        )} */}
+        )}  */}
       </MapContainer>
     </>
   );

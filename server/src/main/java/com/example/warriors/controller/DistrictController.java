@@ -43,11 +43,10 @@ public class DistrictController {
     // return districtEnsembleRepository.findAll();
     // }
 
-    // @GetMapping("/getDistrictEnsembleByState")
-    // public List<DistrictEnsemble>
-    // getAllDistrictEnsembleByStateDistricts(@RequestParam("state") StateID state)
-    // {
-    // return districtEnsembleRepository.findByState(state);
-    // }
+    @GetMapping("/getDistrictByStateAndDistrictPlanID")
+    public List<DistrictEnsemble> getMapsByStateAndDistrictPlanID(@RequestParam("state") StateID state,
+            @RequestParam("districtPlanID") DistrictPlanID districtPlanID) {
+        return districtEnsembleRepository.findByStateAndDistrictPlanID(state, districtPlanID);
+    }
 
 }

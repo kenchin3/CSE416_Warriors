@@ -1,0 +1,120 @@
+[
+    {
+        "state": "OK",
+        "districtPlanID": "RANDOM1",
+        "safe_dem": 0,
+        "safe_rep": 0,
+        "open_Dem": 0,
+        "openRep": 0,
+        "incumbents_win": 0,
+        "districts": [
+        ]
+    },
+    {
+        "state": "OK",
+        "districtPlanID": "RANDOM2",
+        "safe_dem": 0,
+        "safe_rep": 0,
+        "open_Dem": 0,
+        "openRep": 0,
+        "incumbents_win": 0,
+        "districts": [
+        ]
+    },
+    {
+        "state": "OK",
+        "districtPlanID": "RANDOM3",
+        "safe_dem": 0,
+        "safe_rep": 0,
+        "open_Dem": 0,
+        "openRep": 0,
+        "incumbents_win": 0,
+        "districts": [
+        ]
+    },
+    {
+        "state": "OK",
+        "districtPlanID": "YR22",
+        "dem_split": 0,
+        "rep_split": 5,
+        "districts":
+        [
+            {
+                "districtPlanID": "YR22",
+                "state": "OK",
+                "district": "1",
+                "population": "791871",
+                "area": "32900.699",
+                "popVar": "0.955",
+                "geoVar": "0.675",
+                "popDiff": "-37313.0",
+                "geoDiff": "-15841.080999999998",
+                "rep_cand": "Kevin Hern",
+                "dem_cand": "Adam Martin",
+                "incumbent": "rep",
+                "electionResult": true
+              },
+              {
+                "districtPlanID": "YR22",
+                "state": "OK",
+                "district": "2",
+                "population": "722078",
+                "area": "9777.448",
+                "popVar": "1.008",
+                "geoVar": "0.657",
+                "popDiff": "5731.0",
+                "geoDiff": "-5104.511999999999",
+                "rep_cand": "Josh Brecheen",
+                "dem_cand": "Naomi Andrews",
+                "incumbent": "rep",
+                "electionResult": true
+              },
+              {
+                "districtPlanID": "YR22",
+                "state": "OK",
+                "district": "3",
+                "population": "791870",
+                "area": "9891.652",
+                "popVar": "0.96",
+                "geoVar": "15.863",
+                "popDiff": "-32994.0",
+                "geoDiff": "9268.082",
+                "rep_cand": "Frank Lucas",
+                "dem_cand": "Jeremiah Ross",
+                "incumbent": "rep",
+                "electionResult": true
+              },
+              {
+                "districtPlanID": "YR22",
+                "state": "OK",
+                "district": "4",
+                "population": "722078",
+                "area": "20996.362",
+                "popVar": "0.991",
+                "geoVar": "1.011",
+                "popDiff": "-6557.0",
+                "geoDiff": "228.45200000000114",
+                "rep_cand": "Tom Cole",
+                "dem_cand": "Mary Brannon",
+                "incumbent": "rep",
+                "electionResult": true
+              },
+              {
+                "districtPlanID": "YR22",
+                "state": "OK",
+                "district": "5",
+                "population": "791870",
+                "area": "3584.012",
+                "popVar": "1.096",
+                "geoVar": "0.17",
+                "popDiff": "69361.0",
+                "geoDiff": "-17498.408",
+                "rep_cand": "Stephanie Bice",
+                "dem_cand": "Joshua Harris-Till",
+                "incumbent": "rep",
+                "electionResult": true
+              }
+    
+        ]
+    }
+]

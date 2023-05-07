@@ -6,14 +6,16 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+import ToggleButton from "@mui/material/ToggleButton";
 import DistrictData from "./DistrictData";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import TablePagination from "@mui/material/TablePagination";
 import "./IncumbentTable.css";
 import { TableFooter } from "@mui/material";
 
-function IncumbentTable({ stateValue, district, setDistrict, stateData }) {
+function IncumbentTable({ stateValue, district, setDistrict, district22 }) {
   const [incumbentTableData, setIncumbentTableData] = React.useState();
+  const [incumbentsOnly, setIncumbentsOnly] = React.useState(false);
   const [pg, setpg] = React.useState(0);
   const [rpg, setrpg] = React.useState(5);
 
@@ -27,23 +29,11 @@ function IncumbentTable({ stateValue, district, setDistrict, stateData }) {
   }
 
   React.useEffect(() => {
-    if (stateData && stateData["incumbents"].length > 0) {
-      let incumbents = stateData["incumbents"];
-      let districts = stateData["districts"];
-      for (let i = 0; i < incumbents.length; i++) {
-        let district = districts.filter(function (d) {
-          return d.district == incumbents[i].district;
-        })[0];
-        incumbents[i]["geoVar"] = district["geoVar"];
-        incumbents[i]["popVar"] = district["popVar"];
-        incumbents[i]["geoDiff"] = district["geoDiff"];
-        incumbents[i]["popDiff"] = district["popDiff"];
-        incumbents[i]["area"] = district["area"];
-        incumbents[i]["pop"] = district["population"];
-      }
-      setIncumbentTableData(incumbents);
+    // console.log(district22.districts)
+    if (district22) {
+      setIncumbentTableData(district22.districts)
     }
-  }, [stateData]);
+  }, [district22]);
 
   const useStyles = makeStyles({
     header: {
@@ -80,12 +70,22 @@ function IncumbentTable({ stateValue, district, setDistrict, stateData }) {
 
   return (
     <>
+      <ToggleButton
+      value="Only Incumbents"
+      selected={incumbentsOnly}
+      onChange={() => {
+        setIncumbentsOnly(!incumbentsOnly);
+       
+      }}
+    >
+      Incumbents Only
+    </ToggleButton>
       <TableContainer className="table" component={Paper}>
         <Table size="small" aria-label="a dense table">
           <TableHead>
             <TableRow>
               <TableCell className={classes.header} align="left">
-                District
+                District 
               </TableCell>
               <TableCell className={classes.header} align="left">
                 Name
@@ -107,6 +107,7 @@ function IncumbentTable({ stateValue, district, setDistrict, stateData }) {
           <TableBody>
             {incumbentTableData &&
               incumbentTableData.slice(pg * rpg, pg * rpg + rpg).map((row) => (
+                ((incumbentsOnly && row.incumbent != "") || (!incumbentsOnly)) &&
                 <TableRow
                   key={row.district}
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
@@ -142,7 +143,7 @@ function IncumbentTable({ stateValue, district, setDistrict, stateData }) {
                       color: rowColor(row.party, row.electionResult),
                     }}
                   >
-                    {row.name}
+                    {row.incumbent == "rep" ? row.rep_cand : (row.incumbent == "dem" ? row.dem_cand : "None")}
                   </TableCell>
                   <TableCell
                     className={classes.content}
@@ -151,7 +152,7 @@ function IncumbentTable({ stateValue, district, setDistrict, stateData }) {
                       color: rowColor(row.party, row.electionResult),
                     }}
                   >
-                    {row.party}
+                    {row.incumbent}
                   </TableCell>
                   <TableCell
                     className={classes.content}
@@ -185,7 +186,7 @@ function IncumbentTable({ stateValue, district, setDistrict, stateData }) {
             <TableRow>
               <TablePagination
                 rowsPerPageOptions={[5, 10, 20]}
-                count={stateData ? stateData["incumbents"].length : 0}
+                count={incumbentTableData ? incumbentTableData.length : 0}
                 rowsPerPage={rpg}
                 page={pg}
                 onPageChange={handleChangePage}

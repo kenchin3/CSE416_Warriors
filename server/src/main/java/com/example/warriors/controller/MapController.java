@@ -9,6 +9,7 @@ import java.util.List;
 import org.springframework.web.bind.annotation.*;
 import com.example.warriors.model.Incumbent;
 import com.example.warriors.model.StateID;
+import com.example.warriors.model.DistrictPlanID;
 import com.example.warriors.repository.MapRepository;
 import mil.nga.sf.geojson.FeatureCollection;
 import com.example.warriors.model.Map;
@@ -26,8 +27,14 @@ public class MapController {
     }
 
     @GetMapping("/getMapByState")
-    public List<Map> getIncumbentByState(@RequestParam("state") StateID state) {
+    public List<Map> getMapsByState(@RequestParam("state") StateID state) {
         return mapRepository.findByState(state);
+    }
+
+    @GetMapping("/getMapByStateAndDistrictPlanID")
+    public List<Map> getMapsByStateAndDistrictPlanID(@RequestParam("state") StateID state,
+            @RequestParam("districtPlanID") DistrictPlanID districtPlanID) {
+        return mapRepository.findByStateAndDistrictPlanID(state, districtPlanID);
     }
 
 }

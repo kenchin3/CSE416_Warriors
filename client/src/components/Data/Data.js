@@ -22,8 +22,8 @@ function Data({
   district,
   setDistrict,
   stateData,
-  incumbentData,
   ensembleData,
+  district22
 }) {
   const [bWFilter, setbWFilter] = React.useState("geometric");
   const [geoBW, setgeoBW] = React.useState();
@@ -86,8 +86,8 @@ function Data({
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
-          {incumbentData && (
-            <SeatGraph stateValue={stateValue} incumbentData={incumbentData} />
+          {district22 && (
+            <SeatGraph stateValue={stateValue} district22={district22} />
           )}
         </AccordionDetails>
       </Accordion>
@@ -104,7 +104,7 @@ function Data({
                 stateValue={stateValue}
                 district={district}
                 setDistrict={setDistrict}
-                stateData={stateData}
+                district22={district22}
               />
             </span>
           </Typography>

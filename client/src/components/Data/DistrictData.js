@@ -8,14 +8,23 @@ function DistrictData({
 }) {
   const [districtData, setdistrictData] = React.useState();
 
+  React.useEffect(() => {
+    if (incumbentTableData) {
+      setdistrictData(incumbentTableData)
+    }
+  }, [incumbentTableData]);
+
   return (
     <div>
-      {districtData && district && district !== -1 && incumbentTableData && (
+      {district !== -1 && districtData && (
         <div className="districtDataFont">
           <span style={{ fontWeight: 550, fontSize: 15 }}> District: </span>
-          {incumbentTableData[district]["district"]} <br />
-          <span style={{ fontWeight: 550, fontSize: 15 }}> Winner: </span>
-          {incumbentTableData[district]["name"]} <br />
+          {districtData[district]["district"]} <br />
+          <span style={{ fontWeight: 550, fontSize: 15 }}> Democratic Candidate: </span>
+          {incumbentTableData[district]["dem_cand"]} <br />
+          <span style={{ fontWeight: 550, fontSize: 15 }}> Republican Candidate: </span>
+          {incumbentTableData[district]["rep_cand"] == ""} <br />
+
           <span style={{ fontWeight: 550, fontSize: 15 }}>
             {" "}
             Population Difference:
@@ -25,14 +34,14 @@ function DistrictData({
           <br />
           <span style={{ fontWeight: 550, fontSize: 15 }}>
             {" "}
-            2022 Population:{" "}
+            2022 Population:
           </span>
-          {incumbentTableData[district]["pop"]} <br />
+          {incumbentTableData[district]["population"]} <br />
           <span style={{ fontWeight: 550, fontSize: 15 }}>
             {" "}
             Geographic Difference:
           </span>
-          {incumbentTableData[district]["geoDiff"].toFixed(3)}
+          {parseFloat(incumbentTableData[district]["geoDiff"]).toFixed(3)}
           {} <br />
           <span style={{ fontWeight: 550, fontSize: 15 }}>
             {" "}

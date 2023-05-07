@@ -18,12 +18,17 @@ function Project() {
   const [district, setDistrict] = React.useState(-1);
   const [districtPlan, setDistrictPlan] = React.useState(0);
   const [districtPlanYear, setDistrictPlanYear] = React.useState(2022);
-  const [districtData, setDistrictData] = React.useState();
+
   const [incumbentData, setIncumbentData] = React.useState();
   const [districtEnsembleData, setdistrictEnsembleData] = React.useState();
   const [mapData, setMapData] = React.useState();
   const [ensembleData, setEnsembleData] = React.useState();
   const { twoZero, twoTwo, random } = filter;
+
+  const [district22, setDistrict22] = React.useState();
+  const [districtR1, setDistrictR1] = React.useState();
+  const [districtR2, setDistrictR2] = React.useState();
+  const [districtR3, setDistrictR3] = React.useState();
 
   React.useEffect(() => {
     if (stateValue) {
@@ -32,15 +37,14 @@ function Project() {
           params: { state: stateValue.toUpperCase() },
         })
         .then((res) => {
+          console.log(res.data)
           setStateData(res.data);
-          setDistrictData(res.data.districts);
-          setMapData(res.data.maps);
-          setIncumbentData(res.data.incumbents);
           setEnsembleData(res.data.ensemble);
-          setdistrictEnsembleData(res.data.districtEnsembles);
-          // console.log(res.data.districtEnsembles);
-          // console.log(res.data);
-          // setFilter("YR22");
+          setDistrict22(res.data.districtsYR22.data);
+          setDistrictR1(res.data.districtsRandom1.data);
+          setDistrictR2(res.data.districtsRandom2.data);
+          setDistrictR3(res.data.districtsRandom3.data);
+          
         });
     }
   }, [stateValue]);
@@ -174,8 +178,8 @@ function Project() {
               setDistrict={setDistrict}
               districtPlanYear={districtPlanYear}
               stateData={stateData}
-              incumbentData={incumbentData}
-              districtData={districtData}
+            
+              district22={district22}
               ensembleData={ensembleData}
             />
           ) : (
@@ -186,7 +190,10 @@ function Project() {
               setStateValue={setStateValue}
               districtPlan={districtPlan}
               ensembleData={ensembleData}
-              districtEnsembleData={districtEnsembleData}
+              districtsRandom1={districtR1}
+              districtsRandom2={districtR2}
+              districtsRandom3={districtR3}
+           
             />
           )}
         </Grid>
@@ -199,7 +206,7 @@ function Project() {
             districtValue={district}
             setDistrict={setDistrict}
             stateData={stateData}
-            incumbentData={incumbentData}
+            district22={district22}
           />
         </Grid>
       </Grid>

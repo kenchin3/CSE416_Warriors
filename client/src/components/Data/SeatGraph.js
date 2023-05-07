@@ -1,34 +1,34 @@
 import React from "react";
 import ReactApexChart from "react-apexcharts";
 
-function SeatGraph({ stateValue, incumbentData }) {
-  function getData() {
-    let arr = [0, 0, 0];
-    incumbentData.forEach((element) => {
-      if (element.party === "NONE") {
-        arr[2] += 1;
-      } else if (element.party === "REP") {
-        arr[1] += 1;
-      } else {
-        arr[0] += 1;
-      }
-    });
-    let res = [
-      {
-        name: "Democrat",
-        data: [arr[0]],
-      },
-      {
-        name: "Republican",
-        data: [arr[1]],
-      },
-      {
-        name: "Open",
-        data: [arr[2]],
-      },
-    ];
-    return res;
-  }
+function SeatGraph({ stateValue, district22 }) {
+  // function getData() {
+  //   let arr = [0, 0, 0];
+  //   incumbentData.forEach((element) => {
+  //     if (element.party === "NONE") {
+  //       arr[2] += 1;
+  //     } else if (element.party === "REP") {
+  //       arr[1] += 1;
+  //     } else {
+  //       arr[0] += 1;
+  //     }
+  //   });
+  //   let res = [
+  //     {
+  //       name: "Democrat",
+  //       data: [arr[0]],
+  //     },
+  //     {
+  //       name: "Republican",
+  //       data: [arr[1]],
+  //     },
+  //     {
+  //       name: "Open",
+  //       data: [arr[2]],
+  //     },
+  //   ];
+  //   return res;
+  // }
 
   const seatGraphOptions = {
     colors: ["#0015BC", "#FF0000", "grey"],
@@ -83,7 +83,19 @@ function SeatGraph({ stateValue, incumbentData }) {
     <>
       <ReactApexChart
         options={seatGraphOptions}
-        series={getData()}
+        series={[
+          {
+            name: "Democrat",
+            data: [district22.dem_split],
+          },
+          {
+            name: "Republican",
+            data: [district22.rep_split],
+          },
+          {
+            name: "Open",
+            data: [0]}
+        ] }
         type="bar"
         height="110"
       />
