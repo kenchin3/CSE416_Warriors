@@ -9,6 +9,7 @@ import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import BarGraph from "../BarGraph";
+import ToggleButton from "@mui/material/ToggleButton";
 import {
   FormControl,
   Typography,
@@ -23,7 +24,7 @@ function Data({
   setDistrict,
   stateData,
   ensembleData,
-  district22
+  district22,
 }) {
   const [bWFilter, setbWFilter] = React.useState("geometric");
   const [geoBW, setgeoBW] = React.useState();
@@ -97,6 +98,7 @@ function Data({
             <span className="accordionHeader">2022 Incumbent Information</span>
           </Typography>
         </AccordionSummary>
+
         <AccordionDetails>
           <Typography component="span">
             <span>

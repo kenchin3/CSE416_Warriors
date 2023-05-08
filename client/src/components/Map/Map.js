@@ -47,12 +47,11 @@ function Map({
     }
   }, [stateValue]);
 
-  React.useEffect(() =>{
+  React.useEffect(() => {
     if (district22) {
-      setIncumbentData(district22.districts)
-      }
-  }
-  ,[district22])
+      setIncumbentData(district22.districts);
+    }
+  }, [district22]);
 
   let center = (stateValue) => {
     switch (stateValue) {
@@ -111,7 +110,7 @@ function Map({
 
   let colorDistrict = (feature) => {
     let incumbents = incumbentData;
-   
+
     if (incumbents) {
       let district = parseInt(feature.properties.DISTRICT - 1);
       // console.log("district: " + district);
@@ -216,6 +215,7 @@ function Map({
     layer.on("click", function (e) {
       let stateAndDistrict = determineStateValue(e.latlng);
       stateAndDistrict = stateAndDistrict.split("-");
+      console.log("UserMovementChanges: " + stateAndDistrict[1]);
       setStateValue(stateAndDistrict[0]);
       setDistrict(stateAndDistrict[1]);
       // console.log("onclick: " + districtValue);
@@ -273,7 +273,7 @@ function Map({
         {filter === "YR22" && (
           <GeoJSON
             data={pa2022.features}
-            style={colorDistrict  }
+            style={colorDistrict}
             onEachFeature={userMovementChanges}
           />
         )}
@@ -305,7 +305,7 @@ function Map({
             onEachFeature={userMovementChanges}
           />
         )}
-       {/* {filter == 1 && (
+        {/* {filter == 1 && (
           <GeoJSON data={tn1.features} style={colorDistrictEnsemble} />
         )}
         {filter == 2 && (

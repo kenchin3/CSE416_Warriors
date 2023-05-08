@@ -6,12 +6,13 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import ToggleButton from "@mui/material/ToggleButton";
+import FormGroup from "@mui/material/FormGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Switch from "@mui/material/Switch";
 import DistrictData from "./DistrictData";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import TablePagination from "@mui/material/TablePagination";
 import "./IncumbentTable.css";
-import { TableFooter } from "@mui/material";
 
 function IncumbentTable({ stateValue, district, setDistrict, district22 }) {
   const [incumbentTableData, setIncumbentTableData] = React.useState();
@@ -31,7 +32,9 @@ function IncumbentTable({ stateValue, district, setDistrict, district22 }) {
   React.useEffect(() => {
     // console.log(district22.districts)
     if (district22) {
-      setIncumbentTableData(district22.districts)
+      setIncumbentTableData(district22.districts);
+      setpg(0);
+      setrpg(5);
     }
   }, [district22]);
 
@@ -43,6 +46,15 @@ function IncumbentTable({ stateValue, district, setDistrict, district22 }) {
       lineHeight: "13px",
       fontSize: "13px",
       fontWeight: 550,
+      fontFamily: ["Helvetica"],
+    },
+    content: {
+      color: "black",
+      paddingLeft: "auto",
+      paddingRight: "auto",
+      lineHeight: "13px",
+      fontSize: "13px",
+      fontWeight: 400,
       fontFamily: ["Helvetica"],
     },
   });
@@ -62,30 +74,38 @@ function IncumbentTable({ stateValue, district, setDistrict, district22 }) {
     if (result === "Open") {
       return "grey";
     } else if (party === "REP") {
-      return "#D70040";
-    } else {
       return "blue";
+    } else {
+      return "#D70040";
     }
   }
 
   return (
     <>
-      <ToggleButton
-      value="Only Incumbents"
-      selected={incumbentsOnly}
-      onChange={() => {
-        setIncumbentsOnly(!incumbentsOnly);
-       
-      }}
-    >
-      Incumbents Only
-    </ToggleButton>
+      <FormControlLabel
+        control={
+          <Switch
+            onChange={() => {
+              setIncumbentsOnly(!incumbentsOnly);
+            }}
+          />
+        }
+        label="Incumbents Only"
+      />
+      <TablePagination
+        rowsPerPageOptions={[5, 10, 20]}
+        count={incumbentTableData ? incumbentTableData.length : 0}
+        rowsPerPage={rpg}
+        page={pg}
+        onPageChange={handleChangePage}
+        onRowsPerPageChange={handleChangeRowsPerPage}
+      />
       <TableContainer className="table" component={Paper}>
         <Table size="small" aria-label="a dense table">
           <TableHead>
             <TableRow>
               <TableCell className={classes.header} align="left">
-                District 
+                District
               </TableCell>
               <TableCell className={classes.header} align="left">
                 Name
@@ -106,93 +126,68 @@ function IncumbentTable({ stateValue, district, setDistrict, district22 }) {
           </TableHead>
           <TableBody>
             {incumbentTableData &&
-              incumbentTableData.slice(pg * rpg, pg * rpg + rpg).map((row) => (
-                ((incumbentsOnly && row.incumbent != "") || (!incumbentsOnly)) &&
-                <TableRow
-                  key={row.district}
-                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                  district={row.district}
-                  onClick={() => {
-                    setDistrict(parseInt(row.district) - 1);
-                  }}
-                  className="districtRow"
-                  style={{
-                    backgroundColor:
-                      district === -1
-                        ? "white"
-                        : row.district - 1 === district
-                        ? "#D3D3D3"
-                        : "white",
-                  }}
-                >
-                  <TableCell
-                    className={classes.content}
-                    align="left"
-                    component="th"
-                    scope="row"
-                    style={{
-                      color: rowColor(row.party, row.electionResult),
-                    }}
-                  >
-                    {row.district}
-                  </TableCell>
-                  <TableCell
-                    className={classes.content}
-                    align="left"
-                    style={{
-                      color: rowColor(row.party, row.electionResult),
-                    }}
-                  >
-                    {row.incumbent == "rep" ? row.rep_cand : (row.incumbent == "dem" ? row.dem_cand : "None")}
-                  </TableCell>
-                  <TableCell
-                    className={classes.content}
-                    align="left"
-                    style={{
-                      color: rowColor(row.party, row.electionResult),
-                    }}
-                  >
-                    {row.incumbent}
-                  </TableCell>
-                  <TableCell
-                    className={classes.content}
-                    align="left"
-                    style={{
-                      color: rowColor(row.party, row.electionResult),
-                    }}
-                  >
-                    {row.electionResult ? "Win" : "Loss"}
-                  </TableCell>
-                  <TableCell
-                    className={classes.content}
-                    align="left"
-                    style={{
-                      color: rowColor(row.party, row.electionResult),
-                    }}
-                  >
-                    {row["popVar"]}
-                  </TableCell>
-                  <TableCell
-                    className={classes.content}
-                    align="left"
-                    style={{
-                      color: rowColor(row.party, row.electionResult),
-                    }}
-                  >
-                    {row["geoVar"]}
-                  </TableCell>
-                </TableRow>
-              ))}
-            <TableRow>
-              <TablePagination
-                rowsPerPageOptions={[5, 10, 20]}
-                count={incumbentTableData ? incumbentTableData.length : 0}
-                rowsPerPage={rpg}
-                page={pg}
-                onPageChange={handleChangePage}
-                onRowsPerPageChange={handleChangeRowsPerPage}
-              />
-            </TableRow>
+              incumbentTableData.slice(pg * rpg, pg * rpg + rpg).map(
+                (row) =>
+                  ((incumbentsOnly && row.incumbent != "") ||
+                    !incumbentsOnly) && (
+                    <TableRow
+                      key={row.district}
+                      sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                      district={row.district}
+                      onClick={() => {
+                        setDistrict(parseInt(row.district) - 1);
+                      }}
+                      className="districtRow"
+                      style={{
+                        backgroundColor:
+                          district === -1
+                            ? "white"
+                            : row.district - 1 === district
+                            ? "#D3D3D3"
+                            : "white",
+                      }}
+                    >
+                      <TableCell
+                        className={classes.content}
+                        align="left"
+                        component="th"
+                        scope="row"
+                      >
+                        {row.district}
+                      </TableCell>
+                      <TableCell className={classes.content} align="left">
+                        {row.incumbent == "rep"
+                          ? row.rep_cand
+                          : row.incumbent == "dem"
+                          ? row.dem_cand
+                          : "None"}
+                      </TableCell>
+                      <TableCell
+                        className={classes.content}
+                        align="left"
+                        style={{
+                          color: rowColor(row.party, row.electionResult),
+                        }}
+                      >
+                        {row.incumbent == "rep"
+                          ? "Rep"
+                          : row.incumbent == "dem"
+                          ? "Dem"
+                          : ""}
+                      </TableCell>
+                      <TableCell className={classes.content} align="left">
+                        {row.electionResult ? "Win" : "Loss"}
+                      </TableCell>
+                      <TableCell className={classes.content} align="left">
+                        {row["popVar"]}
+                      </TableCell>
+                      <TableCell className={classes.content} align="left">
+                        {row["geoVar"]}
+                      </TableCell>
+                    </TableRow>
+                  )
+              )}
+            <TableRow></TableRow>
           </TableBody>
         </Table>
       </TableContainer>
