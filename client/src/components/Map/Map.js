@@ -7,9 +7,9 @@ import ok2020 from "../../geoJSON/ok2020.json";
 import ok2022 from "../../geoJSON/ok2022.json";
 import tn2020 from "../../geoJSON/tn2020.json";
 import tn2022 from "../../geoJSON/tn2022.json";
-// import tn1 from "../../geoJSON/plan_0_boundary.json";
-// import tn2 from "../../geoJSON/plan_1_boundary.json";
-// import tn3 from "../../geoJSON/plan_2_boundary.json";
+import tn1 from "../../geoJSON/plan_0_boundary.json";
+import tn2 from "../../geoJSON/plan_1_boundary.json";
+import tn3 from "../../geoJSON/plan_2_boundary.json";
 import L from "leaflet";
 import leafletPip from "@mapbox/leaflet-pip";
 
@@ -305,7 +305,7 @@ function Map({
             onEachFeature={userMovementChanges}
           />
         )}
-       {/* {filter == 1 && (
+       {filter == 1 && (
           <GeoJSON data={tn1.features} style={colorDistrictEnsemble} />
         )}
         {filter == 2 && (
@@ -313,7 +313,7 @@ function Map({
         )}
         {filter == 3 && (
           <GeoJSON data={tn3.features} style={colorDistrictEnsemble} />
-        )}  */}
+        )} 
       </MapContainer>
     </>
   );
