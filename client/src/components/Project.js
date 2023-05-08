@@ -37,14 +37,13 @@ function Project() {
           params: { state: stateValue.toUpperCase() },
         })
         .then((res) => {
-          console.log(res.data)
+          console.log(res.data);
           setStateData(res.data);
           setEnsembleData(res.data.ensemble);
           setDistrict22(res.data.districtsYR22.data);
           setDistrictR1(res.data.districtsRandom1.data);
           setDistrictR2(res.data.districtsRandom2.data);
           setDistrictR3(res.data.districtsRandom3.data);
-          
         });
     }
   }, [stateValue]);
@@ -178,7 +177,6 @@ function Project() {
               setDistrict={setDistrict}
               districtPlanYear={districtPlanYear}
               stateData={stateData}
-            
               district22={district22}
               ensembleData={ensembleData}
             />
@@ -193,7 +191,6 @@ function Project() {
               districtsRandom1={districtR1}
               districtsRandom2={districtR2}
               districtsRandom3={districtR3}
-           
             />
           )}
         </Grid>

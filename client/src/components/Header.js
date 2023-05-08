@@ -5,7 +5,7 @@ import "./Header.css";
 function Header({}) {
   return (
     <div>
-      <Box className="headerContent" bgcolor="black">
+      <Box className="headerContent" bgcolor="#949494">
         <span className="fullTitle">
           <span className="title"> Incumbent Analysis by </span>
           <span className="title" style={{ color: "yellow" }}>
