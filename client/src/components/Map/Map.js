@@ -15,7 +15,7 @@ import leafletPip from "@mapbox/leaflet-pip";
 
 import "./Map.css";
 
-function ChangeView({ center, zoom }) {
+function ChangeView({ center, zoom}) {
   const map = useMap();
   map.setView(center, zoom);
   return null;
@@ -30,6 +30,7 @@ function Map({
   setDistrict,
   stateData,
   district22,
+  enacted
 }) {
   const [mapData, setMapData] = React.useState();
   const [map, setMap] = React.useState(null);
@@ -71,6 +72,12 @@ function Map({
   const district2020 = {
     color: "black",
     weight: 1,
+  };
+
+  const enactedPlan = {
+    color: "black",
+    weight: 1,
+    fillOpacity: 0.1
   };
 
   let colorDistrictEnsemble = (feature) => {
@@ -243,77 +250,85 @@ function Map({
           url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         />
+         {filter === "YR22" && stateValue == "" && (
+          <GeoJSON
+            data={pa2022.features}
+            style={district2020}
+            onEachFeature={userMovementChanges}
+          />
+        )}
+      {filter === "YR22" && stateValue == "" && (
+          <GeoJSON
+            data={tn2022.features}
+            style={district2020}
+            onEachFeature={userMovementChanges}
+          />
+        )}
+         {filter === "YR22" && stateValue == "" && (
+          <GeoJSON
+            data={ok2022.features}
+            style={district2020}
+            onEachFeature={userMovementChanges}
+          />
+        )}
 
-        {/* {filter === "YR20" && stateValue === "pa" && (
-          <GeoJSON data={pa2020.features} style={district2020} />
-        )}
-        {filter === "YR22" && stateValue === "pa" && (
-          <GeoJSON data={pa2022.features} style={colorDistrict} />
-        )}
-        {filter === "YR20" && stateValue === "ok" && (
-          <GeoJSON data={ok2020.features} style={district2020} />
-        )}
-        {filter === "YR22" && stateValue === "ok" && (
-          <GeoJSON data={ok2022.features} style={colorDistrict} />
-        )}
-        {filter === "YR20" && stateValue === "tn" && (
-          <GeoJSON data={tn2020.features} style={district2020} />
-        )}
-        {filter === "YR22" && stateValue === "tn" && (
-          <GeoJSON data={tn2022.features} style={colorDistrict} />
-        )} */}
-
-        {filter === "YR20" && (
+        {filter === "YR20" && stateValue == "pa" && (
           <GeoJSON
             data={pa2020.features}
             style={district2020}
             onEachFeature={userMovementChanges}
           />
         )}
-        {filter === "YR22" && (
+        {filter === "YR22" && stateValue == "pa" && (
           <GeoJSON
             data={pa2022.features}
             style={colorDistrict}
             onEachFeature={userMovementChanges}
           />
         )}
-        {filter === "YR20" && (
+        {filter === "YR20" && stateValue == "ok" && (
           <GeoJSON
             data={ok2020.features}
             style={district2020}
             onEachFeature={userMovementChanges}
           />
         )}
-        {filter === "YR22" && (
+        {filter === "YR22" && stateValue == "ok" && (
           <GeoJSON
             data={ok2022.features}
             style={colorDistrict}
             onEachFeature={userMovementChanges}
           />
         )}
-        {filter === "YR20" && (
+        {filter === "YR20" && stateValue == "tn" && (
           <GeoJSON
             data={tn2020.features}
             style={district2020}
             onEachFeature={userMovementChanges}
           />
         )}
-        {filter === "YR22" && (
+        {filter === "YR22" && stateValue == "tn" && (
           <GeoJSON
             data={tn2022.features}
             style={colorDistrict}
             onEachFeature={userMovementChanges}
           />
         )}
-       {filter == 1 && (
+       {filter == 1 && stateValue == "tn" &&  (
           <GeoJSON data={tn1.features} style={colorDistrictEnsemble} />
         )}
-        {filter == 2 && (
+        {filter == 2 && stateValue == "tn" &&  (
           <GeoJSON data={tn2.features} style={colorDistrictEnsemble} />
         )}
-        {filter == 3 && (
+        {filter == 3 && stateValue == "tn" && (
           <GeoJSON data={tn3.features} style={colorDistrictEnsemble} />
         )} 
+        {enacted  && stateValue == "tn" && (
+          <GeoJSON
+            data={tn2022.features}
+            style={enactedPlan}
+          />
+        )}
       </MapContainer>
     </>
   );

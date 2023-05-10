@@ -176,7 +176,7 @@ function IncumbentTable({ stateValue, district, setDistrict, district22 }) {
                           : ""}
                       </TableCell>
                       <TableCell className={classes.content} align="left">
-                        {row.electionResult ? "Win" : "Loss"}
+                        {row.electionResult ? "Win" : row.electionResult == "" ? "" : "Loss"}
                       </TableCell>
                       <TableCell className={classes.content} align="left">
                         {row["popVar"]}
@@ -187,7 +187,7 @@ function IncumbentTable({ stateValue, district, setDistrict, district22 }) {
                     </TableRow>
                   )
               )}
-            <TableRow></TableRow>
+            
           </TableBody>
         </Table>
       </TableContainer>

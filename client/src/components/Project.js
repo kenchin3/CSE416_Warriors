@@ -7,6 +7,9 @@ import Button from "@mui/material/Button";
 import Ensemble from "./Ensemble/Ensemble.js";
 import "./Project.css";
 import axios from "axios";
+import FormGroup from "@mui/material/FormGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Switch from "@mui/material/Switch";
 
 import { Paper, FormControl, Select, MenuItem } from "@mui/material";
 
@@ -18,6 +21,7 @@ function Project() {
   const [district, setDistrict] = React.useState(-1);
   const [districtPlan, setDistrictPlan] = React.useState(0);
   const [districtPlanYear, setDistrictPlanYear] = React.useState(2022);
+  const [enacted, setEnacted] = React.useState(false);
 
   const [incumbentData, setIncumbentData] = React.useState();
   const [districtEnsembleData, setdistrictEnsembleData] = React.useState();
@@ -50,6 +54,7 @@ function Project() {
 
   const handleChange = (event) => {
     setFilter(event.target.value);
+    setEnacted(false)
     if (event.target.value === "YR22" || event.target.value === "YR20") {
       setTabValue(1);
       setDistrictPlan(0);
@@ -66,11 +71,13 @@ function Project() {
     setTabValue(1);
     setFilter("YR22");
     setStateValue("");
+    setEnacted(false);
   };
 
   const resetState = () => {
     setTabValue(1);
     setFilter("YR22");
+    setEnacted(false)
   };
 
   const handleStateChange = (event) => {
@@ -161,6 +168,17 @@ function Project() {
                 </Button>
               </FormControl>
             </Paper>
+            <FormControlLabel
+            disabled={filter == "" || filter == "YR20" || filter == "YR22" ? true : false}
+            control={
+              <Switch
+                onChange={() => {
+                  setEnacted(!enacted);
+                }}
+              />
+            }
+            label="Enacted Plan"
+        />
           </div>
 
           {tabValue === 1 ? (
@@ -204,6 +222,7 @@ function Project() {
             setDistrict={setDistrict}
             stateData={stateData}
             district22={district22}
+            enacted={enacted}
           />
         </Grid>
       </Grid>

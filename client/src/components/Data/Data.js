@@ -26,56 +26,6 @@ function Data({
   ensembleData,
   district22,
 }) {
-  const [bWFilter, setbWFilter] = React.useState("geometric");
-  const [geoBW, setgeoBW] = React.useState();
-  const [popBW, setpopBW] = React.useState();
-
-  React.useEffect(() => {
-    if (ensembleData) {
-      let data = ensembleData.boxAndWhiskers[0]["data"];
-      let d = [];
-      for (let i = 0; i < data.length; i++) {
-        let row = { x: i.toString(), y: data[i] };
-        d.push(row);
-      }
-
-      data = ensembleData.boxAndWhiskers[0]["dots22"];
-      let dots = [];
-      for (let i = 0; i < data.length; i++) {
-        let row = { x: i.toString(), y: data[i] };
-        dots.push(row);
-      }
-      let bW = [
-        { type: "boxPlot", name: "Ensemble", data: d },
-        { type: "scatter", name: "2022 Incumbents", data: dots },
-      ];
-      // console.log(bW);
-      setgeoBW(bW);
-
-      data = ensembleData.boxAndWhiskers[1]["data"];
-      d = [];
-      for (let i = 0; i < data.length; i++) {
-        let row = { x: i.toString(), y: data[i] };
-        d.push(row);
-      }
-      data = ensembleData.boxAndWhiskers[0]["dots22"];
-      dots = [];
-      for (let i = 0; i < data.length; i++) {
-        let row = { x: i.toString(), y: data[i] };
-        dots.push(row);
-      }
-      bW = [
-        { type: "boxPlot", name: "Ensemble", data: d },
-        { type: "scatter", name: "2022 Incumbents", data: dots },
-      ];
-      setpopBW(bW);
-    }
-  }, [ensembleData]);
-
-  const handleBWFilter = (event) => {
-    setbWFilter(event.target.value);
-    // console.log(bWFilter);
-  };
 
   return (
     <>
@@ -90,6 +40,9 @@ function Data({
           {district22 && (
             <SeatGraph stateValue={stateValue} district22={district22} />
           )}
+          {district22 && <span> {district22.party_influence}  </span>} <br></br>
+          {district22 && <span>Safe seat and party influence are taken from <a target="_blank" href="https://www.cnn.com/interactive/2022/politics/us-redistricting/">CNN</a>.</span>}
+    
         </AccordionDetails>
       </Accordion>
       <Accordion disableGutters className="accordion">
@@ -118,43 +71,12 @@ function Data({
             <span className="accordionHeader"> Incumbent Box Plot</span>
           </Typography>
         </AccordionSummary>
-        <FormControl className="paper2ContentEnsemble">
-          <span className="paper2InsideEnsemble">
-            <RadioGroup
-              defaultValue="geometric"
-              name="radio-buttons-group"
-              row={true}
-              onChange={handleBWFilter}
-            >
-              <span className="paper2HeaderEnsemble">
-                Variation Comparison:
-              </span>
-              <span className="paper2OptionsEnsemble">
-                <FormControlLabel
-                  className="formControlLabelEnsemble"
-                  value="geometric"
-                  control={<Radio />}
-                  label="geometric"
-                />
-                <FormControlLabel
-                  className="formControlLabelEnsemble"
-                  value="population"
-                  control={<Radio />}
-                  label="population"
-                />
-              </span>
-            </RadioGroup>
-          </span>
-        </FormControl>
 
         {stateValue && (
           <BoxPlot
             stateValue={stateValue}
-            bWData={bWFilter == "geometric" ? geoBW : popBW}
+            ensembleData={ensembleData}
           />
-        )}
-        {stateValue && (
-          <BarGraph stateValue={stateValue} ensembleData={ensembleData} />
         )}
       </Accordion>
     </>

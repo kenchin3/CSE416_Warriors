@@ -16,7 +16,7 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
-function Ensemble({ district, setDistrict, stateValue, setStateValue, districtPlan, ensembleData, districtsRandom1, districtsRandom2, districtsRandom3 }) {
+function Ensemble({ district, setDistrict, stateValue, setStateValue, districtPlan, ensembleData, districtsRandom1, districtsRandom2, districtsRandom3, bWFilter }) {
   return (
     <>
       {/* <Accordion className="accordionEnsemble">
@@ -66,36 +66,13 @@ function Ensemble({ district, setDistrict, stateValue, setStateValue, districtPl
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <FormControl className="paper2ContentEnsemble">
-            <span className="paper2InsideEnsemble">
-              <RadioGroup
-                defaultValue="Geometric Variation"
-                name="radio-buttons-group"
-                row={true}
-              >
-                <span className="paper2HeaderEnsemble">
-                  Variation Comparison:
-                </span>
-                <span className="paper2OptionsEnsemble">
-                  <FormControlLabel
-                    className="formControlLabelEnsemble"
-                    value="Geometric Variation"
-                    control={<Radio />}
-                    label="Geometric"
-                  />
-                  <FormControlLabel
-                    className="formControlLabelEnsemble"
-                    value="Population Variation"
-                    control={<Radio />}
-                    label="Population"
-                  />
-                </span>
-              </RadioGroup>
-            </span>
-          </FormControl>
-
-          <BoxPlot stateValue={stateValue} ensembleData={ensembleData} />
-          <BarGraph stateValue={stateValue} ensembleData={ensembleData} />
+         
+          {stateValue && (
+            <BoxPlot
+              stateValue={stateValue}
+              ensembleData={ensembleData}
+            />
+          )}
         </AccordionDetails>
       </Accordion>
     </>

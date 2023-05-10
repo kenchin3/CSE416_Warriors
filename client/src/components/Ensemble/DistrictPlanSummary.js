@@ -153,11 +153,7 @@ function DistrictPlanSummary({
       {
         name: "Republican",
         data: currData ? [currData.open_rep + currData.safe_rep] : [0],
-      },
-      {
-        name: "Open",
-        data: [0],
-      },
+      }
     ];
 
     return res;
@@ -178,7 +174,55 @@ function DistrictPlanSummary({
   });
 
   const seatGraphOptions = {
-    colors: ["#0015BC", "#FF0000", "grey"],
+    colors: ["#0015BC", "#FF0000"],
+    chart: {
+      type: "bar",
+      stacked: true,
+      toolbar: {
+        show: false,
+      },
+      sparkline: {
+        enabled: false,
+      },
+    },
+    plotOptions: {
+      bar: {
+        horizontal: true,
+        dataLabels: {
+          total: {
+            enabled: true,
+            offsetX: 0,
+            style: {
+              fontSize: "11px",
+              fontWeight: 550,
+            },
+          },
+        },
+      },
+    },
+    stroke: {
+      width: 1,
+    },
+    xaxis: {
+      categories: ["Total Seats"],
+      labels: {
+        formatter: function (val) {
+          return val;
+        },
+      },
+    },
+    fill: {
+      opacity: 1,
+    },
+    legend: {
+      position: "bottom",
+      horizontalAlign: "left",
+      offsetX: 30,
+    },
+  };
+
+  const seatGraphOptions1 = {
+    colors: ["#0015BC", "#FF0000"],
     chart: {
       type: "bar",
       stacked: true,
@@ -234,13 +278,12 @@ function DistrictPlanSummary({
         stateValue={stateValue}
         districtPlan={districtPlan}
         ensembleData={ensembleData}
-        // districtEnsembleData={districtEnsembleData}
       />
       <ReactApexChart
-        options={seatGraphOptions}
+        options={seatGraphOptions1}
         series={getOpenData(districtPlan)}
         type="bar"
-        height="110"
+        height="130"
       />
 
       <ReactApexChart
