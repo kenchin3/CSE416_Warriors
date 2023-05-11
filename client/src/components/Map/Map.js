@@ -10,6 +10,12 @@ import tn2022 from "../../geoJSON/tn2022.json";
 import tn1 from "../../geoJSON/plan_0_boundary.json";
 import tn2 from "../../geoJSON/plan_1_boundary.json";
 import tn3 from "../../geoJSON/plan_2_boundary.json";
+// import ok1 from "../../geoJSON/ok1.json";
+// import ok2 from "../../geoJSON/ok2.json";
+// import ok3 from "../../geoJSON/ok3.json";
+// import pa1 from "../../geoJSON/pa1.json";
+// import pa2 from "../../geoJSON/pa2.json";
+// import pa3 from "../../geoJSON/pa3.json";
 import L from "leaflet";
 import leafletPip from "@mapbox/leaflet-pip";
 
@@ -111,7 +117,7 @@ function Map({
       fillColor: colors[parseInt(feature.properties["CD"])],
       color: "grey",
       weight: 0.5,
-      fillOpacity: 0.5,
+      fillOpacity: (districtValue + 1) == parseInt(feature.properties["CD"]) ? 5.0 : 0.3,
     };
   };
 

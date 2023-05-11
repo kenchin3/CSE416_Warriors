@@ -48,6 +48,7 @@ function Project() {
           setDistrictR1(res.data.districtsRandom1.data);
           setDistrictR2(res.data.districtsRandom2.data);
           setDistrictR3(res.data.districtsRandom3.data);
+          setFilter("YR22");
         });
     }
   }, [stateValue]);
@@ -128,6 +129,7 @@ function Project() {
                   displayEmpty
                   value={filter}
                   onChange={handleChange}
+                  disabled = {stateValue == "" ? true : false}
                 >
                   <MenuItem className="selectState" value={"YR22"}>
                     <em>
@@ -168,6 +170,7 @@ function Project() {
                 </Button>
               </FormControl>
             </Paper>
+            
             <FormControlLabel
             disabled={filter == "" || filter == "YR20" || filter == "YR22" ? true : false}
             control={
@@ -178,7 +181,7 @@ function Project() {
               />
             }
             label="Enacted Plan"
-        />
+          />
           </div>
 
           {tabValue === 1 ? (

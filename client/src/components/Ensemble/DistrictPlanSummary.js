@@ -15,7 +15,7 @@ import {
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import "./DistrictDataSummary.css";
 
-function DistrictPlanSummaryTable({ currData, setDistrict }) {
+function DistrictPlanSummaryTable({ currData, district, setDistrict }) {
   const [pg, setpg] = React.useState(0);
   const [rpg, setrpg] = React.useState(5);
 
@@ -23,7 +23,7 @@ function DistrictPlanSummaryTable({ currData, setDistrict }) {
     setpg(newpage);
   }
 
-  console.log("cd: " + JSON.stringify(currData));
+  // console.log("cd: " + JSON.stringify(currData));
 
   function handleChangeRowsPerPage(event) {
     setrpg(parseInt(event.target.value, 10));
@@ -38,30 +38,28 @@ function DistrictPlanSummaryTable({ currData, setDistrict }) {
               key={row.district}
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               onClick={() => {
+           
                 setDistrict(parseInt(row.district) - 1);
               }}
+              className="districtEnsembleRow"
+              style={{
+                backgroundColor:
+                  district == -1
+                    ? "white"
+                    : parseInt(row.district) - 1 == district
+                    ? "#D3D3D3"
+                    : "white",
+              }}
             >
-              <TableCell align="center">{row.district}</TableCell>
-              <TableCell align="center"> </TableCell>
-              <TableCell align="center">{row.win_cand}</TableCell>
-              <TableCell align="center">{row.win_party}</TableCell>
+              <TableCell align="center">{parseInt(row.district)}</TableCell>
+             
+              <TableCell align="center">{row.incumbent}</TableCell>
+             
               <TableCell align="center">{row.geo_var}</TableCell>
               <TableCell align="center">{row.pop_var}</TableCell>
-              {/* <TableCell
-             align="center"
-           >
-             {row.dem_split}
-           </TableCell>
-           <TableCell
-             align="center"
-           >
-             {row.rep_split}
-           </TableCell>
-           <TableCell
-             align="center"
-           >
-             {row.safe_seat}
-           </TableCell> */}
+              <TableCell align="center">{row.geo_diff}</TableCell>
+              <TableCell align="center">{row.pop_diff}</TableCell>
+          
             </TableRow>
           ))}
         <TableRow>
@@ -316,17 +314,19 @@ function DistrictPlanSummary({
                 Incumbent
               </TableCell>
               <TableCell className={classes.header} align="center">
-                Winner
-              </TableCell>
-              <TableCell className={classes.header} align="center">
-                Winner Party
-              </TableCell>
-              <TableCell className={classes.header} align="center">
                 Geometric Variance
               </TableCell>
               <TableCell className={classes.header} align="center">
                 Population Variance
               </TableCell>
+              <TableCell className={classes.header} align="center">
+                Geometric Difference
+              </TableCell>
+              <TableCell className={classes.header} align="center">
+                Population Difference
+              </TableCell>
+
+              
               {/* <TableCell className={classes.header} align="center">
                 Dem Votes
               </TableCell>
@@ -341,18 +341,21 @@ function DistrictPlanSummary({
           <TableBody>
             {districtPlan == 1 && (
               <DistrictPlanSummaryTable
+                district={district}
                 currData={random1Data}
                 setDistrict={setDistrict}
               ></DistrictPlanSummaryTable>
             )}
             {districtPlan == 2 && (
               <DistrictPlanSummaryTable
+                district={district}
                 currData={random2Data}
                 setDistrict={setDistrict}
               ></DistrictPlanSummaryTable>
             )}
             {districtPlan == 3 && (
               <DistrictPlanSummaryTable
+                district={district}
                 currData={random3Data}
                 setDistrict={setDistrict}
               ></DistrictPlanSummaryTable>

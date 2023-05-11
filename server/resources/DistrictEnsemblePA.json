@@ -4,8 +4,8 @@
     "districtPlanID": "RANDOM1",
     "safe_dem": 0,
     "safe_rep": 0,
-    "open_Dem": 0,
-    "openRep": 0,
+    "open_dem": 0,
+    "open_rep": 0,
     "incumbents_win": 0,
     "districts": [
     ]
@@ -15,8 +15,8 @@
     "districtPlanID": "RANDOM2",
     "safe_dem": 0,
     "safe_rep": 0,
-    "open_Dem": 0,
-    "openRep": 0,
+    "open_dem": 0,
+    "open_rep": 0,
     "incumbents_win": 0,
     "districts": [
     ]
@@ -26,8 +26,8 @@
     "districtPlanID": "RANDOM3",
     "safe_dem": 0,
     "safe_rep": 0,
-    "open_Dem": 0,
-    "openRep": 0,
+    "open_dem": 0,
+    "open_rep": 0,
     "incumbents_win": 0,
     "districts": [
     ]
@@ -37,6 +37,11 @@
         "districtPlanID": "YR22",
         "dem_split": 9,
         "rep_split": 8,
+        "safe_dem": 7,
+        "safe_rep": 6,
+        "open_dem": 2,
+        "open_rep": 2,
+        "party_influence": "The enacted plan was drawn by the Pennsylvania's courts as the Deomcratic governer and Republican legislature weren't able to reach an agreement. Pennsylvania lost a seat in the House after the 2020 census.",
         "districts": [
             {
                 "districtPlanID": "YR22",

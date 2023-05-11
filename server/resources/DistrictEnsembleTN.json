@@ -12,109 +12,173 @@
       "districtPlanID": "RANDOM1",
       "state": "TN",
       "win_party": "rep",
-      "win_cand": "Chuck Fleischmann",
-      "dem_split": 119068,
-      "rep_split": 218580,
-      "safe_seat": "yes",
-      "district": "03",
-      "pop_diff": 0.037,
-      "geo_diff": 0.178
-    },
-    {
-      "districtPlanID": "RANDOM1",
-      "state": "TN",
-      "win_party": "rep",
       "win_cand": "Diana Harshbarger",
+      "incumbent": "Diana Harshbarger",
       "dem_split": 67741,
       "rep_split": 234440,
       "safe_seat": "yes",
       "district": "01",
       "pop_diff": 0.13,
-      "geo_diff": 0.202
-    },
-    {
-      "districtPlanID": "RANDOM1",
-      "state": "TN",
-      "win_party": "rep",
-      "win_cand": "Mark Green",
-      "dem_split": 129835,
-      "rep_split": 262232,
-      "safe_seat": "yes",
-      "district": "07",
-      "pop_diff": -0.116,
-      "geo_diff": -0.185
-    },
-    {
-      "districtPlanID": "RANDOM1",
-      "state": "TN",
-      "win_party": "dem",
-      "win_cand": "Steve Cohen",
-      "dem_split": 220505,
-      "rep_split": 90177,
-      "safe_seat": "yes",
-      "district": "09",
-      "pop_diff": -0.056,
-      "geo_diff": -0.445
-    },
-    {
-      "districtPlanID": "RANDOM1",
-      "state": "TN",
-      "win_party": "rep",
-      "win_cand": "David Kustoff",
-      "dem_split": 104227,
-      "rep_split": 239050,
-      "safe_seat": "yes",
-      "district": "08",
-      "pop_diff": 0.291,
-      "geo_diff": 0.303
-    },
-    {
-      "districtPlanID": "RANDOM1",
-      "state": "TN",
-      "win_party": "rep",
-      "win_cand": "John Rose",
-      "dem_split": 73333,
-      "rep_split": 260048,
-      "safe_seat": "yes",
-      "district": "06",
-      "pop_diff": 0.11,
-      "geo_diff": 0.411
-    },
-    {
-      "districtPlanID": "RANDOM1",
-      "state": "TN",
-      "win_party": "rep",
-      "win_cand": "Scott DesJarlais",
-      "dem_split": 133646,
-      "rep_split": 198414,
-      "safe_seat": "no",
-      "district": "04",
-      "pop_diff": -0.079,
-      "geo_diff": -0.568
+      "geo_diff": 0.202, 
+      "pop_var": 0.13,
+      "geo_var": 0.202,
+      "wht_diff": 0.0738838074, 
+      "blk_diff": 0.0862293412, 
+      "asn_diff": -0.3964874493, 
+      "hsp_diff": 0.4239090909
     },
     {
       "districtPlanID": "RANDOM1",
       "state": "TN",
       "win_party": "rep",
       "win_cand": "Tim Burchett",
+      "incumbent": "Tim Burchett",
       "dem_split": 116805,
       "rep_split": 210948,
       "safe_seat": "yes",
       "district": "02",
       "pop_diff": -0.048,
-      "geo_diff": 0.156
+      "geo_diff": 0.156, 
+      "pop_var": -0.048,
+      "geo_var": 0.156,
+      "wht_diff": 0.0738838074, 
+      "blk_diff": 0.0862293412, 
+      "asn_diff": -0.3964874493, 
+      "hsp_diff": 0.4239090909
+    },
+    {
+      "districtPlanID": "RANDOM1",
+      "state": "TN",
+      "win_party": "rep",
+      "win_cand": "Chuck Fleischmann",
+      "incumbent": "Charles J. Fleischmann",
+      "dem_split": 119068,
+      "rep_split": 218580,
+      "safe_seat": "yes",
+      "district": "03",
+      "pop_diff": 0.037,
+      "geo_diff": 0.178,
+      "pop_var": 0.037,
+      "geo_var": 0.178, 
+      "wht_diff": 0.0738838074, 
+      "blk_diff": 0.0862293412, 
+      "asn_diff": -0.3964874493, 
+      "hsp_diff": 0.4239090909
+    },
+    {
+      "districtPlanID": "RANDOM1",
+      "state": "TN",
+      "win_party": "rep",
+      "win_cand": "Scott DesJarlais",
+      "incumbent": "Scott DesJarlais",
+      "dem_split": 133646,
+      "rep_split": 198414,
+      "safe_seat": "no",
+      "district": "04",
+      "pop_diff": -0.079,
+      "geo_diff": -0.568, 
+      "pop_var": -0.079,
+      "geo_var": -0.568,
+      "wht_diff": 0.0738838074, 
+      "blk_diff": 0.0862293412, 
+      "asn_diff": -0.3964874493, 
+      "hsp_diff": 0.4239090909
     },
     {
       "districtPlanID": "RANDOM1",
       "state": "TN",
       "win_party": "dem",
       "win_cand": "Jim Cooper",
+      "incumbent": "None",
       "dem_split": 178551,
       "rep_split": 138586,
       "safe_seat": "no",
       "district": "05",
       "pop_diff": -0.124,
-      "geo_diff": -0.398
+      "geo_diff": -0.398, 
+      "pop_var": -0.124,
+      "geo_var": -0.398, 
+      "wht_diff": 0.0738838074, 
+      "blk_diff": 0.0862293412, 
+      "asn_diff": -0.3964874493, 
+      "hsp_diff": 0.4239090909
+    },
+    
+    {
+      "districtPlanID": "RANDOM1",
+      "state": "TN",
+      "win_party": "rep",
+      "win_cand": "John Rose",
+      "incumbent": "John Rose",
+      "dem_split": 73333,
+      "rep_split": 260048,
+      "safe_seat": "yes",
+      "district": "06",
+      "pop_diff": 0.11,
+      "geo_diff": 0.411, 
+      "pop_var": 0.11,
+      "geo_var": 0.411,
+      "wht_diff": 0.0738838074, 
+      "blk_diff": 0.0862293412, 
+      "asn_diff": -0.3964874493, 
+      "hsp_diff": 0.4239090909
+    },
+    {
+      "districtPlanID": "RANDOM1",
+      "state": "TN",
+      "win_party": "rep",
+      "win_cand": "Mark Green",
+      "incumbent": "Mark Green",
+      "dem_split": 129835,
+      "rep_split": 262232,
+      "safe_seat": "yes",
+      "district": "07",
+      "pop_diff": -0.116,
+      "geo_diff": -0.185, 
+      "pop_var": -0.116,
+      "geo_var": -0.185, 
+      "wht_diff": 0.0738838074, 
+      "blk_diff": 0.0862293412, 
+      "asn_diff": -0.3964874493, 
+      "hsp_diff": 0.4239090909
+    },
+    {
+      "districtPlanID": "RANDOM1",
+      "state": "TN",
+      "win_party": "rep",
+      "win_cand": "David Kustoff",
+      "incumbent": "David Kustoff",
+      "dem_split": 104227,
+      "rep_split": 239050,
+      "safe_seat": "yes",
+      "district": "08",
+      "pop_diff": 0.291,
+      "geo_diff": 0.303, 
+      "pop_var": 0.291,
+      "geo_var": 0.303, 
+      "wht_diff": 0.0738838074, 
+      "blk_diff": 0.0862293412, 
+      "asn_diff": -0.3964874493, 
+      "hsp_diff": 0.4239090909
+    },
+    {
+      "districtPlanID": "RANDOM1",
+      "state": "TN",
+      "win_party": "dem",
+      "win_cand": "Steve Cohen",
+      "incumbent": "Charlotte Bergmann",
+      "dem_split": 220505,
+      "rep_split": 90177,
+      "safe_seat": "yes",
+      "district": "09",
+      "pop_diff": -0.056,
+      "geo_diff": -0.445, 
+      "pop_var": -0.056,
+      "geo_var": -0.445,
+      "wht_diff": 0.0738838074, 
+      "blk_diff": 0.0862293412, 
+      "asn_diff": -0.3964874493, 
+      "hsp_diff": 0.4239090909
     }
   ]
 },
@@ -138,7 +202,11 @@
       "safe_seat": "yes",
       "district": "02",
       "pop_diff": -0.02,
-      "geo_diff": 1.332
+      "geo_diff": 1.332, 
+      "wht_diff": 0.0738838074, 
+      "blk_diff": 0.0862293412, 
+      "asn_diff": -0.3964874493, 
+      "hsp_diff": 0.4239090909
     },
     {
       "districtPlanID": "RANDOM1",
@@ -150,7 +218,11 @@
       "safe_seat": "yes",
       "district": "04",
       "pop_diff": -0.118,
-      "geo_diff": 0.002
+      "geo_diff": 0.002, 
+      "wht_diff": 0.0738838074, 
+      "blk_diff": 0.0862293412, 
+      "asn_diff": -0.3964874493, 
+      "hsp_diff": 0.4239090909
     },
     {
       "districtPlanID": "RANDOM1",
@@ -162,7 +234,11 @@
       "safe_seat": "yes",
       "district": "01",
       "pop_diff": 0.052,
-      "geo_diff": 0.118
+      "geo_diff": 0.118, 
+      "wht_diff": 0.0738838074, 
+      "blk_diff": 0.0862293412, 
+      "asn_diff": -0.3964874493, 
+      "hsp_diff": 0.4239090909
     },
     {
       "districtPlanID": "RANDOM1",
@@ -174,7 +250,11 @@
       "safe_seat": "yes",
       "district": "08",
       "pop_diff": 0.3,
-      "geo_diff": 0.64
+      "geo_diff": 0.64, 
+      "wht_diff": 0.0738838074, 
+      "blk_diff": 0.0862293412, 
+      "asn_diff": -0.3964874493, 
+      "hsp_diff": 0.4239090909
     },
     {
       "districtPlanID": "RANDOM1",
@@ -186,7 +266,11 @@
       "safe_seat": "yes",
       "district": "03",
       "pop_diff": -0.018,
-      "geo_diff": -0.445
+      "geo_diff": -0.445, 
+      "wht_diff": 0.0738838074, 
+      "blk_diff": 0.0862293412, 
+      "asn_diff": -0.3964874493, 
+      "hsp_diff": 0.4239090909
     },
     {
       "districtPlanID": "RANDOM1",
@@ -198,7 +282,11 @@
       "safe_seat": "yes",
       "district": "09",
       "pop_diff": 0.098,
-      "geo_diff": 0.578
+      "geo_diff": 0.578, 
+      "wht_diff": 0.0738838074, 
+      "blk_diff": 0.0862293412, 
+      "asn_diff": -0.3964874493, 
+      "hsp_diff": 0.4239090909
     },
     {
       "districtPlanID": "RANDOM1",
@@ -210,7 +298,11 @@
       "safe_seat": "no",
       "district": "05",
       "pop_diff": -0.173,
-      "geo_diff": 0.138
+      "geo_diff": 0.138, 
+      "wht_diff": 0.0738838074, 
+      "blk_diff": 0.0862293412, 
+      "asn_diff": -0.3964874493, 
+      "hsp_diff": 0.4239090909
     },
     {
       "districtPlanID": "RANDOM1",
@@ -222,7 +314,11 @@
       "safe_seat": "yes",
       "district": "07",
       "pop_diff": -0.168,
-      "geo_diff": -0.595
+      "geo_diff": -0.595, 
+      "wht_diff": 0.0738838074, 
+      "blk_diff": 0.0862293412, 
+      "asn_diff": -0.3964874493, 
+      "hsp_diff": 0.4239090909
     },
     {
       "districtPlanID": "RANDOM1",
@@ -234,7 +330,11 @@
       "safe_seat": "no",
       "district": "06",
       "pop_diff": 0.201,
-      "geo_diff": -0.376
+      "geo_diff": -0.376, 
+      "wht_diff": 0.0738838074, 
+      "blk_diff": 0.0862293412, 
+      "asn_diff": -0.3964874493, 
+      "hsp_diff": 0.4239090909
     }
   ]
 },
@@ -257,7 +357,11 @@
       "safe_seat": "yes",
       "district": "01",
       "pop_diff": 0.037,
-      "geo_diff": 0.072
+      "geo_diff": 0.072, 
+      "wht_diff": 0.0738838074, 
+      "blk_diff": 0.0862293412, 
+      "asn_diff": -0.3964874493, 
+      "hsp_diff": 0.4239090909
     },
     {
       "districtPlanID": "RANDOM1",
@@ -269,7 +373,11 @@
       "safe_seat": "yes",
       "district": "03",
       "pop_diff": 0.002,
-      "geo_diff": 0.249
+      "geo_diff": 0.249, 
+      "wht_diff": 0.0738838074, 
+      "blk_diff": 0.0862293412, 
+      "asn_diff": -0.3964874493, 
+      "hsp_diff": 0.4239090909
     },
     {
       "districtPlanID": "RANDOM1",
@@ -281,7 +389,11 @@
       "safe_seat": "yes",
       "district": "07",
       "pop_diff": -0.147,
-      "geo_diff": -0.281
+      "geo_diff": -0.281, 
+      "wht_diff": 0.0738838074, 
+      "blk_diff": 0.0862293412, 
+      "asn_diff": -0.3964874493, 
+      "hsp_diff": 0.4239090909
     },
     {
       "districtPlanID": "RANDOM1",
@@ -293,7 +405,11 @@
       "safe_seat": "yes",
       "district": "08",
       "pop_diff": 0.257,
-      "geo_diff": 0.382
+      "geo_diff": 0.382, 
+      "wht_diff": 0.0738838074, 
+      "blk_diff": 0.0862293412, 
+      "asn_diff": -0.3964874493, 
+      "hsp_diff": 0.4239090909
     },
     {
       "districtPlanID": "RANDOM1",
@@ -305,7 +421,11 @@
       "safe_seat": "yes",
       "district": "02",
       "pop_diff": -0.021,
-      "geo_diff": -0.008
+      "geo_diff": -0.008, 
+      "wht_diff": 0.0738838074, 
+      "blk_diff": 0.0862293412, 
+      "asn_diff": -0.3964874493, 
+      "hsp_diff": 0.4239090909
     },
     {
       "districtPlanID": "RANDOM1",
@@ -317,7 +437,11 @@
       "safe_seat": "no",
       "district": "04",
       "pop_diff": -0.106,
-      "geo_diff": -0.546
+      "geo_diff": -0.546, 
+      "wht_diff": 0.0738838074, 
+      "blk_diff": 0.0862293412, 
+      "asn_diff": -0.3964874493, 
+      "hsp_diff": 0.4239090909
     },
     {
       "districtPlanID": "RANDOM1",
@@ -329,7 +453,11 @@
       "safe_seat": "no",
       "district": "05",
       "pop_diff": 0.021,
-      "geo_diff": 0.366
+      "geo_diff": 0.366, 
+      "wht_diff": 0.0738838074, 
+      "blk_diff": 0.0862293412, 
+      "asn_diff": -0.3964874493, 
+      "hsp_diff": 0.4239090909
     },
     {
       "districtPlanID": "RANDOM1",
@@ -341,7 +469,11 @@
       "safe_seat": "yes",
       "district": "06",
       "pop_diff": 0.101,
-      "geo_diff": 0.377
+      "geo_diff": 0.377, 
+      "wht_diff": 0.0738838074, 
+      "blk_diff": 0.0862293412, 
+      "asn_diff": -0.3964874493, 
+      "hsp_diff": 0.4239090909
     },
     {
       "districtPlanID": "RANDOM1",
@@ -353,7 +485,11 @@
       "safe_seat": "yes",
       "district": "09",
       "pop_diff": -0.037,
-      "geo_diff": -0.373
+      "geo_diff": -0.373, 
+      "wht_diff": 0.0738838074, 
+      "blk_diff": 0.0862293412, 
+      "asn_diff": -0.3964874493, 
+      "hsp_diff": 0.4239090909
     }
   ]
 },
@@ -361,7 +497,12 @@
   "state": "TN",
   "districtPlanID": "YR22",
   "dem_split": 1,
-  "rep_split": 7,
+  "rep_split": 8,
+  "safe_dem": 1,
+  "safe_rep": 7,
+  "open_dem": 0,
+  "open_rep": 1,
+  "party_influence": "The enacted plan was drawn by Republicans. The new plan splits Davidson Country into three districts which shifts the Republican/Democrat split from 7/2 to 8/1. District 5 representative Democract Jim Cooper didn't seek relection for 2022.",
   "districts": [
     {
       "districtPlanID": "YR22",

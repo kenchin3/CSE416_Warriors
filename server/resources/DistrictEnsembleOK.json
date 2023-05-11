@@ -4,8 +4,8 @@
         "districtPlanID": "RANDOM1",
         "safe_dem": 0,
         "safe_rep": 0,
-        "open_Dem": 0,
-        "openRep": 0,
+        "open_dem": 0,
+        "open_rep": 0,
         "incumbents_win": 0,
         "districts": [
         ]
@@ -15,8 +15,8 @@
         "districtPlanID": "RANDOM2",
         "safe_dem": 0,
         "safe_rep": 0,
-        "open_Dem": 0,
-        "openRep": 0,
+        "open_dem": 0,
+        "open_rep": 0,
         "incumbents_win": 0,
         "districts": [
         ]
@@ -26,8 +26,8 @@
         "districtPlanID": "RANDOM3",
         "safe_dem": 0,
         "safe_rep": 0,
-        "open_Dem": 0,
-        "openRep": 0,
+        "open_dem": 0,
+        "open_rep": 0,
         "incumbents_win": 0,
         "districts": [
         ]
@@ -37,6 +37,11 @@
         "districtPlanID": "YR22",
         "dem_split": 0,
         "rep_split": 5,
+        "safe_dem": 0,
+        "safe_rep": 5,
+        "open_dem": 0,
+        "open_rep": 0,
+        "party_influence": "The enacted plan was drawn by the Republican Party. It makes OK's 5th district more secure for Republicans. Gov. Kevin Stitt approved the map in Nov 2021. ",
         "districts":
         [
             {

@@ -48,7 +48,7 @@ function Data({
       <Accordion disableGutters className="accordion">
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
           <Typography>
-            <span className="accordionHeader">2022 Incumbent Information</span>
+            <span className="accordionHeader">2022 District Information</span>
           </Typography>
         </AccordionSummary>
 

@@ -9,3 +9,7 @@
   font-weight: 400;
   font-family: "Helvetica";
 }
+
+.districtEnsembleRow:hover {
+  cursor: pointer;
+}
