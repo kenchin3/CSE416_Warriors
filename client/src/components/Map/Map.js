@@ -7,9 +7,9 @@ import ok2020 from "../../geoJSON/ok2020.json";
 import ok2022 from "../../geoJSON/ok2022.json";
 import tn2020 from "../../geoJSON/tn2020.json";
 import tn2022 from "../../geoJSON/tn2022.json";
-import tn1 from "../../geoJSON/plan_0_boundary.json";
-import tn2 from "../../geoJSON/plan_1_boundary.json";
-import tn3 from "../../geoJSON/plan_2_boundary.json";
+// import tn1 from "../../geoJSON/plan_0_boundary.json";
+// import tn2 from "../../geoJSON/plan_1_boundary.json";
+// import tn3 from "../../geoJSON/plan_2_boundary.json";
 // import ok1 from "../../geoJSON/ok1.json";
 // import ok2 from "../../geoJSON/ok2.json";
 // import ok3 from "../../geoJSON/ok3.json";
@@ -41,15 +41,23 @@ function Map({
   const [mapData, setMapData] = React.useState();
   const [map, setMap] = React.useState(null);
   const [incumbentData, setIncumbentData] = React.useState();
+  const [tn1, setTn1] = React.useState();
+  const [tn2, setTn2] = React.useState();
+  const [tn3, setTn3] = React.useState();
 
   React.useEffect(() => {
-    if (stateValue) {
-      axios
-        .get("http://localhost:8080/api/getMapByState", {
-          params: { state: stateValue.toUpperCase() },
-        })
+    if (stateValue == "tn") {
+      axios.get("http://localhost:8080/file/download/" + "tnRandom1")
         .then((res) => {
-          setMapData(res.data);
+          setTn1(res.data);
+        });
+      axios.get("http://localhost:8080/file/download/" + "tnRandom2")
+        .then((res) => {
+          setTn2(res.data);
+        });
+      axios.get("http://localhost:8080/file/download/" + "tnRandom3")
+        .then((res) => {
+          setTn3(res.data);
         });
     }
   }, [stateValue]);
@@ -320,13 +328,13 @@ function Map({
             onEachFeature={userMovementChanges}
           />
         )}
-       {filter == 1 && stateValue == "tn" &&  (
+       {filter == 1 && stateValue == "tn" && tn1 && (
           <GeoJSON data={tn1.features} style={colorDistrictEnsemble} />
         )}
-        {filter == 2 && stateValue == "tn" &&  (
+        {filter == 2 && stateValue == "tn" && tn2 &&  (
           <GeoJSON data={tn2.features} style={colorDistrictEnsemble} />
         )}
-        {filter == 3 && stateValue == "tn" && (
+        {filter == 3 && stateValue == "tn" && tn3 && (
           <GeoJSON data={tn3.features} style={colorDistrictEnsemble} />
         )} 
         {enacted  && stateValue == "tn" && (
