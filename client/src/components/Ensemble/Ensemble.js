@@ -16,7 +16,18 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
-function Ensemble({ district, setDistrict, stateValue, setStateValue, districtPlan, ensembleData, districtsRandom1, districtsRandom2, districtsRandom3, bWFilter }) {
+function Ensemble({
+  district,
+  setDistrict,
+  stateValue,
+  setStateValue,
+  districtPlan,
+  ensembleData,
+  districtsRandom1,
+  districtsRandom2,
+  districtsRandom3,
+  bWFilter,
+}) {
   return (
     <>
       {/* <Accordion className="accordionEnsemble">
@@ -36,29 +47,30 @@ function Ensemble({ district, setDistrict, stateValue, setStateValue, districtPl
         </AccordionDetails>
       </Accordion> */}
 
-      <Accordion className="accordionEnsemble">
+      <Accordion disableGutters className="accordionEnsembleStart">
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
           <Typography>
             {" "}
             <span className="accordionHeaderEnsemble">
-             Random District Plan {districtPlan} Outcome
+              Random District Plan {districtPlan} Outcome
             </span>
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <DistrictPlanSummary  
+          <DistrictPlanSummary
             district={district}
             setDistrict={setDistrict}
             stateValue={stateValue}
             districtPlan={districtPlan}
             ensembleData={ensembleData}
             districtsRandom1={districtsRandom1}
-            districtsRandom2={districtsRandom2} 
-            districtsRandom3={districtsRandom3}  />
+            districtsRandom2={districtsRandom2}
+            districtsRandom3={districtsRandom3}
+          />
         </AccordionDetails>
       </Accordion>
 
-      <Accordion className="accordionEnsemble">
+      <Accordion disableGutters className="accordionEnsemble">
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
           <Typography>
             {" "}
@@ -66,12 +78,8 @@ function Ensemble({ district, setDistrict, stateValue, setStateValue, districtPl
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
-         
           {stateValue && (
-            <BoxPlot
-              stateValue={stateValue}
-              ensembleData={ensembleData}
-            />
+            <BoxPlot stateValue={stateValue} ensembleData={ensembleData} />
           )}
         </AccordionDetails>
       </Accordion>
