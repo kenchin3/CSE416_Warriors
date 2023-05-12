@@ -55,7 +55,7 @@ function Project() {
 
   const handleChange = (event) => {
     setFilter(event.target.value);
-    setEnacted(false)
+    setEnacted(false);
     if (event.target.value === "YR22" || event.target.value === "YR20") {
       setTabValue(1);
       setDistrictPlan(0);
@@ -73,12 +73,13 @@ function Project() {
     setFilter("YR22");
     setStateValue("");
     setEnacted(false);
+    setDistrict22(null);
   };
 
   const resetState = () => {
     setTabValue(1);
     setFilter("YR22");
-    setEnacted(false)
+    setEnacted(false);
   };
 
   const handleStateChange = (event) => {
@@ -93,7 +94,7 @@ function Project() {
       <Grid container spacing={0} component="span">
         <Grid item xs={6} md={6} component="span">
           <div className="userOptions">
-            <Paper className="paperP1" elevation={5}>
+            <Paper className="paperSS" elevation={5}>
               <FormControl className="formD" size="small">
                 <Select
                   labelId="inputLabel"
@@ -121,7 +122,7 @@ function Project() {
               </FormControl>
             </Paper>
 
-            <Paper className="paperP1" elevation={5}>
+            <Paper className="paperDP" elevation={5}>
               <FormControl className="formD" size="small">
                 <Select
                   labelId="inputLabel"
@@ -129,7 +130,7 @@ function Project() {
                   displayEmpty
                   value={filter}
                   onChange={handleChange}
-                  disabled = {stateValue == "" ? true : false}
+                  disabled={stateValue == "" ? true : false}
                 >
                   <MenuItem className="selectState" value={"YR22"}>
                     <em>
@@ -157,10 +158,9 @@ function Project() {
 
             <Paper className="paperP2" elevation={5}>
               <FormControl className="formD" size="small">
-                {" "}
                 <Button className="resetButton" onClick={resetPage}>
                   Reset Page
-                </Button>{" "}
+                </Button>
               </FormControl>
             </Paper>
             <Paper className="paperP2" elevation={5}>
@@ -170,50 +170,59 @@ function Project() {
                 </Button>
               </FormControl>
             </Paper>
-            
-            <FormControlLabel
-            disabled={filter == "" || filter == "YR20" || filter == "YR22" ? true : false}
-            control={
-              <Switch
-                onChange={() => {
-                  setEnacted(!enacted);
-                }}
+            <Paper className="paperEP" elevation={5}>
+              <FormControlLabel
+                className="formEP"
+                disabled={
+                  filter == "" || filter == "YR20" || filter == "YR22"
+                    ? true
+                    : false
+                }
+                control={
+                  <Switch
+                    className="switch"
+                    onChange={() => {
+                      setEnacted(!enacted);
+                    }}
+                  />
+                }
+                label="Enacted Plan"
               />
-            }
-            label="Enacted Plan"
-          />
+            </Paper>
           </div>
-
-          {tabValue === 1 ? (
-            <Data
-              filter={filter}
-              setFilter={setFilter}
-              twoZero={twoZero}
-              twoTwo={twoTwo}
-              random={random}
-              setStateValue={setStateValue}
-              stateValue={stateValue}
-              tabValue={tabValue}
-              district={district}
-              setDistrict={setDistrict}
-              districtPlanYear={districtPlanYear}
-              stateData={stateData}
-              district22={district22}
-              ensembleData={ensembleData}
-            />
-          ) : (
-            <Ensemble
-              district={district}
-              setDistrict={setDistrict}
-              stateValue={stateValue}
-              setStateValue={setStateValue}
-              districtPlan={districtPlan}
-              ensembleData={ensembleData}
-              districtsRandom1={districtR1}
-              districtsRandom2={districtR2}
-              districtsRandom3={districtR3}
-            />
-          )}
+          <span className="filler"> </span>
+          <span>
+            {tabValue === 1 ? (
+              <Data
+                filter={filter}
+                setFilter={setFilter}
+                twoZero={twoZero}
+                twoTwo={twoTwo}
+                random={random}
+                setStateValue={setStateValue}
+                stateValue={stateValue}
+                tabValue={tabValue}
+                district={district}
+                setDistrict={setDistrict}
+                districtPlanYear={districtPlanYear}
+                stateData={stateData}
+                district22={district22}
+                ensembleData={ensembleData}
+              />
+            ) : (
+              <Ensemble
+                district={district}
+                setDistrict={setDistrict}
+                stateValue={stateValue}
+                setStateValue={setStateValue}
+                districtPlan={districtPlan}
+                ensembleData={ensembleData}
+                districtsRandom1={districtR1}
+                districtsRandom2={districtR2}
+                districtsRandom3={districtR3}
+              />
+            )}
+          </span>
         </Grid>
         <Grid item xs={6} md={6} className="mapGrid">
           <Map

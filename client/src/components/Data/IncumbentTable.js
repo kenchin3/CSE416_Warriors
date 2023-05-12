@@ -6,13 +6,13 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Switch from "@mui/material/Switch";
 import DistrictData from "./DistrictData";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import TablePagination from "@mui/material/TablePagination";
 import "./IncumbentTable.css";
+import { TableFooter } from "@mui/material";
 
 function IncumbentTable({ stateValue, district, setDistrict, district22 }) {
   const [incumbentTableData, setIncumbentTableData] = React.useState();
@@ -61,15 +61,6 @@ function IncumbentTable({ stateValue, district, setDistrict, district22 }) {
 
   const classes = useStyles();
 
-  // const tableColumnsNames = [
-  //   "District",
-  //   "Name",
-  //   "Party",
-  //   "Election Result",
-  //   "Geographic Var",
-  //   "Population Var",
-  // ];
-
   function rowColor(party, result) {
     if (result === "Open") {
       return "grey";
@@ -90,9 +81,11 @@ function IncumbentTable({ stateValue, district, setDistrict, district22 }) {
             }}
           />
         }
-        label="Incumbents Only"
+        label="Incumbents_Only"
+        className="incumbentsOnlySwitch"
       />
       <TablePagination
+        className="pagination"
         rowsPerPageOptions={[5, 10, 20]}
         count={incumbentTableData ? incumbentTableData.length : 0}
         rowsPerPage={rpg}
@@ -176,7 +169,11 @@ function IncumbentTable({ stateValue, district, setDistrict, district22 }) {
                           : ""}
                       </TableCell>
                       <TableCell className={classes.content} align="left">
-                        {row.electionResult ? "Win" : row.electionResult == "" ? "" : "Loss"}
+                        {row.electionResult
+                          ? "Win"
+                          : row.electionResult == ""
+                          ? ""
+                          : "Loss"}
                       </TableCell>
                       <TableCell className={classes.content} align="left">
                         {row["popVar"]}
@@ -187,7 +184,6 @@ function IncumbentTable({ stateValue, district, setDistrict, district22 }) {
                     </TableRow>
                   )
               )}
-            
           </TableBody>
         </Table>
       </TableContainer>

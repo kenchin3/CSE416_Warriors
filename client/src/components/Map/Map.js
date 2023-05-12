@@ -21,7 +21,7 @@ import leafletPip from "@mapbox/leaflet-pip";
 
 import "./Map.css";
 
-function ChangeView({ center, zoom}) {
+function ChangeView({ center, zoom }) {
   const map = useMap();
   map.setView(center, zoom);
   return null;
@@ -36,7 +36,7 @@ function Map({
   setDistrict,
   stateData,
   district22,
-  enacted
+  enacted,
 }) {
   const [mapData, setMapData] = React.useState();
   const [map, setMap] = React.useState(null);
@@ -47,15 +47,18 @@ function Map({
 
   React.useEffect(() => {
     if (stateValue == "tn") {
-      axios.get("http://localhost:8080/file/download/" + "tnRandom1")
+      axios
+        .get("http://localhost:8080/file/download/" + "tnRandom1")
         .then((res) => {
           setTn1(res.data);
         });
-      axios.get("http://localhost:8080/file/download/" + "tnRandom2")
+      axios
+        .get("http://localhost:8080/file/download/" + "tnRandom2")
         .then((res) => {
           setTn2(res.data);
         });
-      axios.get("http://localhost:8080/file/download/" + "tnRandom3")
+      axios
+        .get("http://localhost:8080/file/download/" + "tnRandom3")
         .then((res) => {
           setTn3(res.data);
         });
@@ -91,7 +94,7 @@ function Map({
   const enactedPlan = {
     color: "black",
     weight: 1,
-    fillOpacity: 0.1
+    fillOpacity: 0.1,
   };
 
   let colorDistrictEnsemble = (feature) => {
@@ -125,7 +128,8 @@ function Map({
       fillColor: colors[parseInt(feature.properties["CD"])],
       color: "grey",
       weight: 0.5,
-      fillOpacity: (districtValue + 1) == parseInt(feature.properties["CD"]) ? 5.0 : 0.3,
+      fillOpacity:
+        districtValue + 1 == parseInt(feature.properties["CD"]) ? 5.0 : 0.3,
     };
   };
 
@@ -264,21 +268,21 @@ function Map({
           url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         />
-         {filter === "YR22" && stateValue == "" && (
+        {filter === "YR22" && stateValue == "" && (
           <GeoJSON
             data={pa2022.features}
             style={district2020}
             onEachFeature={userMovementChanges}
           />
         )}
-      {filter === "YR22" && stateValue == "" && (
+        {filter === "YR22" && stateValue == "" && (
           <GeoJSON
             data={tn2022.features}
             style={district2020}
             onEachFeature={userMovementChanges}
           />
         )}
-         {filter === "YR22" && stateValue == "" && (
+        {filter === "YR22" && stateValue == "" && (
           <GeoJSON
             data={ok2022.features}
             style={district2020}
@@ -328,20 +332,17 @@ function Map({
             onEachFeature={userMovementChanges}
           />
         )}
-       {filter == 1 && stateValue == "tn" && tn1 && (
+        {filter == 1 && stateValue == "tn" && tn1 && (
           <GeoJSON data={tn1.features} style={colorDistrictEnsemble} />
         )}
-        {filter == 2 && stateValue == "tn" && tn2 &&  (
+        {filter == 2 && stateValue == "tn" && tn2 && (
           <GeoJSON data={tn2.features} style={colorDistrictEnsemble} />
         )}
         {filter == 3 && stateValue == "tn" && tn3 && (
           <GeoJSON data={tn3.features} style={colorDistrictEnsemble} />
-        )} 
-        {enacted  && stateValue == "tn" && (
-          <GeoJSON
-            data={tn2022.features}
-            style={enactedPlan}
-          />
+        )}
+        {enacted && stateValue == "tn" && (
+          <GeoJSON data={tn2022.features} style={enactedPlan} />
         )}
       </MapContainer>
     </>

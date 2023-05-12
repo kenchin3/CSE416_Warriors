@@ -26,10 +26,13 @@ function Data({
   ensembleData,
   district22,
 }) {
-
   return (
     <>
-      <Accordion disableGutters className="accordion">
+      <Accordion
+        disabled={!(district22 && district22.districts && stateValue)}
+        disableGutters
+        className="accordionStart"
+      >
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
           <Typography>
             {" "}
@@ -40,12 +43,32 @@ function Data({
           {district22 && (
             <SeatGraph stateValue={stateValue} district22={district22} />
           )}
-          {district22 && <span> {district22.party_influence}  </span>} <br></br>
-          {district22 && <span>Safe seat and party influence are taken from <a target="_blank" href="https://www.cnn.com/interactive/2022/politics/us-redistricting/">CNN</a>.</span>}
-    
+          {district22 && (
+            <span className="summaryInformationText">
+              {" "}
+              {district22.party_influence}{" "}
+            </span>
+          )}{" "}
+          <br></br>
+          {district22 && (
+            <span className="summaryInformationText">
+              Safe seat and party influence are taken from{" "}
+              <a
+                target="_blank"
+                href="https://www.cnn.com/interactive/2022/politics/us-redistricting/"
+              >
+                CNN
+              </a>
+              .
+            </span>
+          )}
         </AccordionDetails>
       </Accordion>
-      <Accordion disableGutters className="accordion">
+      <Accordion
+        disableGutters
+        disabled={!(district22 && district22.districts && stateValue)}
+        className="accordion"
+      >
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
           <Typography>
             <span className="accordionHeader">2022 District Information</span>
@@ -65,7 +88,11 @@ function Data({
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion disableGutters className="accordion">
+      <Accordion
+        disabled={!(district22 && district22.districts && stateValue)}
+        disableGutters
+        className="accordion"
+      >
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
           <Typography>
             <span className="accordionHeader"> Incumbent Box Plot</span>
@@ -73,10 +100,7 @@ function Data({
         </AccordionSummary>
 
         {stateValue && (
-          <BoxPlot
-            stateValue={stateValue}
-            ensembleData={ensembleData}
-          />
+          <BoxPlot stateValue={stateValue} ensembleData={ensembleData} />
         )}
       </Accordion>
     </>

@@ -5,6 +5,7 @@ import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
+import makeStyles from "@material-ui/core/styles/makeStyles";
 import Paper from "@mui/material/Paper";
 
 function DistrictData({
@@ -21,47 +22,84 @@ function DistrictData({
     }
   }, [incumbentTableData]);
 
+  const useStyles = makeStyles({
+    header: {
+      color: "black",
+      paddingLeft: "auto",
+      paddingRight: "auto",
+      lineHeight: "13px",
+      fontSize: "13px",
+      fontWeight: 550,
+      fontFamily: ["Helvetica"],
+    },
+    content: {
+      color: "black",
+      paddingLeft: "auto",
+      paddingRight: "auto",
+      lineHeight: "13px",
+      fontSize: "13px",
+      fontWeight: 400,
+      fontFamily: ["Helvetica"],
+    },
+  });
+
+  const classes = useStyles();
+
   return (
     <div>
       {district !== -1 && districtData && (
-   
-        <div className="districtDataFont">
-          <span style={{ fontWeight: 550, fontSize: 15 }}> District: </span>
-          {districtData[district]["district"]} <br />
-          <span style={{ fontWeight: 550, fontSize: 15 }}>
-            {" "}
-            Democratic Candidate:{" "}
-          </span>
-          {incumbentTableData[district]["dem_cand"]} <br />
-          <span style={{ fontWeight: 550, fontSize: 15 }}>
-            {" "}
-            Republican Candidate:{" "}
-          </span>
-          {incumbentTableData[district]["rep_cand"]} <br />
-          <span style={{ fontWeight: 550, fontSize: 15 }}>
-            {" "}
-            Population Difference:
-          </span>
-          {}
-          {incumbentTableData[district]["popDiff"]}
-          <br />
-          <span style={{ fontWeight: 550, fontSize: 15 }}>
-            {" "}
-            2022 Population:
-          </span>
-          {incumbentTableData[district]["population"]} <br />
-          <span style={{ fontWeight: 550, fontSize: 15 }}>
-            {" "}
-            Geographic Difference:
-          </span>
-          {parseFloat(incumbentTableData[district]["geoDiff"]).toFixed(3)}
-          {} <br />
-          <span style={{ fontWeight: 550, fontSize: 15 }}>
-            {" "}
-            2022 Geographic Area:{" "}
-          </span>{" "}
-          {incumbentTableData[district]["area"]}
-        </div>
+        <Table>
+          <TableHead>
+            <TableRow>
+              <TableCell className={classes.header} align="left">
+                District
+              </TableCell>
+              <TableCell className={classes.header} align="left">
+                DemoCratic Candidate
+              </TableCell>
+              <TableCell className={classes.header} align="left">
+                Republican Candidate
+              </TableCell>
+              <TableCell className={classes.header} align="left">
+                Population Difference
+              </TableCell>
+              <TableCell className={classes.header} align="left">
+                2022 Population
+              </TableCell>
+              <TableCell className={classes.header} align="left">
+                Geographic Difference
+              </TableCell>
+              <TableCell className={classes.header} align="left">
+                2022 Geographic Area
+              </TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            <TableRow>
+              <TableCell className={classes.content} align="left">
+                {districtData[district]["district"]}
+              </TableCell>
+              <TableCell className={classes.content} align="left">
+                {incumbentTableData[district]["dem_cand"]}
+              </TableCell>
+              <TableCell className={classes.content} align="left">
+                {incumbentTableData[district]["rep_cand"]}
+              </TableCell>
+              <TableCell className={classes.content} align="left">
+                {incumbentTableData[district]["popDiff"]}
+              </TableCell>
+              <TableCell className={classes.content} align="left">
+                {incumbentTableData[district]["population"]}
+              </TableCell>
+              <TableCell className={classes.content} align="left">
+                {parseFloat(incumbentTableData[district]["geoDiff"]).toFixed(3)}
+              </TableCell>
+              <TableCell className={classes.content} align="left">
+                {incumbentTableData[district]["area"]}
+              </TableCell>
+            </TableRow>
+          </TableBody>
+        </Table>
       )}
     </div>
   );
