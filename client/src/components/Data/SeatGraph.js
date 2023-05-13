@@ -45,7 +45,7 @@ function SeatGraph({ stateValue, district22 }) {
       width: 1,
     },
     xaxis: {
-      categories: ["Total Seat", "Safe"],
+      categories: ["Open", "Safe"],
       labels: {
         formatter: function (val) {
           return val;

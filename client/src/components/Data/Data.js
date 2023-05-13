@@ -21,10 +21,8 @@ function Data({
 
   const handleAccordion = (event) => {
     if (expand === event) {
-      console.log("same");
       setExpand(-1);
     } else {
-      console.log("diff");
       setExpand(event);
     }
   };
@@ -51,14 +49,13 @@ function Data({
           )}
           {district22 && (
             <span className="summaryInformationText">
-              {" "}
-              {district22.party_influence}{" "}
+              {district22.party_influence}
             </span>
-          )}{" "}
+          )}
           <br></br>
           {district22 && (
             <span className="summaryInformationText">
-              Safe seat and party influence are taken from{" "}
+              Safe seat and party influence are taken from
               <a
                 target="_blank"
                 href="https://www.cnn.com/interactive/2022/politics/us-redistricting/"

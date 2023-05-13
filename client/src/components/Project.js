@@ -7,7 +7,6 @@ import Button from "@mui/material/Button";
 import Ensemble from "./Ensemble/Ensemble.js";
 import "./Project.css";
 import axios from "axios";
-import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Switch from "@mui/material/Switch";
 
@@ -102,8 +101,7 @@ function Project() {
                 >
                   <MenuItem className="selectState" value={""}>
                     <em>
-                      {" "}
-                      <span className="selectState">Select State</span>{" "}
+                      <span className="selectState">Select State</span>
                     </em>
                   </MenuItem>
                   <MenuItem className="selectState" value={"pa"}>
