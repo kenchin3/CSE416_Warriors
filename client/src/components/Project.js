@@ -23,9 +23,6 @@ function Project() {
   const [districtPlanYear, setDistrictPlanYear] = React.useState(2022);
   const [enacted, setEnacted] = React.useState(false);
 
-  const [incumbentData, setIncumbentData] = React.useState();
-  const [districtEnsembleData, setdistrictEnsembleData] = React.useState();
-  const [mapData, setMapData] = React.useState();
   const [ensembleData, setEnsembleData] = React.useState();
   const { twoZero, twoTwo, random } = filter;
 

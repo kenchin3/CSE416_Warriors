@@ -20,6 +20,8 @@ function IncumbentTable({ stateValue, district, setDistrict, district22 }) {
   const [pg, setpg] = React.useState(0);
   const [rpg, setrpg] = React.useState(5);
 
+  console.log("district: " + district);
+
   function handleChangePage(event, newpage) {
     setpg(newpage);
   }
@@ -30,7 +32,6 @@ function IncumbentTable({ stateValue, district, setDistrict, district22 }) {
   }
 
   React.useEffect(() => {
-    // console.log(district22.districts)
     if (district22) {
       setIncumbentTableData(district22.districts);
       setpg(0);
@@ -73,26 +74,19 @@ function IncumbentTable({ stateValue, district, setDistrict, district22 }) {
 
   return (
     <>
-      <FormControlLabel
-        control={
-          <Switch
-            onChange={() => {
-              setIncumbentsOnly(!incumbentsOnly);
-            }}
-          />
-        }
-        label="Incumbents_Only"
-        className="incumbentsOnlySwitch"
-      />
-      <TablePagination
-        className="pagination"
-        rowsPerPageOptions={[5, 10, 20]}
-        count={incumbentTableData ? incumbentTableData.length : 0}
-        rowsPerPage={rpg}
-        page={pg}
-        onPageChange={handleChangePage}
-        onRowsPerPageChange={handleChangeRowsPerPage}
-      />
+      <span>
+        <FormControlLabel
+          control={
+            <Switch
+              onChange={() => {
+                setIncumbentsOnly(!incumbentsOnly);
+              }}
+            />
+          }
+          label="Incumbents Only"
+          className="incumbentsOnlySwitch"
+        />
+      </span>
       <TableContainer className="table" component={Paper}>
         <Table size="small" aria-label="a dense table">
           <TableHead>
@@ -185,14 +179,30 @@ function IncumbentTable({ stateValue, district, setDistrict, district22 }) {
                   )
               )}
           </TableBody>
+          <TableFooter>
+            <TableRow>
+              <TablePagination
+                className="pagination"
+                rowsPerPageOptions={[5, 10, 20]}
+                count={incumbentTableData ? incumbentTableData.length : 0}
+                rowsPerPage={rpg}
+                page={pg}
+                onPageChange={handleChangePage}
+                onRowsPerPageChange={handleChangeRowsPerPage}
+              />
+            </TableRow>
+          </TableFooter>
         </Table>
       </TableContainer>
-      <DistrictData
-        district={district}
-        setDistrict={setDistrict}
-        stateValue={stateValue}
-        incumbentTableData={incumbentTableData}
-      />
+      <div className="incumbentTableFiller" />
+      {district >= 0 && (
+        <DistrictData
+          district={district}
+          setDistrict={setDistrict}
+          stateValue={stateValue}
+          incumbentTableData={incumbentTableData}
+        />
+      )}
     </>
   );
 }

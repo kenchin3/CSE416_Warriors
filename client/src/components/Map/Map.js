@@ -38,8 +38,6 @@ function Map({
   district22,
   enacted,
 }) {
-  const [mapData, setMapData] = React.useState();
-  const [map, setMap] = React.useState(null);
   const [incumbentData, setIncumbentData] = React.useState();
   const [tn1, setTn1] = React.useState();
   const [tn2, setTn2] = React.useState();

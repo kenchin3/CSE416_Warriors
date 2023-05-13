@@ -2,9 +2,19 @@ import React from "react";
 import ReactApexChart from "react-apexcharts";
 
 function SeatGraph({ stateValue, district22 }) {
-
-  
-  const seatGraphOptions1 = {
+  const seatGraphOptions = {
+    title: {
+      text: "testing",
+      align: "left",
+      offsetX: 0,
+      offsetY: 0,
+      style: {
+        fontSize: "13px",
+        fontWeight: "bold",
+        fontFamily: "Helvetica",
+        color: "#000000",
+      },
+    },
     colors: ["#0015BC", "#FF0000", "grey"],
     chart: {
       type: "bar",
@@ -35,7 +45,7 @@ function SeatGraph({ stateValue, district22 }) {
       width: 1,
     },
     xaxis: {
-      categories: ["Open", "Safe"],
+      categories: ["Total Seat", "Safe"],
       labels: {
         formatter: function (val) {
           return val;
@@ -52,7 +62,21 @@ function SeatGraph({ stateValue, district22 }) {
     },
   };
 
-  const seatGraphOptions = {
+  const seatGraphOptionsTotal = {
+    title: {
+      text: "testing",
+      align: "left",
+      margin: 10,
+      offsetX: 0,
+      offsetY: 0,
+      floating: false,
+      style: {
+        fontSize: "13px",
+        fontWeight: "bold",
+        fontFamily: "Helvetica",
+        color: "#263238",
+      },
+    },
     colors: ["#0015BC", "#FF0000"],
     chart: {
       type: "bar",
@@ -102,24 +126,23 @@ function SeatGraph({ stateValue, district22 }) {
 
   return (
     <>
-
-    <ReactApexChart
-            options={seatGraphOptions1}
-            series={[
-              {
-                name: "Dem",
-                data: [district22.open_dem, district22.safe_dem],
-              },
-              {
-                name: "Rep",
-                data: [district22.open_rep, district22.safe_rep],
-              },
-            ]}
-            type="bar"
-            height="130"
-      />
       <ReactApexChart
         options={seatGraphOptions}
+        series={[
+          {
+            name: "Democrat",
+            data: [district22.open_dem, district22.safe_dem],
+          },
+          {
+            name: "Republican",
+            data: [district22.open_rep, district22.safe_rep],
+          },
+        ]}
+        type="bar"
+        height="150"
+      />
+      <ReactApexChart
+        options={seatGraphOptionsTotal}
         series={[
           {
             name: "Democrat",
@@ -128,10 +151,10 @@ function SeatGraph({ stateValue, district22 }) {
           {
             name: "Republican",
             data: [district22.rep_split],
-          }
-        ] }
+          },
+        ]}
         type="bar"
-        height="110"
+        height="135"
       />
     </>
   );

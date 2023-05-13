@@ -38,7 +38,6 @@ function DistrictPlanSummaryTable({ currData, district, setDistrict }) {
               key={row.district}
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               onClick={() => {
-           
                 setDistrict(parseInt(row.district) - 1);
               }}
               className="districtEnsembleRow"
@@ -52,14 +51,13 @@ function DistrictPlanSummaryTable({ currData, district, setDistrict }) {
               }}
             >
               <TableCell align="center">{parseInt(row.district)}</TableCell>
-             
+
               <TableCell align="center">{row.incumbent}</TableCell>
-             
+
               <TableCell align="center">{row.geo_var}</TableCell>
               <TableCell align="center">{row.pop_var}</TableCell>
               <TableCell align="center">{row.geo_diff}</TableCell>
               <TableCell align="center">{row.pop_diff}</TableCell>
-          
             </TableRow>
           ))}
         <TableRow>
@@ -84,8 +82,7 @@ function DistrictPlanSummary({
   ensembleData,
   districtsRandom1,
   districtsRandom2,
-  districtsRandom3
-
+  districtsRandom3,
 }) {
   const [random1Data, setrandom1Data] = React.useState();
   const [random2Data, setrandom2Data] = React.useState();
@@ -109,7 +106,6 @@ function DistrictPlanSummary({
       setrandom3Data(districtsRandom3);
     }
   }, [districtsRandom3]);
-  
 
   function getOpenData(districtPlan) {
     let currData;
@@ -151,7 +147,7 @@ function DistrictPlanSummary({
       {
         name: "Republican",
         data: currData ? [currData.open_rep + currData.safe_rep] : [0],
-      }
+      },
     ];
 
     return res;
@@ -326,7 +322,6 @@ function DistrictPlanSummary({
                 Population Difference
               </TableCell>
 
-              
               {/* <TableCell className={classes.header} align="center">
                 Dem Votes
               </TableCell>

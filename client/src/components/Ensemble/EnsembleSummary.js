@@ -13,9 +13,6 @@ import makeStyles from "@material-ui/core/styles/makeStyles";
 import ReactApexChart from "react-apexcharts";
 
 function EnsembleSummary({ stateValue, ensembleData, districtEnsembleData }) {
-  
-
- 
   const useStyles = makeStyles({
     header: {
       color: "black",
@@ -32,61 +29,60 @@ function EnsembleSummary({ stateValue, ensembleData, districtEnsembleData }) {
 
   const classes = useStyles();
 
-
-
   return (
     <>
-      {ensembleData && (<TableContainer component={Paper} className="tableContainerES">
-        <Table aria-label="simple table">
-          <TableHead>
-            <TableRow>
-              <TableCell className={classes.header} align="left">
-                Number of District Plans
-              </TableCell>
-              <TableCell className={classes.header} align="left">
-                Number of Incumbents
-              </TableCell>
-              <TableCell className={classes.header} align="left">
-                Incumbents Predicted to Win
-              </TableCell>
-              <TableCell className={classes.header} align="left">
-                Average Geographic Variation
-              </TableCell>
-              <TableCell className={classes.header} align="left">
-                Average Geographic Variation
-              </TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            <TableRow
-              sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-            >
-              <TableCell
-                className="tableCellES"
-                align="left"
-                component="th"
-                scope="row"
+      {ensembleData && (
+        <TableContainer component={Paper} className="tableContainerES">
+          <Table aria-label="simple table">
+            <TableHead>
+              <TableRow>
+                <TableCell className={classes.header} align="left">
+                  Number of District Plans
+                </TableCell>
+                <TableCell className={classes.header} align="left">
+                  Number of Incumbents
+                </TableCell>
+                <TableCell className={classes.header} align="left">
+                  Incumbents Predicted to Win
+                </TableCell>
+                <TableCell className={classes.header} align="left">
+                  Average Geographic Variation
+                </TableCell>
+                <TableCell className={classes.header} align="left">
+                  Average Geographic Variation
+                </TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              <TableRow
+                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
-                {"10,000"}
-              </TableCell>
+                <TableCell
+                  className="tableCellES"
+                  align="left"
+                  component="th"
+                  scope="row"
+                >
+                  {"10,000"}
+                </TableCell>
 
-              <TableCell className="tableCellES" align="left">
-                {ensembleData.incumbentWin}
-              </TableCell>
-              <TableCell className="tableCellES" align="left">
-                {ensembleData.incumbentWin}
-              </TableCell>
-              <TableCell className="tableCellES" align="left">
-                {ensembleData.avgGeoVar}
-              </TableCell>
-              <TableCell className="tableCellES" align="left">
-                {ensembleData.avgPopVar}
-              </TableCell>
-            </TableRow>
-          </TableBody>
-        </Table>
-
-      </TableContainer>)}
+                <TableCell className="tableCellES" align="left">
+                  {ensembleData.incumbentWin}
+                </TableCell>
+                <TableCell className="tableCellES" align="left">
+                  {ensembleData.incumbentWin}
+                </TableCell>
+                <TableCell className="tableCellES" align="left">
+                  {ensembleData.avgGeoVar}
+                </TableCell>
+                <TableCell className="tableCellES" align="left">
+                  {ensembleData.avgPopVar}
+                </TableCell>
+              </TableRow>
+            </TableBody>
+          </Table>
+        </TableContainer>
+      )}
     </>
   );
 }

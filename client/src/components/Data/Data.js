@@ -1,6 +1,5 @@
 import "./Data.css";
 import IncumbentTable from "./IncumbentTable";
-import Card from "@mui/material/Card";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import SeatGraph from "./SeatGraph";
 import React from "react";
@@ -8,15 +7,7 @@ import BoxPlot from "../BoxPlot";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
-import BarGraph from "../BarGraph";
-import ToggleButton from "@mui/material/ToggleButton";
-import {
-  FormControl,
-  Typography,
-  RadioGroup,
-  FormControlLabel,
-  Radio,
-} from "@mui/material";
+import { Typography } from "@mui/material";
 
 function Data({
   stateValue,
@@ -26,16 +17,31 @@ function Data({
   ensembleData,
   district22,
 }) {
+  const [expand, setExpand] = React.useState(-1);
+
+  const handleAccordion = (event) => {
+    if (expand === event) {
+      console.log("same");
+      setExpand(-1);
+    } else {
+      console.log("diff");
+      setExpand(event);
+    }
+  };
+
   return (
     <>
       <Accordion
         disabled={!(district22 && district22.districts && stateValue)}
         disableGutters
         className="accordionStart"
+        expanded={expand === 1}
       >
-        <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon onClick={() => handleAccordion(1)} />}
+          aria-controls="panel1a-content"
+        >
           <Typography>
-            {" "}
             <span className="accordionHeader">2022 Summary Information</span>
           </Typography>
         </AccordionSummary>
@@ -67,9 +73,13 @@ function Data({
       <Accordion
         disableGutters
         disabled={!(district22 && district22.districts && stateValue)}
+        expanded={expand === 2}
         className="accordion"
       >
-        <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon onClick={() => handleAccordion(2)} />}
+          aria-controls="panel1a-content"
+        >
           <Typography>
             <span className="accordionHeader">2022 District Information</span>
           </Typography>
@@ -92,8 +102,12 @@ function Data({
         disabled={!(district22 && district22.districts && stateValue)}
         disableGutters
         className="accordion"
+        expanded={expand === 3}
       >
-        <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon onClick={() => handleAccordion(3)} />}
+          aria-controls="panel1a-content"
+        >
           <Typography>
             <span className="accordionHeader"> Incumbent Box Plot</span>
           </Typography>
