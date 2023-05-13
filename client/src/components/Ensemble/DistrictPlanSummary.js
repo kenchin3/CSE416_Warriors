@@ -292,9 +292,46 @@ function DistrictPlanSummary({
           {" "}
           Number of Districts:{" "}
         </span>
-        {random1Data ? random1Data.districts.length : 0}
+        {random1Data && random2Data && random3Data
+          ? districtPlan == 1
+            ? random1Data.districts.length
+            : districtPlan == 2
+            ? random2Data.districts.length
+            : random3Data.districts.length
+          : 0}
         <br />
+        <span style={{ fontWeight: 550, fontSize: 15 }}>
+          {" "}
+          Avg Geo Variance:{" "}
+        </span>
+        {random1Data && random2Data && random3Data
+          ? districtPlan == 1
+            ? random1Data.avg_geo_diff
+            : districtPlan == 2
+            ? random2Data.avg_geo_diff
+            : random3Data.avg_geo_diff
+          : 0}
         <br />
+        <span style={{ fontWeight: 550, fontSize: 15 }}>
+          {" "}
+          Avg Pop Variance:{" "}
+        </span>
+        {random1Data && random2Data && random3Data
+          ? districtPlan == 1
+            ? random1Data.avg_pop_diff
+            : districtPlan == 2
+            ? random2Data.avg_pop_diff
+            : random3Data.avg_pop_diff
+          : 0}
+        <br />
+        <span style={{ fontWeight: 550, fontSize: 15 }}> Total Variance: </span>
+        {random1Data && random2Data && random3Data
+          ? districtPlan == 1
+            ? random1Data.total_var
+            : districtPlan == 2
+            ? random2Data.total_var
+            : random3Data.total_var
+          : 0}
       </div>
       <TableContainer component={Paper}>
         <Table aria-label="simple table">
@@ -308,12 +345,6 @@ function DistrictPlanSummary({
               </TableCell>
               <TableCell className={classes.header} align="center">
                 Incumbent
-              </TableCell>
-              <TableCell className={classes.header} align="center">
-                Geometric Variance
-              </TableCell>
-              <TableCell className={classes.header} align="center">
-                Population Variance
               </TableCell>
               <TableCell className={classes.header} align="center">
                 Geometric Difference
