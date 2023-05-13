@@ -1,9 +1,11 @@
 [
     {
     "state": "OK",
-    "avgGeoVar": "0.4",
-    "avgPopVar": "0.5",
-    "incumbentWin": "3"
+    "avgPopVar": "0.00782",
+    "avgGeoVar": "2.12077",
+    "totalVar": "2.13",
+    "incumbentWin": "4"
+    
     },
     {
         "state": "PA",

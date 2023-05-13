@@ -41,26 +41,49 @@ function Map({
   const [mapData, setMapData] = React.useState();
   const [map, setMap] = React.useState(null);
   const [incumbentData, setIncumbentData] = React.useState();
-  const [tn1, setTn1] = React.useState();
-  const [tn2, setTn2] = React.useState();
-  const [tn3, setTn3] = React.useState();
+  const [plan1, setPlan1] = React.useState();
+  const [plan2, setPlan2] = React.useState();
+  const [plan3, setPlan3] = React.useState();
+  // const [tn1, setTn1] = React.useState();
+  // const [tn2, setTn2] = React.useState();
+  // const [tn3, setTn3] = React.useState();
+  // const [ok1, setOk1] = React.useState();
+  // const [ok2, setOk2] = React.useState();
+  // const [ok3, setOk3] = React.useState();
 
   React.useEffect(() => {
     if (stateValue == "tn") {
       axios
         .get("http://localhost:8080/file/download/" + "tnRandom1")
         .then((res) => {
-          setTn1(res.data);
+          setPlan1(res.data);
         });
       axios
         .get("http://localhost:8080/file/download/" + "tnRandom2")
         .then((res) => {
-          setTn2(res.data);
+          setPlan2(res.data);
         });
       axios
         .get("http://localhost:8080/file/download/" + "tnRandom3")
         .then((res) => {
-          setTn3(res.data);
+          setPlan3(res.data);
+        });
+    }
+    else if (stateValue == "ok") {
+      axios
+        .get("http://localhost:8080/file/download/" + "okRandom1")
+        .then((res) => {
+          setPlan1(res.data);
+        });
+      axios
+        .get("http://localhost:8080/file/download/" + "okRandom2")
+        .then((res) => {
+          setPlan2(res.data);
+        });
+      axios
+        .get("http://localhost:8080/file/download/" + "okRandom3")
+        .then((res) => {
+          setPlan3(res.data);
         });
     }
   }, [stateValue]);
@@ -332,7 +355,19 @@ function Map({
             onEachFeature={userMovementChanges}
           />
         )}
-        {filter == 1 && stateValue == "tn" && tn1 && (
+        {filter == 1 && plan1 && (
+          <GeoJSON data={plan1.features} style={colorDistrictEnsemble} />
+        )}
+        {filter == 2 && plan2 && (
+          <GeoJSON data={plan2.features} style={colorDistrictEnsemble} />
+        )}
+        {filter == 3 && plan3 && (
+          <GeoJSON data={plan3.features} style={colorDistrictEnsemble} />
+        )}
+        {enacted && stateValue == "tn" && (
+          <GeoJSON data={tn2022.features} style={enactedPlan} />
+        )}
+        {/* {filter == 1 && stateValue == "tn" && tn1 && (
           <GeoJSON data={tn1.features} style={colorDistrictEnsemble} />
         )}
         {filter == 2 && stateValue == "tn" && tn2 && (
@@ -340,10 +375,23 @@ function Map({
         )}
         {filter == 3 && stateValue == "tn" && tn3 && (
           <GeoJSON data={tn3.features} style={colorDistrictEnsemble} />
-        )}
+        )} */}
         {enacted && stateValue == "tn" && (
           <GeoJSON data={tn2022.features} style={enactedPlan} />
         )}
+
+        {/* {filter == 1 && stateValue == "ok" && tn1 && (
+          <GeoJSON data={ok1.features} style={colorDistrictEnsemble} />
+        )}
+        {filter == 2 && stateValue == "ok" && tn2 && (
+          <GeoJSON data={ok2.features} style={colorDistrictEnsemble} />
+        )}
+        {filter == 3 && stateValue == "ok" && tn3 && (
+          <GeoJSON data={ok3.features} style={colorDistrictEnsemble} />
+        )} */}
+        {enacted && stateValue == "ok" && (
+          <GeoJSON data={ok2022.features} style={enactedPlan} />
+        )}  
       </MapContainer>
     </>
   );

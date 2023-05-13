@@ -49,7 +49,7 @@ function BoxPlot({ stateValue, setStateValue, ensembleData}) {
               let row = { x: i.toString(), y: data[i] };
               d.push(row);
             }
-            data = ensembleData.boxAndWhiskers[0]["dots22"];
+            data = ensembleData.boxAndWhiskers[1]["dots22"];
             let dots = [];
             for (let i = 0; i < data.length; i++) {
               let row = { x: i.toString(), y: data[i] };
