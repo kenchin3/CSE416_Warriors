@@ -198,7 +198,7 @@ function EnsembleSummary({
                   Average Geographic Variation
                 </TableCell>
                 <TableCell className={classes.header} align="left">
-                  Average Geographic Variation
+                  Average Population Variation
                 </TableCell>
               </TableRow>
             </TableHead>

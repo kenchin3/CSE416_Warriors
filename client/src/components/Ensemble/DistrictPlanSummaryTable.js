@@ -11,7 +11,15 @@ import {
 } from "@mui/material";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 
-function DistrictPlanSummaryTable({ currData, district, setDistrict }) {
+function DistrictPlanSummaryTable({
+  currData,
+  district,
+  setDistrict,
+  random1Data,
+  random2Data,
+  random3Data,
+  districtPlan,
+}) {
   const [pg, setpg] = React.useState(0);
   const [rpg, setrpg] = React.useState(5);
 
@@ -23,6 +31,8 @@ function DistrictPlanSummaryTable({ currData, district, setDistrict }) {
     setrpg(parseInt(event.target.value, 10));
     setpg(0);
   }
+
+  // console.log("dpst: " + random1Data);
 
   const useStyles = makeStyles({
     header: {
@@ -45,9 +55,13 @@ function DistrictPlanSummaryTable({ currData, district, setDistrict }) {
     },
   });
   const classes = useStyles();
+
+  {
+    currData && console.log("cd: " + currData.length);
+  }
   return (
     <>
-      <TableContainer component={Paper}>
+      <TableContainer className="table" component={Paper}>
         <Table aria-label="simple table">
           <TableHead>
             <TableRow>
@@ -73,7 +87,7 @@ function DistrictPlanSummaryTable({ currData, district, setDistrict }) {
                 component="th"
                 scope="row"
               >
-                Geometric Variance
+                Project Winner
               </TableCell>
               <TableCell
                 className={classes.header}
@@ -81,7 +95,15 @@ function DistrictPlanSummaryTable({ currData, district, setDistrict }) {
                 component="th"
                 scope="row"
               >
-                Population Variance
+                Winner Party
+              </TableCell>
+              <TableCell
+                className={classes.header}
+                align="left"
+                component="th"
+                scope="row"
+              >
+                Safe Seat
               </TableCell>
               <TableCell
                 className={classes.header}
@@ -102,7 +124,7 @@ function DistrictPlanSummaryTable({ currData, district, setDistrict }) {
             </TableRow>
           </TableHead>
           <TableBody>
-            {currData &&
+            {6 &&
               currData.districts.slice(pg * rpg, pg * rpg + rpg).map((row) => (
                 <TableRow
                   key={row.district}
@@ -137,14 +159,13 @@ function DistrictPlanSummaryTable({ currData, district, setDistrict }) {
                   >
                     {row.incumbent}
                   </TableCell>
-
                   <TableCell
                     className={classes.content}
                     align="left"
                     component="th"
                     scope="row"
                   >
-                    {row.geo_var}
+                    {row.win_cand}
                   </TableCell>
                   <TableCell
                     className={classes.content}
@@ -152,7 +173,11 @@ function DistrictPlanSummaryTable({ currData, district, setDistrict }) {
                     component="th"
                     scope="row"
                   >
-                    {row.pop_var}
+                    {row.win_party == "rep"
+                      ? "Rep"
+                      : row.win_party == "dem"
+                      ? "Dem"
+                      : ""}
                   </TableCell>
                   <TableCell
                     className={classes.content}
@@ -160,7 +185,11 @@ function DistrictPlanSummaryTable({ currData, district, setDistrict }) {
                     component="th"
                     scope="row"
                   >
-                    {row.geo_diff}
+                    {row.safe_seat == "yes"
+                      ? "Yes"
+                      : row.safe_seat == "no"
+                      ? "No"
+                      : ""}
                   </TableCell>
                   <TableCell
                     className={classes.content}
@@ -168,7 +197,15 @@ function DistrictPlanSummaryTable({ currData, district, setDistrict }) {
                     component="th"
                     scope="row"
                   >
-                    {row.pop_diff}
+                    {row.geo_diff.toFixed(3)}
+                  </TableCell>
+                  <TableCell
+                    className={classes.content}
+                    align="left"
+                    component="th"
+                    scope="row"
+                  >
+                    {row.pop_diff.toFixed(3)}
                   </TableCell>
                 </TableRow>
               ))}
@@ -176,7 +213,7 @@ function DistrictPlanSummaryTable({ currData, district, setDistrict }) {
             <TableRow>
               <TablePagination
                 rowsPerPageOptions={[5, 10, 20]}
-                count={currData ? Object.keys(currData).length : 0}
+                count={currData ? currData.districts.length : 0}
                 rowsPerPage={rpg}
                 page={pg}
                 onPageChange={handleChangePage}

@@ -63,23 +63,6 @@ function Ensemble({
 
   return (
     <>
-      {/* <Accordion className="accordionEnsemble">
-        <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography>
-            
-            <span className="accordionHeaderEnsemble">Ensemble Summary</span>
-          </Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <EnsembleSummary
-            stateValue={stateValue}
-            districtPlan={districtPlan}
-            ensembleData={ensembleData}
-            districtEnsembleData={districtEnsembleData} 
-          />
-        </AccordionDetails>
-      </Accordion> */}
-
       <Accordion
         expanded={expand === 1}
         disableGutters
@@ -95,16 +78,6 @@ function Ensemble({
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
-          {/* <DistrictPlanSummary
-            district={district}
-            setDistrict={setDistrict}
-            stateValue={stateValue}
-            districtPlan={districtPlan}
-            ensembleData={ensembleData}
-            districtsRandom1={districtsRandom1}
-            districtsRandom2={districtsRandom2}
-            districtsRandom3={districtsRandom3}
-          /> */}
           <EnsembleSummary
             stateValue={stateValue}
             ensembleData={ensembleData}
