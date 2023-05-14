@@ -13,17 +13,6 @@ function DistrictPlanSummary({
 }) {
   const [currData, setCurrData] = React.useState();
 
-  const getDistrictEnsembleData = () => {
-    if (districtPlan === 1) {
-      return random1Data;
-    } else if (districtPlan === 2) {
-      return random2Data;
-    } else if (districtPlan === 3) {
-      return random3Data;
-    }
-    return "help";
-  };
-
   return (
     <>
       <div className="districtEnsembleDataFont">

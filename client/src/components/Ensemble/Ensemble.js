@@ -53,10 +53,8 @@ function Ensemble({
 
   const handleAccordion = (event) => {
     if (expand === event) {
-      console.log("same");
       setExpand(-1);
     } else {
-      console.log("diff");
       setExpand(event);
     }
   };

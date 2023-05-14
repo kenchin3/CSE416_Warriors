@@ -32,8 +32,6 @@ function DistrictPlanSummaryTable({
     setpg(0);
   }
 
-  // console.log("dpst: " + random1Data);
-
   const useStyles = makeStyles({
     header: {
       color: "black",
@@ -56,9 +54,6 @@ function DistrictPlanSummaryTable({
   });
   const classes = useStyles();
 
-  {
-    currData && console.log("cd: " + currData.length);
-  }
   return (
     <>
       <TableContainer className="table" component={Paper}>

@@ -42,7 +42,7 @@ function BoxPlot({ stateValue, setStateValue, ensembleData }) {
     let data;
     let d;
     if (ensembleData) {
-      console.log(ensembleData.boxAndWhiskers);
+      // console.log(ensembleData.boxAndWhiskers);
       data = ensembleData.boxAndWhiskers[1]["data"];
       d = [];
       for (let i = 0; i < data.length; i++) {

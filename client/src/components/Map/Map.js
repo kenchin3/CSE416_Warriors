@@ -66,8 +66,7 @@ function Map({
         .then((res) => {
           setPlan3(res.data);
         });
-    }
-    else if (stateValue == "ok") {
+    } else if (stateValue == "ok") {
       axios
         .get("http://localhost:8080/file/download/" + "okRandom1")
         .then((res) => {
@@ -261,10 +260,8 @@ function Map({
     layer.on("click", function (e) {
       let stateAndDistrict = determineStateValue(e.latlng);
       stateAndDistrict = stateAndDistrict.split("-");
-      console.log("UserMovementChanges: " + stateAndDistrict[1]);
       setStateValue(stateAndDistrict[0]);
       setDistrict(stateAndDistrict[1]);
-      // console.log("onclick: " + districtValue);
     });
   };
 
@@ -389,7 +386,7 @@ function Map({
         )} */}
         {enacted && stateValue == "ok" && (
           <GeoJSON data={ok2022.features} style={enactedPlan} />
-        )}  
+        )}
       </MapContainer>
     </>
   );

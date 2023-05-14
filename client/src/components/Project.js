@@ -30,6 +30,8 @@ function Project() {
   const [districtR2, setDistrictR2] = React.useState();
   const [districtR3, setDistrictR3] = React.useState();
 
+  console.log("1");
+
   React.useEffect(() => {
     if (stateValue) {
       axios

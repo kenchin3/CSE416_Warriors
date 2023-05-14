@@ -20,7 +20,7 @@ function IncumbentTable({ stateValue, district, setDistrict, district22 }) {
   const [pg, setpg] = React.useState(0);
   const [rpg, setrpg] = React.useState(5);
 
-  console.log("district: " + district);
+  // console.log("district: " + district);
 
   function handleChangePage(event, newpage) {
     setpg(newpage);
