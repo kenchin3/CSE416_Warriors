@@ -403,6 +403,9 @@ function Map({
         {enacted && stateValue == "ok" && (
           <GeoJSON data={ok2022.features} style={enactedPlan} />
         )}
+        {enacted && stateValue == "pa" && (
+          <GeoJSON data={pa2022.features} style={enactedPlan} />
+        )}
       </MapContainer>
     </>
   );

@@ -184,7 +184,7 @@ function DistrictPlanSummaryTable({ currData, district, setDistrict }) {
                     component="th"
                     scope="row"
                   >
-                    {row.geo_diff.toFixed(3)}
+                    {row.geo_diff}
                   </TableCell>
                   <TableCell
                     className={classes.content}
@@ -192,7 +192,7 @@ function DistrictPlanSummaryTable({ currData, district, setDistrict }) {
                     component="th"
                     scope="row"
                   >
-                    {row.pop_diff.toFixed(3)}
+                    {row.pop_diff}
                   </TableCell>
                 </TableRow>
               ))}

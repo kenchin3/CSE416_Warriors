@@ -197,7 +197,7 @@ function IncumbentTable({ stateValue, district, setDistrict, district22 }) {
       <div className="incumbentTableFiller" />
       {district >= 0 && (
         <DistrictData
-          district={district}
+          district={district + 1}
           setDistrict={setDistrict}
           stateValue={stateValue}
           incumbentTableData={incumbentTableData}
