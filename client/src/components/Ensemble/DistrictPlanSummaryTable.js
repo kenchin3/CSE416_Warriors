@@ -11,15 +11,7 @@ import {
 } from "@mui/material";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 
-function DistrictPlanSummaryTable({
-  currData,
-  district,
-  setDistrict,
-  random1Data,
-  random2Data,
-  random3Data,
-  districtPlan,
-}) {
+function DistrictPlanSummaryTable({ currData, district, setDistrict }) {
   const [pg, setpg] = React.useState(0);
   const [rpg, setrpg] = React.useState(5);
 
@@ -31,6 +23,8 @@ function DistrictPlanSummaryTable({
     setrpg(parseInt(event.target.value, 10));
     setpg(0);
   }
+
+  console.log(JSON.stringify(currData));
 
   const useStyles = makeStyles({
     header: {
@@ -53,10 +47,9 @@ function DistrictPlanSummaryTable({
     },
   });
   const classes = useStyles();
-
   return (
     <>
-      <TableContainer className="table" component={Paper}>
+      <TableContainer component={Paper}>
         <Table aria-label="simple table">
           <TableHead>
             <TableRow>
@@ -82,7 +75,7 @@ function DistrictPlanSummaryTable({
                 component="th"
                 scope="row"
               >
-                Project Winner
+                Projected Winner
               </TableCell>
               <TableCell
                 className={classes.header}
@@ -90,7 +83,7 @@ function DistrictPlanSummaryTable({
                 component="th"
                 scope="row"
               >
-                Winner Party
+                Winning Party
               </TableCell>
               <TableCell
                 className={classes.header}
@@ -119,7 +112,7 @@ function DistrictPlanSummaryTable({
             </TableRow>
           </TableHead>
           <TableBody>
-            {6 &&
+            {currData &&
               currData.districts.slice(pg * rpg, pg * rpg + rpg).map((row) => (
                 <TableRow
                   key={row.district}
@@ -145,7 +138,6 @@ function DistrictPlanSummaryTable({
                   >
                     {parseInt(row.district)}
                   </TableCell>
-
                   <TableCell
                     className={classes.content}
                     align="left"
@@ -207,7 +199,7 @@ function DistrictPlanSummaryTable({
 
             <TableRow>
               <TablePagination
-                rowsPerPageOptions={[5, 10, 20]}
+                rowsPerPageOptions={[5]}
                 count={currData ? currData.districts.length : 0}
                 rowsPerPage={rpg}
                 page={pg}

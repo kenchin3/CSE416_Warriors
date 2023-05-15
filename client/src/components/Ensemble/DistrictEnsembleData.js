@@ -112,7 +112,7 @@ function districtEnsembleData({ district, districtEnsembleData }) {
                 },
               ]}
               type="bar"
-              height="240"
+              height="250"
               width="350"
             />
           )}
@@ -126,7 +126,7 @@ function districtEnsembleData({ district, districtEnsembleData }) {
                 districtEnsembleData.districts[district]["dem_split"],
               ]}
               type="pie"
-              height="240"
+              height="250"
               width="350"
             />
           )}

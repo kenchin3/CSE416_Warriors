@@ -78,27 +78,27 @@ function DistrictData({
             <TableBody>
               <TableRow>
                 <TableCell className={classes.content} align="left">
-                  {districtData[district]["district"]}
+                  {districtData[district - 1]["district"]}
                 </TableCell>
                 <TableCell className={classes.content} align="left">
-                  {incumbentTableData[district]["dem_cand"]}
+                  {incumbentTableData[district - 1]["dem_cand"]}
                 </TableCell>
                 <TableCell className={classes.content} align="left">
-                  {incumbentTableData[district]["rep_cand"]}
+                  {incumbentTableData[district - 1]["rep_cand"]}
                 </TableCell>
                 <TableCell className={classes.content} align="left">
-                  {incumbentTableData[district]["popDiff"]}
+                  {incumbentTableData[district - 1]["popDiff"]}
                 </TableCell>
                 <TableCell className={classes.content} align="left">
-                  {incumbentTableData[district]["population"]}
+                  {incumbentTableData[district - 1]["population"]}
                 </TableCell>
                 <TableCell className={classes.content} align="left">
-                  {parseFloat(incumbentTableData[district]["geoDiff"]).toFixed(
-                    3
-                  )}
+                  {parseFloat(
+                    incumbentTableData[district - 1]["geoDiff"]
+                  ).toFixed(3)}
                 </TableCell>
                 <TableCell className={classes.content} align="left">
-                  {incumbentTableData[district]["area"]}
+                  {incumbentTableData[district - 1]["area"]}
                 </TableCell>
               </TableRow>
             </TableBody>

@@ -13,12 +13,11 @@ function Data({
   stateValue,
   district,
   setDistrict,
-  stateData,
   ensembleData,
   district22,
+  expand,
+  setExpand,
 }) {
-  const [expand, setExpand] = React.useState(-1);
-
   const handleAccordion = (event) => {
     if (expand === event) {
       setExpand(-1);

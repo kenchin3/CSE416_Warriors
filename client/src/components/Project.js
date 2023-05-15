@@ -24,13 +24,12 @@ function Project() {
 
   const [ensembleData, setEnsembleData] = React.useState();
   const { twoZero, twoTwo, random } = filter;
+  const [expand, setExpand] = React.useState(-1);
 
   const [district22, setDistrict22] = React.useState();
   const [districtR1, setDistrictR1] = React.useState();
   const [districtR2, setDistrictR2] = React.useState();
   const [districtR3, setDistrictR3] = React.useState();
-
-  console.log("1");
 
   React.useEffect(() => {
     if (stateValue) {
@@ -72,12 +71,14 @@ function Project() {
     setStateValue("");
     setEnacted(false);
     setDistrict22(null);
+    setExpand(-1);
   };
 
   const resetState = () => {
     setTabValue(1);
     setFilter("YR22");
     setEnacted(false);
+    setExpand(-1);
   };
 
   const handleStateChange = (event) => {
@@ -191,20 +192,14 @@ function Project() {
           <span>
             {tabValue === 1 ? (
               <Data
-                filter={filter}
-                setFilter={setFilter}
-                twoZero={twoZero}
-                twoTwo={twoTwo}
-                random={random}
-                setStateValue={setStateValue}
                 stateValue={stateValue}
-                tabValue={tabValue}
                 district={district}
                 setDistrict={setDistrict}
-                districtPlanYear={districtPlanYear}
+                ensembleData={ensembleData}
                 stateData={stateData}
                 district22={district22}
-                ensembleData={ensembleData}
+                expand={expand}
+                setExpand={setExpand}
               />
             ) : (
               <Ensemble
