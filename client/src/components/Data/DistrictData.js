@@ -18,6 +18,7 @@ function DistrictData({
 
   React.useEffect(() => {
     if (incumbentTableData) {
+      console.log(incumbentTableData)
       setdistrictData(incumbentTableData);
     }
   }, [incumbentTableData]);
@@ -47,7 +48,7 @@ function DistrictData({
 
   return (
     <div>
-      {district !== -1 && districtData && (
+      {district !== -1 && incumbentTableData && (
         <TableContainer component={Paper}>
           <Table>
             <TableHead>
@@ -78,7 +79,7 @@ function DistrictData({
             <TableBody>
               <TableRow>
                 <TableCell className={classes.content} align="left">
-                  {districtData[district - 1]["district"]}
+                  {incumbentTableData[district - 1]["district"]}
                 </TableCell>
                 <TableCell className={classes.content} align="left">
                   {incumbentTableData[district - 1]["dem_cand"]}

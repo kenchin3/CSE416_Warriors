@@ -2,11 +2,14 @@
   {
     "state": "PA",
     "districtPlanID": "RANDOM1",
-    "safe_dem": 0,
-    "safe_rep": 0,
-    "open_dem": 0,
-    "open_rep": 0,
+    "safe_dem": 4,
+    "safe_rep": 6,
+    "open_dem": 5,
+    "open_rep": 3,
     "incumbents_win": 0,
+    "avg_pop_diff": 0.084393,
+    "avg_geo_diff": 2.67629,
+    "total_var": 2.7606,
     "districts": [
     ]
   },

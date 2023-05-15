@@ -9,15 +9,17 @@
     },
     {
         "state": "PA",
-        "avgGeoVar": "0.4",
-        "avgPopVar": "0.5",
-        "incumbentWin": "3"
+        "avgPopVar": "0.00706",
+        "avgGeoVar": "1.84355",
+        "totalVar": "1.84161",
+        "incumbentWin": "12"
     },
     {
         "state": "TN",
-        "avgGeoVar": "0.4",
-        "avgPopVar": "0.5",
-        "incumbentWin": "3"
+        "avgPopVar": "0.0186",
+        "avgGeoVar": "0.1110",
+        "totalVar": "0.1296",
+        "incumbentWin": "9"
     }
 ]
 

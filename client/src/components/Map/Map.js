@@ -82,6 +82,22 @@ function Map({
         .then((res) => {
           setPlan3(res.data);
         });
+    }else if (stateValue == "pa") {
+      axios
+        .get("http://localhost:8080/file/download/" + "paRandom1")
+        .then((res) => {
+          setPlan1(res.data);
+        });
+      axios
+        .get("http://localhost:8080/file/download/" + "paRandom2")
+        .then((res) => {
+          setPlan2(res.data);
+        });
+      axios
+        .get("http://localhost:8080/file/download/" + "paRandom3")
+        .then((res) => {
+          setPlan3(res.data);
+        });
     }
   }, [stateValue]);
 

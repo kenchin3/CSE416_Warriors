@@ -71,7 +71,7 @@ function Ensemble({
         >
           <Typography>
             <span className="accordionHeaderEnsemble">
-              Random District Plan {districtPlan} Outcome
+             Ensemble Outcome
             </span>
           </Typography>
         </AccordionSummary>
@@ -97,7 +97,7 @@ function Ensemble({
         >
           <Typography>
             <span className="accordionHeaderEnsemble">
-              Random District Plan {districtPlan} Incumbent Information
+              Random District Plan {districtPlan} Outcome
             </span>
           </Typography>
         </AccordionSummary>
