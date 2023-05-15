@@ -54,14 +54,14 @@ function Data({
           <br></br>
           {district22 && (
             <span className="summaryInformationText">
-              Safe seat and party influence are taken from
+              Safe seat and party influence are taken from "
               <a
                 target="_blank"
                 href="https://www.cnn.com/interactive/2022/politics/us-redistricting/"
               >
                 CNN
               </a>
-              .
+              ".
             </span>
           )}
         </AccordionDetails>

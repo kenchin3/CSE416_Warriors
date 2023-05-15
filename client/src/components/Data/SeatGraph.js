@@ -4,7 +4,7 @@ import ReactApexChart from "react-apexcharts";
 function SeatGraph({ stateValue, district22 }) {
   const seatGraphOptions = {
     title: {
-      text: "testing",
+      text: "Safe Seats",
       align: "left",
       offsetX: 0,
       offsetY: 0,
@@ -64,7 +64,7 @@ function SeatGraph({ stateValue, district22 }) {
 
   const seatGraphOptionsTotal = {
     title: {
-      text: "testing",
+      text: "Republican/Democratic Splits",
       align: "left",
       margin: 10,
       offsetX: 0,

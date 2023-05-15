@@ -307,6 +307,36 @@ public class WarriorsApplication implements CommandLineRunner {
 		metadata.put("fileSize", 1234);
 		gridFsTemplate.store(inputStream, "paRandom3", "application/json", metadata);
 
+		inputStream = new FileInputStream("resources/pa2020.json");
+		metadata = new BasicDBObject();
+		metadata.put("fileSize", 1234);
+		gridFsTemplate.store(inputStream, "pa2020", "application/json", metadata);
+
+		inputStream = new FileInputStream("resources/pa2022.json");
+		metadata = new BasicDBObject();
+		metadata.put("fileSize", 1234);
+		gridFsTemplate.store(inputStream, "pa2022", "application/json", metadata);
+
+		inputStream = new FileInputStream("resources/ok2020.json");
+		metadata = new BasicDBObject();
+		metadata.put("fileSize", 1234);
+		gridFsTemplate.store(inputStream, "ok2020", "application/json", metadata);
+
+		inputStream = new FileInputStream("resources/ok2022.json");
+		metadata = new BasicDBObject();
+		metadata.put("fileSize", 1234);
+		gridFsTemplate.store(inputStream, "ok2022", "application/json", metadata);
+
+		inputStream = new FileInputStream("resources/tn2020.json");
+		metadata = new BasicDBObject();
+		metadata.put("fileSize", 1234);
+		gridFsTemplate.store(inputStream, "tn20020", "application/json", metadata);
+
+		inputStream = new FileInputStream("resources/tn2022.json");
+		metadata = new BasicDBObject();
+		metadata.put("fileSize", 1234);
+		gridFsTemplate.store(inputStream, "tn2022", "application/json", metadata);
+
 	}
 
 }

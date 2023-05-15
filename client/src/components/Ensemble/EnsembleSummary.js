@@ -22,6 +22,20 @@ function EnsembleSummary({
 }) {
   const seatGraphOptionsTotal = {
     colors: ["#0015BC", "#FF0000"],
+    title: {
+      text: "Republican/Democratic Splits",
+      align: "left",
+      margin: 10,
+      offsetX: 0,
+      offsetY: 0,
+      floating: false,
+      style: {
+        fontSize: "13px",
+        fontWeight: "bold",
+        fontFamily: "Helvetica",
+        color: "#263238",
+      },
+    },
     chart: {
       type: "bar",
       stacked: true,
@@ -69,6 +83,20 @@ function EnsembleSummary({
   };
 
   const seatGraphOptions = {
+    title: {
+      text: "Safe Seats",
+      align: "left",
+      margin: 10,
+      offsetX: 0,
+      offsetY: 0,
+      floating: false,
+      style: {
+        fontSize: "13px",
+        fontWeight: "bold",
+        fontFamily: "Helvetica",
+        color: "#263238",
+      },
+    },
     colors: ["#0015BC", "#FF0000"],
     chart: {
       type: "bar",
@@ -212,7 +240,7 @@ function EnsembleSummary({
                   component="th"
                   scope="row"
                 >
-                  {"10,000"}
+                  {"5,000"}
                 </TableCell>
 
                 <TableCell className="tableCellES" align="left">
