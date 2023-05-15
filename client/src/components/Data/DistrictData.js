@@ -18,7 +18,7 @@ function DistrictData({
 
   React.useEffect(() => {
     if (incumbentTableData) {
-      console.log(incumbentTableData)
+      console.log(incumbentTableData);
       setdistrictData(incumbentTableData);
     }
   }, [incumbentTableData]);
@@ -57,7 +57,7 @@ function DistrictData({
                   District
                 </TableCell>
                 <TableCell className={classes.header} align="left">
-                  DemoCratic Candidate
+                  Democratic Candidate
                 </TableCell>
                 <TableCell className={classes.header} align="left">
                   Republican Candidate
@@ -88,18 +88,25 @@ function DistrictData({
                   {incumbentTableData[district - 1]["rep_cand"]}
                 </TableCell>
                 <TableCell className={classes.content} align="left">
-                  {incumbentTableData[district - 1]["popDiff"]}
+                  {incumbentTableData[district - 1]["popDiff"]
+                    .toString()
+                    .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                 </TableCell>
                 <TableCell className={classes.content} align="left">
-                  {incumbentTableData[district - 1]["population"]}
+                  {incumbentTableData[district - 1]["population"]
+                    .toString()
+                    .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                 </TableCell>
                 <TableCell className={classes.content} align="left">
-                  {parseFloat(
-                    incumbentTableData[district - 1]["geoDiff"]
-                  ).toFixed(3)}
+                  {parseFloat(incumbentTableData[district - 1]["geoDiff"])
+                    .toFixed(3)
+                    .toString()
+                    .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                 </TableCell>
                 <TableCell className={classes.content} align="left">
-                  {incumbentTableData[district - 1]["area"]}
+                  {incumbentTableData[district - 1]["area"]
+                    .toString()
+                    .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                 </TableCell>
               </TableRow>
             </TableBody>
