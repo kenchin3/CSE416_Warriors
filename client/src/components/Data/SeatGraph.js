@@ -2,9 +2,9 @@ import React from "react";
 import ReactApexChart from "react-apexcharts";
 
 function SeatGraph({ stateValue, district22 }) {
-  const seatGraphOptions = {
+  const seatGraphOptions2022 = {
     title: {
-      text: "testing",
+      text: "Safe Seats",
       align: "left",
       offsetX: 0,
       offsetY: 0,
@@ -62,9 +62,9 @@ function SeatGraph({ stateValue, district22 }) {
     },
   };
 
-  const seatGraphOptionsTotal = {
+  const seatGraphOptions2022Total = {
     title: {
-      text: "testing",
+      text: "Party Split",
       align: "left",
       margin: 10,
       offsetX: 0,
@@ -127,7 +127,7 @@ function SeatGraph({ stateValue, district22 }) {
   return (
     <>
       <ReactApexChart
-        options={seatGraphOptions}
+        options={seatGraphOptions2022}
         series={[
           {
             name: "Democrat",
@@ -142,7 +142,7 @@ function SeatGraph({ stateValue, district22 }) {
         height="150"
       />
       <ReactApexChart
-        options={seatGraphOptionsTotal}
+        options={seatGraphOptions2022Total}
         series={[
           {
             name: "Democrat",

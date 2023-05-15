@@ -72,6 +72,8 @@ function Project() {
     setEnacted(false);
     setDistrict22(null);
     setExpand(-1);
+    setDistrict(-1);
+    setEnacted(false);
   };
 
   const resetState = () => {
@@ -79,6 +81,8 @@ function Project() {
     setFilter("YR22");
     setEnacted(false);
     setExpand(-1);
+    setDistrict(-1);
+    setEnacted(false);
   };
 
   const handleStateChange = (event) => {
@@ -212,6 +216,7 @@ function Project() {
                 districtsRandom1={districtR1}
                 districtsRandom2={districtR2}
                 districtsRandom3={districtR3}
+                district22={district22}
               />
             )}
           </span>

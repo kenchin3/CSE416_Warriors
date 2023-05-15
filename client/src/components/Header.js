@@ -5,11 +5,10 @@ import "./Header.css";
 function Header({}) {
   return (
     <div>
-      <Box className="headerContent" bgcolor="#949494">
+      <Box className="headerContent" bgcolor="#006bb6">
         <span className="fullTitle">
-          <span className="title"> Incumbent Analysis by </span>
-          <span className="title" style={{ color: "yellow" }}>
-            the Warriors
+          <span className="title" style={{ color: "#fdb927" }}>
+            Incumbent Analysis by the Warriors
           </span>
         </span>
       </Box>

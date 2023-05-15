@@ -26,7 +26,7 @@ function Ensemble({
   districtsRandom1,
   districtsRandom2,
   districtsRandom3,
-  bWFilter,
+  district22,
 }) {
   const [expand, setExpand] = React.useState(-1);
   const [random1Data, setrandom1Data] = React.useState();
@@ -70,9 +70,7 @@ function Ensemble({
           expandIcon={<ExpandMoreIcon onClick={() => handleAccordion(1)} />}
         >
           <Typography>
-            <span className="accordionHeaderEnsemble">
-             Ensemble Outcome
-            </span>
+            <span className="accordionHeaderEnsemble">Ensemble Outcome</span>
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
@@ -83,6 +81,7 @@ function Ensemble({
             random1Data={random1Data}
             random2Data={random2Data}
             random3Data={random3Data}
+            district22={district22}
           />
         </AccordionDetails>
       </Accordion>
